@@ -1,0 +1,36 @@
+{
+  "name": "brightspace-integration",
+  "version": "0.0.1",
+  "description": "Integration project for components consumed by Brightspace.",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "prebuild": "rimraf dist && mkdir dist",
+    "build": "browserify -t babelify -g uglifyify ./src/index.js > ./dist/bsi.js",
+    "publish:cdn": "gulp publish",
+    "preserve": "npm run build",
+    "serve": "http-server dist",
+    "test": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brightspace/brightspace-integration.git"
+  },
+  "keywords": [],
+  "author": "D2L Corporation",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Brightspace/brightspace-integration/issues"
+  },
+  "homepage": "https://github.com/Brightspace/brightspace-integration",
+  "devDependencies": {
+    "babelify": "^6.2.0",
+    "browserify": "^11.0.1",
+    "gulp": "^3.9.0",
+    "gulp-frau-publisher": "^2.3.1",
+    "http-server": "^0.8.0",
+    "peanut-gallery": "^1.0.0",
+    "rimraf": "^2.4.2",
+    "uglifyify": "^3.0.1"
+  }
+}
