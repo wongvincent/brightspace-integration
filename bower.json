@@ -2,6 +2,7 @@
   "name": "brightspace-integration",
   "license": "Apache-2.0",
   "dependencies": {
+    "jquery-vui-more-less": "~0.3.0",
     "vui-breadcrumbs": "~0.7.0",
     "vui-button": "~0.7.4",
     "vui-field": "~0.6.1",
