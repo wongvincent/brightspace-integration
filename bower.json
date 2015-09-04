@@ -4,7 +4,9 @@
   "dependencies": {
     "vui-breadcrumbs": "~0.7.0",
     "vui-button": "~0.7.4",
-    "vui-focus": "~0.7.1"
+    "vui-field": "~0.6.1",
+    "vui-focus": "~0.7.1",
+    "vui-link": "~0.7.0"
   },
   "private": true
 }
