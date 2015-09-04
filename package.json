@@ -6,7 +6,11 @@
   "main": "src/index.js",
   "scripts": {
     "prebuild": "rimraf dist && mkdir dist",
-    "build": "browserify -t babelify -g uglifyify ./src/index.js > ./dist/bsi.js",
+    "build": "npm run build:browserify && npm run build:sass",
+    "build:browserify": "browserify -t babelify -g uglifyify ./src/index.js > ./dist/bsi.js",
+    "build:autoprefix": "postcss -c postcss.config.json",
+    "build:sass": "node-sass --output-style expanded ./src/vui.scss ./dist/bsi.css",
+    "postbuild:sass": "npm run build:autoprefix",
     "publish:cdn": "gulp publish",
     "preserve": "npm run build",
     "serve": "http-server dist",
@@ -24,11 +28,13 @@
   },
   "homepage": "https://github.com/Brightspace/brightspace-integration",
   "devDependencies": {
+    "autoprefixer": "^5.2.0",
     "babelify": "^6.2.0",
     "browserify": "^11.0.1",
     "gulp": "^3.9.0",
     "gulp-frau-publisher": "^2.3.1",
     "http-server": "^0.8.0",
+    "node-sass": "^3.3.2",
     "peanut-gallery": "^1.0.0",
     "rimraf": "^2.4.2",
     "uglifyify": "^3.0.1"
