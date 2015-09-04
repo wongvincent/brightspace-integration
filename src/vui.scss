@@ -1,10 +1,2 @@
-@import '../bower_components/vui-button/button';
-
-.vui-button {
-	@include vui-button;
-}
-
-.vui-button.vui-primary,
-.vui-button.vui-button-primary {
-	@include vui-button-primary;
-}
+@import '../bower_components/vui-focus/focus.css.scss';
+@import '../bower_components/vui-button/button.css.scss';
