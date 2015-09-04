@@ -9,6 +9,7 @@
     "vui-input": "~0.7.0",
     "vui-link": "~0.7.0",
     "vui-list": "~0.5.0",
+    "vui-offscreen": "~0.3.0",
     "vui-typography": "~0.6.0"
   },
   "private": true
