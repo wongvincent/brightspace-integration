@@ -2,6 +2,7 @@
   "name": "brightspace-integration",
   "license": "Apache-2.0",
   "dependencies": {
+    "vui-breadcrumbs": "~0.7.0",
     "vui-button": "~0.7.4",
     "vui-focus": "~0.7.1"
   },
