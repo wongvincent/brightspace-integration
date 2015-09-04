@@ -6,7 +6,8 @@
     "vui-button": "~0.7.4",
     "vui-field": "~0.6.1",
     "vui-focus": "~0.7.1",
-    "vui-link": "~0.7.0"
+    "vui-link": "~0.7.0",
+    "vui-list": "~0.5.0"
   },
   "private": true
 }
