@@ -5,17 +5,20 @@
   "private": true,
   "main": "src/index.js",
   "scripts": {
+    "autoprefix": "postcss -c postcss.config.json",
     "prebuild": "rimraf dist && mkdir dist",
     "build": "npm run build:js && npm run build:sass && npm run build:icons",
     "build:js": "gulp javascript",
-    "build:autoprefix": "postcss -c postcss.config.json",
+    "postbuild:js": "npm run uglify:js",
     "build:sass": "node-sass --output-style expanded ./src/vui.scss ./dist/bsi.css",
+    "postbuild:sass": "npm run autoprefix && npm run uglify:css",
     "build:icons": "cpy ./bower_components/vui-icons/images/**/*.png ./dist/images",
-    "postbuild:sass": "npm run build:autoprefix",
-    "publish:cdn": "gulp publish",
+    "publish:cdn": "frau-publisher -m lib -t bsi -f ./dist/** -k AKIAIZGPQIRSA2WEJEDA --secretvar S3_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
     "serve": "http-server dist",
-    "test": "npm run build"
+    "test": "npm run build",
+    "uglify:css": "uglify -s ./dist/bsi.css -o ./dist/bsi.min.css -c",
+    "uglify:js": "uglify -s ./dist/bsi.js -o ./dist/bsi.min.js"
   },
   "repository": {
     "type": "git",
@@ -33,11 +36,10 @@
     "cpy": "^3.4.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
-    "gulp-frau-publisher": "^2.3.1",
+    "gulp-frau-publisher": "^2.4.0",
     "http-server": "^0.8.0",
     "node-sass": "^3.3.2",
-    "peanut-gallery": "^1.0.0",
     "rimraf": "^2.4.2",
-    "uglifyify": "^3.0.1"
+    "uglify": "^0.1.5"
   }
 }
