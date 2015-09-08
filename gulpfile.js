@@ -15,7 +15,7 @@ var concat = require('gulp-concat'),
 	publisher = require('gulp-frau-publisher').lib(opts);
 
 var jsFiles = [
-		/*'bower_components/vui-accordion-jquery/accordion.js',*/
+		'bower_components/jquery-vui-accordion/accordion.js',
 		'bower_components/jquery-vui-change-tracking/changeTracker.js',
 		'bower_components/jquery-vui-change-tracking/changeTracking.js',
 		'bower_components/jquery-vui-collapsible-section/collapsibleSection.js',

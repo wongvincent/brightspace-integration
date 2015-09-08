@@ -2,6 +2,7 @@
   "name": "brightspace-integration",
   "license": "Apache-2.0",
   "dependencies": {
+    "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "~0.4.0",
     "jquery-vui-change-tracking": "~0.4.0",
     "jquery-vui-more-less": "~0.3.0",
