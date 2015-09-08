@@ -13,10 +13,7 @@ var jsFiles = [
 	];
 
 gulp.task('javascript', function() {
-	return gulp.src( jsFiles )
-		.pipe( concat('bsi.js') )
-		.pipe( gulp.dest('./dist') )
-		/*.pipe( jsmin() )
-		.pipe( rename( { suffix: '.min' } ) )*/
-		.pipe( gulp.dest('./dist') );
+	return gulp.src(jsFiles)
+		.pipe(concat('bsi.js'))
+		.pipe(gulp.dest('./dist'));
 });
