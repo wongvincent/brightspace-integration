@@ -16,9 +16,9 @@ var concat = require('gulp-concat'),
 
 var jsFiles = [
 		/*'bower_components/vui-accordion-jquery/accordion.js',*/
-		'bower_components/vui-change-tracking-jquery/changeTracker.js',
-		'bower_components/vui-change-tracking-jquery/changeTracking.js',
-		/*'bower_components/vui-collapsible-section-jquery/collapsibleSection.js',*/
+		'bower_components/jquery-vui-change-tracking/changeTracker.js',
+		'bower_components/jquery-vui-change-tracking/changeTracking.js',
+		'bower_components/jquery-vui-collapsible-section/collapsibleSection.js',
 		'bower_components/jquery-vui-more-less/moreLess.js'/*,
 		'bower_components/vui-scrollspy-jquery/scroll-spy.js'*/
 	];
