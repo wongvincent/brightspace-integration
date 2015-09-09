@@ -3,7 +3,46 @@
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][dependencies-image]][dependencies-url]
 
-Integration project for JavaScript, CSS and images consumed by Brightspace.
+The goal of this project is to bring together many other external libraries and modules for inclusion into a particular build of Brightspace.
+
+## Building
+
+The first time you build, install dependencies:
+
+```shell
+npm install
+```
+
+Rebuild assets to the `dist` directory:
+
+```shell
+npm run build
+```
+
+## Running Locally
+
+To test against a local Brightspace environment, first start serving the compiled assets:
+
+```shell
+npm run serve
+```
+
+This will run a web server on port `8080` pointing at the `dist` directory. You'll need to manually rebuild if any of the assets change.
+
+To point your Brightspace instance at the local integration project:
+
+1. Go to your `{instance}/config/Infrastructure` directory
+2. Edit `D2L.LP.Web.UI.Bsi.config.json`
+3. Change the `baseLocation` property to `http://localhost:8080` (or your computer's hostname)
+4. Restart IIS
+
+The config file will get overwritten during the build.
+
+## Publishing
+
+The project assets (`dist` directory) will be automatically published to the Brightspace CDN by its [Travis CI job](https://travis-ci.org/Brightspace/brightspace-integration) after each successful build of a tagged commit.
+
+The publish location will be: `https://s.brightspace.com/lib/bsi/{version}/`
 
 ## Contributing
 Contributions are welcome, please submit a pull request!
