@@ -13,6 +13,7 @@
     "build:sass": "node-sass --output-style expanded ./src/vui.scss ./dist/bsi.css",
     "postbuild:sass": "npm run autoprefix && npm run uglify:css",
     "build:icons": "cpy ./bower_components/vui-icons/images/**/*.png ./dist/images",
+    "postinstall": "./node_modules/.bin/bower install",
     "publish:cdn": "frau-publisher -m lib -t bsi -f ./dist/** -k AKIAIZGPQIRSA2WEJEDA --secretvar S3_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
     "serve": "http-server dist",
@@ -31,6 +32,9 @@
     "url": "https://github.com/Brightspace/brightspace-integration/issues"
   },
   "homepage": "https://github.com/Brightspace/brightspace-integration",
+  "dependencies": {
+    "bower": "^1.5.2"
+  },
   "devDependencies": {
     "autoprefixer": "^5.2.0",
     "cpy": "^3.4.0",
