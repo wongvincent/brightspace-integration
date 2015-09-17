@@ -1,6 +1,6 @@
 {
   "name": "brightspace-integration",
-  "version": "10.5.4",
+  "version": "10.6.4",
   "description": "Integration project for components consumed by Brightspace.",
   "private": true,
   "main": "src/index.js",
@@ -42,6 +42,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-frau-publisher": "^2.4.0",
     "http-server": "^0.8.0",
+    "lie": "^3.0.1",
     "node-sass": "^3.3.2",
     "postcss-cli": "^2.1.0",
     "rimraf": "^2.4.2",
