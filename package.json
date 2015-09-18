@@ -1,6 +1,6 @@
 {
   "name": "brightspace-integration",
-  "version": "10.6.4",
+  "version": "10.5.4",
   "description": "Integration project for components consumed by Brightspace.",
   "private": true,
   "main": "src/index.js",
