@@ -4,14 +4,14 @@ var concat = require('gulp-concat'),
 	gulp = require('gulp');
 
 var jsFiles = [
-		'node_modules/lie/dist/lie.polyfill.min.js',
-		'bower_components/jquery-vui-accordion/accordion.js',
-		'bower_components/jquery-vui-change-tracking/changeTracker.js',
-		'bower_components/jquery-vui-change-tracking/changeTracking.js',
-		'bower_components/jquery-vui-collapsible-section/collapsibleSection.js',
-		'bower_components/jquery-vui-more-less/moreLess.js',
-		'bower_components/jquery-vui-scrollspy/scroll-spy.js'
-	];
+	'node_modules/lie/dist/lie.polyfill.min.js',
+	'bower_components/jquery-vui-accordion/accordion.js',
+	'bower_components/jquery-vui-change-tracking/changeTracker.js',
+	'bower_components/jquery-vui-change-tracking/changeTracking.js',
+	'bower_components/jquery-vui-collapsible-section/collapsibleSection.js',
+	'bower_components/jquery-vui-more-less/moreLess.js',
+	'bower_components/jquery-vui-scrollspy/scroll-spy.js'
+];
 
 gulp.task('javascript', function() {
 	return gulp.src(jsFiles)

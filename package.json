@@ -38,9 +38,12 @@
   "devDependencies": {
     "autoprefixer": "^5.2.0",
     "cpy": "^3.4.0",
+    "eslint": "^1.6.0",
+    "eslint-config-brightspace": "0.0.2",
+    "eslint-plugin-react": "^3.5.1",
+    "frau-publisher": "^2.5.2",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
-    "frau-publisher": "^2.5.2",
     "http-server": "^0.8.0",
     "lie": "^3.0.1",
     "node-sass": "^3.3.2",
