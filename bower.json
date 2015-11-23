@@ -4,18 +4,18 @@
     "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "~0.4.1",
     "jquery-vui-change-tracking": "~0.4.0",
-    "jquery-vui-more-less": "~0.3.0",
+    "jquery-vui-more-less": "~1.0.0",
     "jquery-vui-scrollspy": "~0.2.0",
-    "vui-breadcrumbs": "~0.7.0",
+    "vui-breadcrumbs": "~1.0.0",
     "vui-button": "~0.7.4",
     "vui-field": "~0.6.1",
     "vui-focus": "~0.7.1",
     "vui-icons": "~0.7.0",
     "vui-input": "~1.0.0",
-    "vui-link": "~0.7.0",
+    "vui-link": "~1.0.1",
     "vui-list": "~0.5.0",
     "vui-offscreen": "~0.3.0",
-    "vui-typography": "~1.0.6"
+    "vui-typography": "~1.0.8"
   },
   "private": true
 }
