@@ -10,7 +10,7 @@
     "build": "npm run build:js && npm run build:sass && npm run build:icons",
     "build:js": "browserify -g uglifyify ./src/index.js > ./dist/bsi.js",
     "postbuild:js": "npm run uglify:js",
-    "build:sass": "node-sass --output-style expanded ./src/vui.scss ./dist/bsi.css",
+    "build:sass": "node-sass --output-style expanded ./src/bsi.scss ./dist/bsi.css",
     "postbuild:sass": "npm run autoprefix && npm run uglify:css",
     "build:icons": "cpy ./bower_components/vui-icons/images/**/*.png ./dist/images",
     "postinstall": "./node_modules/.bin/bower install",
