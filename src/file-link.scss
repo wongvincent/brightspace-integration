@@ -1,0 +1,18 @@
+@import '../bower_components/vui-link/link.scss';
+@import '../bower_components/vui-focus/focus.scss';
+
+.d2l-filelink-link {
+	& > .d2l-filelink-link-text {
+		color: $vui-link-color;
+		cursor: pointer;
+		text-decoration: $vui-link-textDecoration;
+	}
+	&:hover > .d2l-filelink-link-text,
+	&:focus > .d2l-filelink-link-text {
+		color: $vui-link-color-focus;
+		text-decoration: $vui-link-textDecoration-focus;
+	}
+	&:focus {
+		@include vui-focus-outline;
+	}
+}
