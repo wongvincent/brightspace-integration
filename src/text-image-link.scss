@@ -1,18 +1,15 @@
-@import '../bower_components/vui-link/link.scss';
-@import '../bower_components/vui-focus/focus.scss';
+@import '../bower_components/vui-colors/colors.scss';
 
 .d2l-text-imagelink {
 	& > .d2l-text-imagelink-text {
-		color: $vui-link-color;
+		color: $vui-color-celestine;
 		cursor: pointer;
-		text-decoration: $vui-link-textDecoration;
+		font-weight: normal;
+		text-decoration: none;
 	}
 	&:hover > .d2l-text-imagelink-text,
 	&:focus > .d2l-text-imagelink-text {
-		color: $vui-link-color-focus;
-		text-decoration: $vui-link-textDecoration-focus;
-	}
-	&:focus {
-		@include vui-focus-outline;
+		color: $vui-color-celestuba;
+		text-decoration: underline;
 	}
 }
