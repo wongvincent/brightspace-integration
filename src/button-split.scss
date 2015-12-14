@@ -1,0 +1,20 @@
+
+.d2l-button-split {
+	border: 1px solid #cccccc; 
+	border-radius: 3px;
+}
+
+.d2l-button-split .vui-button {
+	border-style: none;
+}
+
+.d2l-button-split > .d2l-button-menu {
+	border-radius: 0;
+	border-style: none;
+	border-left: 1px solid #cccccc;
+}
+
+[dir='rtl'] .d2l-button-split .d2l-button-menu {
+	border-right: 1px solid #cccccc;
+	border-left: none;
+}
