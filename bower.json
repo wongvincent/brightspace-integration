@@ -15,7 +15,7 @@
     "vui-link": "~1.0.2",
     "vui-list": "~0.5.0",
     "vui-offscreen": "~0.3.0",
-    "vui-typography": "~1.0.11"
+    "vui-typography": "~1.1.0"
   },
   "private": true
 }
