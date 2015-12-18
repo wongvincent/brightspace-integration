@@ -7,15 +7,15 @@
     "jquery-vui-more-less": "~1.0.0",
     "jquery-vui-scrollspy": "~0.2.0",
     "vui-breadcrumbs": "~1.0.0",
-    "vui-button": "~1.0.1",
+    "vui-button": "~1.0.4",
     "vui-field": "~0.6.1",
     "vui-focus": "~0.7.1",
     "vui-icons": "~0.7.0",
-    "vui-input": "~1.0.1",
+    "vui-input": "~1.0.3",
     "vui-link": "~1.0.2",
     "vui-list": "~0.5.0",
     "vui-offscreen": "~0.3.0",
-    "vui-typography": "~1.1.0"
+    "vui-typography": "~1.1.1"
   },
   "private": true
 }
