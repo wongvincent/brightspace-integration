@@ -8,8 +8,10 @@
 	margin: 3px 0;
 	min-height: 20px;
 	padding-left: 20px;
-	padding-right: 6px;
 	vertical-align: middle;
+}
+.d2l-checkbox-container {
+	padding-right: 6px;
 }
 .d2l-radio-inline {
 	margin: 0;
@@ -17,7 +19,12 @@
 [dir='rtl'] .d2l-checkbox-container,
 [dir='rtl'] .d2l-radio-inline {
 	padding-right: 20px;
+}
+[dir='rtl'] .d2l-checkbox-container {
 	padding-left: 6px;
+}
+[dir='rtl'] .d2l-radio-inline {
+	padding-left: 0;
 }
 
 .d2l-checkbox-container input[type="checkbox"],
