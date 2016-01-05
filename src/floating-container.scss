@@ -19,6 +19,11 @@
 	margin-right: 24px;
 }
 
+[dir='rtl'] .d2l-floating-container-close {
+	margin-left: 5px;
+	margin-right: -24px;
+}
+
 [dir='rtl'] .d2l-floating-container-titlebar .d2l-heading {
 	margin-right: 0;
 	margin-left: 24px;
