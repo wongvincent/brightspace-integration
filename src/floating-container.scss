@@ -1,0 +1,31 @@
+@import 'bower_components/vui-colors/colors.scss';
+@import 'bower_components/vui-typography/px-to-base-rem.scss';
+
+.d2l-floating-container {
+	border: solid 1px $vui-color-titanius;
+	background-color: $vui-color-white;
+	border-radius: px-to-base-rem(8px);
+	box-shadow: 0 2px 12px 0 $vui-color-titanius;
+}
+
+.d2l-floating-container-close {
+	margin: px-to-base-rem(5px);
+	margin-left: px-to-base-rem(-24px);
+}
+
+.d2l-floating-container-titlebar .d2l-heading {
+	@include vui-typography-heading2(
+		$margin: 0 px-to-base-rem(24px) 0 0
+	);
+	padding: px-to-base-rem(6px);
+}
+
+[dir='rtl'] .d2l-floating-container-close {
+	margin-left: px-to-base-rem(5px);
+	margin-right: px-to-base-rem(-24px);
+}
+
+[dir='rtl'] .d2l-floating-container-titlebar .d2l-heading {
+	margin-right: 0;
+	margin-left: px-to-base-rem(24px);
+}
