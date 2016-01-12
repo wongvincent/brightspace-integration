@@ -1,0 +1,20 @@
+@import '../bower_components/vui-table/table.scss';
+@import 'bower_components/vui-typography/px-to-base-rem.scss';
+
+.d2l-grid {
+	@include vui-table();
+}
+
+.d2l-grid-footer-wrapper {
+	padding: px-to-base-rem(5);
+}
+
+.d2l-grid-loadmore-wrapper {
+	width: 20em;
+	margin: auto;
+	padding: 5px;
+}
+
+.d2l-grid-cell-sel {
+	width: px-to-base-rem(13);
+}
