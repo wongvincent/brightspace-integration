@@ -12,9 +12,40 @@
 .d2l-grid-loadmore-wrapper {
 	width: 20em;
 	margin: auto;
-	padding: 5px;
+	padding: px-to-base-rem(5);
 }
 
 .d2l-grid-cell-sel {
 	width: px-to-base-rem(13);
+}
+
+.yui-dt > table {
+	@include vui-table();
+
+	& a {
+		@include vui-link();
+	}
+
+	& tbody.yui-dt-message > tr:hover {
+		outline: none;
+		background-color: inherit;
+	}
+	& .d_dg_cm {
+		border: none;
+		padding-top: 10px !important;
+		padding-bottom: 10px !important;
+	}
+}
+
+.d_dg_ac {
+	background-color: #ffffff;
+	border: none;
+	display: none;
+	padding: px-to-base-rem(4) px-to-base-rem(10);
+	zoom:1;
+}
+
+.d_dg_ps {
+	border: none;
+	padding: px-to-base-rem(5);
 }
