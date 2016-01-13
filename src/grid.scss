@@ -1,8 +1,17 @@
 @import '../bower_components/vui-table/table.scss';
+@import '../bower_components/vui-colors/colors.scss';
 @import 'bower_components/vui-typography/px-to-base-rem.scss';
 
-.d2l-grid {
+/* MVC grid is d2l-grid
+ * Legacy data grid is .yui-dt */
+
+.d2l-grid,
+.yui-dt > table {
 	@include vui-table();
+
+	& > thead > tr > th {
+		white-space: nowrap;
+	}
 }
 
 .d2l-grid-footer-wrapper {
@@ -20,12 +29,6 @@
 }
 
 .yui-dt > table {
-	@include vui-table();
-
-	& a {
-		@include vui-link();
-	}
-
 	& tbody.yui-dt-message > tr:hover {
 		outline: none;
 		background-color: inherit;
@@ -48,4 +51,119 @@
 .d_dg_ps {
 	border: none;
 	padding: px-to-base-rem(5);
+}
+
+/* Legacy Grid */
+.d_g.d_gd,
+.d_g.d_gl {
+	border-spacing: 0;
+	border-collapse: separate;
+	display: table;
+	width: 100%;
+
+	& tbody > tr {
+		border: none;
+	}
+
+	& td.d_g_l_trb,
+	  td.d_g_l_rb + td,
+	  td.d_g_l_rb + td + td,
+	  td.d_g_l_tr,
+	  td.d_g_l_rl + td,
+	  td.d_g_l_rl + td + td,
+	  td.d_g_l_rb,
+	  td.d_g_l_rl {
+		border-top: none !important;
+		border-left: none !important;
+		border-right: none !important;
+		border-bottom: 1px solid $vui-color-titanius;
+		border-bottom-left-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+		white-space: nowrap;
+		background-position: 0 0 !important;
+		vertical-align: top !important;
+	}
+
+	& >:only-child {
+		& > tr.d_gactr + tr.d_gh >:first-child,
+		  > tr.fgskip + tr.d_gh >:first-child {
+			border-top-left-radius: px-to-base-rem(6);
+			[dir='rtl'] & {
+				border-top-left-radius: 0;
+				border-top-right-radius: px-to-base-rem(6);
+			}
+		}
+
+		& > tr.d_gactr + tr.d_gh >:last-child,
+		  > tr.fgskip + tr.d_gh >:last-child {
+			border-top-right-radius: px-to-base-rem(6);
+			[dir='rtl'] & {
+				border-top-right-radius: 0;
+				border-top-left-radius: px-to-base-rem(6);
+			}
+		}
+
+		& > tr.d_gactr + tr.d_gh > th,
+		  > tr.fgskip + tr.d_gh > th,
+		  > tbody + tr.d_gh > th {
+			border-top: 1px solid $vui-color-titanius;
+		}
+
+		& > .d_gh > th {
+			@include _vui-table-header-cell();
+			white-space: nowrap;
+		}
+
+		& > .d_gh > th:first-child {
+			border-left: 1px solid $vui-color-titanius;
+		}
+		[dir='rtl'] & > .d_gh > th :last-child {
+			border-left: 1px solid $vui-color-titanius;
+		}
+
+		& > tr:not(.d_gactr):not(.d_gh) {
+			background-color: #ffffff;
+			border: none;
+			& > td,
+			  > th {
+				@include _vui-table-cell();
+			}
+			& > th {
+				white-space: nowrap;
+			}
+		}
+		& > tr:not(.d_gactr) > :first-child {
+			border-left: 1px solid $vui-color-titanius;
+		}
+
+		[dir='rtl'] & > tr:not(.d_gactr) > :last-child {
+			border-left: 1px solid $vui-color-titanius;
+		}
+
+		& > .d_lastRow >:first-child,
+		  > .D2LGridSummaryRow_Data >:first-child {
+			border-bottom-left-radius: px-to-base-rem(6);
+			[dir='rtl'] & {
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: px-to-base-rem(6);
+			}
+		}
+		& > .d_lastRow >:last-child,
+		  > .D2LGridSummaryRow_Data >:last-child {
+			border-bottom-right-radius: px-to-base-rem(6);
+			[dir='rtl'] & {
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: px-to-base-rem(6);
+			}
+		}
+
+		& > tr:not(.d_ggl2):not(.d_gactr):not(.d_gh):not(.D2LGridSummaryRow_Data):hover {
+			outline: 1px solid $vui-color-celestine;
+			background-color: $vui-color-celestine-light-1;
+		}
+
+		& td.d_gd_sel {
+			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
+		}
+	}
 }
