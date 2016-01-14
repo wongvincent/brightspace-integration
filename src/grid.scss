@@ -2,6 +2,27 @@
 @import '../bower_components/vui-colors/colors.scss';
 @import 'bower_components/vui-typography/px-to-base-rem.scss';
 
+@mixin _border-bottom-radius($side) {
+	@if $side == 'left' {
+		border-bottom-left-radius: px-to-base-rem(6);
+		[dir='rtl'] & {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: px-to-base-rem(6);
+		}
+	} @else {
+		border-bottom-right-radius: px-to-base-rem(6);
+		[dir='rtl'] & {
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: px-to-base-rem(6);
+		}
+	}
+}
+
+@mixin _table-row-selected($important:""){
+	background-color: $vui-color-celestine-light-1 unquote($important);
+	outline: 1px solid $vui-color-celestine;
+}
+
 /* MVC grid is d2l-grid
  * Legacy data grid is .yui-dt */
 
@@ -11,6 +32,23 @@
 
 	& > thead > tr > th {
 		white-space: nowrap;
+	}
+
+	& .d2l-grid-row-selected,
+	  .yui-dt-selected {
+		@include _table-row-selected();
+	}
+
+	& > thead:only-child > :last-child {
+		& > th {
+			border-bottom: none;
+		}
+		& > :first-child {
+			@include _border-bottom-radius($side:'left');
+		}
+		& > :last-child {
+			@include _border-bottom-radius($side:'right');
+		}
 	}
 }
 
@@ -114,11 +152,8 @@
 			white-space: nowrap;
 		}
 
-		& > .d_gh > th:first-child {
-			border-left: 1px solid $vui-color-titanius;
-		}
-		[dir='rtl'] & > .d_gh > th :last-child {
-			border-left: 1px solid $vui-color-titanius;
+		& > tr.d_gs:not(.d_ggl2) {
+			@include _table-row-selected($important:"!important");
 		}
 
 		& > tr:not(.d_gactr):not(.d_gh) {
@@ -131,39 +166,64 @@
 			& > th {
 				white-space: nowrap;
 			}
+			& .d_g_treeNodeImage,
+			  .d_g_l_r {
+				padding: px-to-base-rem(10) px-to-base-rem(30) !important;
+			}
 		}
 		& > tr:not(.d_gactr) > :first-child {
 			border-left: 1px solid $vui-color-titanius;
 		}
-
 		[dir='rtl'] & > tr:not(.d_gactr) > :last-child {
 			border-left: 1px solid $vui-color-titanius;
 		}
 
+		[dir='rtl'] & > tr:not(.d_gactr) > :first-child {
+			border-left: none;
+		}
+
 		& > .d_lastRow >:first-child,
 		  > .D2LGridSummaryRow_Data >:first-child {
-			border-bottom-left-radius: px-to-base-rem(6);
-			[dir='rtl'] & {
-				border-bottom-left-radius: 0;
-				border-bottom-right-radius: px-to-base-rem(6);
-			}
+			@include _border-bottom-radius($side:'left');
 		}
 		& > .d_lastRow >:last-child,
 		  > .D2LGridSummaryRow_Data >:last-child {
-			border-bottom-right-radius: px-to-base-rem(6);
-			[dir='rtl'] & {
-				border-bottom-right-radius: 0;
-				border-bottom-left-radius: px-to-base-rem(6);
-			}
+			@include _border-bottom-radius($side:'right');
 		}
 
 		& > tr:not(.d_ggl2):not(.d_gactr):not(.d_gh):not(.D2LGridSummaryRow_Data):hover {
-			outline: 1px solid $vui-color-celestine;
-			background-color: $vui-color-celestine-light-1;
+			@include _table-row-selected($important:"!important") ;
 		}
 
 		& td.d_gd_sel {
 			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
+		}
+
+		& > tr.d_ggl2 {
+			& td,
+			  th {
+				background-color:$vui-color-regolith;
+			}
+		}
+		& > tr.d_ggl2 > :first-child {
+			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
+		}
+
+		& .d_g_treeNodeImage {
+			border-right: none;
+		}
+
+		[dir='rtl'] & .d_g_treeNodeImage {
+			border-left: none;
+		}
+		[dir='rtl'] & .d_g_treeNodeImage + td,
+					  .d_g_treeNodeImage + td + th {
+			border-left: none;
+			border-right: none !important;
+		}
+
+		[dir='rtl'] &  .d_ggl2 > :first-child + td {
+			border-right: none !important;
 		}
 	}
 }
