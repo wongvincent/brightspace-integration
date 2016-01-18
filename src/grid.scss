@@ -1,8 +1,9 @@
 @import '../bower_components/vui-table/table.scss';
 @import '../bower_components/vui-colors/colors.scss';
+@import '../bower_components/vui-input/input-checkbox.scss';
 @import 'bower_components/vui-typography/px-to-base-rem.scss';
 
-@mixin _border-bottom-radius($side) {
+@mixin _grid-border-bottom-radius($side) {
 	@if $side == 'left' {
 		border-bottom-left-radius: px-to-base-rem(6);
 		[dir='rtl'] & {
@@ -18,7 +19,7 @@
 	}
 }
 
-@mixin _table-row-selected($important:""){
+@mixin _grid-row-selected($important:""){
 	background-color: $vui-color-celestine-light-1 unquote($important);
 	outline: 1px solid $vui-color-celestine;
 }
@@ -36,7 +37,7 @@
 
 	& .d2l-grid-row-selected,
 	  .yui-dt-selected {
-		@include _table-row-selected();
+		@include _grid-row-selected();
 	}
 
 	& > thead:only-child > :last-child {
@@ -44,11 +45,33 @@
 			border-bottom: none;
 		}
 		& > :first-child {
-			@include _border-bottom-radius($side:'left');
+			@include _grid-border-bottom-radius($side:'left');
 		}
 		& > :last-child {
-			@include _border-bottom-radius($side:'right');
+			@include _grid-border-bottom-radius($side:'right');
 		}
+	}
+
+
+	& .d2l-grid-header-sort-field-asc,
+	  .yui-dt-asc .yui-dt-label {
+		@include vui-table-column-sort();
+	}
+
+	& .d2l-grid-header-sort-field-desc,
+	  .yui-dt-desc .yui-dt-label {
+		@include vui-table-column-sort('desc');
+	}
+
+	& .d2l-grid-header-sort-field-desc,
+	  .yui-dt-sortable .yui-dt-label a:link {
+		text-decoration: none;
+		color: inherit;
+	}
+	& .d2l-grid-header-cell-hover,
+	  .yui-dt-sortable .yui-dt-label :hover {
+		text-decoration: underline;
+		cursor: pointer;
 	}
 }
 
@@ -64,7 +87,11 @@
 
 .d2l-grid-cell-sel {
 	width: px-to-base-rem(13);
+	& input[type="checkbox"] {
+		@include vui-input-checkbox();
+	}
 }
+
 
 .yui-dt > table {
 	& tbody.yui-dt-message > tr:hover {
@@ -76,14 +103,21 @@
 		padding-top: 10px !important;
 		padding-bottom: 10px !important;
 	}
+
+	&  input[type="checkbox"]{
+		@include vui-input-checkbox();
+	}
 }
 
 .d_dg_ac {
-	background-color: #ffffff;
 	border: none;
 	display: none;
 	padding: px-to-base-rem(4) px-to-base-rem(10);
 	zoom:1;
+
+	& input[type="checkbox"] {
+		@include vui-input-checkbox();
+	}
 }
 
 .d_dg_ps {
@@ -99,6 +133,9 @@
 	display: table;
 	width: 100%;
 
+	 & input[type="checkbox"] {
+		@include vui-input-checkbox();
+	}
 	& tbody > tr {
 		border: none;
 	}
@@ -148,12 +185,21 @@
 		}
 
 		& > .d_gh > th {
-			@include _vui-table-header-cell();
+			@include vui-table-header-cell();
 			white-space: nowrap;
 		}
 
+		& .d_hch a {
+			text-decoration: none;
+			color: inherit;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
 		& > tr.d_gs:not(.d_ggl2) {
-			@include _table-row-selected($important:"!important");
+			@include _grid-row-selected($important:"!important");
 		}
 
 		& > tr:not(.d_gactr):not(.d_gh) {
@@ -161,7 +207,7 @@
 			border: none;
 			& > td,
 			  > th {
-				@include _vui-table-cell();
+				@include vui-table-cell();
 			}
 			& > th {
 				white-space: nowrap;
@@ -184,15 +230,15 @@
 
 		& > .d_lastRow >:first-child,
 		  > .D2LGridSummaryRow_Data >:first-child {
-			@include _border-bottom-radius($side:'left');
+			@include _grid-border-bottom-radius($side:'left');
 		}
 		& > .d_lastRow >:last-child,
 		  > .D2LGridSummaryRow_Data >:last-child {
-			@include _border-bottom-radius($side:'right');
+			@include _grid-border-bottom-radius($side:'right');
 		}
 
-		& > tr:not(.d_ggl2):not(.d_gactr):not(.d_gh):not(.D2LGridSummaryRow_Data):hover {
-			@include _table-row-selected($important:"!important") ;
+		& > tr:not(.d_ggl1):not(.d_ggl2):not(.d_gactr):not(.d_gh):not(.D2LGridSummaryRow_Data):hover {
+			@include _grid-row-selected($important:"!important") ;
 		}
 
 		& td.d_gd_sel {
@@ -209,8 +255,9 @@
 			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
 		}
 
-		& .d_g_treeNodeImage {
-			border-right: none;
+		& .d_g_treeNodeImage,
+		  .d_g_treeNodeImage ~ td {
+			border-right: none !important;
 		}
 
 		[dir='rtl'] & .d_g_treeNodeImage {
@@ -224,6 +271,20 @@
 
 		[dir='rtl'] &  .d_ggl2 > :first-child + td {
 			border-right: none !important;
+		}
+
+		& .d_grid_sort_asc {
+			@include vui-table-column-sort();
+			& .di_i {
+				display:none;
+			}
+		}
+
+		& .d_grid_sort_desc {
+			@include vui-table-column-sort('desc');
+			& .di_i {
+				display:none;
+			}
 		}
 	}
 }
