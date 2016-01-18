@@ -12,7 +12,7 @@
     "postbuild:js": "npm run uglify:js",
     "build:sass": "node-sass --output-style expanded ./src/bsi.scss ./dist/bsi.css",
     "postbuild:sass": "npm run autoprefix && npm run uglify:css",
-    "build:icons": "cpy ./bower_components/vui-icons/images/**/*.png ./dist/images",
+    "build:icons": "cpy ./bower_components/vui-icons/images/**/*.* ./dist/images",
     "postinstall": "./node_modules/.bin/bower install",
     "publish:cdn": "frau-publisher -m lib -t bsi -f './dist/**/*' -k AKIAIZGPQIRSA2WEJEDA --secretvar CDN_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
