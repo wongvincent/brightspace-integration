@@ -70,10 +70,6 @@
 		padding-bottom: 10px !important;
 	}
 
-	&  input[type="checkbox"]{
-		@include vui-input-checkbox();
-	}
-
 	& .yui-dt-asc .yui-dt-label {
 		@include vui-table-column-sort();
 	}
