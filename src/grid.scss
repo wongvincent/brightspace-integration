@@ -50,11 +50,11 @@
 	}
 
 	& .yui-dt-asc .yui-dt-label {
-		@include vui-table-column-sort();
+		@include vui-table-column-sort($direction:'asc');
 	}
 
 	& .yui-dt-desc .yui-dt-label {
-		@include vui-table-column-sort('desc');
+		@include vui-table-column-sort($direction:'desc');
 	}
 
 	& .yui-dt-sortable .yui-dt-label a:link {
@@ -218,11 +218,11 @@
 		}
 
 		& .d_grid_sort_asc {
-			@include vui-table-column-sort();
+			@include vui-table-column-sort($direction:'asc');
 		}
 
 		& .d_grid_sort_desc {
-			@include vui-table-column-sort('desc');
+			@include vui-table-column-sort($direction:'desc');
 		}
 	}
 }
