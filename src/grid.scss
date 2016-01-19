@@ -182,7 +182,7 @@
 		}
 
 		& > tr:not(.d_ggl1):not(.d_ggl2):not(.d_gactr):not(.d_gh):not(.D2LGridSummaryRow_Data):hover {
-			@include vui-table-row-selected($important:true) ;
+			@include vui-table-row-selected($important:true);
 		}
 
 		& td.d_gd_sel {
