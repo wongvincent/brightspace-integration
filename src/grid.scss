@@ -1,7 +1,6 @@
 @import '../bower_components/vui-table/table.scss';
 @import '../bower_components/vui-colors/colors.scss';
-@import '../bower_components/vui-input/input-checkbox.scss';
-@import 'bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-typography/px-to-base-rem.scss';
 
 @mixin _grid-border-bottom-radius($side) {
 	@if $side == 'left' {
@@ -19,15 +18,25 @@
 	}
 }
 
-@mixin _grid-row-selected($important:""){
-	background-color: $vui-color-celestine-light-1 unquote($important);
+@mixin _grid-row-selected($important:false){
+  	background-color: if($important, $vui-color-celestine-light-1 !important, $vui-color-celestine-light-1);
 	outline: 1px solid $vui-color-celestine;
 }
 
-/* MVC grid is d2l-grid
- * Legacy data grid is .yui-dt */
+/* MVC Grid */
+.d2l-grid-cell-sel {
+	width: px-to-base-rem(13);
+}
+.d2l-grid-footer-wrapper {
+	padding: px-to-base-rem(5);
+}
+.d2l-grid-loadmore-wrapper {
+	width: 20em;
+	margin: auto;
+	padding: px-to-base-rem(5);
+}
 
-.d2l-grid,
+/* Legacy data grid is .yui-dt */
 .yui-dt > table {
 	@include vui-table();
 
@@ -35,8 +44,7 @@
 		white-space: nowrap;
 	}
 
-	& .d2l-grid-row-selected,
-	  .yui-dt-selected {
+	& .yui-dt-selected {
 		@include _grid-row-selected();
 	}
 
@@ -52,48 +60,6 @@
 		}
 	}
 
-
-	& .d2l-grid-header-sort-field-asc,
-	  .yui-dt-asc .yui-dt-label {
-		@include vui-table-column-sort();
-	}
-
-	& .d2l-grid-header-sort-field-desc,
-	  .yui-dt-desc .yui-dt-label {
-		@include vui-table-column-sort('desc');
-	}
-
-	& .d2l-grid-header-sort-field-desc,
-	  .yui-dt-sortable .yui-dt-label a:link {
-		text-decoration: none;
-		color: inherit;
-	}
-	& .d2l-grid-header-cell-hover,
-	  .yui-dt-sortable .yui-dt-label :hover {
-		text-decoration: underline;
-		cursor: pointer;
-	}
-}
-
-.d2l-grid-footer-wrapper {
-	padding: px-to-base-rem(5);
-}
-
-.d2l-grid-loadmore-wrapper {
-	width: 20em;
-	margin: auto;
-	padding: px-to-base-rem(5);
-}
-
-.d2l-grid-cell-sel {
-	width: px-to-base-rem(13);
-	& input[type="checkbox"] {
-		@include vui-input-checkbox();
-	}
-}
-
-
-.yui-dt > table {
 	& tbody.yui-dt-message > tr:hover {
 		outline: none;
 		background-color: inherit;
@@ -107,6 +73,24 @@
 	&  input[type="checkbox"]{
 		@include vui-input-checkbox();
 	}
+
+	& .yui-dt-asc .yui-dt-label {
+		@include vui-table-column-sort();
+	}
+
+	& .yui-dt-desc .yui-dt-label {
+		@include vui-table-column-sort('desc');
+	}
+
+	& .yui-dt-sortable .yui-dt-label a:link {
+		text-decoration: none;
+		color: inherit;
+	}
+	& .yui-dt-sortable .yui-dt-label :hover,
+	  .yui-dt-sortable .yui-dt-label :focus {
+		text-decoration: underline !important;
+		cursor: pointer;
+	}
 }
 
 .d_dg_ac {
@@ -114,10 +98,6 @@
 	display: none;
 	padding: px-to-base-rem(4) px-to-base-rem(10);
 	zoom:1;
-
-	& input[type="checkbox"] {
-		@include vui-input-checkbox();
-	}
 }
 
 .d_dg_ps {
@@ -133,9 +113,6 @@
 	display: table;
 	width: 100%;
 
-	 & input[type="checkbox"] {
-		@include vui-input-checkbox();
-	}
 	& tbody > tr {
 		border: none;
 	}
@@ -199,7 +176,7 @@
 		}
 
 		& > tr.d_gs:not(.d_ggl2) {
-			@include _grid-row-selected($important:"!important");
+			@include _grid-row-selected($important:true);
 		}
 
 		& > tr:not(.d_gactr):not(.d_gh) {
@@ -238,7 +215,7 @@
 		}
 
 		& > tr:not(.d_ggl1):not(.d_ggl2):not(.d_gactr):not(.d_gh):not(.D2LGridSummaryRow_Data):hover {
-			@include _grid-row-selected($important:"!important") ;
+			@include _grid-row-selected($important:true) ;
 		}
 
 		& td.d_gd_sel {
@@ -275,16 +252,10 @@
 
 		& .d_grid_sort_asc {
 			@include vui-table-column-sort();
-			& .di_i {
-				display:none;
-			}
 		}
 
 		& .d_grid_sort_desc {
 			@include vui-table-column-sort('desc');
-			& .di_i {
-				display:none;
-			}
 		}
 	}
 }
