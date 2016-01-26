@@ -1,0 +1,50 @@
+@import '../bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-colors/colors.scss';
+
+ul.ddl_sc li:hover,
+ul.ddl_fc li:hover {
+	background-color: $vui-color-celestine-light-1;
+}
+
+ul.ddl_fc > li {
+	display: inline-block;
+}
+
+ul.ddl_sc > li {
+	display: block;
+}
+
+ul.ddl_fc .ddl_li_m {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+ul.ddl_sc .ddl_li_m {
+	vertical-align: middle;
+	float: left
+}
+
+[dir='rtl'] ul.ddl_sc .ddl_li_m {
+	float: right;
+}
+
+ul.ddl_fc a.ddl_li_c {
+	display: inline-block;
+}
+
+a.ddl_li_c {
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+.ddl_li_m {
+	padding: 0 px-to-base-rem(10) 0 0;
+}
+
+[dir='rtl'] .ddl_li_m {
+	padding: 0 0 0 px-to-base-rem(10);
+}
+
+.datalist-item-selected {
+	background-color: $vui-color-celestine-light-1;
+}
