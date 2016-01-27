@@ -2,7 +2,7 @@
   "name": "brightspace-integration",
   "dependencies": {
     "jquery-vui-accordion": "~0.3.0",
-    "jquery-vui-collapsible-section": "~1.0.0",
+    "jquery-vui-collapsible-section": "~1.1.0",
     "jquery-vui-change-tracking": "~0.4.0",
     "jquery-vui-more-less": "~1.1.0",
     "jquery-vui-scrollspy": "~0.2.0",
@@ -11,7 +11,7 @@
     "vui-dropdown": "~0.3.2",
     "vui-field": "~1.0.0",
     "vui-focus": "~0.7.1",
-    "vui-icons": "~1.0.0",
+    "vui-icons": "~1.1.0",
     "vui-input": "~1.5.1",
     "vui-link": "~1.1.0",
     "vui-image-action": "~0.2.0",
