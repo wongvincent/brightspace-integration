@@ -1,18 +1,22 @@
 @import 'bower_components/vui-typography/px-to-base-rem.scss';
 
+.vui-dropdown-menu {
+	margin: $vui-dropdown-menu-offset 0;
+}
+
 .d2l-floating-container.vui-dropdown-menu {
 	border-style: none;
 }
 
 .vui-dropdown-menu-item-link {
 	background-repeat: no-repeat;
-	background-position: px-to-base-rem(11px) px-to-base-rem(16px);
+	background-position: px-to-base-rem(11px) px-to-base-rem(20px);
 	box-sizing: border-box;
 	padding-left: px-to-base-rem(42px);
 }
 
 [dir='rtl'] .vui-dropdown-menu-item-link {
-	background-position: right px-to-base-rem(11px) top px-to-base-rem(16px);
+	background-position: right px-to-base-rem(11px) top px-to-base-rem(20px);
 	padding-left: px-to-base-rem(11px);
 	padding-right: px-to-base-rem(42px);
 }
