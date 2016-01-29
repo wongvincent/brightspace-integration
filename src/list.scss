@@ -6,42 +6,6 @@ ul.ddl_fc li:hover {
 	background-color: $vui-color-celestine-light-1;
 }
 
-ul.ddl_fc > li {
-	display: inline-block;
-}
-
-ul.ddl_sc > li {
-	display: table;
-}
-
-ul.ddl_fc .ddl_li_m {
-	vertical-align: top;
-	display: inline-block;
-}
-
-ul.ddl_sc .ddl_li_m {
-	vertical-align: middle;
-	display: table-cell;
-}
-
-[dir='rtl'] ul.ddl_sc .ddl_li_m {
-	float: right;
-}
-
-ul.ddl_sc a.ddl_li_c{
-	display: table-cell;
-	width: 100%;
-}
-
-ul.ddl_fc a.ddl_li_c {
-	display: inline-block;
-}
-
-a.ddl_li_c {
-	vertical-align: middle;
-	text-decoration: none;
-}
-
 .ddl_li_m {
 	padding: 0 px-to-base-rem(10) 0 0;
 }
