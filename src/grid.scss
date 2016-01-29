@@ -1,6 +1,7 @@
 @import '../bower_components/vui-table/table.scss';
 @import '../bower_components/vui-colors/colors.scss';
 @import '../bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-typography/small-text.scss';
 
 /* MVC Grid */
 .d2l-grid-cell-sel {
@@ -13,6 +14,17 @@
 	width: 20em;
 	margin: auto;
 	padding: px-to-base-rem(5);
+}
+
+.d2l-grid-header-cell a,
+.d2l-grid-header-cell a:visited {
+	@include vui-typography-small-text();
+	margin: 0;
+}
+.d2l-grid-header-cell a:hover {
+	@include vui-typography-small-text();
+	text-decoration: underline;
+	margin: 0;
 }
 
 /* Legacy data grid is .yui-dt */
@@ -80,15 +92,8 @@
 		padding: px-to-base-rem(10) px-to-base-rem(30);
 	}
 
-	& td.d_g_l_trb,
-	  td.d_g_l_rb + td,
-	  td.d_g_l_rb + td + td,
-	  td.d_g_l_tr,
-	  td.d_g_l_rl + td,
-	  td.d_g_l_rl + td + td,
-	  td.d_g_l_rb,
-	  td.d_g_l_rl,
-	  .d_lastRow td,
+
+	& .d_lastRow td,
 	  .d_lastRow th {
 		border-bottom: 1px solid $vui-color-titanius;
 	}
@@ -141,7 +146,9 @@
 		}
 
 		& > .d_lastRow:hover td,
-		  > .d_lastRow:hover th {
+		  > .d_lastRow:hover th,
+		  > tr.d_gs.d_lastRow th,
+		  > tr.d_gs.d_lastRow td {
 			border-bottom-color: $vui-color-celestine-light-2;
 		}
 
