@@ -2,23 +2,23 @@
   "name": "brightspace-integration",
   "dependencies": {
     "jquery-vui-accordion": "~0.3.0",
-    "jquery-vui-collapsible-section": "~1.0.0",
+    "jquery-vui-collapsible-section": "~1.1.0",
     "jquery-vui-change-tracking": "~0.4.0",
     "jquery-vui-more-less": "~1.1.0",
     "jquery-vui-scrollspy": "~0.2.0",
     "vui-breadcrumbs": "~1.1.0",
     "vui-button": "~1.2.0",
-    "vui-dropdown": "~0.3.2",
+    "vui-dropdown": "~0.5.0",
     "vui-field": "~1.0.0",
     "vui-focus": "~0.7.1",
-    "vui-icons": "~1.0.0",
+    "vui-icons": "~1.1.0",
     "vui-input": "~1.5.1",
     "vui-link": "~1.1.0",
     "vui-image-action": "~0.2.0",
     "vui-list": "~0.5.0",
     "vui-offscreen": "~0.3.0",
     "vui-typography": "~2.0.0",
-	"vui-table":"~0.0.5"
+	"vui-table":"~0.0.6"
   },
   "private": true
 }

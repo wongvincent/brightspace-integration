@@ -1,6 +1,7 @@
 @import '../bower_components/vui-table/table.scss';
 @import '../bower_components/vui-colors/colors.scss';
 @import '../bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-typography/small-text.scss';
 
 /* MVC Grid */
 .d2l-grid-cell-sel {
@@ -15,22 +16,26 @@
 	padding: px-to-base-rem(5);
 }
 
+.d2l-grid-header-cell a,
+.d2l-grid-header-cell a:visited {
+	@include vui-typography-small-text();
+	margin: 0;
+}
+.d2l-grid-header-cell a:hover {
+	@include vui-typography-small-text();
+	text-decoration: underline;
+	margin: 0;
+}
+
 /* Legacy data grid is .yui-dt */
 .yui-dt > table {
 	@include vui-table();
-
-	& > thead > tr > th {
-		white-space: nowrap;
-	}
 
 	& .yui-dt-selected {
 		@include vui-table-row-selected();
 	}
 
-	& > thead:only-child > :last-child {
-		& > th {
-			border-bottom: none;
-		}
+	& > tbody.yui-dt-data > tr:last-child {
 		& > :first-child {
 			@include vui-table-bottom-border-radius($side:'left');
 		}
@@ -39,14 +44,27 @@
 		}
 	}
 
-	& tbody.yui-dt-message > tr:hover {
-		outline: none;
-		background-color: inherit;
+	& > tbody.yui-dt-message > tr:last-child {
+		& th,
+		  td {
+			border-bottom: 1px solid $vui-color-titanius;
+		}
+
+		& > :first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > :last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
 	}
-	& .d_dg_cm {
-		border: none;
-		padding-top: 10px !important;
-		padding-bottom: 10px !important;
+
+	& > thead:only-child > :last-child {
+		& > :first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > :last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
 	}
 
 	& .yui-dt-asc .yui-dt-label {
@@ -56,59 +74,28 @@
 	& .yui-dt-desc .yui-dt-label {
 		@include vui-table-column-sort($direction:'desc');
 	}
-
-	& .yui-dt-sortable .yui-dt-label a:link {
-		text-decoration: none;
-		color: inherit;
-	}
-	& .yui-dt-sortable .yui-dt-label :hover,
-	  .yui-dt-sortable .yui-dt-label :focus {
-		text-decoration: underline !important;
-		cursor: pointer;
-	}
 }
 
 .d_dg_ac {
-	border: none;
-	display: none;
 	padding: px-to-base-rem(4) px-to-base-rem(10);
-	zoom:1;
 }
 
 .d_dg_ps {
-	border: none;
 	padding: px-to-base-rem(5);
 }
 
 /* Legacy Grid */
 .d_g.d_gd,
 .d_g.d_gl {
-	border-spacing: 0;
-	border-collapse: separate;
-	display: table;
-	width: 100%;
 
-	& tbody > tr {
-		border: none;
+	& td.d_gact {
+		padding: px-to-base-rem(10) px-to-base-rem(30);
 	}
 
-	& td.d_g_l_trb,
-	  td.d_g_l_rb + td,
-	  td.d_g_l_rb + td + td,
-	  td.d_g_l_tr,
-	  td.d_g_l_rl + td,
-	  td.d_g_l_rl + td + td,
-	  td.d_g_l_rb,
-	  td.d_g_l_rl {
-		border-top: none !important;
-		border-left: none !important;
-		border-right: none !important;
+
+	& .d_lastRow td,
+	  .d_lastRow th {
 		border-bottom: 1px solid $vui-color-titanius;
-		border-bottom-left-radius: 0 !important;
-		border-bottom-right-radius: 0 !important;
-		white-space: nowrap;
-		background-position: 0 0 !important;
-		vertical-align: top !important;
 	}
 
 	& >:only-child {
@@ -133,28 +120,14 @@
 			white-space: nowrap;
 		}
 
-		& .d_hch a {
-			text-decoration: none;
-			color: inherit;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-
 		& > tr.d_gs:not(.d_ggl2) {
 			@include vui-table-row-selected($important:true);
 		}
 
 		& > tr:not(.d_gactr):not(.d_gh) {
-			background-color: #ffffff;
-			border: none;
 			& > td,
 			  > th {
 				@include vui-table-cell();
-			}
-			& > th {
-				white-space: nowrap;
 			}
 			& .d_g_treeNodeImage,
 			  .d_g_l_r {
@@ -170,6 +143,13 @@
 
 		[dir='rtl'] & > tr:not(.d_gactr) > :first-child {
 			border-left: none;
+		}
+
+		& > .d_lastRow:hover td,
+		  > .d_lastRow:hover th,
+		  > tr.d_gs.d_lastRow th,
+		  > tr.d_gs.d_lastRow td {
+			border-bottom-color: $vui-color-celestine-light-2;
 		}
 
 		& > .d_lastRow >:first-child,
@@ -197,24 +177,6 @@
 		}
 		& > tr.d_ggl2 > :first-child {
 			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
-		}
-
-		& .d_g_treeNodeImage,
-		  .d_g_treeNodeImage ~ td {
-			border-right: none !important;
-		}
-
-		[dir='rtl'] & .d_g_treeNodeImage {
-			border-left: none;
-		}
-		[dir='rtl'] & .d_g_treeNodeImage + td,
-					  .d_g_treeNodeImage + td + th {
-			border-left: none;
-			border-right: none !important;
-		}
-
-		[dir='rtl'] &  .d_ggl2 > :first-child + td {
-			border-right: none !important;
 		}
 
 		& .d_grid_sort_asc {
