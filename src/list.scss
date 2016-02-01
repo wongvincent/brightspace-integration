@@ -1,20 +1,18 @@
 @import '../bower_components/vui-typography/px-to-base-rem.scss';
 @import '../bower_components/vui-colors/colors.scss';
 
-.vui-list  {
 
-	& .ddl_sc li:hover,
-	  .ddl_fc li:hover,
-	  .datalist-item-selected,
-	  .ddl_li_c-hasfocus {
-		background-color: $vui-color-celestine-light-1;
-	}
+.vui-list .ddl_li_c-hasfocus,
+.vui-list .ddl_li_m,
+.vui-list.ddl_sc li:hover,
+.vui-list.ddl_fc li:hover{
+	background-color: $vui-color-celestine-light-1;
+}
 
-	.ddl_li_m {
-		padding: 0 px-to-base-rem(10) 0 0;
-	}
+.vui-list .ddl_li_m {
+	padding: 0 px-to-base-rem(10) 0 0;
 
-	[dir='rtl'] .ddl_li_m {
+	[dir='rtl'] & {
 		padding: 0 0 0 px-to-base-rem(10);
 	}
 }
