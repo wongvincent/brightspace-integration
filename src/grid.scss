@@ -30,6 +30,7 @@
 /* Legacy data grid is .yui-dt */
 .yui-dt > table {
 	@include vui-table();
+	padding-bottom: px-to-base-rem(30);
 
 	& .yui-dt-selected {
 		@include vui-table-row-selected();
@@ -87,6 +88,7 @@
 /* Legacy Grid */
 .d_g.d_gd,
 .d_g.d_gl {
+	padding-bottom: px-to-base-rem(30);
 
 	& td.d_gact {
 		padding: px-to-base-rem(10) px-to-base-rem(30);
