@@ -19,7 +19,7 @@
     "vui-offscreen": "~0.3.0",
     "vui-typography": "~2.0.0",
     "vui-table":"~0.0.7",
-    "vui-validation":"~1.0.1" 
+    "vui-validation":"~1.0.2" 
   },
   "private": true
 }
