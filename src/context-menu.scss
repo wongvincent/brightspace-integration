@@ -1,4 +1,5 @@
-@import 'bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-dropdown/context-menu.scss';
 
 .vui-dropdown-menu {
 	margin: $vui-dropdown-menu-offset 0;
@@ -19,4 +20,9 @@
 	background-position: right px-to-base-rem(11px) top px-to-base-rem(20px);
 	padding-left: px-to-base-rem(11px);
 	padding-right: px-to-base-rem(42px);
+}
+
+.dcm.dcm_handle.d2l-button-menu,
+.d2l-contextmenu-ph {
+    @include vui-dropdown-context-menu;
 }
