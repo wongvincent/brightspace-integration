@@ -1,0 +1,68 @@
+@import 'bower_components/vui-colors/colors.scss';
+
+.d2l-twopanelselector-header {
+	padding: 11px 10px 0 10px;
+}
+
+.d2l-twopanelselector-header .d2l-page-header {
+	padding: 0 10px;
+}
+
+.d2l-twopanelselector-side.d2l-twopanelselector-side-sep,
+.d2l-twopanelselector-side-bg.d2l-twopanelselector-side-sep {
+	border-right: 1px solid #BBBBBB;
+	[dir='rtl'] & {
+		border-left: 1px solid #BBBBBB;
+		border-right: none;
+	}
+}
+
+.d2l-twopanelselector-side-bg {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	width: 22.3em;
+	[dir='rtl'] & {
+		right:0;
+	}
+}
+
+.d2l-twopanelselector-side-padding {
+	padding: 0 10px 10px 20px;
+	[dir='rtl'] & {
+		padding-right: 20px;
+		padding-left: 10px;
+	}
+}
+
+.d2l-twopanelselector-side-padding-none {
+	padding-left: 10px;
+	[dir='rtl'] & {
+		padding-right: 10px;
+		padding-left: 0;
+	}
+}
+
+.d2l-twopanelselector-side .d2l-page-search {
+	margin-left: 20px;
+	[dir='rtl'] & {
+		margin-left: 0;
+		margin-right: 20px;
+	}
+}
+
+.d2l-twopanelselector-main .d2l-page-main-padding {
+	padding: 0 10px 10px 10px;
+	[dir='rtl'] & {
+		padding-left: 20px;
+		padding-right: 10px;
+	}
+}
+
+.d2l-twopanelselector-padding {
+	padding-top: 10px;
+}
+
+.d2l-twopanelselector-wrapper {
+	background-color: $vui-color-regolith;
+}
