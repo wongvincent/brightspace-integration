@@ -30,9 +30,10 @@
 /* Legacy data grid is .yui-dt */
 .yui-dt > table {
 	@include vui-table();
+	padding-bottom: px-to-base-rem(30);
 
 	& .yui-dt-selected {
-		@include vui-table-row-selected();
+		@include vui-table-row-selected($state:'selected');
 	}
 
 	& > tbody.yui-dt-data > tr:last-child {
@@ -77,7 +78,7 @@
 }
 
 .d_dg_ac {
-	padding: px-to-base-rem(4) px-to-base-rem(10);
+	padding: px-to-base-rem(10) px-to-base-rem(30);
 }
 
 .d_dg_ps {
@@ -87,6 +88,7 @@
 /* Legacy Grid */
 .d_g.d_gd,
 .d_g.d_gl {
+	padding-bottom: px-to-base-rem(30);
 
 	& td.d_gact {
 		padding: px-to-base-rem(10) px-to-base-rem(30);
@@ -121,7 +123,12 @@
 		}
 
 		& > tr.d_gs:not(.d_ggl2) {
-			@include vui-table-row-selected($important:true);
+			@include vui-table-row-selected($important:true, $state:'selected');
+		}
+
+		& > tr.d_gs.d_lastRow th,
+		  > tr.d_gs.d_lastRow td {
+			border-bottom-color: $vui-color-celestine-light-2;
 		}
 
 		& > tr:not(.d_gactr):not(.d_gh) {
@@ -145,13 +152,6 @@
 			border-left: none;
 		}
 
-		& > .d_lastRow:hover td,
-		  > .d_lastRow:hover th,
-		  > tr.d_gs.d_lastRow th,
-		  > tr.d_gs.d_lastRow td {
-			border-bottom-color: $vui-color-celestine-light-2;
-		}
-
 		& > .d_lastRow >:first-child,
 		  > .D2LGridSummaryRow_Data >:first-child {
 			@include vui-table-bottom-border-radius($side:'left');
@@ -159,10 +159,6 @@
 		& > .d_lastRow >:last-child,
 		  > .D2LGridSummaryRow_Data >:last-child {
 			@include vui-table-bottom-border-radius($side:'right');
-		}
-
-		& > tr:not(.d_ggl1):not(.d_ggl2):not(.d_gactr):not(.d_gh):not(.D2LGridSummaryRow_Data):hover {
-			@include vui-table-row-selected($important:true);
 		}
 
 		& td.d_gd_sel {
