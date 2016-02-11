@@ -1,0 +1,10 @@
+@import '../bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-colors/colors.scss';
+
+.vui-list .ddl_li_m {
+	padding: 0 px-to-base-rem(10) 0 0;
+
+	[dir='rtl'] & {
+		padding: 0 0 0 px-to-base-rem(10);
+	}
+}
