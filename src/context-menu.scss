@@ -25,4 +25,9 @@
 .dcm.dcm_handle.d2l-button-menu,
 .d2l-contextmenu-ph {
     @include vui-dropdown-context-menu;
+	margin-left: px-to-base-rem(5);
+	[dir='rtl'] & {
+		margin-left: auto;
+		margin-right: px-to-base-rem(5);
+	}
 }
