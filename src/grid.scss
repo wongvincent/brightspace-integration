@@ -102,12 +102,14 @@
 
 	& >:only-child {
 		& > tr.d_gactr + tr.d_gh >:first-child,
-		  > tr.fgskip + tr.d_gh >:first-child {
+		  > tr.fgskip + tr >:first-child,
+		  > :first-child.fgskip + tr >:first-child {
 			@include vui-table-top-border-radius($side:'left');
 		}
 
 		& > tr.d_gactr + tr.d_gh >:last-child,
-		  > tr.fgskip + tr.d_gh >:last-child {
+		  > tr.fgskip + tr.d_gh >:last-child,
+		  > :first-child.fgskip + tr >:last-child {
 			@include vui-table-top-border-radius($side:'right');
 		}
 
@@ -152,16 +154,17 @@
 			border-left: none;
 		}
 
-		& > .d_lastRow >:first-child,
+		& > .d_lastRow:not(.d_g_display_none) >:first-child,
 		  > .D2LGridSummaryRow_Data >:first-child {
 			@include vui-table-bottom-border-radius($side:'left');
 		}
-		& > .d_lastRow >:last-child,
+		& > .d_lastRow:not(.d_g_display_none) >:last-child,
 		  > .D2LGridSummaryRow_Data >:last-child {
 			@include vui-table-bottom-border-radius($side:'right');
 		}
 
-		& td.d_gd_sel {
+		& td.d_gd_sel,
+		  td.d_g_l_rb {
 			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
 		}
 
