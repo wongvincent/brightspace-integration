@@ -7,19 +7,19 @@
     "jquery-vui-more-less": "~1.1.0",
     "jquery-vui-scrollspy": "~0.2.0",
     "vui-breadcrumbs": "~2.0.0",
-    "vui-button": "~1.2.0",
+    "vui-button": "~1.2.1",
     "vui-dropdown": "~0.5.0",
     "vui-field": "~1.0.0",
     "vui-focus": "~0.7.1",
     "vui-icons": "~1.1.0",
     "vui-input": "~1.5.5",
-    "vui-link": "~1.1.0",
+    "vui-link": "~1.1.1",
     "vui-image-action": "~0.2.1",
     "vui-list": "~1.0.0",
     "vui-offscreen": "~0.3.0",
     "vui-typography": "~2.0.2",
-	"vui-table":"~0.0.9",
-    "vui-validation":"~1.0.3"
+    "vui-table":"~0.0.9",
+    "vui-validation":"~1.0.5"
   },
   "private": true
 }
