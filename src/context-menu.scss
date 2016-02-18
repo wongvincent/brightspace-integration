@@ -3,6 +3,7 @@
 
 .vui-dropdown-menu {
 	margin: $vui-dropdown-menu-offset 0;
+	animation: vui-dropdown-menu-animation-show 200ms ease;
 }
 
 .d2l-floating-container.vui-dropdown-menu {
