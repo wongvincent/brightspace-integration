@@ -95,8 +95,8 @@
 	}
 
 
-	& .d_lastRow td,
-	  .d_lastRow th {
+	& .d_lastRow > td,
+	  .d_lastRow > th {
 		border-bottom: 1px solid $vui-color-titanius;
 	}
 
@@ -128,8 +128,8 @@
 			@include vui-table-row-selected($important:true, $state:'selected');
 		}
 
-		& > tr.d_gs.d_lastRow th,
-		  > tr.d_gs.d_lastRow td {
+		& > tr.d_gs.d_lastRow > th,
+		  > tr.d_gs.d_lastRow > td {
 			border-bottom-color: $vui-color-celestine-light-2;
 		}
 
