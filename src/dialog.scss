@@ -1,0 +1,48 @@
+@import '../bower_components/vui-colors/colors.scss';
+@import '../bower_components/vui-typography/px-to-base-rem.scss';
+@import '../bower_components/vui-icons/icons.scss';
+@import '../bower_components/vui-loading-spinner/loadingSpinner.scss';
+
+$dialog-background-color: #fff;
+
+@mixin _dialog-animation(){
+
+	animation: 0.3s linear slide-in-from-top;
+
+	@keyframes slide-in-from-top {
+		from { top: 0 }
+		to   { top: 70px }
+	}
+}
+
+.d2l-dialog-loading {
+	@include _dialog-animation;
+}
+
+.d2l-dialog-inner {
+	background-color: $dialog-background-color;
+	border: 1px solid $vui-color-titanius;
+	border-radius: px-to-base-rem(6);
+}
+.d2l-dialog-document-body {
+	background-color: transparent;
+}
+.d2l-dialog-title {
+	padding:  px-to-base-rem(10);
+}
+
+.d2l-dialog-close {
+	border-top-right-radius: px-to-base-rem(6);
+	padding: px-to-base-rem(10) px-to-base-rem(20);
+	height: calc(2rem + 2);
+
+	[dir='rtl'] & {
+		border-top-left-radius: px-to-base-rem(6);
+	}
+
+	& > span {
+		@include vui-icon-action-remove;
+
+	}
+}
+

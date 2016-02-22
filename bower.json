@@ -14,6 +14,7 @@
     "vui-icons": "~1.1.0",
     "vui-input": "~1.5.1",
     "vui-link": "~1.1.0",
+	"vui-loading-spinner":"~1.0.0",
     "vui-image-action": "~0.2.1",
     "vui-list": "~1.0.0",
     "vui-offscreen": "~0.3.0",
