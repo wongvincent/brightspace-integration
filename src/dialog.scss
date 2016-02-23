@@ -3,32 +3,73 @@
 @import '../bower_components/vui-icons/icons.scss';
 @import '../bower_components/vui-loading-spinner/loadingSpinner.scss';
 
+$dialog-media-break-small: "(max-device-width: 768px), (max-width:768px)";
 $dialog-background-color: #fff;
 
-@mixin _dialog-animation(){
+@mixin _dialog-animation_slide-from-top(){
 
-	animation: 0.3s linear slide-in-from-top;
+	animation: 0.3s linear dialog-slide-in-from-top;
 
-	@keyframes slide-in-from-top {
-		from { top: 0 }
-		to   { top: 70px }
+	@keyframes dialog-slide-in-from-top {
+		from { top: 0; }
+		to   { top: 70px; }
 	}
 }
 
-.d2l-dialog-loading {
-	@include _dialog-animation;
+@mixin _dialog-animation_slide-from-bottom(){
+
+	animation: 0.3s linear dialog-slide-in-from-bottom;
+	top: 0;
+
+	@keyframes dialog-slide-in-from-bottom {
+		from { top: 100%; }
+		to   { top: 0; }
+	}
 }
+
+
+.d2l-dialog-loading {
+	@include _dialog-animation_slide-from-top;
+
+	@media #{$dialog-media-break-small} {
+		@include _dialog-animation_slide-from-bottom;
+	}
+}
+
+.d2l-dialog {
+	@media #{$dialog-media-break-small} {
+		width: 100% !important;
+		height: 100% !important;
+		left: auto !important;
+		padding: 0 !important;
+	}
+}
+
+
 
 .d2l-dialog-inner {
 	background-color: $dialog-background-color;
 	border: 1px solid $vui-color-titanius;
-	border-radius: px-to-base-rem(6);
+	border-radius: px-to-base-rem(8);
+	box-shadow: 0 2px 12px rgba(86,90,92,0.25);
+	padding: px-to-base-rem(10) px-to-base-rem(30);
+
+	@media #{$dialog-media-break-small} {
+		border-radius: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+
+		& > iframe {
+			width: 100% !important;
+		}
+	}
 }
+
 .d2l-dialog-document-body {
 	background-color: transparent;
-}
-.d2l-dialog-title {
-	padding:  px-to-base-rem(10);
+	@media #{$dialog-media-break-small} {
+		height: 100%;
+	}
 }
 
 .d2l-dialog-close {
@@ -42,7 +83,16 @@ $dialog-background-color: #fff;
 
 	& > span {
 		@include vui-icon-action-remove;
-
 	}
 }
 
+.d2l-dialog-footer {
+	@media #{$dialog-media-break-small} {
+		& .vui-button {
+			margin-top: px-to-base-rem(10) !important;
+		}
+		& .d2l-dialog-resize {
+			display: none !important;
+		}
+	}
+}
