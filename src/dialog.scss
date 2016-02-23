@@ -52,7 +52,7 @@ $dialog-background-color: #fff;
 	border: 1px solid $vui-color-titanius;
 	border-radius: px-to-base-rem(8);
 	box-shadow: 0 2px 12px rgba(86,90,92,0.25);
-	padding: px-to-base-rem(10) px-to-base-rem(30);
+	padding: px-to-base-rem(30);
 
 	@media #{$dialog-media-break-small} {
 		border-radius: 0 !important;
