@@ -15,7 +15,9 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 		name: if($state=="open", dialog-slide-in-from-top-open, dialog-slide-in-from-top-close);
 
 	}
-	top:  if($state=="open", 70px, -1000px);
+	@if $state=="close" {
+		top: -1000px;
+	}
 
 	@keyframes dialog-slide-in-from-top-open {
 		from { transform: translateY(-200%); }
