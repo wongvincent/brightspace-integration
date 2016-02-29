@@ -1,19 +1,18 @@
 @import '../bower_components/vui-table/table.scss';
 @import '../bower_components/vui-colors/colors.scss';
-@import '../bower_components/vui-typography/px-to-base-rem.scss';
 @import '../bower_components/vui-typography/small-text.scss';
 
 /* MVC Grid */
 .d2l-grid-cell-sel {
-	width: px-to-base-rem(13);
+	width: 0.65rem;
 }
 .d2l-grid-footer-wrapper {
-	padding: px-to-base-rem(5);
+	padding: 0.25rem;
 }
 .d2l-grid-loadmore-wrapper {
 	width: 20em;
 	margin: auto;
-	padding: px-to-base-rem(5);
+	padding: 0.25rem;
 }
 
 .d2l-grid-header-cell a,
@@ -30,7 +29,7 @@
 /* Legacy data grid is .yui-dt */
 .yui-dt > table {
 	@include vui-table();
-	padding-bottom: px-to-base-rem(30);
+	padding-bottom: 1.5rem;
 
 	& .yui-dt-selected {
 		@include vui-table-row-selected($state:'selected');
@@ -78,20 +77,20 @@
 }
 
 .d_dg_ac {
-	padding: px-to-base-rem(10) px-to-base-rem(30);
+	padding: 0.5rem 1.5rem;
 }
 
 .d_dg_ps {
-	padding: px-to-base-rem(5);
+	padding: 0.25rem;
 }
 
 /* Legacy Grid */
 .d_g.d_gd,
 .d_g.d_gl {
-	padding-bottom: px-to-base-rem(30);
+	padding-bottom: 1.5rem;
 
 	& td.d_gact {
-		padding: px-to-base-rem(10) px-to-base-rem(30);
+		padding: 0.5rem 1.5rem;
 	}
 
 
@@ -140,7 +139,7 @@
 			}
 			& .d_g_treeNodeImage,
 			  .d_g_l_r {
-				padding: px-to-base-rem(10) px-to-base-rem(30) !important;
+				padding: 0.5rem 1.5rem !important;
 			}
 		}
 		& > tr:not(.d_gactr) > :first-child {
@@ -165,7 +164,7 @@
 
 		& td.d_gd_sel,
 		  td.d_g_l_rb {
-			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
+			padding: 0.5rem 1.5rem !important;
 		}
 
 		& > tr.d_ggl2 {
@@ -175,7 +174,7 @@
 			}
 		}
 		& > tr.d_ggl2 > :first-child {
-			padding: px-to-base-rem(10) px-to-base-rem(30) !important;
+			padding: 0.5rem 1.5rem !important;
 		}
 
 		& .d_grid_sort_asc {

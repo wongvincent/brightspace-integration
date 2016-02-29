@@ -15,10 +15,10 @@
     "vui-input": "~1.5.5",
     "vui-link": "~1.1.1",
     "vui-image-action": "~0.2.1",
-    "vui-list": "~1.0.0",
+    "vui-list": "~1.0.1",
     "vui-offscreen": "~0.3.0",
     "vui-typography": "~2.0.2",
-    "vui-table":"~0.0.9",
+    "vui-table":"~0.0.10",
     "vui-validation":"~1.0.5"
   },
   "private": true
