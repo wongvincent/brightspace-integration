@@ -78,23 +78,19 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 .d2l-dialog-inner {
 	background-color: $dialog-background-color;
 	border: 1px solid $vui-color-titanius;
-	border-radius: px-to-base-rem(8);
+	border-radius: 0.4rem;
 	box-shadow: 0 2px 12px rgba(86,90,92,0.25);
-	padding: px-to-base-rem(30);
+	padding: 1.5rem;
 
 	@media #{$dialog-media-break-small} {
 		border-radius: 0 !important;
 		width: 100% !important;
 		height: 100% !important;
-
-		& > iframe {
-			width: 100% !important;
-		}
 	}
 }
 
 .d2l-dialog-footer .vui-button {
-	margin-top: px-to-base-rem(10);
+	margin-top: 0.5rem;
 }
 
 .d2l-dialog-footer .d2l-dialog-resize {
@@ -108,12 +104,12 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 }
 
 .d2l-dialog-close {
-	border-top-right-radius: px-to-base-rem(6);
+	border-top-right-radius: 0.3rem;
 	height: calc(2rem + 2px);
 	width: calc(2rem + 2px);
 
 	[dir='rtl'] & {
-		border-top-left-radius: px-to-base-rem(6);
+		border-top-left-radius: 0.3rem;
 	}
 
 	& > span {
@@ -134,4 +130,11 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 
 .d2l-dialog-document-body {
 	background-color: transparent;
+}
+
+.d2l-dialog-width {
+	width: 100% !important;
+}
+.d2l-dialog-body {
+	height: 100% !important;
 }
