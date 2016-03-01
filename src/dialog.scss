@@ -81,6 +81,8 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 	border-radius: 0.4rem;
 	box-shadow: 0 2px 12px rgba(86,90,92,0.25);
 	padding: 1.5rem;
+	box-sizing: border-box;
+	height: 100% !important;
 
 	@media #{$dialog-media-break-small} {
 		border-radius: 0 !important;
@@ -98,6 +100,7 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 		display: none !important;
 	}
 }
+
 
 .d2l-dialog-footer {
 	min-height: calc(2rem + 2px);
@@ -134,7 +137,22 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 
 .d2l-dialog-width {
 	width: 100% !important;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: absolute;
 }
+
+.d2l-dialog-title {
+	align-self: flex-start;
+	width: 100%;
+}
+
+.d2l-dialog-footer-container {
+	align-self: flex-end;
+}
+
 .d2l-dialog-body {
-	height: 100% !important;
+	flex-grow: 2;
+	height: auto !important;
 }
