@@ -8,7 +8,6 @@
     "jquery-vui-scrollspy": "~0.2.0",
     "vui-breadcrumbs": "~2.0.0",
     "vui-button": "git://github.com/Brightspace/valence-ui-button.git#wc-prototype",
-    "vui-dropdown": "~0.5.2",
     "vui-field": "~1.0.0",
     "vui-focus": "~0.7.1",
     "vui-icons": "~1.1.0",
