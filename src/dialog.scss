@@ -65,6 +65,7 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 	}
 }
 
+.ddial_o,
 .d2l-dialog {
 	@media #{$dialog-media-break-small} {
 		width: 100% !important;
@@ -72,9 +73,12 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 		left: auto !important;
 		padding: 0 !important;
 		top: 0 !important;
+		position: fixed !important;
 	}
 }
 
+
+.ddial_o2,
 .d2l-dialog-inner {
 	background-color: $dialog-background-color;
 	border: 1px solid $vui-color-titanius;
@@ -95,8 +99,9 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 	margin-top: 0.5rem;
 }
 
+
 .d2l-dialog-footer .d2l-dialog-resize {
-	@media #{$dialog-media-break-small-iframe}{
+	@media #{$dialog-media-break-small-iframe} {
 		display: none !important;
 	}
 }
@@ -131,11 +136,12 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 	}
 }
 
+
 .d2l-dialog-document-body {
 	background-color: transparent;
 }
 
-.d2l-dialog-width {
+:not(.dbd_dialog).d2l-dialog-document-body .d2l-dialog-width {
 	width: 100% !important;
 	display: flex;
 	flex-direction: column;
@@ -143,10 +149,12 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 	position: absolute;
 }
 
+
 .d2l-dialog-title {
 	align-self: flex-start;
 	width: 100%;
 }
+
 
 .d2l-dialog-footer-container {
 	align-self: flex-end;
@@ -155,4 +163,10 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 .d2l-dialog-body {
 	flex-grow: 2;
 	height: auto !important;
+}
+
+.ddial_o .ddial_f {
+	@media #{$dialog-media-break-small} {
+		display: none !important;
+	}
 }
