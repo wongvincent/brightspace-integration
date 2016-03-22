@@ -92,6 +92,11 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 		border-radius: 0 !important;
 		width: 100% !important;
 		height: 100% !important;
+		position: fixed;
+	}
+
+	> .d2l-dialog-frame {
+		width: 100% !important;
 	}
 }
 
