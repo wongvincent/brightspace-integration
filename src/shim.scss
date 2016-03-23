@@ -35,6 +35,7 @@
 .d2l-shim-filter {
 	@include _dialog-animation_shim-filter();
 	filter: blur(1px);
+	transform: translateZ(0);
 }
 
 .d2l-shim-filter.d2l-dialog,
