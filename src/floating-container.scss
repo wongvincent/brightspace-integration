@@ -1,5 +1,6 @@
-@import 'bower_components/vui-colors/colors.scss';
-@import 'bower_components/vui-typography/px-to-base-rem.scss';
+@import 'node_modules/vui-colors/colors.scss';
+@import 'node_modules/vui-typography/headings.scss';
+@import 'node_modules/vui-typography/px-to-base-rem.scss';
 
 .d2l-floating-container {
 	border: solid 1px $vui-color-titanius;
