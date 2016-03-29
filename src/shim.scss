@@ -47,3 +47,7 @@
 	@include _dialog-animation_shim-opacity();
 	opacity: 0.5;
 }
+
+.d2l-shim-body-overflow {
+	overflow: hidden;
+}
