@@ -7,6 +7,7 @@
     "jquery-vui-scrollspy": "~0.2.0",
     "polymer": "^1.4.0",
     "vui-button": "~2.1.2",
+    "vui-colors": "~1.0.1",
     "vui-focus": "~0.7.1",
     "vui-icons": "~1.1.0",
     "vui-link": "~2.0.0",
