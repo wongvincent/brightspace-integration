@@ -8,6 +8,11 @@
 	padding: 0 10px;
 }
 
+.d2l-twopanelselector-side {
+	max-width: 20.5rem;
+	width: 20.5rem;
+}
+
 .d2l-twopanelselector-side.d2l-twopanelselector-side-sep,
 .d2l-twopanelselector-side-bg.d2l-twopanelselector-side-sep {
 	border-right: 1px solid #BBBBBB;
@@ -21,7 +26,7 @@
 	position: absolute;
 	height: 100%;
 	left: 0;
-	width: 22.3em;
+	width: 20.5em;
 	[dir='rtl'] & {
 		right:0;
 	}
