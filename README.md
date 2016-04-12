@@ -38,6 +38,16 @@ To point your Brightspace instance at the local integration project:
 
 The config file will get overwritten during the build.
 
+## Web Components
+
+This project serves as an integration point for our web components and we are using [web-component-shards](https://github.com/PolymerLabs/web-component-shards) to manage common dependencies between components.
+
+To integrate a new web component into BSI, perform the following steps:
+
+1. Reference your component as a bower dependency using the path to the repository plus a version tag (i.e. `bower install --save https://github.com/Brightspace/my-component.git#1.0.0`)
+2. Add an html file (i.e. `my-component.html`) to the root of this project that references the new bower component, omitting the bower_components from the path. (i.e. `../my-component/my-component.html`)
+3. Reference the new html file from the endpoints list in the `build:wc` step in `package.json` (i.e. `--endpoints {...} my-component.html`)
+
 ## Publishing
 
 The project assets (`dist` directory) will be automatically published to the Brightspace CDN by its [Travis CI job](https://travis-ci.org/Brightspace/brightspace-integration) after each successful build of a tagged commit.

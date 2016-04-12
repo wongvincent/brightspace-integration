@@ -13,7 +13,7 @@
     "build:sass": "node-sass --output-style expanded ./src/bsi.scss ./dist/bsi.css",
     "postbuild:sass": "npm run autoprefix && npm run uglify:css",
     "build:icons": "cpy ./bower_components/vui-icons/images/**/*.* ./dist/images",
-    "build:wc": "vulcanize --inline-scripts ./src/bsi.html > ./dist/bsi.html",
+    "build:wc": "web-component-shards --endpoints bsi.html my-courses-widget.html",
     "postinstall": "./node_modules/.bin/bower install",
     "publish:cdn": "frau-publisher -m lib -t bsi -f './dist/**/*' -k AKIAIZGPQIRSA2WEJEDA --secretvar CDN_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
@@ -47,13 +47,13 @@
     "eslint-plugin-react": "^3.5.1",
     "frau-publisher": "^2.5.2",
     "http-server": "^0.8.0",
+    "jquery-vui-more-less": "git://github.com/Brightspace/jquery-valence-ui-more-less.git#bsi-wc",
     "lie": "^3.0.1",
     "node-sass": "^3.3.2",
     "postcss-cli": "^2.1.0",
     "rimraf": "^2.4.2",
     "uglify-js": "^2.6.1",
     "uglifyify": "^3.0.1",
-    "jquery-vui-more-less": "git://github.com/Brightspace/jquery-valence-ui-more-less.git#bsi-wc",
     "vui-breadcrumbs": "git://github.com/Brightspace/valence-ui-breadcrumbs.git#bsi-wc",
     "vui-button": "git://github.com/Brightspace/valence-ui-button.git#bsi-wc",
     "vui-colors": "git://github.com/Brightspace/valence-ui-colors.git#sass",
@@ -63,9 +63,9 @@
     "vui-input": "git://github.com/Brightspace/valence-ui-input.git#bsi-wc",
     "vui-link": "git://github.com/Brightspace/valence-ui-link.git#bsi-wc",
     "vui-list": "git://github.com/Brightspace/valence-ui-list.git#bsi-wc",
-    "vui-table":"git://github.com/Brightspace/valence-ui-table.git#bsi-wc",
+    "vui-table": "git://github.com/Brightspace/valence-ui-table.git#bsi-wc",
     "vui-typography": "git://github.com/Brightspace/valence-ui-typography.git#bsi-wc",
     "vui-validation": "git://github.com/Brightspace/valence-ui-validation.git#bsi-wc",
-    "vulcanize": "^1.14.7"
+    "web-component-shards": "^1.1.3"
   }
 }
