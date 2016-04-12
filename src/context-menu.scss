@@ -43,10 +43,15 @@
 
 .dcm.dcm_handle.d2l-button-menu,
 .d2l-contextmenu-ph {
-    @include vui-dropdown-context-menu;
+	@include vui-dropdown-context-menu;
 	margin-left: px-to-base-rem(5);
 	[dir='rtl'] & {
 		margin-left: auto;
 		margin-right: px-to-base-rem(5);
 	}
+}
+
+.dcm.dcm_handle.d2l-contextmenu-opener-open,
+.d2l-contextmenu-ph.d2l-contextmenu-opener-open {
+	@include vui-dropdown-context-menu-open;
 }
