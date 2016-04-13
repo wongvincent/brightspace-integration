@@ -1,0 +1,45 @@
+<link rel="import" href="../vui-colors/colors.html">
+<dom-module id="bsi-button-split">
+	<template>
+		<style include="vui-colors">
+
+			.d2l-button-split > button {
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				margin-right: 0;
+			}
+
+			[dir='rtl'] .d2l-button-split > button {
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-top-right-radius: 0.3rem;
+				border-bottom-right-radius: 0.3rem;
+				margin-left: 0;
+				margin-right: 0.75rem;
+			}
+
+			.d2l-button-split > .d2l-button-menu {
+				border-left-color: transparent;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-top-right-radius: 0.3rem;
+				border-bottom-right-radius: 0.3rem;
+			}
+
+			[dir='rtl'] .d2l-button-split > .d2l-button-menu {
+				border-left-color: var(--vui-color-titanius);
+				border-right-color: transparent;
+				border-top-left-radius: 0.3rem;
+				border-bottom-left-radius: 0.3rem;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			[dir='rtl'] .d2l-button-split > .d2l-button-menu:hover,
+			[dir='rtl'] .d2l-button-split > .d2l-button-menu:focus {
+				border-color: var(--vui-color-pressicus);
+			}
+
+		</style>
+	</template>
+</dom-module>
