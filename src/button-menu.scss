@@ -1,3 +1,11 @@
+.dcm.vui-button {
+	margin-right: 0.75rem;
+}
+
+[dir='rtl'] .dcm.vui-button {
+	margin-right: 0.75rem;
+}
+
 .dcm.vui-button > span {
 	@include vui-dropdown-button-menu-content;
 }
