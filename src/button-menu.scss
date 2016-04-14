@@ -1,7 +1,7 @@
-.d2l-button-menu > span {
+.dcm.vui-button > span {
 	@include vui-dropdown-button-menu-content;
 }
 
-.d2l-button-menu.vui-button-primary > span {
+.dcm.vui-button.vui-button-primary > span {
 	@include vui-dropdown-button-menu-primary-content;
 }
