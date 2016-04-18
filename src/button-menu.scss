@@ -1,7 +1,7 @@
-.d2l-button-menu > span {
+.bsi-button-menu > span {
 	@include vui-dropdown-button-menu-content;
 }
 
-.d2l-button-menu.vui-button-primary > span {
+.bsi-button-menu.bsi-button-menu-primary > span {
 	@include vui-dropdown-button-menu-primary-content;
 }
