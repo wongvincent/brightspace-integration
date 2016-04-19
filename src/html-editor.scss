@@ -11,6 +11,11 @@
 .d2l-htmleditor-toolbar-item {
 	min-height: 2.2em;
 	border-left: 1px solid #CCC;
+
+	[dir="rtl"] & {
+		border-right: 1px solid #CCC;
+		border-left: none;
+	}
 }
 
 .d2l-htmleditor-footer {
@@ -23,6 +28,11 @@
 
 .d2l-htmleditor-toolbar-item:first-child {
 	border-left: 1px solid transparent;
+
+	[dir="rtl"] & {
+		border-right: 1px solid transparent;
+		border-left: none;
+	}
 }
 
 /* Originally from Group.css: */
