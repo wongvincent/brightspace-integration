@@ -5,33 +5,33 @@
 	<template>
 		<style>
 			:root {
-				--vui-htmleditor-height: 40px;
+				--vui-htmleditor-toolbar-height: 40px;
 				--vui-htmleditor-border-radius: 0.3rem;
 			}
+
+			/* Related to HtmlEditor.css: */
 
 			.d2l-htmleditor {
 				border-radius: var(--vui-htmleditor-border-radius);
 			}
 
-			.d2l-htmleditor-button {
-		    padding: calc((var(--vui-htmleditor-height) - 16px) / 2);
+			.d2l-htmleditor-header {
+				padding: 0.5rem 0.5rem 0 0.5rem;
 			}
 
-			.d2l-htmleditor-button:hover,
-			.d2l-htmleditor-button:focus {
-		    background-color: var(--vui-color-woolonardo);
+			.d2l-htmleditor-footer {
+				padding: 3px 0.7rem;
 			}
 
-			.d2l-htmleditor-color-button {
-		    padding: calc((var(--vui-htmleditor-height) - 16px - 4px) / 2);
+			.d2l-htmleditor-toolbar-item .d2l-select {
+				font-size: 0.7rem;
+				font-weight: normal;
 			}
 
-			.d2l-htmleditor-buttonmenuitem {
-				padding: 0.5rem;
-			}
-
-			.d2l-htmleditor-buttonmenuitem-text {
-				margin-left: calc(22px + 0.3rem);
+			.d2l-htmleditor-toolbar-item .d2l-select,
+			.d2l-htmleditor-toolbar-item .d2l-select:hover,
+			.d2l-htmleditor-toolbar-item .d2l-select:focus {
+				padding: 0.4rem calc(1rem + 42px) 0.4rem 0.7rem;
 			}
 
 			.d2l-htmleditor-component-toggle {
@@ -43,29 +43,24 @@
 				background-color: var(--vui-color-woolonardo);
 			}
 
-			.d2l-htmleditor-toolbar-item .d2l-select,
-			.d2l-htmleditor-toolbar-item .d2l-select:hover,
-			.d2l-htmleditor-toolbar-item .d2l-select:focus {
-				padding: 0.4rem calc(1rem + 42px) 0.4rem 0.7rem;
+			.d2l-htmleditor-component-container {
+				line-height: normal;
 			}
 
-			.d2l-htmleditor-header {
-				padding: 0.5rem 0.5rem 0 0.5rem;
+			.d2l-htmleditor-toolbar-item {
+		    min-height: var(--vui-htmleditor-toolbar-height);
 			}
+
+			/* Related to Group.css */
 
 			.d2l-htmleditor-group {
 				border-radius: var(--vui-htmleditor-border-radius);
 				margin-right: 0.3rem;
 			}
 
-			.d2l-htmleditor-component-container {
-				line-height: normal;
-			}
-
-			.d2l-button.d2l-htmleditor-component-toggle {
-				margin-right: 0;
-				padding-left: 0.7rem;
-				padding-right: 0.7rem;
+			[dir="rtl"] .d2l-htmleditor-group {
+				margin-right: 0px;
+				margin-left: 0.3rem;
 			}
 
 			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item .d2l-select {
@@ -73,25 +68,24 @@
 			}
 
 			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:first-child .d2l-select,
-			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:first-child .d2l-htmleditor-button  {
+			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:first-child .d2l-htmleditor-button,
+			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:first-child .d2l-menuflyout-opener   {
 				border-top-left-radius: var(--vui-htmleditor-border-radius);
 				border-bottom-left-radius: var(--vui-htmleditor-border-radius);
 			}
 
 			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-select,
 			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-htmleditor-button,
-			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener {
+			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-menuflyout-opener {
 				border-top-right-radius: var(--vui-htmleditor-border-radius);
 				border-bottom-right-radius: var(--vui-htmleditor-border-radius);
 			}
 
-			.d2l-htmleditor-toolbar-item {
-		    min-height: var(--vui-htmleditor-height);
-			}
+			/* Originally from Menu.css & MenuFlyout.css: */
 
 			.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener {
-				padding: calc((var(--vui-htmleditor-height) - 16px) / 2) 0.35em;
-				border-left: 1px solid #CCC;
+				padding: calc((var(--vui-htmleditor-toolbar-height) - 16px) / 2) 0.35em;
+				border-left: 1px solid #CCC; /* to do: consider target only last child? */
 			}
 
 			.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:hover,
@@ -101,7 +95,65 @@
 
 			.d2l-menuflyout.d2l-htmleditor-menuflyout > .d2l-menuflyout-contents {
 				border-radius: var(--vui-htmleditor-border-radius);
+				margin-top: -0.3rem;
+			}
+
+			.d2l-menuflyout.d2l-htmleditor-menuflyout > .d2l-menuflyout-contents.d2l-menuflyout-contents-right {
 				border-top-left-radius: 0;
+			}
+
+			.d2l-menuflyout.d2l-htmleditor-menuflyout > .d2l-menuflyout-contents.d2l-menuflyout-contents-left {
+				border-top-right-radius: 0;
+			}
+
+			/* Related to Button.css: */
+
+			.d2l-htmleditor-button {
+		    padding: calc((var(--vui-htmleditor-toolbar-height) - 16px) / 2);
+			}
+
+			.d2l-htmleditor-button.d2l-htmleditor-button-disabled:focus,
+			.d2l-htmleditor-button.d2l-htmleditor-button-disabled:hover {
+				background-color: initial;
+			}
+
+			.d2l-htmleditor-button:hover,
+			.d2l-htmleditor-button:focus {
+		    background-color: var(--vui-color-woolonardo);
+			}
+
+			.d2l-htmleditor-buttonmenuitem {
+				padding: 0.5rem;
+			}
+
+			.d2l-htmleditor-buttonmenuitem-text {
+				margin-left: calc(22px + 0.3rem);
+			}
+
+			.d2l-button.d2l-htmleditor-component-toggle {
+				margin-right: 0;
+				padding-left: 0.7rem;
+				padding-right: 0.7rem;
+			}
+
+			/* Related to ColorButton.css: */
+
+			.d2l-htmleditor-color .d2l-htmleditor-color-action {
+				border-top-left-radius: var(--vui-htmleditor-border-radius);
+				border-bottom-left-radius: var(--vui-htmleditor-border-radius);
+			}
+			.d2l-htmleditor-color .d2l-htmleditor-color-select {
+				border-top-right-radius: var(--vui-htmleditor-border-radius);
+				border-bottom-right-radius: var(--vui-htmleditor-border-radius);
+			}
+
+			.d2l-htmleditor-color-button {
+				padding: calc((var(--vui-htmleditor-toolbar-height) - 16px - 2px) / 2);
+			}
+
+			.d2l-htmleditor-color-button:hover,
+			.d2l-htmleditor-color-button:focus {
+				background: var(--vui-color-woolonardo);
 			}
 
 		</style>
