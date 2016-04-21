@@ -5,7 +5,8 @@
 	<template>
 		<style>
 			:root {
-				--vui-htmleditor-toolbar-height: 40px;
+				--vui-htmleditor-icon-height: 16px;
+				--vui-htmleditor-toolbar-height: 2rem;
 				--vui-htmleditor-border-radius: 0.3rem;
 			}
 
@@ -20,7 +21,7 @@
 			}
 
 			.d2l-htmleditor-footer {
-				padding: 3px 0.7rem;
+				padding: 0.15rem 0.7rem;
 			}
 
 			.d2l-htmleditor-toolbar-item .d2l-select {
@@ -55,7 +56,7 @@
 			}
 
 			.d2l-htmleditor-toolbar-item {
-		    min-height: var(--vui-htmleditor-toolbar-height);
+		    	min-height: var(--vui-htmleditor-toolbar-height);
 			}
 
 			/* Related to Group.css */
@@ -66,7 +67,7 @@
 			}
 
 			[dir="rtl"] .d2l-htmleditor-group {
-				margin-right: 0px;
+				margin-right: 0;
 				margin-left: 0.3rem;
 			}
 
@@ -91,7 +92,11 @@
 			}
 
 			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-select,
-			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-htmleditor-button,
+			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-htmleditor-button {
+				border-top-right-radius: var(--vui-htmleditor-border-radius);
+				border-bottom-right-radius: var(--vui-htmleditor-border-radius);
+			}
+
 			.d2l-htmleditor-group .d2l-htmleditor-toolbar-item:last-child .d2l-menuflyout-opener {
 				border-radius: 0;
 				border-top-right-radius: var(--vui-htmleditor-border-radius);
@@ -110,7 +115,7 @@
 			/* Related to Menu.css & MenuFlyout.css: */
 
 			.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener {
-				padding: calc((var(--vui-htmleditor-toolbar-height) - 16px) / 2) 0.35em;
+				padding: calc((var(--vui-htmleditor-toolbar-height) - var(--vui-htmleditor-icon-height)) / 2) 0.35rem;
 				border-left: 1px solid #CCC;
 			}
 
@@ -140,7 +145,7 @@
 			/* Related to Button.css: */
 
 			.d2l-htmleditor-button {
-		    padding: calc((var(--vui-htmleditor-toolbar-height) - 16px) / 2);
+		    padding: calc((var(--vui-htmleditor-toolbar-height) - var(--vui-htmleditor-icon-height)) / 2);
 			}
 
 			.d2l-htmleditor-button.d2l-htmleditor-button-disabled:focus,
@@ -194,7 +199,7 @@
 			}
 
 			.d2l-htmleditor-color-button {
-				padding: calc((var(--vui-htmleditor-toolbar-height) - 16px - 2px) / 2);
+				padding: calc((var(--vui-htmleditor-toolbar-height) - var(--vui-htmleditor-icon-height) - 2px) / 2);
 			}
 
 			.d2l-htmleditor-color-button:hover,
