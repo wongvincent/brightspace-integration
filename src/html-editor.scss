@@ -1,0 +1,106 @@
+/* Originally from HtmlEditor.css: */
+
+.d2l-htmleditor {
+	border-radius: 3px;
+}
+
+.d2l-htmleditor-header {
+	padding: 3px;
+}
+
+.d2l-htmleditor-toolbar-item {
+	min-height: 2.2em;
+	border-left: 1px solid #CCC;
+
+	[dir="rtl"] & {
+		border-right: 1px solid #CCC;
+		border-left: none;
+	}
+}
+
+.d2l-htmleditor-footer {
+	padding: 3px;
+}
+
+.d2l-htmleditor-toolbar-item .d2l-select {
+	min-height: 2.2em;
+}
+
+.d2l-htmleditor-toolbar-item:first-child {
+	border-left: 1px solid transparent;
+
+	[dir="rtl"] & {
+		border-right: 1px solid transparent;
+		border-left: none;
+	}
+}
+
+/* Originally from Group.css: */
+
+.d2l-htmleditor-group {
+	background: #FFF; /* Old browsers */
+	background: -moz-linear-gradient(top,  #FFF 0, #EEE 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF), color-stop(100%, #EEE)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #FFF 0, #EEE 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #FFF 0, #EEE 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #FFF 0, #EEE 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #FFF 0, #EEE 100%); /* W3C */
+	border-radius: 3px;
+	margin-right: 4px;
+
+	[dir="rtl"] & {
+		margin-right: 0px;
+		margin-left: 4px;
+	}
+}
+
+/* Originally from Menu.css: TO DO CHECK RTL ON THIS ONE NEXT */
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener {
+	padding: 0.45em 0.25em;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:hover,
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:focus {
+	background: #FFF;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout > .d2l-menuflyout-contents {
+	margin-left: -1px;
+}
+
+/* Originally from MenuFlyout.css: */
+
+.d2l-menuflyout-contents {
+	margin-top: -1px;
+}
+
+/* Originall from Button.css: */
+
+.d2l-htmleditor-button {
+	padding: 0.45em;
+}
+
+.d2l-htmleditor-button:hover,
+.d2l-htmleditor-button:focus {
+	background-color: #FFF;
+}
+
+.d2l-htmleditor-buttonmenuitem {
+	padding: 4px 3px 1px 3px;
+}
+
+.d2l-htmleditor-buttonmenuitem-text {
+	margin-left: 22px;
+}
+
+/* Originally from ColorButton.css: */
+
+.d2l-htmleditor-color-focus,
+.d2l-htmleditor-color-mouse {
+	background: #FFF;
+}
+
+.d2l-htmleditor-color-button {
+	padding: 0.4em;
+}
