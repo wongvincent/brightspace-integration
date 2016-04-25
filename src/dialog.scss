@@ -13,8 +13,8 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 		duration: 0.3s;
 		timing-function: linear;
 		name: if($state=="open", dialog-slide-in-from-top-open, dialog-slide-in-from-top-close);
-
 	}
+
 	@if $state=="close" {
 		top: -1000px;
 	}
@@ -112,8 +112,8 @@ $dialog-close-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQA
 	}
 }
 
-.d2l-dialog-footer .vui-button {
-	margin-top: 0.5rem;
+.d2l-dialog-buttons button {
+	margin-top: 0.75rem;
 }
 
 
