@@ -126,26 +126,10 @@
 	right: auto;
 }
 
-.daylight.d2l-dialog-resize {
-	background-position: 100% 100%;
-}
-
-.daylight[dir='rtl'].d2l-dialog-resize {
-	background-position: 0 100%;
-}
-
-.daylight .d2l-dialog-resizehandle-hide .d2l-dialog-resize {
-	display: none;
-}
-
 .d2l-dialog-frame {
 	height: 300px;
 	position: absolute;
 	width: 398px;
-}
-
-.daylight .d2l-dialog-frame {
-	height: 100% !important;
 }
 
 .d2l-dialog-frame-loading {
@@ -212,11 +196,6 @@
 	margin: 0 auto;
 	top: 20%;
 	display: block;
-}
-
-.daylight .d2l-dialog-document-body {
-	background-color: transparent;
-	height: 100%;
 }
 
 .d2l-dialog-buttons {
