@@ -1,0 +1,203 @@
+.d2l-dialog {
+	background-color: #f4f4f4;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	left: 100px;
+	height: 300px;
+	overflow: hidden;
+	position: absolute;
+	padding: 3px;
+	width: 400px;
+}
+
+.d2l-dialog-inner {
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.d2l-dialog-title {
+	background: #f8f8f8; /* Old browsers */
+	background: -moz-linear-gradient(top, #f8f8f8 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f8f8f8 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f8f8f8 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f8f8f8 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #f8f8f8 0%,#f2f2f2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+	border-bottom: 1px solid #cccccc;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	-webkit-box-shadow: inset 0 1px 0 0 #ffffff;
+	-moz-box-shadow: inset 0 1px 0 0 #ffffff;
+	box-shadow: inset 0 1px 0 0 #ffffff;
+	padding: 5px 46px 5px 10px;
+	zoom: 1;
+}
+
+[dir='rtl'] .d2l-dialog-title {
+	padding-right: 10px;
+	padding-left: 46px;
+}
+
+.d2l-dialog-title.d2l-dialog-title-noclose {
+	padding-right: 10px;
+}
+
+[dir='rtl'] .d2l-dialog-title.d2l-dialog-title-noclose {
+	padding-left: 10px;
+}
+
+.d2l-dialog-title, .d2l-dialog-footer {
+	position: relative;
+}
+
+.d2l-dialog-title .d2l-heading {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	word-wrap: break-word;
+}
+
+.d2l-dialog-close {
+	border-left: 1px solid #cccccc;
+	display: block;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+[dir='rtl'] .d2l-dialog-close {
+	border-left: none;
+	border-right: 1px solid #cccccc;
+	left: 0;
+	right: auto;
+}
+
+.d2l-dialog-close > span {
+	background-image: url(/d2l/img/lp/dialog/x.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: block;
+	height: 100%;
+	padding: 0 10px;
+	width: 16px;
+}
+
+.d2l-dialog-close:hover,
+.d2l-dialog-close:focus {
+	background: #fdfdfd; /* Old browsers */
+	background: -moz-linear-gradient(top, #fdfdfd 0%, #fafafa 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#fafafa)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fdfdfd 0%,#fafafa 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fdfdfd 0%,#fafafa 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fdfdfd 0%,#fafafa 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #fdfdfd 0%,#fafafa 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#fafafa',GradientType=0 ); /* IE6-9 */
+}
+
+.d2l-dialog-resize {
+	background-image: url(/d2l/img/lp/dialog/resize.png);
+	background-repeat: no-repeat;
+	bottom: 0;
+	cursor: nw-resize;
+	display: inline-block;
+	height: 16px;
+	margin: 0 7px 9px 0;
+	position: absolute;
+	right: 0;
+	width: 16px;
+}
+
+[dir='rtl'] .d2l-dialog-resize {
+	background-image: url(/d2l/img/lp/dialog/resize_rtl.png);
+	cursor: ne-resize;
+	left: 0;
+	margin-right: 0;
+	margin-left: 7px;
+	right: auto;
+}
+
+.d2l-dialog-frame {
+	height: 300px;
+	position: absolute;
+	width: 398px;
+}
+
+.d2l-dialog-frame-loading {
+	left: -10000px;
+	visibility: hidden;
+}
+
+[dir='rtl'] .d2l-dialog-frame-loading {
+	right: -10000px;
+}
+
+.d2l-dialog-body {
+	-moz-box-shadow: 0 2px 1px #F4F4F4 inset;
+	-webkit-box-shadow: 0 2px 1px #F4F4F4 inset;
+	box-shadow: 0 2px 1px #F4F4F4 inset;
+	overflow: auto;
+	position: relative;
+}
+
+.d2l-dialog-padding {
+	padding: 10px;
+}
+
+.d2l-dialog-footer {
+	background-color: #f4f4f4;
+	border-top: 1px solid #d7d7d7;
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	min-height: 26px;
+}
+
+.d2l-dialog-footer-container {
+	bottom:0;
+	box-shadow: 0 0 6px 1px rgba(180, 180, 205, 0.8);
+	position: absolute;
+	width:100%;
+}
+
+.d2l-dialog-optional-footer {
+	background-color:#f1f4ff;
+	border-top: 1px solid #cccccc;
+}
+
+.d2l-dialog-button-group {
+	float: left;
+	padding-right: 1.5em;
+}
+
+[dir='rtl'] .d2l-dialog-button-group {
+	float: right;
+	padding-left: 1.5em;
+}
+
+.d2l-dialog-loading-spinner {
+	width: 100%;
+	height: 100%;
+}
+
+.d2l-dialog-loading-spinner > .vui-loading-spinner {
+	margin: 0 auto;
+	top: 20%;
+	display: block;
+}
+
+.d2l-dialog-buttons {
+	padding: 10px;
+}
