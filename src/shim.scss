@@ -1,15 +1,3 @@
-@mixin _dialog-animation_shim-filter() {
-	animation: {
-		duration: 0.3s;
-		timing-function: linear;
-		name: dialog-shim-filter-in;
-	}
-
-	@keyframes dialog-shim-filter-in {
-		from { filter: blur(0); }
-		to   { filter: blur(1px); }
-	}
-}
 
 @mixin _dialog-animation_shim-opacity() {
 	animation: {
@@ -30,17 +18,6 @@
 	opacity: 0;
 	position: fixed;
 	transition: opacity 0.3s linear;
-}
-
-.d2l-shim-filter {
-	@include _dialog-animation_shim-filter();
-	filter: blur(1px);
-	transform: translateZ(0);
-}
-
-.d2l-shim-filter.d2l-dialog,
-.d2l-shim-filter.ddial_o {
-	filter: blur(0);
 }
 
 .d2l-shim-opaque {
