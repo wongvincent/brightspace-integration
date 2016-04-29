@@ -1,0 +1,7 @@
+body > * {
+	transition: opacity ease-in .2s;
+}
+
+body.d2l-page-loading > *:not(.d2l-page-loading-skip) {
+	opacity: 0;
+}

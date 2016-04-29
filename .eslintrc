@@ -1,6 +1,10 @@
 {
   "extends": "brightspace",
   "env": {
+    "browser": true,
     "node": true
+  },
+  "rules": {
+      "strict": 2
   }
 }
