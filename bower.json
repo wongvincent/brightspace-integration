@@ -15,7 +15,7 @@
     "vui-loading-spinner": "~1.0.0",
     "vui-offscreen": "~0.3.0",
     "vui-typography": "~3.1.0",
-    "my-courses-widget": "https://github.com/Brightspace/my-courses-widget.git#0.1.1"
+    "d2l-my-courses": "https://github.com/Brightspace/d2l-my-courses-ui.git#0.1.2"
   },
   "private": true
 }
