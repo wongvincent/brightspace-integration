@@ -9,15 +9,18 @@
 }
 
 .d2l-twopanelselector-side {
-	max-width: 410px;
-	width: 410px;
+	max-width: 400px;
+	width: 400px;
 }
 
 .d2l-twopanelselector-side.d2l-twopanelselector-side-sep,
 .d2l-twopanelselector-side-bg.d2l-twopanelselector-side-sep {
-	border-right: 1px solid #BBBBBB;
+	border-right: 1px solid $vui-color-gypsum;
+	background: linear-gradient(to right, rgba(0,0,0,0) 0%, $vui-color-regolith 400px);
+
 	[dir='rtl'] & {
-		border-left: 1px solid #BBBBBB;
+		background: linear-gradient(to left, rgba(0,0,0,0) 0%, $vui-color-regolith 400px);
+		border-left: 1px solid $vui-color-gypsum;
 		border-right: none;
 	}
 }
@@ -26,7 +29,7 @@
 	position: absolute;
 	height: 100%;
 	left: 0;
-	width: 20.5em;
+	width: 400px;
 	[dir='rtl'] & {
 		right:0;
 	}
