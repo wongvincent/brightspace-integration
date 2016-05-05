@@ -8,40 +8,6 @@
 				overflow-y: hidden;
 			}
 
-			.vui-typography .d2l-htmlblock ul,
-			.vui-typography .d2l-htmlblock ol {
-				list-style-position: outside;
-				margin: 1em 0;
-				padding-left: 3em;
-			}
-
-			.vui-typography .d2l-htmlblock ul,
-			.vui-typography .d2l-htmlblock ul[type="disc"] {
-				list-style-type: disc;
-			}
-
-			.vui-typography .d2l-htmlblock ul ul,
-			.vui-typography .d2l-htmlblock ul ol,
-			.vui-typography .d2l-htmlblock ol ul,
-			.vui-typography .d2l-htmlblock ol ol {
-				margin-top: 0;
-				margin-bottom:0;
-			}
-
-			.vui-typography .d2l-htmlblock ul ul,
-			.vui-typography .d2l-htmlblock ol ul,
-			.vui-typography .d2l-htmlblock ul[type="circle"] {
-				list-style-type: circle;
-			}
-
-			.vui-typography .d2l-htmlblock ul ul ul,
-			.vui-typography .d2l-htmlblock ul ol ul,
-			.vui-typography .d2l-htmlblock ol ul ul,
-			.vui-typography .d2l-htmlblock ol ol ul,
-			.vui-typography .d2l-htmlblock ul[type="square"] {
-				list-style-type: square;
-			}
-
 			.vui-typography .d2l-htmlblock h1,
 			.vui-typography .d2l-htmlblock h2,
 			.vui-typography .d2l-htmlblock h3,
@@ -53,19 +19,6 @@
 			.vui-typography .d2l-htmlblock b *,
 			.vui-typography .d2l-htmlblock strong * {
 				font-weight: bold;
-			}
-
-			.vui-typography .d2l-htmlblock a,
-			.vui-typography .d2l-htmlblock a:visited {
-				color: var(--vui-color-celestine);
-				cursor: pointer;
-				font-weight: normal;
-				text-decoration: none;
-			}
-			.vui-typography .d2l-htmlblock a:hover,
-			.vui-typography .d2l-htmlblock a:focus {
-				color: var(--vui-color-celestuba);
-				text-decoration: underline;
 			}
 
 			.vui-typography .d2l-htmlblock h1 {
@@ -114,12 +67,60 @@
 				margin: 0.5em 0 1em 0;
 			}
 
-			[dir='rtl'] .vui-typography .d2l-htmlblock {
+			.d2l-htmlblock ul,
+			.d2l-htmlblock ol {
+				list-style-position: outside;
+				margin: 1em 0;
+				padding-left: 3em;
+			}
+
+			.d2l-htmlblock ul,
+			.d2l-htmlblock ul[type="disc"] {
+				list-style-type: disc;
+			}
+
+			.d2l-htmlblock ul ul,
+			.d2l-htmlblock ul ol,
+			.d2l-htmlblock ol ul,
+			.d2l-htmlblock ol ol {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			.d2l-htmlblock ul ul,
+			.d2l-htmlblock ol ul,
+			.d2l-htmlblock ul[type="circle"] {
+				list-style-type: circle;
+			}
+
+			.d2l-htmlblock ul ul ul,
+			.d2l-htmlblock ul ol ul,
+			.d2l-htmlblock ol ul ul,
+			.d2l-htmlblock ol ol ul,
+			.d2l-htmlblock ul[type="square"] {
+				list-style-type: square;
+			}
+
+			.d2l-htmlblock a,
+			.d2l-htmlblock a:visited {
+				color: var(--vui-color-celestine);
+				cursor: pointer;
+				font-weight: normal;
+				text-decoration: none;
+			}
+
+			.d2l-htmlblock a:hover,
+			.d2l-htmlblock a:focus {
+				color: var(--vui-color-celestuba);
+				text-decoration: underline;
+			}
+
+			[dir='rtl'] .d2l-htmlblock {
 				text-align: right;
 			}
 
-			[dir='rtl'] .vui-typography .d2l-htmlblock ul,
-			[dir='rtl'] .vui-typography .d2l-htmlblock ol {
+			[dir='rtl'] .d2l-htmlblock ul,
+			[dir='rtl'] .d2l-htmlblock ol {
 				padding-left: 0;
 				padding-right: 3em;
 			}
