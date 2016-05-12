@@ -46,12 +46,12 @@
 }
 
 .d2l-page-main-padding {
-	padding: 10px 1.5rem;
+	padding: 10px 2.439%;
 
-	@media screen and (max-width: 25em)  {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
+	@media(max-width: 615px) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 }
 
 .d2l-page-header {
