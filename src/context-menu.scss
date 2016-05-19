@@ -28,6 +28,21 @@
 	border-style: none;
 }
 
+.vui-dropdown-menu > ul > li.d2l-first-visible-item {
+	border-top-left-radius: 0.4rem;
+	border-top-right-radius: 0.4rem;
+}
+
+.vui-dropdown-menu > ul > li.d2l-last-visible-item {
+	border-bottom-left-radius: 0.4rem;
+	border-bottom-right-radius: 0.4rem;
+	border-bottom: 1px solid $vui-color-titanius;
+}
+
+.vui-dropdown-menu > ul > li.d2l-contextmenu-item-hover-next-visible {
+	border-top-width: 0;
+}
+
 .vui-dropdown-menu-item-link {
 	background-repeat: no-repeat;
 	background-position: px-to-base-rem(11px) px-to-base-rem(20px);
