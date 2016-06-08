@@ -2,7 +2,7 @@
   "name": "brightspace-integration",
   "dependencies": {
     "d2l-my-courses": "https://github.com/Brightspace/d2l-my-courses-ui.git#0.3.2",
-    "d2l-navigation": "https://github.com/Brightspace/d2l-navigation-ui.git#0.2.0",
+    "d2l-navigation": "https://github.com/Brightspace/d2l-navigation-ui.git#0.3.1",
     "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "~1.2.0",
     "jquery-vui-change-tracking": "~0.4.0",
@@ -11,7 +11,7 @@
     "vui-button": "~2.1.4",
     "vui-colors": "~1.0.1",
     "vui-focus": "~0.7.1",
-    "d2l-icons": "~2.0.0",
+    "d2l-icons": "~2.0.1",
     "vui-link": "~2.1.0",
     "vui-loading-spinner": "~1.0.0",
     "vui-offscreen": "~0.3.0",
