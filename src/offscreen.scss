@@ -1,0 +1,5 @@
+@import '../bower_components/d2l-offscreen/offscreen.scss';
+
+.vui-offscreen {
+	@include d2l-offscreen();
+}
