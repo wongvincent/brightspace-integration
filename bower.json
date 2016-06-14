@@ -12,6 +12,7 @@
     "jquery-vui-scrollspy": "~0.2.0",
     "polymer": "^1.5.0",
     "vui-button": "~2.1.4",
+    "vui-field": "~1.2.0",
     "vui-focus": "~0.7.1",
     "vui-link": "~2.1.0",
     "vui-loading-spinner": "~1.0.0",
