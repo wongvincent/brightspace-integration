@@ -1,4 +1,6 @@
-@import '../bower_components/d2l-colors/d2l-colors.scss';
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+
+/* these are still referenced by a few FRAs */
 
 @mixin _vui-link-focus() {
 	color: $d2l-color-celestuba;
