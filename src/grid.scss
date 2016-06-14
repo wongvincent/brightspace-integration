@@ -1,5 +1,5 @@
 @import 'node_modules/vui-table/table.scss';
-@import 'node_modules/vui-colors/colors.scss';
+@import '../bower_components/d2l-colors/d2l-colors.scss';
 @import 'node_modules/vui-typography/small-text.scss';
 
 /* MVC Grid */
@@ -47,7 +47,7 @@
 	& > tbody.yui-dt-message > tr:last-child {
 		& th,
 		  td {
-			border-bottom: 1px solid $vui-color-titanius;
+			border-bottom: 1px solid $d2l-color-titanius;
 		}
 
 		& > :first-child {
@@ -96,7 +96,7 @@
 
 	& .d_lastRow > td,
 	  .d_lastRow > th {
-		border-bottom: 1px solid $vui-color-titanius;
+		border-bottom: 1px solid $d2l-color-titanius;
 	}
 
 	& >:only-child {
@@ -115,7 +115,7 @@
 		& > tr.d_gactr + tr.d_gh > th,
 		  > tr.fgskip + tr.d_gh > th,
 		  > tbody + tr.d_gh > th {
-			border-top: 1px solid $vui-color-titanius;
+			border-top: 1px solid $d2l-color-titanius;
 		}
 
 		& > .d_gh > th {
@@ -129,7 +129,7 @@
 
 		& > tr.d_gs.d_lastRow > th,
 		  > tr.d_gs.d_lastRow > td {
-			border-bottom-color: $vui-color-celestine-light-2;
+			border-bottom-color: $d2l-color-celestine-light-2;
 		}
 
 		& > tr:not(.d_gactr):not(.d_gh) {
@@ -143,10 +143,10 @@
 			}
 		}
 		& > tr:not(.d_gactr) > :first-child {
-			border-left: 1px solid $vui-color-titanius;
+			border-left: 1px solid $d2l-color-titanius;
 		}
 		[dir='rtl'] & > tr:not(.d_gactr) > :last-child {
-			border-left: 1px solid $vui-color-titanius;
+			border-left: 1px solid $d2l-color-titanius;
 		}
 
 		[dir='rtl'] & > tr:not(.d_gactr) > :first-child {
@@ -170,7 +170,7 @@
 		& > tr.d_ggl2 {
 			& td,
 			  th {
-				background-color:$vui-color-regolith;
+				background-color:$d2l-color-regolith;
 			}
 		}
 		& > tr.d_ggl2 > :first-child {

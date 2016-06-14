@@ -1,5 +1,6 @@
 @import 'node_modules/vui-typography/px-to-base-rem.scss';
 @import 'node_modules/vui-dropdown/context-menu.scss';
+@import '../bower_components/d2l-colors/d2l-colors.scss';
 
 @keyframes vui-dropdown-menu-overlay-flip-x-animation {
 	0% {
@@ -36,7 +37,7 @@
 .vui-dropdown-menu > ul > li.d2l-last-visible-item {
 	border-bottom-left-radius: 0.4rem;
 	border-bottom-right-radius: 0.4rem;
-	border-bottom: 1px solid $vui-color-titanius;
+	border-bottom: 1px solid $d2l-color-titanius;
 }
 
 .vui-dropdown-menu > ul > li.d2l-contextmenu-item-hover-next-visible {

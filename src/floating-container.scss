@@ -1,10 +1,10 @@
-@import 'node_modules/vui-colors/colors.scss';
+@import '../bower_components/d2l-colors/d2l-colors.scss';
 @import 'node_modules/vui-typography/headings.scss';
 @import 'node_modules/vui-typography/px-to-base-rem.scss';
 
 .d2l-floating-container {
-	border: solid 1px $vui-color-titanius;
-	background-color: $vui-color-white;
+	border: solid 1px $d2l-color-titanius;
+	background-color: $d2l-color-white;
 	border-radius: px-to-base-rem(8px);
 	box-shadow: 0 2px 12px 0 rgba(86, 90, 92, .2);
 }
