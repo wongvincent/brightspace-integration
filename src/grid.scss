@@ -1,6 +1,5 @@
 @import 'node_modules/vui-table/table.scss';
 @import '../bower_components/d2l-colors/d2l-colors.scss';
-@import 'node_modules/vui-typography/small-text.scss';
 
 /* MVC Grid */
 .d2l-grid-cell-sel {
@@ -16,14 +15,19 @@
 }
 
 .d2l-grid-header-cell a,
-.d2l-grid-header-cell a:visited {
-	@include vui-typography-small-text();
+.d2l-grid-header-cell a:visited,
+.d2l-grid-header-cell a:hover {
+	color: $d2l-color-ferrite;
+	font-family: inherit;
+	font-size: 0.7rem;
+	font-weight: 400;
+	line-height: 1rem;
+	letter-spacing: 0.02rem;
+	margin: 1rem 0 1rem 0;
 	margin: 0;
 }
 .d2l-grid-header-cell a:hover {
-	@include vui-typography-small-text();
 	text-decoration: underline;
-	margin: 0;
 }
 
 /* Legacy data grid is .yui-dt */

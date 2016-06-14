@@ -62,7 +62,6 @@
     "vui-link": "git://github.com/Brightspace/valence-ui-link.git#bsi-wc",
     "vui-list": "git://github.com/Brightspace/valence-ui-list.git#bsi-wc",
     "vui-table": "git://github.com/Brightspace/valence-ui-table.git#bsi-wc",
-    "vui-typography": "git://github.com/Brightspace/valence-ui-typography.git#bsi-wc",
     "vui-validation": "git://github.com/Brightspace/valence-ui-validation.git#bsi-wc",
     "web-component-shards": "^1.1.3"
   }

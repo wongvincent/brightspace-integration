@@ -1,32 +1,34 @@
 @import '../bower_components/d2l-colors/d2l-colors.scss';
-@import 'node_modules/vui-typography/headings.scss';
-@import 'node_modules/vui-typography/px-to-base-rem.scss';
 
 .d2l-floating-container {
 	border: solid 1px $d2l-color-titanius;
 	background-color: $d2l-color-white;
-	border-radius: px-to-base-rem(8px);
+	border-radius: 0.4rem;
 	box-shadow: 0 2px 12px 0 rgba(86, 90, 92, .2);
 }
 
 .d2l-floating-container-close {
-	margin: px-to-base-rem(5px);
-	margin-left: px-to-base-rem(-24px);
+	margin: 0.25rem;
+	margin-left: -1.2rem;
 }
 
 .d2l-floating-container-titlebar .d2l-heading {
-	@include vui-typography-heading2(
-		$margin: 0 px-to-base-rem(24px) 0 0
-	);
-	padding: px-to-base-rem(6px);
+	color: $d2l-color-ferrite;
+	font-family: inherit;
+	font-size: 1.5rem;
+	font-weight: 300;
+	line-height: 2.25rem;
+	letter-spacing: -0.015rem;
+	margin: 0 1.2rem 0 0;
+	padding: 0.3rem;
 }
 
 [dir='rtl'] .d2l-floating-container-close {
-	margin-left: px-to-base-rem(5px);
-	margin-right: px-to-base-rem(-24px);
+	margin-left: 0.25rem;
+	margin-right: -1.2rem;
 }
 
 [dir='rtl'] .d2l-floating-container-titlebar .d2l-heading {
 	margin-right: 0;
-	margin-left: px-to-base-rem(24px);
+	margin-left: 1.2rem;
 }
