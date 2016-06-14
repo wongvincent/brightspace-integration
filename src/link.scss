@@ -1,0 +1,31 @@
+@import '../bower_components/d2l-colors/d2l-colors.scss';
+
+@mixin _vui-link-focus() {
+	color: $d2l-color-celestuba;
+	text-decoration: underline;
+	outline-width: 0;
+}
+
+@mixin _vui-link($font-weight: normal) {
+	&,
+	&:visited,
+	&:link,
+	&:active {
+		color: $d2l-color-celestine;
+		font-weight: $font-weight;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	&:hover,
+	&:focus {
+		@include _vui-link-focus;
+	}
+}
+
+.vui-link {
+	@include _vui-link;
+}
+
+.vui-link-main {
+	@include _vui-link($font-weight: 700);
+}

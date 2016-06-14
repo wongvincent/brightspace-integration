@@ -59,7 +59,6 @@
     "vui-dropdown": "git://github.com/Brightspace/valence-ui-dropdown.git#bsi-wc",
     "vui-image-action": "git://github.com/Brightspace/valence-ui-image-action.git#bsi-wc",
     "vui-input": "git://github.com/Brightspace/valence-ui-input.git#bsi-wc",
-    "vui-link": "git://github.com/Brightspace/valence-ui-link.git#bsi-wc",
     "vui-list": "git://github.com/Brightspace/valence-ui-list.git#bsi-wc",
     "vui-table": "git://github.com/Brightspace/valence-ui-table.git#bsi-wc",
     "vui-validation": "git://github.com/Brightspace/valence-ui-validation.git#bsi-wc",
