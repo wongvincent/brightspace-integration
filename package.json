@@ -55,7 +55,6 @@
     "uglify-js": "^2.6.1",
     "uglifyify": "^3.0.1",
     "vui-breadcrumbs": "git://github.com/Brightspace/valence-ui-breadcrumbs.git#bsi-wc",
-    "vui-button": "git://github.com/Brightspace/valence-ui-button.git#bsi-wc",
     "vui-dropdown": "git://github.com/Brightspace/valence-ui-dropdown.git#bsi-wc",
     "vui-image-action": "git://github.com/Brightspace/valence-ui-image-action.git#bsi-wc",
     "vui-input": "git://github.com/Brightspace/valence-ui-input.git#bsi-wc",
