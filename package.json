@@ -54,7 +54,6 @@
     "rimraf": "^2.4.2",
     "uglify-js": "^2.6.1",
     "uglifyify": "^3.0.1",
-    "vui-dropdown": "git://github.com/Brightspace/valence-ui-dropdown.git#bsi-wc",
     "vui-image-action": "git://github.com/Brightspace/valence-ui-image-action.git#bsi-wc",
     "vui-input": "git://github.com/Brightspace/valence-ui-input.git#bsi-wc",
     "vui-list": "git://github.com/Brightspace/valence-ui-list.git#bsi-wc",
