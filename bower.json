@@ -14,6 +14,7 @@
     "jquery-vui-change-tracking": "~0.4.0",
     "jquery-vui-scrollspy": "~0.2.0",
     "polymer": "^1.5.0",
+    "vui-breadcrumbs": "~2.1.0",
     "vui-field": "~1.2.0",
     "vui-focus": "~0.7.1",
     "vui-loading-spinner": "~1.0.0"
