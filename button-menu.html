@@ -1,9 +1,8 @@
-<link rel="import" href="../vui-colors/colors.html">
-<link rel="import" href="../vui-button/button-style.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-button/d2l-button-shared-styles.html">
 <dom-module id="bsi-button-menu">
 	<template>
-		<style include="vui-colors"></style>
-		<style include="vui-button-style">
+		<style include="d2l-colors d2l-button-shared-styles">
 
 			.bsi-button-menu {
 				border-width: 1px;
@@ -17,7 +16,7 @@
 				font-weight: 700;
 				letter-spacing: 0.02rem;
 				line-height: 1rem;
-				margin: 0 var(--vui-button-spacing) 0 0;
+				margin: 0 var(--d2l-button-spacing) 0 0;
 				min-height: -webkit-calc(2rem + 2px);
 				min-height: calc(2rem + 2px);
 				outline: none;
@@ -33,37 +32,37 @@
 			}
 
 			[dir='rtl'] .bsi-button-menu {
-				margin-left: var(--vui-button-spacing);
+				margin-left: var(--d2l-button-spacing);
 				margin-right: 0;
 			}
 
 			.bsi-button-menu,
-			.bsi-button-menu[disabled]:hover,
-			.bsi-button-menu[disabled]:focus {
-				background-color: var(--vui-color-woolonardo);
-				border-color: var(--vui-color-titanius);
-				color: var(--vui-color-ferrite);
+			.bsi-button-menu.vui-disabled:hover,
+			.bsi-button-menu.vui-disabled:focus {
+				background-color: var(--d2l-color-woolonardo);
+				border-color: var(--d2l-color-titanius);
+				color: var(--d2l-color-ferrite);
 			}
 
 			.bsi-button-menu:hover, .bsi-button-menu:focus {
-				background-color: var(--vui-color-gypsum);
+				background-color: var(--d2l-color-gypsum);
 			}
 
-			.bsi-button-menu[disabled] {
+			.bsi-button-menu.vui-disabled {
 				opacity: 0.5;
 				cursor: default;
 			}
 
 			.bsi-button-menu.bsi-button-menu-primary,
-			.bsi-button-menu.bsi-button-menu-primary[disabled]:hover,
-			.bsi-button-menu.bsi-button-menu-primary[disabled]:focus {
-				background-color: var(--vui-color-celestine);
-				border-color: var(--vui-color-celestuba);
-				color: var(--vui-color-white);
+			.bsi-button-menu.bsi-button-menu-primary.vui-disabled:hover,
+			.bsi-button-menu.bsi-button-menu-primary.vui-disabled:focus {
+				background-color: var(--d2l-color-celestine);
+				border-color: var(--d2l-color-celestuba);
+				color: var(--d2l-color-white);
 			}
 			.bsi-button-menu.bsi-button-menu-primary:hover,
 			.bsi-button-menu.bsi-button-menu-primary:focus {
-				background-color: var(--vui-color-celestuba);
+				background-color: var(--d2l-color-celestuba);
 			}
 
 		</style>

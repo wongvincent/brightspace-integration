@@ -1,4 +1,4 @@
-@import 'node_modules/vui-colors/colors.scss';
+@import '../bower_components/d2l-colors/d2l-colors.scss';
 
 .d2l-column-side {
 	background: #FFF;
@@ -96,7 +96,7 @@
 .d2l-column-flip-main,
 .d2l-column-main,
 .d2l-page-header-dark {
-	background-color: $vui-color-regolith;
+	background-color: $d2l-color-regolith;
 }
 
 .d2l-page-header-dark {

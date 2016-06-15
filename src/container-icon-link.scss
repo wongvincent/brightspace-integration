@@ -1,15 +1,15 @@
-@import 'node_modules/vui-colors/colors.scss';
+@import '../bower_components/d2l-colors/d2l-colors.scss';
 
 .d2l-container-icon-link {
 	& > a > .d2l-container-icon-link-link {
-		color: $vui-color-celestine;
+		color: $d2l-color-celestine;
 		cursor: pointer;
 		font-weight: normal;
 		text-decoration: none;
 	}
 	& > a:hover > .d2l-container-icon-link-link,
 	& > a:focus > .d2l-container-icon-link-link {
-		color: $vui-color-celestuba;
+		color: $d2l-color-celestuba;
 		text-decoration: underline;
 	}
 }
