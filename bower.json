@@ -10,6 +10,7 @@
     "d2l-navigation": "https://github.com/Brightspace/d2l-navigation-ui.git#0.4.4",
     "d2l-offscreen": "~2.0.0",
     "d2l-typography": "~4.0.0",
+    "iron-icon": "~1.0.8",
     "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "~1.2.0",
     "jquery-vui-change-tracking": "~0.4.0",
