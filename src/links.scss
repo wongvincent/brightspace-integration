@@ -1,0 +1,55 @@
+@import '../bower_components/d2l-colors/d2l-colors.scss';
+
+.d2l-link, .d2l-link:visited {
+	display: inline-block;
+}
+
+.d2l-clickable {
+	cursor: pointer;
+}
+
+.d2l-link.d2l-link-flat:not(:hover):not(:focus) {
+	color: inherit;
+}
+
+.d2l-container-icon-link {
+	& > a > .d2l-container-icon-link-link {
+		color: $d2l-color-celestine;
+		cursor: pointer;
+		font-weight: normal;
+		text-decoration: none;
+	}
+	& > a:hover > .d2l-container-icon-link-link,
+	& > a:focus > .d2l-container-icon-link-link {
+		color: $d2l-color-celestuba;
+		text-decoration: underline;
+	}
+}
+
+.d2l-filelink-link {
+	& > .d2l-filelink-link-text {
+		color: $d2l-color-celestine;
+		cursor: pointer;
+		font-weight: normal;
+		text-decoration: none;
+	}
+	&:hover > .d2l-filelink-link-text,
+	&:focus > .d2l-filelink-link-text {
+		color: $d2l-color-celestuba;
+		text-decoration: underline;
+	}
+}
+
+.d2l-text-imagelink {
+	& > .d2l-text-imagelink-text {
+		color: $d2l-color-celestine;
+		cursor: pointer;
+		font-weight: normal;
+		text-decoration: none;
+	}
+	&:hover > .d2l-text-imagelink-text,
+	&:focus > .d2l-text-imagelink-text {
+		color: $d2l-color-celestuba;
+		text-decoration: underline;
+	}
+}
