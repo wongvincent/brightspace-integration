@@ -8,8 +8,14 @@
 	cursor: pointer;
 }
 
-.d2l-link.d2l-link-flat:not(:hover):not(:focus) {
+.d2l-link.d2l-link-flat {
 	color: inherit;
+
+	&:hover,
+	&:focus {
+		color: $d2l-color-celestuba;
+		text-decoration: underline;
+	}
 }
 
 .d2l-container-icon-link {
