@@ -3,7 +3,7 @@
   "dependencies": {
     "d2l-button": "~3.0.0",
     "d2l-colors": "~2.0.0",
-    "d2l-icons": "~2.1.0",
+    "d2l-icons": "^2.5.0",
     "d2l-image-action": "~0.4.3",
     "d2l-link": "~3.0.0",
     "d2l-loading-spinner": "~4.0.0",
@@ -27,5 +27,8 @@
     "vui-table": "~0.1.0",
     "vui-validation": "~1.1.0"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "d2l-icons": "^2.5.0"
+  }
 }
