@@ -43,19 +43,6 @@
 	border-top-width: 0;
 }
 
-.vui-dropdown-menu-item-link {
-	background-repeat: no-repeat;
-	background-position: 0.55rem 1rem;
-	box-sizing: border-box;
-	padding-left: 2.1rem;
-}
-
-[dir='rtl'] .vui-dropdown-menu-item-link {
-	background-position: right 0.55rem top 1rem;
-	padding-left: 0.55rem;
-	padding-right: 2.1rem;
-}
-
 .dcm.dcm_handle.bsi-button-menu,
 .d2l-contextmenu-ph {
 	@include vui-dropdown-context-menu;
