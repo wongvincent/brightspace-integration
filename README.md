@@ -1,3 +1,5 @@
+**Looking for the pre-Daylight `brightspace-integration`?** It's [over here](https://github.com/Brightspace/brightspace-integration/tree/daylight-off).
+
 # brightspace-integration
 
 [![Build status][ci-image]][ci-url]
