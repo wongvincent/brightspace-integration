@@ -1,0 +1,9 @@
+/* no accociated input with inline label -> same line-height as normal text */
+.d2l-field-beside-label > span.vui-label {
+	line-height: 1.5rem;
+}
+
+/* input accociated with label -> center vertically with 42px high input */
+.d2l-field-beside-label > label.vui-label {
+	line-height: 2.1rem;
+}

@@ -1,0 +1,7 @@
+.bsi-button-menu > span {
+	@include vui-dropdown-button-menu-content;
+}
+
+.bsi-button-menu.bsi-button-menu-primary > span {
+	@include vui-dropdown-button-menu-primary-content;
+}

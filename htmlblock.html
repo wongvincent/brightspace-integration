@@ -1,0 +1,131 @@
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<dom-module id="bsi-htmlblock">
+	<template>
+		<style include="d2l-colors">
+			.d2l-typography .d2l-htmlblock {
+				line-height: normal;
+				text-align: left;
+				overflow-x: auto;
+				overflow-y: hidden;
+			}
+
+			.d2l-typography .d2l-htmlblock h1,
+			.d2l-typography .d2l-htmlblock h2,
+			.d2l-typography .d2l-htmlblock h3,
+			.d2l-typography .d2l-htmlblock h4,
+			.d2l-typography .d2l-htmlblock h5,
+			.d2l-typography .d2l-htmlblock h6,
+			.d2l-typography .d2l-htmlblock b,
+			.d2l-typography .d2l-htmlblock strong,
+			.d2l-typography .d2l-htmlblock b *,
+			.d2l-typography .d2l-htmlblock strong * {
+				font-weight: bold;
+			}
+
+			.d2l-typography .d2l-htmlblock h1 {
+				font-size: 2em;
+				line-height: 37px;
+				margin: 21.43px 0;
+			}
+
+			.d2l-typography .d2l-htmlblock h2 {
+				font-size: 1.5em;
+				line-height: 27px;
+				margin: 19.92px 0;
+			}
+
+			.d2l-typography .d2l-htmlblock  h3 {
+				font-size: 1.2em;
+				line-height: 23px;
+				margin: 18.72px 0;
+			}
+
+			.d2l-typography .d2l-htmlblock  h4 {
+				font-size: 1em;
+				line-height: 20px;
+				margin: 21.28px 0;
+			}
+
+			.d2l-typography .d2l-htmlblock h5 {
+				font-size: 0.83em;
+				line-height: 16px;
+				margin: 22.13px 0;
+			}
+
+			.d2l-typography .d2l-htmlblock  h6 {
+				font-size: 0.67em;
+				line-height: 13px;
+				margin: 24.97px 0;
+			}
+
+			.d2l-typography .d2l-htmlblock pre {
+				font-family: Monospace;
+				font-size: 13px;
+				margin: 13px 0;
+			}
+
+			.d2l-typography .d2l-htmlblock p {
+				margin: 0.5em 0 1em 0;
+			}
+
+			.d2l-htmlblock ul,
+			.d2l-htmlblock ol {
+				list-style-position: outside;
+				margin: 1em 0;
+				padding-left: 3em;
+			}
+
+			.d2l-htmlblock ul,
+			.d2l-htmlblock ul[type="disc"] {
+				list-style-type: disc;
+			}
+
+			.d2l-htmlblock ul ul,
+			.d2l-htmlblock ul ol,
+			.d2l-htmlblock ol ul,
+			.d2l-htmlblock ol ol {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			.d2l-htmlblock ul ul,
+			.d2l-htmlblock ol ul,
+			.d2l-htmlblock ul[type="circle"] {
+				list-style-type: circle;
+			}
+
+			.d2l-htmlblock ul ul ul,
+			.d2l-htmlblock ul ol ul,
+			.d2l-htmlblock ol ul ul,
+			.d2l-htmlblock ol ol ul,
+			.d2l-htmlblock ul[type="square"] {
+				list-style-type: square;
+			}
+
+			.d2l-htmlblock a,
+			.d2l-htmlblock a:visited {
+				color: var(--d2l-color-celestine);
+				cursor: pointer;
+				font-weight: normal;
+				text-decoration: none;
+			}
+
+			.d2l-htmlblock a:hover,
+			.d2l-htmlblock a:focus {
+				color: var(--d2l-color-celestuba);
+				text-decoration: underline;
+			}
+
+			[dir='rtl'] .d2l-htmlblock {
+				text-align: right;
+			}
+
+			[dir='rtl'] .d2l-htmlblock ul,
+			[dir='rtl'] .d2l-htmlblock ol {
+				padding-left: 0;
+				padding-right: 3em;
+			}
+
+		</style>
+	</template>
+</dom-module>

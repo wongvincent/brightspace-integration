@@ -1,49 +1,13 @@
-.d2l-checkbox-container,
-.d2l-radio-inline {
-	cursor: default;
-	display: inline-block;
-	font-size: inherit;
-	font-weight: normal;
-	line-height: inherit;
-	margin: 3px 0;
-	min-height: 20px;
-	padding-left: 20px;
-	vertical-align: middle;
-}
-.d2l-checkbox-container {
-	padding-right: 6px;
-}
-.d2l-radio-inline {
-	margin: 0;
-}
-[dir='rtl'] .d2l-checkbox-container,
-[dir='rtl'] .d2l-radio-inline {
-	padding-right: 20px;
-}
-[dir='rtl'] .d2l-checkbox-container {
-	padding-left: 6px;
-}
-[dir='rtl'] .d2l-radio-inline {
-	padding-left: 0;
-}
+@import 'bower_components/vui-input/checkbox-radio.scss';
 
-.d2l-checkbox-container input[type="checkbox"],
-.d2l-radio-inline input[type="radio"] {
-	cursor: default;
-	float: left;
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: inherit;
-	margin: 0.26em 0 0 -20px;
-	min-height: 0;
-	vertical-align: middle;
-	width: auto;
+.d2l-checkbox-container {
+	@include _vui-input-checkbox-radio-label(
+		"checkbox",
+		6px
+	);
 }
-[dir='rtl'] .d2l-checkbox-container input[type="checkbox"],
-[dir='rtl'] .d2l-radio-inline input[type="radio"] {
-	float: right;
-	margin-left: 0;
-	margin-right: -20px;
+.d2l-radio-inline {
+	@include _vui-input-checkbox-radio-label("radio");
 }
 
 .d2l-checkbox-container + .d2l-checkbox-container,
@@ -57,7 +21,8 @@
 }
 
 .d2l-checkbox-container.d2l-checkbox-disabled,
-.d2l-radio-inline.d2l-radio-disabled {
+.d2l-radio-inline.d2l-radio-disabled,
+.d_rdo_d {
 	color: #A0A0A0;
 	cursor: default;
 }

@@ -1,0 +1,192 @@
+@import '../bower_components/vui-table/table.scss';
+@import '../bower_components/d2l-colors/d2l-colors.scss';
+
+/* MVC Grid */
+.d2l-grid-cell-sel {
+	width: 0.65rem;
+}
+.d2l-grid-footer-wrapper {
+	padding: 0.25rem;
+}
+.d2l-grid-loadmore-wrapper {
+	width: 20em;
+	margin: auto;
+	padding: 0.25rem;
+}
+
+.d2l-grid-header-cell a,
+.d2l-grid-header-cell a:visited,
+.d2l-grid-header-cell a:hover {
+	color: $d2l-color-ferrite;
+	font-family: inherit;
+	font-size: 0.7rem;
+	font-weight: 400;
+	line-height: 1rem;
+	letter-spacing: 0.02rem;
+	margin: 1rem 0 1rem 0;
+	margin: 0;
+}
+.d2l-grid-header-cell a:hover {
+	text-decoration: underline;
+}
+
+/* Legacy data grid is .yui-dt */
+.yui-dt > table {
+	@include vui-table();
+	padding-bottom: 1.5rem;
+
+	& .yui-dt-selected {
+		@include vui-table-row-selected($state:'selected');
+	}
+
+	& > tbody.yui-dt-data > tr:last-child {
+		& > :first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > :last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
+	}
+
+	& > tbody.yui-dt-message > tr:last-child {
+		& th,
+		  td {
+			border-bottom: 1px solid $d2l-color-titanius;
+		}
+
+		& > :first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > :last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
+	}
+
+	& > thead:only-child > :last-child {
+		& > :first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > :last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
+	}
+
+	& .yui-dt-asc .yui-dt-label {
+		@include vui-table-column-sort($direction:'asc');
+	}
+
+	& .yui-dt-desc .yui-dt-label {
+		@include vui-table-column-sort($direction:'desc');
+	}
+}
+
+.d_dg_ac {
+	padding: 0.5rem 1.5rem;
+}
+
+.d_dg_ps {
+	padding: 0.25rem;
+}
+
+/* Legacy Grid */
+.d_g.d_gd,
+.d_g.d_gl {
+	padding-bottom: 1.5rem;
+
+	& td.d_gact {
+		padding: 0.5rem 1.5rem;
+	}
+
+
+	& .d_lastRow > td,
+	  .d_lastRow > th {
+		border-bottom: 1px solid $d2l-color-titanius;
+	}
+
+	& >:only-child {
+		& > tr.d_gactr + tr.d_gh >:first-child,
+		  > tr.fgskip + tr >:first-child,
+		  > :first-child.fgskip + tr >:first-child {
+			@include vui-table-top-border-radius($side:'left');
+		}
+
+		& > tr.d_gactr + tr.d_gh >:last-child,
+		  > tr.fgskip + tr.d_gh >:last-child,
+		  > :first-child.fgskip + tr >:last-child {
+			@include vui-table-top-border-radius($side:'right');
+		}
+
+		& > tr.d_gactr + tr.d_gh > th,
+		  > tr.fgskip + tr.d_gh > th,
+		  > tbody + tr.d_gh > th {
+			border-top: 1px solid $d2l-color-titanius;
+		}
+
+		& > .d_gh > th {
+			@include vui-table-header-cell();
+			white-space: nowrap;
+		}
+
+		& > tr.d_gs:not(.d_ggl2) {
+			@include vui-table-row-selected($important:true, $state:'selected');
+		}
+
+		& > tr.d_gs.d_lastRow > th,
+		  > tr.d_gs.d_lastRow > td {
+			border-bottom-color: $d2l-color-celestine-light-2;
+		}
+
+		& > tr:not(.d_gactr):not(.d_gh) {
+			& > td,
+			  > th {
+				@include vui-table-cell();
+			}
+			& .d_g_treeNodeImage,
+			  .d_g_l_r {
+				padding: 0.5rem 1.5rem !important;
+			}
+		}
+		& > tr:not(.d_gactr) > :first-child {
+			border-left: 1px solid $d2l-color-titanius;
+		}
+		[dir='rtl'] & > tr:not(.d_gactr) > :last-child {
+			border-left: 1px solid $d2l-color-titanius;
+		}
+
+		[dir='rtl'] & > tr:not(.d_gactr) > :first-child {
+			border-left: none;
+		}
+
+		& > .d_lastRow:not(.d_g_display_none) >:first-child,
+		  > .D2LGridSummaryRow_Data >:first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > .d_lastRow:not(.d_g_display_none) >:last-child,
+		  > .D2LGridSummaryRow_Data >:last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
+
+		& td.d_gd_sel,
+		  td.d_g_l_rb {
+			padding: 0.5rem 1.5rem !important;
+		}
+
+		& > tr.d_ggl2 {
+			& td,
+			  th {
+				background-color:$d2l-color-regolith;
+			}
+		}
+		& > tr.d_ggl2 > :first-child {
+			padding: 0.5rem 1.5rem !important;
+		}
+
+		& .d_grid_sort_asc {
+			@include vui-table-column-sort($direction:'asc');
+		}
+
+		& .d_grid_sort_desc {
+			@include vui-table-column-sort($direction:'desc');
+		}
+	}
+}

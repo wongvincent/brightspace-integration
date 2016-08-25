@@ -1,24 +1,28 @@
 {
   "name": "brightspace-integration",
-  "version": "10.5.6",
+  "version": "10.5.5",
   "description": "Integration project for components consumed by Brightspace.",
   "private": true,
   "main": "src/index.js",
   "scripts": {
     "autoprefix": "postcss -c postcss.config.json",
     "prebuild": "rimraf dist && mkdir dist",
-    "build": "npm run build:js && npm run build:sass && npm run build:icons",
+    "build": "npm run build:js && npm run build:sass && npm run build:icons && npm run build:wc",
     "build:js": "browserify -g uglifyify ./src/index.js > ./dist/bsi.js",
     "postbuild:js": "npm run uglify:js",
     "build:sass": "node-sass --output-style expanded ./src/bsi.scss ./dist/bsi.css",
     "postbuild:sass": "npm run autoprefix && npm run uglify:css",
-    "build:icons": "cpy ./bower_components/vui-icons/images/**/*.png ./dist/images",
+    "build:icons": "cpy --parents --cwd=bower_components/d2l-icons 'images/**/*.*' ../../dist",
+    "prebuild:wc": "rimraf tmp",
+    "build:wc": "web-component-shards --endpoints bsi.html d2l-my-courses.html",
+    "postbuild:wc": "npm run uglify:html",
     "postinstall": "./node_modules/.bin/bower install",
     "publish:cdn": "frau-publisher -m lib -t bsi -f './dist/**/*' -k AKIAIZGPQIRSA2WEJEDA --secretvar CDN_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
-    "serve": "http-server dist",
+    "serve": "http-server dist --cors",
     "test": "npm run build",
     "uglify:css": "cleancss -s ./dist/bsi.css -o ./dist/bsi.min.css -c",
+    "uglify:html": "posthtml -i ./dist/*.html -r -c posthtml.js",
     "uglify:js": "uglifyjs ./dist/bsi.js --compress --mangle -o ./dist/bsi.min.js"
   },
   "repository": {
@@ -40,7 +44,7 @@
     "browserify": "^11.2.0",
     "clean-css": "^3.4.9",
     "cpy": "^3.4.0",
-    "d2l-intl": "^0.3.0",
+    "d2l-intl": "^0.3.2",
     "eslint": "^1.6.0",
     "eslint-config-brightspace": "0.0.2",
     "eslint-plugin-react": "^3.5.1",
@@ -49,8 +53,11 @@
     "lie": "^3.0.1",
     "node-sass": "^3.3.2",
     "postcss-cli": "^2.1.0",
+    "posthtml-cli": "^0.2.4",
+    "posthtml-minifier": "^0.1.0",
     "rimraf": "^2.4.2",
     "uglify-js": "^2.6.1",
-    "uglifyify": "^3.0.1"
+    "uglifyify": "^3.0.1",
+    "web-component-shards": "^1.1.3"
   }
 }
