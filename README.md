@@ -21,6 +21,16 @@ Rebuild assets to the `dist` directory:
 npm run build
 ```
 
+### Troubleshooting on Windows
+
+Building BSI in Windows doesn't always go smoothly. Here are some of the issues that have been encountered, and their potential solutions:
+
+Trouble | Shooting
+------------ | -------------
+**build:icons fails:** ```cannot copy from `...'images\**\*.*'` to `...'images\**\*.*'`: cannot read from `...'images\**\*.*'`: ENOENT: no such file or directory, open '...'images\**\*.*''``` | remove single quotes from `package.json`.`scripts`.`build:icons`
+**build:wc fails:** ```ERROR finding <path that is missing characters>``` | Update local instance of `vulcanize` by changing its [path resolution](https://github.com/Polymer/vulcanize/blob/master/lib/pathresolver.js#L89) to use ```path.relative``` instead of ```pathPosix.relative```. [Vulcanize Issue](https://github.com/Polymer/vulcanize/issues/338).
+
+
 ## Running Locally
 
 To test against a local Brightspace environment, first start serving the compiled assets:
