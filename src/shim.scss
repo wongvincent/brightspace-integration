@@ -26,5 +26,7 @@
 }
 
 .d2l-shim-body-overflow {
-	overflow: hidden;
+	@media #{$dialog-media-break-small} {
+		overflow: hidden;
+	}
 }
