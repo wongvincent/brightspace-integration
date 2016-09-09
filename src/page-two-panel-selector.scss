@@ -58,3 +58,19 @@
 .d2l-twopanelselector-padding {
 	padding-top: 30px;
 }
+
+@media(max-width: 1000px) {
+	.d2l-twopanelselector-wrapper.d2l-repsonsive-collapse-layout {
+		.d2l-box-layout {
+			display: block;
+		}
+		.d2l-twopanelselector-side {
+			display: block;
+			max-width: none;
+			width: auto;
+		}
+		.d2l-twopanelselector-main {
+			display: block;
+		}
+	}
+}
