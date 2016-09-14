@@ -10,6 +10,7 @@
     "d2l-my-courses": "https://github.com/Brightspace/d2l-my-courses-ui.git#0.13.0",
     "d2l-navigation": "https://github.com/Brightspace/d2l-navigation-ui.git#0.12.6",
     "d2l-offscreen": "^2.1.0",
+    "d2l-table": "^0.2.1",
     "d2l-typography": "^4.0.1",
     "iron-icon": "^1.0.8",
     "jquery-vui-accordion": "~0.3.0",
@@ -24,7 +25,6 @@
     "vui-focus": "~0.7.1",
     "vui-input": "^1.6.1",
     "vui-list": "^1.1.0",
-    "vui-table": "~0.1.0",
     "vui-validation": "^1.1.0"
   },
   "private": true
