@@ -1,7 +1,7 @@
 {
   "name": "brightspace-integration",
   "dependencies": {
-    "d2l-button": "^3.0.3",
+    "d2l-button": "^3.0.4",
     "d2l-colors": "^2.1.0",
     "d2l-icons": "^2.5.0",
     "d2l-image-action": "~0.4.3",
