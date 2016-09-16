@@ -68,6 +68,10 @@
 		}
 		.d2l-twopanelselector-main {
 			display: block;
+			min-height: 100vh;
 		}
+	}
+	.d2l-twopanelselector-side-bg.d2l-repsonsive-collapse-layout {
+		display: none;
 	}
 }
