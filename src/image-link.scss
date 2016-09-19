@@ -1,11 +1,10 @@
 @import '../bower_components/d2l-colors/d2l-colors.scss';
 
-.d2l-imagelink iron-icon {
-	color: $d2l-color-tungsten;
+.d2l-imagelink d2l-icon {
 	transition: color 0.3s ease;
 }
 
-.d2l-imagelink:hover iron-icon,
-.d2l-imagelink:focus iron-icon {
+.d2l-imagelink:hover:not(.d2l-imagelink-disabled) d2l-icon,
+.d2l-imagelink:focus:not(.d2l-imagelink-disabled) d2l-icon {
 	color: $d2l-color-celestuba;
 }
