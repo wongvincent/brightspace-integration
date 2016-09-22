@@ -59,6 +59,11 @@
 	padding-top: 30px;
 }
 
+.d2l-twopanelselector-wrapper.d2l-repsonsive-collapse-layout #D2L_LE_Content_Dashboard_Collapsed_Separator {
+	position: fixed;
+	top: 0;
+}
+
 @media(max-width: 1000px) {
 	.d2l-twopanelselector-wrapper.d2l-repsonsive-collapse-layout {
 		.d2l-twopanelselector-side {
@@ -74,7 +79,16 @@
 			min-height: 100vh;
 		}
 	}
+
 	.d2l-twopanelselector-side-bg.d2l-repsonsive-collapse-layout {
 		display: none;
+	}
+
+	.d2l-twopanelselector-wrapper.d2l-repsonsive-collapse-layout #D2L_LE_Content_Dashboard_Collapsed_Separator {
+		position: static;
+	}
+
+	.d2l-twopanelselector-side-padding {
+		padding-bottom: 0;
 	}
 }
