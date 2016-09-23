@@ -65,6 +65,9 @@
 			display: block;
 			max-width: none;
 			width: auto;
+			&.d2l-twopanelselector-side-sep {
+				background-color: $d2l-color-regolith;
+			}
 		}
 		.d2l-twopanelselector-main {
 			display: block;
