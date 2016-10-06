@@ -78,15 +78,15 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 }
 
 .d2l-dialog-body {
-	flex-grow: 2;
+	@include flex-grow(2);
 	overflow: auto;
 	position: relative;
 }
 
 .d2l-dialog-flex {
 	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
+	@include flexbox;
+	@include flex-direction(column);
 	height: 100%;
 	width: 100% !important;
 	position: absolute;
@@ -95,7 +95,7 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 
 .d2l-dialog-flex > .d2l-dialog-footer,
 .d2l-dialog-flex > .d2l-dialog-footer-container {
-	align-self: flex-end;
+	@include align-self(flex-end);
 	width: 100%;
 }
 
@@ -120,7 +120,7 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 }
 
 .d2l-dialog-title {
-	align-self: flex-start;
+	@include align-self(flex-start);
 	position: relative;
 	width: 100%;
 	margin: -0.25rem 0.25rem 0.25rem 0;
@@ -302,23 +302,23 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 	}
 
 	.ddial_o2 {
-		display: flex;
-		flex-direction: column;
+		@include flexbox;
+		@include flex-direction(column);
 	}
 
 	.ddial_i {
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
+		@include flexbox;
+		@include flex-direction(column);
+		@include flex-grow(1);
 	}
 
 	.ddial_c {
-		flex-grow: 1;
-		display: flex;
-		flex-direction: column;
+		@include flexbox;
+		@include flex-grow(1);
+		@include flex-direction(column);
 	}
 
 	.ddial_c_frame {
-		flex-grow: 1;
+		@include flex-grow(1);
 	}
 }
