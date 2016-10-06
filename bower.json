@@ -18,6 +18,7 @@
     "jquery-vui-more-less": "^1.2.0",
     "jquery-vui-scrollspy": "~0.2.0",
     "polymer": "^1.5.0",
+    "sass-flex-mixin": "^1.0.3",
     "vui-breadcrumbs": "^2.1.0",
     "vui-dropdown": "~0.7.1",
     "vui-field": "^1.2.0",

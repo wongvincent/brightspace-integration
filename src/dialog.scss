@@ -72,40 +72,21 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 	width: 400px;
 }
 
-.ddial_o,
-.d2l-dialog {
-	@media #{$dialog-media-break-small} {
-		width: 100% !important;
-		height: 100% !important;
-		left: auto !important;
-		padding: 0 !important;
-		top: 0 !important;
-		position: fixed !important;
-	}
-}
-
-
 .d2l-dialog-document-body {
 	background-color: transparent;
 	height: 100%;
 }
 
 .d2l-dialog-body {
-	flex-grow: 2;
+	@include flex-grow(2);
 	overflow: auto;
 	position: relative;
 }
 
-.ddial_o .ddial_f {
-	@media #{$dialog-media-break-small} {
-		display: none !important;
-	}
-}
-
 .d2l-dialog-flex {
 	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
+	@include flexbox;
+	@include flex-direction(column);
 	height: 100%;
 	width: 100% !important;
 	position: absolute;
@@ -114,7 +95,7 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 
 .d2l-dialog-flex > .d2l-dialog-footer,
 .d2l-dialog-flex > .d2l-dialog-footer-container {
-	align-self: flex-end;
+	@include align-self(flex-end);
 	width: 100%;
 }
 
@@ -133,20 +114,13 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 	box-sizing: border-box;
 	height: 100% !important;
 
-	@media #{$dialog-media-break-small} {
-		border-radius: 0 !important;
-		width: 100% !important;
-		height: 100% !important;
-		position: fixed;
-	}
-
 	> .d2l-dialog-frame {
 		width: 100% !important;
 	}
 }
 
 .d2l-dialog-title {
-	align-self: flex-start;
+	@include align-self(flex-start);
 	position: relative;
 	width: 100%;
 	margin: -0.25rem 0.25rem 0.25rem 0;
@@ -181,12 +155,6 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 .d2l-dialog-footer-container {
 	bottom:0;
 	width:100%;
-}
-
-.d2l-dialog-footer .d2l-dialog-resize {
-	@media #{$dialog-media-break-small-iframe} {
-		display: none !important;
-	}
 }
 
 .d2l-dialog-resize {
@@ -303,4 +271,54 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 		background-image: $dialog-close-hover;
 	}
 
+}
+
+@media #{$dialog-media-break-small} {
+
+	.ddial_o,
+	.d2l-dialog {
+		width: 100% !important;
+		height: 100% !important;
+		left: auto !important;
+		padding: 0 !important;
+		top: 0 !important;
+		position: fixed !important;
+	}
+
+	.ddial_o2,
+	.d2l-dialog-inner {
+		border-radius: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+		position: fixed;
+	}
+
+	.ddial_o .ddial_f {
+		display: none !important;
+	}
+
+	.d2l-dialog-footer .d2l-dialog-resize {
+		display: none !important;
+	}
+
+	.ddial_o2 {
+		@include flexbox;
+		@include flex-direction(column);
+	}
+
+	.ddial_i {
+		@include flexbox;
+		@include flex-direction(column);
+		@include flex-grow(1);
+	}
+
+	.ddial_c {
+		@include flexbox;
+		@include flex-grow(1);
+		@include flex-direction(column);
+	}
+
+	.ddial_c_frame {
+		@include flex-grow(1);
+	}
 }
