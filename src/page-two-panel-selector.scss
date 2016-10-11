@@ -59,6 +59,14 @@
 	padding-top: 30px;
 }
 
+.d2l-repsonsive-collapse-layout {
+    .d2l-twopanelselector-side-bg,
+    .d2l-twopanelselector-side {
+        max-width: 320px;
+        width: 320px;
+    }
+}
+
 @media(max-width: 1000px) {
 	.d2l-twopanelselector-wrapper.d2l-repsonsive-collapse-layout {
 		.d2l-twopanelselector-side {
