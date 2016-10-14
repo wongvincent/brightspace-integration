@@ -28,7 +28,7 @@
     "vui-validation": "^1.1.0"
   },
   "resolutions": {
-    "d2l-typography": "https://github.com/Brightspaceui/typography.git#Open-Sans-Test"
+    "d2l-typography": "Open-Sans-Test"
   },
   "private": true
 }
