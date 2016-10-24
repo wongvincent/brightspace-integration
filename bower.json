@@ -11,7 +11,7 @@
     "d2l-navigation": "https://github.com/Brightspace/d2l-navigation-ui.git#0.13.6",
     "d2l-offscreen": "^2.1.0",
     "d2l-table": "^0.2.8",
-    "d2l-typography": "https://github.com/Brightspaceui/typography.git#Oxygen-Test",
+    "d2l-typography": "https://github.com/Brightspaceui/typography.git#Robot-Test",
     "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "^1.2.0",
     "jquery-vui-change-tracking": "~0.4.0",
@@ -29,6 +29,6 @@
   },
   "private": true,
   "resolutions": {
-    "d2l-typography": "Oxygen-Test"
+    "d2l-typography": "Robot-Test"
   }
 }
