@@ -27,5 +27,8 @@
     "vui-list": "^1.1.0",
     "vui-validation": "^1.1.0"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "d2l-typography": "Oxygen-Test"
+  }
 }
