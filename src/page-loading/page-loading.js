@@ -10,8 +10,10 @@
 		}
 
 		var timing = performance.timing;
+
+		D2L.Performance.measure('domInteractive', 'navigationStart', 'domInteractive');
+
 		var measures = {
-			'domInteractive': timing.domInteractive - timing.navigationStart,
 			'domContentLoaded': timing.domContentLoadedEventEnd - timing.navigationStart,
 			'load': timing.loadEventStart - timing.navigationStart
 		};
