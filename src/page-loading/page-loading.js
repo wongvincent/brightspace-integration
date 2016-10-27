@@ -23,7 +23,7 @@
 			measures[custom[i].name] = Math.floor(custom[i].duration);
 		}
 
-		console.log('measures', measures);
+		D2L.Performance.timing = measures;
 
 	}
 
