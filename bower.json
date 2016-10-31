@@ -11,7 +11,7 @@
     "d2l-navigation": "https://github.com/Brightspace/d2l-navigation-ui.git#0.13.6",
     "d2l-offscreen": "^2.1.0",
     "d2l-table": "^0.2.8",
-    "d2l-typography": "^4.3.2",
+    "d2l-typography": "https://github.com/Brightspaceui/typography.git#Lato-Reg-Test",
     "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "^1.2.0",
     "jquery-vui-change-tracking": "~0.4.0",
@@ -27,5 +27,8 @@
     "vui-list": "^1.1.0",
     "vui-validation": "^1.1.0"
   },
+  "resolutions": {
++    "d2l-typography": "Lat-Reg-Test"
++  },
   "private": true
 }
