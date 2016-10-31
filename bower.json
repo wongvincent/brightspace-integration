@@ -28,7 +28,7 @@
     "vui-validation": "^1.1.0"
   },
   "resolutions": {
-    "d2l-typography": "Lat-Reg-Test"
+    "d2l-typography": "Lato-Reg-Test"
   },
   "private": true
 }
