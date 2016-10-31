@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var glob = require('glob');
+var path = require('path');
 
 glob(process.argv[2], function (err, files) {
 	if (err) {
@@ -14,7 +15,8 @@ glob(process.argv[2], function (err, files) {
 				throw err;
 			}
 
-			var jsonp = '_d2l_receiveJsonpImport(' + JSON.stringify(file) + ',' + JSON.stringify(data) + ');';
+			var resourceId = path.basename(file);
+			var jsonp = '_d2l_receiveJsonpImport(' + JSON.stringify(resourceId) + ',' + JSON.stringify(data) + ');';
 
 			fs.writeFile(file + '.jsonp', jsonp, 'utf8', function (err) {
 				if (err) {
