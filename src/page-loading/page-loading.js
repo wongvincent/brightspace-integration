@@ -11,11 +11,11 @@
 
 		var timing = performance.timing;
 
-		D2L.Performance.measure('domInteractive', 'navigationStart', 'domInteractive');
+		D2L.Performance.measure('d2l.page.domInteractive', 'navigationStart', 'domInteractive');
 
 		var measures = {
-			'domContentLoaded': timing.domContentLoadedEventEnd - timing.navigationStart,
-			'load': timing.loadEventStart - timing.navigationStart
+			'd2l.page.domContentLoaded': timing.domContentLoadedEventEnd - timing.navigationStart,
+			'd2l.page.load': timing.loadEventStart - timing.navigationStart
 		};
 
 		var custom = D2L.Performance.getEntriesByType('measure');
@@ -67,7 +67,7 @@
 
 	if (window.WebComponents) {
 		addEventListener('WebComponentsReady', function() {
-			D2L.Performance.measure('WebComponentsReady');
+			D2L.Performance.measure('d2l.page.webComponentsReady');
 			pageIsReady();
 		});
 	} else {
