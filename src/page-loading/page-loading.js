@@ -28,11 +28,12 @@
 	}
 
 	function check() {
-		if (pageReady && navReady) {
-			D2L.Performance.measure('d2l.page.display');
-			document.body.classList.remove('d2l-page-loading');
-			logMeasures();
+		if (!pageReady) {
+			return;
 		}
+		D2L.Performance.measure('d2l.page.display');
+		document.body.classList.remove('d2l-page-loading');
+		logMeasures();
 	}
 
 	function pageIsReady() {
@@ -57,7 +58,7 @@
 			return;
 		}
 		navReady = true;
-		check();
+		logMeasures();
 	}
 
 	addEventListener('load', function(e) {
@@ -78,9 +79,6 @@
 		}
 	}
 
-	setTimeout(function() {
-		pageIsReady();
-		navIsReady();
-	}, 10000);
+	setTimeout(pageIsReady, 10000);
 
 })();
