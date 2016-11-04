@@ -19,8 +19,15 @@
 		};
 
 		var custom = D2L.Performance.getEntriesByType('measure');
-		for(var i=0; i<custom.length; i++) {
+		for (var i = 0; i < custom.length; i++) {
 			measures[custom[i].name] = Math.floor(custom[i].duration);
+		}
+
+		for (var m in measures) {
+			document.dispatchEvent(new CustomEvent('D2LPerformanceMeasure', {
+				bubbles: true,
+				detail: { name: m, value: measures[m] }
+			}));
 		}
 
 		D2L.Performance.timing = measures;
