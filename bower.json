@@ -16,7 +16,7 @@
     "d2l-typography": "^5.0.1",
     "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "^1.2.0",
-    "jquery-vui-change-tracking": "~0.4.0",
+    "jquery-vui-change-tracking": "^0.5.3",
     "jquery-vui-more-less": "^1.2.0",
     "jquery-vui-scrollspy": "~0.2.0",
     "polymer": "^1.5.0",
