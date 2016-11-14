@@ -9,28 +9,10 @@
 			return;
 		}
 
-		var timing = performance.timing;
-
-		D2L.Performance.measure('d2l.page.domInteractive', 'navigationStart', 'domInteractive');
-
-		var measures = {
-			'd2l.page.domContentLoaded': timing.domContentLoadedEventEnd - timing.navigationStart,
-			'd2l.page.load': timing.loadEventStart - timing.navigationStart
-		};
-
-		var custom = D2L.Performance.getEntriesByType('measure');
-		for (var i = 0; i < custom.length; i++) {
-			measures[custom[i].name] = Math.floor(custom[i].duration);
-		}
-
-		for (var m in measures) {
-			document.dispatchEvent(new CustomEvent('D2LPerformanceMeasure', {
-				bubbles: true,
-				detail: { name: m, value: measures[m] }
-			}));
-		}
-
-		D2L.Performance.timing = measures;
+		D2L.Performance.measure('d2l.page.preFetch', 'navigationStart', 'fetchStart');
+		D2L.Performance.measure('d2l.page.domInteractive', 'fetchStart', 'domInteractive');
+		D2L.Performance.measure('d2l.page.domContentLoaded', 'domContentLoadedEventStart', 'domContentLoadedEventEnd');
+		D2L.Performance.measure('d2l.page.load', 'fetchStart', 'loadEventStart');
 
 	}
 
@@ -38,7 +20,7 @@
 		if (!pageReady) {
 			return;
 		}
-		D2L.Performance.measure('d2l.page.display');
+		D2L.Performance.measure('d2l.page.display', 'fetchStart');
 		document.body.classList.remove('d2l-page-loading');
 		logMeasures();
 	}
@@ -75,7 +57,7 @@
 
 	if (window.WebComponents) {
 		addEventListener('WebComponentsReady', function() {
-			D2L.Performance.measure('d2l.page.webComponentsReady');
+			D2L.Performance.measure('d2l.page.webComponentsReady', 'fetchStart');
 			pageIsReady();
 		});
 	} else {
