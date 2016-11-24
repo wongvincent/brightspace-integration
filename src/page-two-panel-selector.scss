@@ -70,6 +70,7 @@
 		.d2l-twopanelselector-side {
 			display: block;
 			max-width: none;
+			min-height: 100vh;
 			width: auto;
 			&.d2l-twopanelselector-side-sep {
 				background-color: $d2l-color-regolith;
