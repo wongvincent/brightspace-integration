@@ -32,14 +32,6 @@
 	}
 }
 
-#d2l_body,
-.d2l-body,
-.d2l-page-main,
-.d2l-page-bg > div,
-.d2l-page-bg-full > div /* legacy full screen */ {
-	background-color: $d2l-color-white;
-}
-
 .d2l-max-width {
 	margin: 0 auto;
 	max-width: 1230px;
