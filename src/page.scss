@@ -2,10 +2,16 @@
 
 #d2l_body,
 .d2l-body {
+	background-color: $d2l-color-white;
 	line-height: 1.5em;
 	margin: 0;
 	overflow-y: scroll;
 	padding: 0;
+}
+
+#d2l_body.dbd_frame,
+.d2l-body.dbd_frame {
+	background-color: transparent;
 }
 
 .d2l-page-bg {
