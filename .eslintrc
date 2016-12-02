@@ -6,5 +6,8 @@
   },
   "rules": {
       "strict": 2
+  },
+  "globals": {
+    "D2L": true
   }
 }
