@@ -1,11 +1,11 @@
 (function() {
 	'use strict';
 
-	var pageReady, pageLoaded, navReady = false;
+	var pageReady, pageLoaded = false;
 
 	function logMeasures() {
 
-		if (!pageReady || !navReady || !pageLoaded) {
+		if (!pageReady || !pageLoaded) {
 			return;
 		}
 
@@ -31,26 +31,12 @@
 			return;
 		}
 
-		document.body.addEventListener('d2l-navigation-ready', navIsReady);
-		var navs = document.getElementsByTagName('d2l-navigation');
-		if (navs.length === 0 || !navs[0].hasAttribute('loading')) {
-			navIsReady();
-		}
-
 		pageReady = true;
 		check();
 
 	}
 
-	function navIsReady() {
-		if (navReady) {
-			return;
-		}
-		navReady = true;
-		logMeasures();
-	}
-
-	addEventListener('load', function(e) {
+	addEventListener('load', function() {
 		pageLoaded = true;
 		logMeasures();
 	});
