@@ -36,11 +36,11 @@
 .vui-dropdown-menu > ul > li.d2l-last-visible-item {
 	border-bottom-left-radius: 0.4rem;
 	border-bottom-right-radius: 0.4rem;
-	border-bottom: 1px solid $d2l-color-titanius;
+	border-bottom: 1px solid $d2l-color-gypsum;
 }
 
 .vui-dropdown-menu > ul > li.d2l-contextmenu-item-hover-next-visible {
-	border-top-width: 0;
+	border-top: 1px solid transparent;
 }
 
 .dcm.dcm_handle.bsi-button-menu,
