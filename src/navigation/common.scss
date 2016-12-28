@@ -1,0 +1,23 @@
+$d2l-navigation-header-height: 90px;
+$d2l-navigation-header-height-mobile: 72px;
+
+.d2l-navigation-s-band-color {
+	height: 4px;
+}
+
+.d2l-navigation-s-centerer {
+	margin: 0 auto;
+	max-width: 1230px;
+}
+
+.d2l-navigation-s-gutters {
+	padding-left: 2.439%;
+	padding-right: 2.439%;
+}
+
+@media(max-width: 615px) {
+	.d2l-navigation-s-gutters {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
