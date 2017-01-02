@@ -3,3 +3,39 @@
 .d2l-navigation-s-header {
 	border-bottom: 1px solid $d2l-color-gypsum;
 }
+
+.d2l-navigation-s-gutter {
+	display: inline-block;
+	-ms-flex: 1 1 auto;
+	-webkit-flex: 1 1 auto;
+	flex: 1 1 auto;
+	min-width: 30px;
+}
+
+.d2l-navigation-s-header-actions {
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+}
+
+/*.d2l-navigation-s-notifications,*/
+.d2l-navigation-s-personal-menu/*,
+.d2l-navigation-s-admin-menu*/ {
+	-ms-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
+}
+/*@media(max-width: 992px) {
+	.d2l-navigation-s-admin-menu {
+		display: none;
+	}
+}
+@media(max-width: 554px) {
+	.d2l-navigation-s-header-course-menu {
+		display: none;
+	}
+}*/
