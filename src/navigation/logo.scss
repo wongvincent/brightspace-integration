@@ -1,0 +1,26 @@
+.d2l-navigation-s-logo {
+	display: inline-block;
+}
+
+.d2l-navigation-s-logo-wrapper > a {
+	display: inline-block;
+}
+
+.d2l-navigation-s-logo img {
+	border: none; /* needed for IE10 */
+	max-height: 60px;
+	max-width: 260px;
+}
+
+/*
+.d2l-navigation-s-slide-out-menu .d2l-navigation-s-logo-wrapper {
+	align-items: center;
+	display: flex;
+	height: var(--d2l-navigation-header-height);
+	justify-content: flex-start;
+}
+@media(max-width: 615px) {
+	.d2l-navigation-s-slide-out-menu .d2l-navigation-s-logo-wrapper {
+		height: var(--d2l-navigation-header-height-mobile);
+	}
+}*/

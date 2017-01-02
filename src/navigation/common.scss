@@ -1,9 +1,7 @@
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+
 $d2l-navigation-header-height: 90px;
 $d2l-navigation-header-height-mobile: 72px;
-
-.d2l-navigation-s-band-color {
-	height: 4px;
-}
 
 .d2l-navigation-s-centerer {
 	margin: 0 auto;
@@ -15,9 +13,36 @@ $d2l-navigation-header-height-mobile: 72px;
 	padding-right: 2.439%;
 }
 
+.d2l-navigation-s-header-container {
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: $d2l-navigation-header-height;
+}
+
+a.d2l-navigation-s-link,
+a.d2l-navigation-s-link:link,
+a.d2l-navigation-s-link:visited {
+	color: $d2l-color-ferrite;
+	cursor: pointer;
+	text-decoration: none;
+}
+a.d2l-navigation-s-link:hover,
+a.d2l-navigation-s-link:focus {
+	color: $d2l-color-celestine;
+	text-decoration: underline;
+	outline: none;
+}
+
 @media(max-width: 615px) {
 	.d2l-navigation-s-gutters {
 		padding-left: 15px;
 		padding-right: 15px;
+	}
+	.d2l-navigation-s-header-container {
+		height: $d2l-navigation-header-height-mobile;
 	}
 }
