@@ -7,27 +7,3 @@
 	min-width: 320px;
 	position: relative;
 }
-
-.d2l-navigation-s-no-login-header-container {
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	height: $d2l-navigation-header-height;
-}
-
-.d2l-navigation-s-no-login-logo {
-	-ms-flex: 0 1 auto;
-	-webkit-flex: 0 1 auto;
-	border: none; /* needed for IE10 */
-	flex: 0 1 auto;
-	max-height: 60px;
-	max-width: 260px;
-}
-@media(max-width: 615px) {
-	.d2l-navigation-s-no-login-header-container {
-		height: $d2l-navigation-header-height-mobile;
-	}
-}

@@ -1,0 +1,10 @@
+.d2l-navigation-s {
+	background-color: #fff;
+	line-height: 1;
+	min-width: 320px;
+	position: relative;
+}
+
+.d2l-navigation-s[suppressed] {
+	display: none;
+}

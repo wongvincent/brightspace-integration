@@ -1,0 +1,11 @@
+.d2l-navigation-s-header-org {
+	-ms-flex: 0 1 auto;
+	-webkit-flex: 0 1 auto;
+	flex: 0 1 auto;
+}
+
+@media(max-width: 992px) {
+	.d2l-navigation-s-header-org {
+		display: none;
+	}
+}
