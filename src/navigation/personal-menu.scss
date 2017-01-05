@@ -3,6 +3,9 @@
 
 .d2l-navigation-s-personal-menu {
 	display: inline-block;
+	-ms-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
 	height: 100%;
 }
 
