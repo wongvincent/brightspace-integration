@@ -1,0 +1,25 @@
+.d2l-navigation-s-admin-menu {
+	-ms-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
+	height: 100%;
+}
+
+.d2l-navigation-s-admin-menu-spacer {
+	display: inline-block;
+	min-width: 20px;
+}
+
+.d2l-navigation-s-admin-menu d2l-dropdown {
+	height: 100%;
+}
+
+.d2l-navigation-s-admin-menu d2l-dropdown-content {
+	line-height: 1.5rem;
+}
+
+@media(max-width: 992px) {
+	.d2l-navigation-s-admin-menu {
+		display: none;
+	}
+}
