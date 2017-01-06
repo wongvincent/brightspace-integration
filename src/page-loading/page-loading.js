@@ -9,7 +9,6 @@
 		}
 		pageReady = true;
 		D2L.Performance.measure('d2l.page.display', 'fetchStart');
-		document.body.classList.remove('d2l-page-loading');
 	}
 
 	addEventListener('load', function() {
