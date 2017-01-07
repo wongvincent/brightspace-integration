@@ -1,0 +1,27 @@
+.d2l-navigation-s-course-menu {
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+}
+
+.d2l-navigation-s-course-menu .d2l-navigation-s-button-highlight {
+	margin: 0 5px;
+}
+
+.d2l-navigation-s-course-menu d2l-dropdown {
+	height: 100%;
+}
+
+.d2l-navigation-s-course-menu d2l-dropdown-content {
+	line-height: 1.5rem;
+}
+
+@media(max-width: 554px) {
+	.d2l-navigation-s-course-menu {
+		display: none;
+	}
+}

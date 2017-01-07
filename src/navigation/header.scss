@@ -19,6 +19,9 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	-ms-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
 	height: 100%;
 }
 
@@ -27,8 +30,4 @@
 	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
 }
-@media(max-width: 554px) {
-	.d2l-navigation-s-header-course-menu {
-		display: none;
-	}
-}*/
+*/
