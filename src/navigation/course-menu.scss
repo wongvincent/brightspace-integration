@@ -1,10 +1,4 @@
 .d2l-navigation-s-course-menu {
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
 	height: 100%;
 }
 
@@ -21,7 +15,8 @@
 }
 
 @media(max-width: 554px) {
-	.d2l-navigation-s-course-menu {
+	.d2l-navigation-s-course-menu,
+	.d2l-navigation-s-divider.d2l-navigation-s-course-menu-divider {
 		display: none;
 	}
 }
