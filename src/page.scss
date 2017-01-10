@@ -1,5 +1,17 @@
 @import '../bower_components/d2l-colors/d2l-colors.scss';
 
+/* Hide page while web components are loading. This is redundant with
+   the WC polyfill code, but is present sooner so helps avoid FOUC. */
+body {
+	transition: opacity ease-in 0.2s;
+}
+body[unresolved] {
+	opacity: 0;
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+
 #d2l_body,
 .d2l-body {
 	background-color: $d2l-color-white;
