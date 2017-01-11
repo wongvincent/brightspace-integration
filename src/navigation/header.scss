@@ -1,5 +1,7 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
 
+$mobile-menu-bp: 992px;
+
 .d2l-navigation-s-header {
 	border-bottom: 1px solid $d2l-color-gypsum;
 }
@@ -23,4 +25,44 @@
 	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
 	height: 100%;
+}
+
+.d2l-navigation-header-open-button-wrapper {
+	height: 100%;
+
+	@media(min-width: $mobile-menu-bp) {
+		display: none;
+	}
+}
+
+.d2l-navigation-s-header-logo-area {
+	-webkit-flex: 0 1 auto;
+	-webkit-align-items: center;
+	-ms-flex: 0 1 auto;
+	-ms-flex-align: center;
+	align-items: center;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex: 0 1 auto;
+	height: 100%;
+	margin: -7px;
+	overflow: hidden;
+	padding: 0 7px;
+
+	@media(max-width: $mobile-menu-bp) {
+		display: none;
+	}
+}
+
+.d2l-navigation-s-header-logo-area > .d2l-navigation-s-link {
+	display: block;
+	font-size: 1.5rem;
+	-ms-flex: 0 1 auto;
+	-webkit-flex: 0 1 auto;
+	flex: 0 1 auto; /* IE10 defaults to 0 0 auto */
+	overflow: hidden;
+	line-height: normal;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
