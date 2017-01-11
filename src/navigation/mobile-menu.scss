@@ -1,0 +1,66 @@
+.d2l-navigation-s-mobile-menu {
+	display: block;
+}
+
+.d2l-navigation-s-mobile-menu-content {
+	background-color: $d2l-color-white;
+	display: none;
+	height: 100%;
+	left: 0;
+	min-width: 300px;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	transform: translateX(-100%);
+	transition: transform 300ms;
+	width: 84%;
+	z-index: 9000;
+}
+
+[dir='rtl'] .d2l-navigation-s-mobile-menu-content {
+	right: 0;
+	transform: translateX(100%);
+}
+
+.d2l-navigation-s-mobile-menu-transition .d2l-navigation-s-mobile-menu-content,
+.d2l-navigation-s-mobile-menu-opened .d2l-navigation-s-mobile-menu-content {
+	display: block;
+}
+
+.d2l-navigation-s-mobile-menu-opened .d2l-navigation-s-mobile-menu-content {
+	transform: translateX(0);
+}
+
+.d2l-navigation-s-mobile-menu-mask {
+	background-color: $d2l-color-ferrite;
+	height: 0;
+	left: 0;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	transition: opacity 300ms, width 0s 0.3s, height 0s 0.3s;
+	top: 0;
+	width: 0;
+	z-index: 8999;
+}
+.d2l-navigation-s-mobile-menu-mask-close {
+	min-width: 300px;
+	width: 84%;
+}
+.d2l-navigation-s-mobile-menu-mask-close > button {
+	position: relative;
+	top: 10px;
+}
+.d2l-navigation-s-mobile-menu-mask-close > button:focus {
+	left: calc(100% + 10px);
+}
+[dir="rtl"] .d2l-navigation-s-mobile-menu-mask-close > button:focus {
+	left: auto;
+	right: calc(100% + 10px);
+}
+.d2l-navigation-s-mobile-menu-opened .d2l-navigation-s-mobile-menu-mask {
+	height: 100vh;
+	opacity: 0.8;
+	transition: opacity 300ms;
+	width: 100vw;
+}
