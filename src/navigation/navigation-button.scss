@@ -1,0 +1,28 @@
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+@import '../../bower_components/d2l-offscreen/offscreen.scss';
+
+.d2l-navigation-s-button {
+	background-color: $d2l-color-white;
+	border: 1px solid transparent;
+	border-radius: 0.4rem;
+	color: $d2l-color-tungsten;
+	cursor: pointer;
+	font-family: inherit;
+	margin: 0;
+	padding: 12px;
+}
+.d2l-navigation-s-button:hover,
+.d2l-navigation-s-button:focus {
+	border-color: var(--d2l-color-pressicus);
+	color: $d2l-color-celestine;
+	outline-style: none;
+
+	d2l-icon {
+		color: $d2l-color-celestine;
+		height: 16px;
+		width: 16px;
+	}
+}
+.d2l-navigation-s-button-text {
+	@include d2l-offscreen();
+}
