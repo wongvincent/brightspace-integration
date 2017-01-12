@@ -25,7 +25,8 @@
 	height: 100%;
 }
 
-.d2l-navigation-header-open-button-wrapper {
+.d2l-navigation-s-header-open-button-wrapper {
+	display: inline-block;
 	height: 100%;
 
 	@media(min-width: $mobile-menu-bp) {
