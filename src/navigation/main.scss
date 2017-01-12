@@ -20,6 +20,9 @@
 		-ms-align-justify-content: space-between;
 		justify-content: space-between;
 	}
+	&[data-loading] {
+		opacity: 0;
+	}
 }
 
 .d2l-navigation-s-item {
