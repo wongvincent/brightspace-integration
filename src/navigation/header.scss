@@ -27,9 +27,11 @@
 
 .d2l-navigation-s-header-open-button-wrapper {
 	display: inline-block;
+	-ms-flex: 0 1 auto;
+	-webkit-flex: 0 1 auto;
+	flex: 0 1 auto;
 	height: 100%;
-
-	@media(min-width: $mobile-menu-bp) {
+	@media(min-width: $d2l-navigation-mobile-menu-bp) {
 		display: none;
 	}
 }
@@ -49,7 +51,7 @@
 	overflow: hidden;
 	padding: 0 7px;
 
-	@media(max-width: $mobile-menu-bp) {
+	@media(max-width: $d2l-navigation-mobile-menu-bp) {
 		display: none;
 	}
 }

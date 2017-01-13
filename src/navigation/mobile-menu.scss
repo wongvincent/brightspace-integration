@@ -1,10 +1,6 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
 @import 'common.scss';
 
-.d2l-navigation-s-mobile-menu {
-	display: block;
-}
-
 .d2l-navigation-s-mobile-menu-content {
 	background-color: $d2l-color-white;
 	border-top: 4px solid $d2l-color-pressicus;
@@ -81,23 +77,15 @@
 	@media(max-width: 615px) { // todo: set in common.scss once we know what to call it
 		height: $d2l-navigation-header-height-mobile;
 	}
-	&.d2l-navigation-s-is-org {
-		.d2l-navigation-s-mobile-menu-org-header {
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			display: flex;
-		}
-		.d2l-navigation-s-mobile-menu-course-header {
-			display: none;
-		}
-	}
 }
 
 .d2l-navigation-s-mobile-menu-org-header {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	display: none;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 	height: 100%;
 	width: 100%;
 	.d2l-navigation-s-logo {
@@ -166,8 +154,17 @@
 		display: -webkit-flex;
 		display: flex;
 	}
+	.d2l-navigation-s-mobile-menu-course-menu {
+		display: block;
+	}
 	.d2l-navigation-s-mobile-menu-course-header,
-	.d2l-navigation-s-mobile-menu-org-header {
+	.d2l-navigation-s-mobile-menu-org-header,
+	.d2l-navigation-s-mobile-menu-nav {
 		display: none;
 	}
+}
+
+.d2l-navigation-s-mobile-menu-course-menu {
+	display: none;
+	line-height: 1.5rem;
 }
