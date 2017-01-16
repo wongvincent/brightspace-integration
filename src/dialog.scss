@@ -81,6 +81,7 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 	@include flex-grow(2);
 	overflow: auto;
 	position: relative;
+	-webkit-overflow-scrolling: touch;
 }
 
 .d2l-dialog-flex {
