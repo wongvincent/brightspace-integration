@@ -6,10 +6,16 @@
 	display: inline-block;
 }
 
-.d2l-navigation-s-logo img {
+.d2l-navigation-s-logo-large img {
 	border: none; /* needed for IE10 */
 	max-height: 60px;
 	max-width: 260px;
+}
+
+.d2l-navigation-s-logo-small img {
+	border: none; /* needed for IE10 */
+	max-height: 40px;
+	max-width: 173px;
 }
 
 /*
