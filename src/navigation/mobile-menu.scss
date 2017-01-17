@@ -71,12 +71,18 @@
 	display: -webkit-flex;
 	display: flex;
 	height: $d2l-navigation-header-height;
-	padding: 0 1rem;
-	font-size: 0.8rem;
-	font-weight: 400; // todo confirm this weight should still be 400
-	@media(max-width: 615px) { // todo: set in common.scss once we know what to call it
+	padding: 0 1.5rem;
+	font-size: 1.1rem;
+	font-weight: 700;
+	@media(max-width: $d2l-navigation-mobile-menu-mid-bp) {
 		height: $d2l-navigation-header-height-mobile;
 	}
+}
+
+.d2l-navigation-s-mobile-menu-title-bp {
+	border-bottom: 1px solid $d2l-color-gypsum;
+	padding: 0.75rem 1.5rem;
+	font-size: 1.1rem;
 }
 
 .d2l-navigation-s-mobile-menu-org-header {
@@ -100,7 +106,8 @@
 	}
 }
 
-.d2l-navigation-s-mobile-menu-course-header {
+.d2l-navigation-s-mobile-menu-course-header,
+.d2l-navigation-s-mobile-menu-branded-header {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -159,6 +166,8 @@
 	}
 	.d2l-navigation-s-mobile-menu-course-header,
 	.d2l-navigation-s-mobile-menu-org-header,
+	.d2l-navigation-s-mobile-menu-branded-header,
+	.d2l-navigation-s-mobile-menu-title-bp,
 	.d2l-navigation-s-mobile-menu-nav {
 		display: none;
 	}
@@ -167,4 +176,31 @@
 .d2l-navigation-s-mobile-menu-course-menu {
 	display: none;
 	line-height: 1.5rem;
+}
+
+.d2l-navigation-s-mobile-menu-title-bp {
+	display: none;
+	font-weight: 700;
+	@media(max-width: $d2l-navigation-mobile-menu-title-bp) {
+		display: block;
+	}
+}
+
+.d2l-navigation-s-header-logo-area.d2l-navigation-s-header-logo-area-mobile {
+	-webkit-flex-grow: 1;
+	-ms-flex-grow: 1;
+	flex-grow: 1;
+	.d2l-navigation-s-link {
+		font-size: 1.1rem;
+	}
+	@media(max-width: $d2l-navigation-mobile-menu-title-bp) {
+		.d2l-navigation-s-divider {
+			d2l-icon {
+				display: none;
+			}
+		}
+		.d2l-navigation-s-link {
+			display: none;
+		}
+	}
 }

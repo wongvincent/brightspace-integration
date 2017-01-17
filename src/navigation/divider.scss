@@ -1,12 +1,14 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
 
 .d2l-navigation-s-divider {
-	color: $d2l-color-titanius;
 	display: inline-block;
 	-ms-flex: 0 0 auto;
 	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
 	margin: 0 9px;
+	d2l-icon {
+		color: $d2l-color-titanius;
+	}
 }
 .d2l-navigation-s-divider-no-margin {
 	margin: 0;
