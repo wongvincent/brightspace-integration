@@ -1,5 +1,7 @@
 @import '../bower_components/d2l-colors/d2l-colors.scss';
 
+$d2l-twopanelselector-width: 320px;
+
 .d2l-twopanelselector-header {
 	padding: 11px 10px 0 10px;
 }
@@ -9,17 +11,17 @@
 }
 
 .d2l-twopanelselector-side {
-	max-width: 400px;
-	width: 400px;
+	max-width: $d2l-twopanelselector-width;
+	width: $d2l-twopanelselector-width;
 }
 
 .d2l-twopanelselector-side.d2l-twopanelselector-side-sep,
 .d2l-twopanelselector-side-bg.d2l-twopanelselector-side-sep {
 	border-right: 1px solid $d2l-color-gypsum;
-	background: linear-gradient(to right, rgba(249,250,251,0) 0%, $d2l-color-regolith 400px);
+	background: linear-gradient(to right, rgba(249,250,251,0) 0%, $d2l-color-regolith $d2l-twopanelselector-width);
 
 	[dir='rtl'] & {
-		background: linear-gradient(to left, rgba(249,250,251,0) 0%, $d2l-color-regolith 400px);
+		background: linear-gradient(to left, rgba(249,250,251,0) 0%, $d2l-color-regolith $d2l-twopanelselector-width);
 		border-left: 1px solid $d2l-color-gypsum;
 		border-right: none;
 	}
@@ -29,7 +31,7 @@
 	position: absolute;
 	height: 100%;
 	left: 0;
-	width: 400px;
+	width: $d2l-twopanelselector-width;
 	[dir='rtl'] & {
 		right:0;
 	}
