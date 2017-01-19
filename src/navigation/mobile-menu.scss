@@ -188,7 +188,7 @@
 	}
 }
 
-.d2l-navigation-s-header-logo-area.d2l-navigation-s-header-logo-area-mobile {
+.d2l-navigation-s-mobile-menu-header .d2l-navigation-s-header-logo-area {
 	-webkit-flex-grow: 1;
 	-ms-flex-grow: 1;
 	flex-grow: 1;
@@ -205,7 +205,7 @@
 	}
 
 	@media(max-width: $d2l-navigation-mobile-menu-title-bp) {
-		.d2l-navigation-s-mobile-logo-divider {
+		.d2l-navigation-s-logo-divider {
 			d2l-icon {
 				display: none;
 			}
@@ -216,7 +216,7 @@
 		}
 	}
 	@media(max-width: $d2l-navigation-mobile-menu-small-bp) {
-		.d2l-navigation-s-mobile-home-divider {
+		.d2l-navigation-s-home-divider {
 			d2l-icon {
 				display: none;
 			}

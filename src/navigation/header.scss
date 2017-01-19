@@ -51,7 +51,7 @@
 	overflow: hidden;
 	padding: 0 7px;
 
-	&.d2l-navigation-s-header-logo-area-desktop {
+	.d2l-navigation-s-header-container & {
 		@media(max-width: $d2l-navigation-mobile-menu-bp) {
 			display: none;
 		}
