@@ -16,9 +16,9 @@ glob(process.argv[2], function (err, files) {
 			}
 
 			var resourceId = path.basename(file);
-			var jsonp = '_d2l_receiveJsonpImport(' + JSON.stringify(resourceId) + ',' + JSON.stringify(data) + ');';
+			var js = '_d2l_receiveJsonpImport(' + JSON.stringify(resourceId) + ',' + JSON.stringify(data) + ');';
 
-			fs.writeFile(file + '.jsonp', jsonp, 'utf8', function (err) {
+			fs.writeFile(file + '.js', js, 'utf8', function (err) {
 				if (err) {
 					throw err;
 				}
