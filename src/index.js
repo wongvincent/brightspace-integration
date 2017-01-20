@@ -1,6 +1,7 @@
 'use strict';
 
 require('../node_modules/lie/dist/lie.polyfill.min.js');
+require('./event.polyfill.js');
 require('../bower_components/d2l-performance/d2l-performance.js');
 require('../bower_components/jquery-vui-accordion/accordion.js');
 require('../bower_components/jquery-vui-change-tracking/changeTracker.js');
