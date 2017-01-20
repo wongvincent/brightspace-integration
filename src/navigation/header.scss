@@ -51,8 +51,10 @@
 	overflow: hidden;
 	padding: 0 7px;
 
-	@media(max-width: $d2l-navigation-mobile-menu-bp) {
-		display: none;
+	.d2l-navigation-s-header-container & {
+		@media(max-width: $d2l-navigation-mobile-menu-bp) {
+			display: none;
+		}
 	}
 }
 
