@@ -56,13 +56,13 @@
 			display: none;
 		}
 		.d2l-navigation-s-home-icon,
-		&.d2l-navigation-s-title-shown .d2l-navigation-s-home-divider,
-		&.d2l-navigation-s-title-shown .d2l-navigation-s-logo {
+		.d2l-navigation-s-has-title & .d2l-navigation-s-home-divider,
+		.d2l-navigation-s-has-title & .d2l-navigation-s-logo {
 			@media(max-width: $d2l-navigation-mobile-menu-bp) {
 				display: none;
 			}
 		}
-		&.d2l-navigation-s-branding-off {
+		.d2l-navigation-s-branding-off & {
 			@media(max-width: $d2l-navigation-mobile-menu-bp) {
 				display: none;
 			}
