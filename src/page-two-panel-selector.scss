@@ -12,14 +12,11 @@ $d2l-twopanelselector-width: 320px;
 
 .d2l-twopanelselector-side {
 	max-width: $d2l-twopanelselector-width;
+	min-width: $d2l-twopanelselector-width;
 	width: $d2l-twopanelselector-width;
 }
 
-.daylight .d2l-twopanelselector-side {
-	min-width: $d2l-twopanelselector-width;
-}
-
-.daylight .d2l-twopanelselector-main {
+.d2l-twopanelselector-main {
 	max-width: 826px;
 }
 
