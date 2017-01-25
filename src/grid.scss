@@ -40,10 +40,12 @@
 	}
 
 	& > tbody.yui-dt-data > tr:last-child {
-		& > :first-child {
+		& > th:first-child,
+		& > td:first-child {
 			@include vui-table-bottom-border-radius($side:'left');
 		}
-		& > :last-child {
+		& > th:last-child,
+		& > td:last-child {
 			@include vui-table-bottom-border-radius($side:'right');
 		}
 	}
@@ -54,19 +56,23 @@
 			border-bottom: 1px solid $d2l-color-titanius;
 		}
 
-		& > :first-child {
+		& > th:first-child,
+		& > td:first-child {
 			@include vui-table-bottom-border-radius($side:'left');
 		}
-		& > :last-child {
+		& > th:last-child,
+		& > td:last-child {
 			@include vui-table-bottom-border-radius($side:'right');
 		}
 	}
 
-	& > thead:only-child > :last-child {
-		& > :first-child {
+	& > thead:only-child > th:last-child {
+		& > th:first-child,
+		& > td:first-child {
 			@include vui-table-bottom-border-radius($side:'left');
 		}
-		& > :last-child {
+		& > th:last-child,
+		& > td:last-child {
 			@include vui-table-bottom-border-radius($side:'right');
 		}
 	}
@@ -104,15 +110,21 @@
 	}
 
 	& >:only-child {
-		& > tr.d_gactr + tr.d_gh >:first-child,
-		  > tr.fgskip + tr >:first-child,
-		  > :first-child.fgskip + tr >:first-child {
+		& > tr.d_gactr + tr.d_gh > th:first-child,
+		& > tr.d_gactr + tr.d_gh > td:first-child,
+		  > tr.fgskip + tr > th:first-child,
+		  > tr.fgskip + tr > td:first-child,
+		  > :first-child.fgskip + tr > th:first-child,
+		  > :first-child.fgskip + tr > td:first-child {
 			@include vui-table-top-border-radius($side:'left');
 		}
 
-		& > tr.d_gactr + tr.d_gh >:last-child,
-		  > tr.fgskip + tr.d_gh >:last-child,
-		  > :first-child.fgskip + tr >:last-child {
+		& > tr.d_gactr + tr.d_gh > th:last-child,
+		& > tr.d_gactr + tr.d_gh > td:last-child,
+		  > tr.fgskip + tr.d_gh > th:last-child,
+		  > tr.fgskip + tr.d_gh > td:last-child,
+		  > :first-child.fgskip + tr > th:last-child,
+		  > :first-child.fgskip + tr > td:last-child {
 			@include vui-table-top-border-radius($side:'right');
 		}
 
@@ -146,23 +158,30 @@
 				padding: 0.5rem 1.5rem !important;
 			}
 		}
-		& > tr:not(.d_gactr) > :first-child {
+		& > tr:not(.d_gactr) > th:first-child,
+		& > tr:not(.d_gactr) > td:first-child {
 			border-left: 1px solid $d2l-color-titanius;
 		}
-		[dir='rtl'] & > tr:not(.d_gactr) > :last-child {
+		[dir='rtl'] & > tr:not(.d_gactr) > th:last-child,
+		[dir='rtl'] & > tr:not(.d_gactr) > td:last-child {
 			border-left: 1px solid $d2l-color-titanius;
 		}
 
-		[dir='rtl'] & > tr:not(.d_gactr) > :first-child {
+		[dir='rtl'] & > tr:not(.d_gactr) > th:first-child,
+		[dir='rtl'] & > tr:not(.d_gactr) > td:first-child {
 			border-left: none;
 		}
 
-		& > .d_lastRow:not(.d_g_display_none) >:first-child,
-		  > .D2LGridSummaryRow_Data >:first-child {
+		& > .d_lastRow:not(.d_g_display_none) > th:first-child,
+		& > .d_lastRow:not(.d_g_display_none) > td:first-child,
+		  > .D2LGridSummaryRow_Data > th:first-child,
+		  > .D2LGridSummaryRow_Data > td:first-child {
 			@include vui-table-bottom-border-radius($side:'left');
 		}
-		& > .d_lastRow:not(.d_g_display_none) >:last-child,
-		  > .D2LGridSummaryRow_Data >:last-child {
+		& > .d_lastRow:not(.d_g_display_none) > th:last-child,
+		& > .d_lastRow:not(.d_g_display_none) > td:last-child,
+		  > .D2LGridSummaryRow_Data > th:last-child,
+		  > .D2LGridSummaryRow_Data > td:last-child {
 			@include vui-table-bottom-border-radius($side:'right');
 		}
 
@@ -177,7 +196,8 @@
 				background-color:$d2l-color-regolith;
 			}
 		}
-		& > tr.d_ggl2 > :first-child {
+		& > tr.d_ggl2 > th:first-child,
+		& > tr.d_ggl2 > td:first-child {
 			padding: 0.5rem 1.5rem !important;
 		}
 
