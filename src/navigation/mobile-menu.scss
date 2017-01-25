@@ -193,6 +193,10 @@
 	-ms-flex-grow: 1;
 	flex-grow: 1;
 
+	&.d2l-navigation-s-header-no-home-icon .d2l-navigation-s-logo-divider {
+		display: none;		
+	}
+
 	.d2l-navigation-s-link {
 		font-size: 1rem;
 	}
