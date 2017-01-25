@@ -1,6 +1,7 @@
 {
   "name": "brightspace-integration",
   "dependencies": {
+	"d2l-alert":"https://github.com/Brightspace/alert.git#0.0.1",
     "d2l-button": "^3.0.8",
     "d2l-button-group": "^0.4.6",
     "d2l-colors": "^2.2.3",
