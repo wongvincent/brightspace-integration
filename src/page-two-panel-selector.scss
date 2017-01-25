@@ -15,6 +15,15 @@ $d2l-twopanelselector-width: 320px;
 	width: $d2l-twopanelselector-width;
 }
 
+.daylight .d2l-twopanelselector-side {
+	min-width: $d2l-twopanelselector-width;
+}
+
+.daylight .d2l-twopanelselector-main {
+	max-width: 826px;
+}
+
+
 .d2l-twopanelselector-side.d2l-twopanelselector-side-sep,
 .d2l-twopanelselector-side-bg.d2l-twopanelselector-side-sep {
 	border-right: 1px solid $d2l-color-gypsum;
