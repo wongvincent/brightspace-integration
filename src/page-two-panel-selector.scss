@@ -12,7 +12,12 @@ $d2l-twopanelselector-width: 320px;
 
 .d2l-twopanelselector-side {
 	max-width: $d2l-twopanelselector-width;
+	min-width: $d2l-twopanelselector-width;
 	width: $d2l-twopanelselector-width;
+}
+
+.d2l-twopanelselector-main {
+	max-width: 909px;
 }
 
 .d2l-twopanelselector-side.d2l-twopanelselector-side-sep,
