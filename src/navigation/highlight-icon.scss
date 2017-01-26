@@ -28,7 +28,8 @@ button.d2l-navigation-s-button-highlight:focus,
 	outline-style: none;
 }
 
-button.d2l-navigation-s-button-highlight[data-active] {
+button.d2l-navigation-s-button-highlight[data-active],
+button.d2l-navigation-s-button-highlight[data-active] d2l-icon {
 	color: $d2l-color-celestine;
 }
 
