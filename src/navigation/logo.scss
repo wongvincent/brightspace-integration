@@ -30,8 +30,7 @@
 
 .d2l-navigation-s-logo:hover .d2l-navigation-s-logo-link,
 .d2l-navigation-s-logo-link:focus {
-	border-color: $d2l-color-celestine;
-	box-shadow: 0 0 10px $d2l-color-celestine;
+	box-shadow: 0 0 3px 0 rgba( $d2l-color-celestine, 0.4 );
 }
 
 /*
