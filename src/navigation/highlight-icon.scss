@@ -38,9 +38,10 @@ button.d2l-navigation-s-button-highlight[data-active] {
 	flex: 0 0 auto;
 }
 
-.d2l-navigation-s-button-highlight:hover .d2l-navigation-s-highlight-bar,
-.d2l-navigation-s-button-highlight:focus .d2l-navigation-s-highlight-bar {
-	display: block;
+.d2l-navigation-s-button-highlight:hover, .d2l-navigation-s-button-highlight:focus {
+	.d2l-navigation-s-highlight-bar {
+		display: block;
+	}
 }
 
 .d2l-navigation-s-button-highlight[data-active] .d2l-navigation-s-highlight-bar {
