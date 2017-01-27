@@ -1,0 +1,66 @@
+@import '../deprecated/table.scss';
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+
+/* Legacy data grid is .yui-dt */
+.yui-dt > table {
+	@include vui-table();
+	padding-bottom: 1.5rem;
+
+	& .yui-dt-selected {
+		@include vui-table-row-selected($state:'selected');
+	}
+
+	& > tbody.yui-dt-data > tr:last-child {
+		& > th:first-child,
+		& > td:first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > th:last-child,
+		& > td:last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
+	}
+
+	& > tbody.yui-dt-message > tr:last-child {
+		& th,
+		  td {
+			border-bottom: 1px solid $d2l-color-titanius;
+		}
+
+		& > th:first-child,
+		& > td:first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > th:last-child,
+		& > td:last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
+	}
+
+	& > thead:only-child > th:last-child {
+		& > th:first-child,
+		& > td:first-child {
+			@include vui-table-bottom-border-radius($side:'left');
+		}
+		& > th:last-child,
+		& > td:last-child {
+			@include vui-table-bottom-border-radius($side:'right');
+		}
+	}
+
+	& .yui-dt-asc .yui-dt-label {
+		@include vui-table-column-sort($direction:'asc');
+	}
+
+	& .yui-dt-desc .yui-dt-label {
+		@include vui-table-column-sort($direction:'desc');
+	}
+}
+
+.d_dg_ac {
+	padding: 0.5rem 1.5rem;
+}
+
+.d_dg_ps {
+	padding: 0.25rem;
+}
