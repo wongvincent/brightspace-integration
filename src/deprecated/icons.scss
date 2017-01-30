@@ -1,11 +1,10 @@
 @import '../../bower_components/d2l-icons/icons.scss';
 
-/* avoids colliding with the "d2l-icon" class that gets put on the
-  <d2l-icon> web component when shadow DOM isn't used */
-[class*=" d2l-icon-"]:not(d2l-icon),
-[class^="d2l-icon-"]:not(d2l-icon),
-[class*=" vui-icon-"],
-[class^="vui-icon-"] {
+.vui-icon-delete,
+.vui-icon-edit,
+.vui-icon-file-pdf-xlarge,
+.vui-icon-remove,
+.vui-icon-share {
 	@include d2l-icon();
 }
 
