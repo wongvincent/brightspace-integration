@@ -3,13 +3,9 @@
 
 .d2l-navigation-s-logo {
 	align-items: center;
-	display: flex;
+	display: inline-flex;
 	height: 100%;
 	position: relative;
-}
-
-.d2l-navigation-s-branding-off .d2l-navigation-s-logo {
-	display: inline-flex;
 }
 
 .d2l-navigation-s-logo-wrapper > a {
