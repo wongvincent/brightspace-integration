@@ -2,6 +2,8 @@
 
 .d2l-link, .d2l-link:visited {
 	display: inline-block;
+	word-wrap: break-word;
+	word-break: break-word;
 }
 
 .d2l-clickable {
