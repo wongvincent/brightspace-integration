@@ -23,6 +23,11 @@
 	&[data-loading] {
 		opacity: 0;
 	}
+	&[data-unmeasured] {
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
 }
 
 .d2l-navigation-s-item {
