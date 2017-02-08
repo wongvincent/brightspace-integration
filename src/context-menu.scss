@@ -39,6 +39,10 @@
 	border-bottom: 1px solid $d2l-color-gypsum;
 }
 
+.vui-dropdown-menu > ul > li.d2l-last-visible-item.vui-dropdown-menu-item-focus {
+	@extend li.vui-dropdown-menu-item-focus;
+}
+
 .vui-dropdown-menu > ul > li.d2l-contextmenu-item-hover-next-visible {
 	border-top: 1px solid transparent;
 }
