@@ -10,6 +10,7 @@ require('../bower_components/jquery-vui-collapsible-section/collapsibleSection.j
 require('../bower_components/jquery-vui-more-less/moreLess.js');
 require('../bower_components/jquery-vui-scrollspy/scroll-spy.js');
 require('./page-loading/page-loading.js');
+require('../bower_components/d2l-telemetry/d2l-telemetry.js');
 
 window.BSI = window.BSI || {};
 window.BSI.Intl = require('d2l-intl');
