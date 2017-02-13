@@ -1,10 +1,13 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
 @import 'common.scss';
 
+.d2l-navigation-s-mobile-menu[data-state="closed"] {
+	display: none;
+}
+
 .d2l-navigation-s-mobile-menu-content {
 	background-color: $d2l-color-white;
 	border-top: 4px solid $d2l-color-pressicus;
-	display: none;
 	height: 100%;
 	left: 0;
 	min-width: 300px;
@@ -21,11 +24,6 @@
 	left: auto;
 	right: 0;
 	transform: translateX(100%);
-}
-
-.d2l-navigation-s-mobile-menu[data-state="transition"] .d2l-navigation-s-mobile-menu-content,
-.d2l-navigation-s-mobile-menu[data-state="opened"] .d2l-navigation-s-mobile-menu-content {
-	display: block;
 }
 
 .d2l-navigation-s-mobile-menu[data-state="opened"] .d2l-navigation-s-mobile-menu-content {
