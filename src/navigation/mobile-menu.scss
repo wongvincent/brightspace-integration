@@ -1,6 +1,10 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
 @import 'common.scss';
 
+.d2l-navigation-s-mobile-menu[data-state="closed"] {
+	display: none;
+}
+
 .d2l-navigation-s-mobile-menu-content {
 	background-color: $d2l-color-white;
 	border-top: 4px solid $d2l-color-pressicus;
