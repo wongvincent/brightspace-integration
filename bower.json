@@ -18,7 +18,7 @@
     "vui-offscreen": "~0.3.0",
     "vui-typography": "~0.6.0",
     "d2l-performance": "^0.0.4",
-    "d2l-telemetry": "^0.0.6"
+    "d2l-telemetry": "^0.0.7"
   },
   "private": true
 }
