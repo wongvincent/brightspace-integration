@@ -10,7 +10,7 @@
     "d2l-image-action": "^0.7.0",
     "d2l-link": "^3.3.1",
     "d2l-loading-spinner": "^5.0.3",
-    "d2l-menu": "^0.3.1",
+    "d2l-menu": "^0.3.3",
     "d2l-more-less": "^2.1.7",
     "d2l-my-courses": "https://github.com/Brightspace/d2l-my-courses-ui.git#1.0.1",
     "d2l-image-banner-overlay": "https://github.com/Brightspace/d2l-image-banner-overlay.git#0.0.2",
