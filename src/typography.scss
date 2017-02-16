@@ -1,0 +1,89 @@
+@import '../bower_components/d2l-typography/d2l-typography.scss';
+
+@include d2l-typography-font-face();
+
+.d2l-typography {
+
+	@include d2l-typography();
+	@media (max-width: 615px) {
+		font-size: 0.8rem;
+		line-height: 1.2rem;
+	}
+
+	.d2l-body-standard {
+		@include d2l-body-standard();
+	}
+
+	.d2l-body-compact {
+		@include d2l-body-compact();
+	}
+
+	.d2l-body-small {
+		@include d2l-body-small();
+	}
+
+	.d2l-heading-1, .vui-heading-1 {
+		@include d2l-heading-1();
+		padding-bottom: 15px;
+		&.d2l-heading-half {
+			padding: 0;
+			margin: 0;
+			padding-bottom: 8px;
+		}
+		&.d2l-heading-strong {
+			font-weight: 700;
+		}
+	}
+
+	.d2l-heading-2, .vui-heading-2 {
+		@include d2l-heading-2();
+		padding-bottom: 15px;
+		&.d2l-heading-half {
+			padding: 0;
+			margin: 0;
+			padding-bottom: 8px;
+		}
+		&.d2l-heading-strong {
+			font-weight: 700;
+		}
+	}
+
+	.d2l-heading-3, .vui-heading-3 {
+		@include d2l-heading-3();
+	}
+	.d2l-heading-4, .vui-heading-4 {
+		@include d2l-heading-4();
+	}
+
+	.d2l-heading-1, .vui-heading-1,
+	.d2l-heading-2, .vui-heading-2,
+	.d2l-heading-3, .vui-heading-3,
+	.d2l-heading-4, .vui-heading-4 {
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-right: 6px;
+	}
+	[dir='rtl'] & .d2l-heading-1,
+	[dir='rtl'] & .vui-heading-1,
+	[dir='rtl'] & .d2l-heading-2,
+	[dir='rtl'] & .vui-heading-2,
+	[dir='rtl'] & .d2l-heading-3,
+	[dir='rtl'] & .vui-heading-3,
+	[dir='rtl'] & .d2l-heading-4,
+	[dir='rtl'] & .vui-heading-4 {
+		margin-right: 0;
+		margin-left: 6px;
+	}
+
+	.d2l-heading-none {
+		padding-bottom: 0;
+	}
+
+	.d2l-heading-set-solid,
+	.bsi-set-solid {
+		line-height: normal;
+		margin: 0;
+		padding: 0;
+	}
+
+}
