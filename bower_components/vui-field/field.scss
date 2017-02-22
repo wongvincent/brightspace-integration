@@ -1,0 +1,58 @@
+@import 'bower_components/d2l-colors/d2l-colors.scss';
+@import 'icons.scss';
+
+@mixin vui-field-row($bottom-margin: true) {
+
+	border: none;
+	display: block;
+	margin: 0 0 if($bottom-margin, 1.5rem, 0) 0;
+	padding: 0;
+
+	&:after {
+		clear: both;
+	}
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+}
+
+@mixin vui-field-label($inline: false) {
+
+	color: $d2l-color-ferrite;
+	cursor: default;
+	display: block;
+	font-family: inherit;
+	font-size: 0.7rem;
+	font-weight: 700;
+	line-height: if($inline, 2.3rem, 0.7rem);
+	margin: 0 0 if($inline, 0, 0.75rem) 0;
+	width: 100%;
+
+	@if $inline {
+		text-align: right;
+		[dir='rtl'] & {
+			text-align: left;
+		}
+	}
+
+}
+
+@mixin vui-field-label-required() {
+	&:after {
+		content: $vui-field-asterisk;
+		position: relative;
+		left: 0.15rem;
+		bottom: 0.25rem;
+		display: inline-block;
+		width: 0.25rem;
+		height: 0.30rem;
+	}
+	[dir='rtl'] &:after {
+		left: auto;
+		right: 0.15rem;
+	}
+}

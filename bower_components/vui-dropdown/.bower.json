@@ -1,0 +1,31 @@
+{
+  "name": "vui-dropdown",
+  "main": "dropdown.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".csslintrc",
+    ".npmignore",
+    ".travis.yml",
+    "test",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.1.0",
+    "d2l-offscreen": "^2.1.0"
+  },
+  "homepage": "https://github.com/Brightspace/valence-ui-dropdown",
+  "version": "0.9.0",
+  "_release": "0.9.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.0",
+    "commit": "b83c4854080f3e87c0495c2a07203f074afd60fc"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-dropdown.git",
+  "_target": "0.9.0",
+  "_originalSource": "vui-dropdown",
+  "_direct": true
+}

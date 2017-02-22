@@ -1,0 +1,17 @@
+{
+  "name": "vui-list",
+  "main": "list.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.1.0"
+  }
+}

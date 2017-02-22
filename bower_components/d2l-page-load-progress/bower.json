@@ -1,0 +1,25 @@
+{
+  "name": "d2l-page-load-progress",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "description": "Web component progress bar for the page load status",
+  "keywords": [],
+  "main": "d2l-page-load-progress.html",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/BrightspaceUI/page-load-progress/",
+  "ignore": [
+    "/.*",
+    "package.json",
+    "/test/"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.2.3",
+    "polymer": "^1.7.0"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "~0.0.8",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}

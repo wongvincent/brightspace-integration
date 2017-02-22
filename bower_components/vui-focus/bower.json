@@ -1,0 +1,16 @@
+{
+  "name": "vui-focus",
+  "main": "focus.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "node_modules",
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ]
+}

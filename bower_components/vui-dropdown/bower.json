@@ -1,0 +1,19 @@
+{
+  "name": "vui-dropdown",
+  "main": "dropdown.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".csslintrc",
+    ".npmignore",
+    ".travis.yml",
+    "test",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.1.0",
+    "d2l-offscreen": "^2.1.0"
+  }
+}

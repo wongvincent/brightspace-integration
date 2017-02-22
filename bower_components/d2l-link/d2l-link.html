@@ -1,0 +1,48 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+
+<dom-module id="d2l-link">
+	<template strip-whitespace>
+		<style>
+			:host, :host(:visited), :host(:active), :host(:link) {
+				color: var(--d2l-color-celestine);
+				text-decoration: none;
+				cursor: pointer;
+				@apply(--d2l-link);
+			}
+			:host([main]) {
+				font-weight: 700;
+				@apply(--d2l-link-main);
+			}
+			:host([small]) {
+				font-size: 0.7rem;
+				line-height: 1.05rem;
+				letter-spacing: 0.01rem;
+				@apply(--d2l-link-small);
+			}
+			:host(:hover), :host(:focus), :host(.d2l-link-focus) {
+				color: var(--d2l-color-celestuba);
+				text-decoration: underline;
+				outline-width: 0;
+				@apply(--d2l-link-hover);
+			}
+		</style>
+		<content></content>
+	</template>
+	<script>
+		Polymer({
+			is: 'd2l-link',
+			extends: 'a',
+			properties: {
+				main: {
+					type: Boolean,
+					reflectToAttribute: true
+				},
+				small: {
+					type: Boolean,
+					reflectToAttribute: true
+				}
+			}
+		});
+	</script>
+</dom-module>

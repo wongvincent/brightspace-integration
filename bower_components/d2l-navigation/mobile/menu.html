@@ -1,0 +1,253 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../d2l-colors/d2l-colors.html">
+<link rel="import" href="../../d2l-menu/d2l-menu.html">
+<link rel="import" href="../../d2l-hierarchical-view/d2l-hierarchical-view.html">
+<link rel="import" href="../course-menu.html">
+<link rel="import" href="../item-link-behavior.html">
+<link rel="import" href="../localize-behavior.html">
+<link rel="import" href="../shared-styles.html">
+<link rel="import" href="../slide-out-menu.html">
+<link rel="import" href="header.html">
+<link rel="import" href="course-header.html">
+<link rel="import" href="course-menu-header.html">
+<link rel="import" href="org-header.html">
+
+<dom-module id="d2l-navigation-mobile-menu">
+	<style include="d2l-navigation-shared-styles">
+		:host {
+			display: block;
+		}
+		.d2l-navigation-mobile-menu-wrapper {
+			border-top: 4px solid var(--d2l-color-pressicus);
+		}
+		:host d2l-navigation-mobile-org-header {
+			display: none;
+		}
+		:host-context([is-org]) d2l-navigation-mobile-org-header {
+			display: block;
+		}
+		:host d2l-navigation-mobile-course-header {
+			display: block;
+		}
+		:host-context([is-org]) d2l-navigation-mobile-course-header {
+			display: none;
+		}
+		:host d2l-navigation-mobile-course-menu-header {
+			display: none;
+		}
+		:host([header='course-menu']) d2l-navigation-mobile-org-header,
+		:host([header='course-menu']) d2l-navigation-mobile-course-header {
+			display: none;
+		}
+		:host([header='course-menu']) d2l-navigation-mobile-course-menu-header {
+			display: block;
+		}
+		:host d2l-navigation-mobile-org-header,
+		:host d2l-navigation-mobile-course-header,
+		:host d2l-navigation-mobile-course-menu-header {
+			flex: 0 1 auto; /* IE10 defaults to 0 0 auto */
+			flex: auto;
+			min-width: 0;
+		}
+	</style>
+	<template>
+		<d2l-navigation-slide-out-menu>
+			<div class="d2l-navigation-mobile-menu-wrapper">
+				<div class="d2l-navigation-mobile-header-wrapper">
+					<d2l-navigation-mobile-header>
+						<d2l-navigation-mobile-org-header
+							has-course-menu="[[hasCourseMenu]]"
+							logo="[[logo]]"
+							logo-href="[[logoHref]]"
+							logo-text="[[logoText]]">
+						</d2l-navigation-mobile-org-header>
+						<d2l-navigation-mobile-course-header
+							has-course-menu="[[hasCourseMenu]]"
+							my-home="[[myHome]]"
+							org-unit-name="[[orgUnitName]]"
+							org-unit-home="[[orgUnitHome]]">
+						</d2l-navigation-mobile-course-header>
+						<d2l-navigation-mobile-course-menu-header
+							org-unit-name="[[orgUnitName]]">
+						</d2l-navigation-mobile-course-menu-header>
+					</d2l-navigation-mobile-header>
+				</div>
+				<d2l-hierarchical-view>
+					<d2l-navigation-course-menu
+						graft-location="[[courseMenuLocation]]">
+					</d2l-navigation-course-menu>
+					<d2l-menu
+						no-return-item
+						style="width:100%;"
+						label="{{localize('menu')}}">
+					</d2l-menu>
+				</d2l-hierarchical-view>
+			</div>
+		</d2l-navigation-slide-out-menu>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-mobile-menu',
+
+		properties: {
+			adminItems: {
+				type: Array,
+				observer: '_adminItemsChanged'
+			},
+			bandColor: {
+				type: String,
+				value: '#b9c2d0',
+				observer: '_handleBandColorChange'
+			},
+			courseMenuLocation: String,
+			hasCourseMenu: {
+				type: Boolean,
+				computed: '_hasCourseMenu(courseMenuLocation)'
+			},
+			items: {
+				type: Array,
+				observer: '_itemsChanged'
+			},
+			logo: String,
+			logoHref: String,
+			logoText: String,
+			myHome: String,
+			orgUnitHome: String,
+			orgUnitName: String,
+			header: {
+				type: String,
+				reflectToAttribute: true
+			}
+		},
+
+		behaviors: [
+			window.D2L.PolymerBehaviors.Navigation.ItemLinkBehavior,
+			window.D2L.PolymerBehaviors.Navigation.LocalizeBehavior
+		],
+
+		listeners: {
+			'd2l-navigation-mobile-close': 'close',
+			'd2l-navigation-mobile-show-course-menu': '_handleShowCourseMenu',
+			'd2l-navigation-mobile-show-course-nav': '_handleShowCourseNav',
+			'd2l-hierarchical-view-hide-start': '_handleHideOrShow',
+			'd2l-hierarchical-view-hide-complete': '_handleLoadCourseMenu',
+			'd2l-hierarchical-view-show-start': '_handleHideOrShow'
+		},
+
+		close: function() {
+			this.$$('d2l-navigation-slide-out-menu').close();
+		},
+
+		open: function(opener) {
+			this.header = 'nav';
+			this.$$('d2l-navigation-slide-out-menu').open(opener);
+			this.$$('d2l-menu').resize();
+			this.$$('d2l-menu').show();
+			this._handleLoadCourseMenu();
+		},
+
+		_adminItemsChanged: function() {
+
+			var itemsData = this.adminItems;
+			if (!itemsData || itemsData.length === 0) {
+				return;
+			}
+
+			var toolsItem = document.createElement('d2l-menu-item');
+			toolsItem.setAttribute('text', this.localize('adminTools'));
+
+			var toolsMenu = document.createElement('d2l-menu');
+			Polymer.dom(toolsItem).appendChild(toolsMenu);
+
+			var toolsMenuApi = Polymer.dom(toolsMenu);
+			itemsData.forEach(function(itemData) {
+				if (!itemData.entities || itemData.entities.length === 0) {
+					return;
+				}
+				var item = this.createMenuItem(itemData);
+				if (item) {
+					toolsMenuApi.appendChild(item);
+				}
+			}.bind(this));
+
+			var menu = this.$$('d2l-menu');
+
+			var separator = document.createElement('d2l-menu-item-separator');
+			separator.classList.add('d2l-navigation-mobile-admin-tools-sep');
+			Polymer.dom(menu).appendChild(separator);
+
+			Polymer.dom(menu).appendChild(toolsItem);
+
+		},
+
+		_hasCourseMenu: function(courseMenuLocation) {
+			return courseMenuLocation !== undefined;
+		},
+
+		_handleShowCourseNav: function() {
+			this.header = 'nav';
+			this.$$('d2l-menu').show();
+		},
+
+		_handleShowCourseMenu: function() {
+			this.header = 'course-menu';
+			this.$$('d2l-hierarchical-view').show();
+		},
+
+		_handleLoadCourseMenu: function() {
+
+			this.$$('d2l-navigation-mobile-course-menu-header').focus();
+
+			var courseMenu = this.$$('d2l-navigation-course-menu');
+			if (this.courseMenuLocation === undefined || courseMenu.loaded) {
+				return;
+			}
+
+			var rootView = this.$$('d2l-hierarchical-view');
+			var onLoad = function() {
+				courseMenu.removeEventListener('d2l-navigation-course-menu-loaded', onLoad);
+				rootView.resize();
+			};
+
+			courseMenu.addEventListener('d2l-navigation-course-menu-loaded', onLoad);
+			courseMenu.load();
+
+		},
+
+		_handleBandColorChange: function() {
+			Polymer.dom(this.$$('.d2l-navigation-mobile-menu-wrapper'))
+				.node.style.borderTopColor = this.bandColor;
+		},
+
+		_handleHideOrShow: function() {
+			var isActive = this.$$('d2l-menu').isActive();
+			Polymer.dom(this.$$('.d2l-navigation-mobile-header-wrapper')).node.style.display =
+				(isActive) ? 'block' : 'none'; // todo: nicer transition animation
+		},
+
+		_itemsChanged: function() {
+
+			var menuItems = document.createDocumentFragment();
+
+			this.items.forEach(function(item) {
+				var newItem = this.createMenuItem(item);
+				if (newItem) {
+					newItem.classList.add('d2l-navigation-more-group-item');
+					Polymer.dom(menuItems).appendChild(newItem);
+				}
+			}.bind(this));
+
+			var menu = this.$$('d2l-menu');
+			var adminItem = menu.queryEffectiveChildren('.d2l-navigation-mobile-admin-tools-sep');
+
+			if (adminItem) {
+				Polymer.dom(menu).insertBefore(menuItems, adminItem);
+			} else {
+				Polymer.dom(menu).appendChild(menuItems);
+			}
+
+		}
+
+	});
+</script>

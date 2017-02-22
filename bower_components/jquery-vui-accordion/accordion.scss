@@ -1,0 +1,23 @@
+@import 'bower_components/d2l-colors/d2l-colors.scss';
+
+$vui-accordion-borderColor: $d2l-color-titanius;
+$vui-accordion-borderRadius: 6px;
+$vui-accordion-borderStyle: solid;
+$vui-accordion-borderWidth: 1px;
+
+$vui-accordion-header-borderColor-active: $d2l-color-titanius;
+$vui-accordion-header-borderStyle-active: solid;
+$vui-accordion-header-borderWidth-active: 1px;
+
+$vui-accordion-content-backgroundColor: $d2l-color-white;
+
+$vui-accordion-header-backgroundColor-disabled: $d2l-color-regolith;
+$vui-accordion-header-opacity-disabled: 0.6;
+
+$vui-accordion-header-backgroundColor: $d2l-color-regolith;
+
+$vui-accordion-toggle-backgroundColor-hover: $d2l-color-gypsum;
+$vui-accordion-toggle-borderColor: transparent;
+$vui-accordion-toggle-borderColor-hover: $d2l-color-titanius;
+$vui-accordion-toggle-borderStyle: solid;
+$vui-accordion-toggle-borderWidth: 1px;

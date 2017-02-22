@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>d2l-page-load-progress</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
+	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
+	<link rel="import" href="../d2l-page-load-progress.html">
+</head>
+<body unresolved>
+
+	<d2l-demo-template title="d2l-page-load-progress">
+
+		<div class="d2l-demo-actions">
+			<div style="margin-bottom:20px;">
+				<label>
+					Color<br />
+					<input type="text" id="color" value="#003b71" />
+				</label>
+			</div>
+			<div>
+				<button id="start">Start</button>
+				<button id="finish">Finish</button>
+			</div>
+		</div>
+
+		<div class="d2l-demo-fixture">
+			<d2l-page-load-progress id="progress" color="#003b71" autostart></d2l-page-load-progress>
+		</div>
+
+	</d2l-demo-template>
+
+	<script>
+		addEventListener('WebComponentsReady', function() {
+			var progress = document.getElementById('progress');
+			document.getElementById('start').addEventListener('click', function() {
+				progress.start();
+			});
+			document.getElementById('finish').addEventListener('click', function() {
+				progress.finish();
+			});
+			document.getElementById('color').addEventListener('change', function() {
+				progress.setAttribute('color', this.value);
+			});
+		});
+	</script>
+</body>
+</html>

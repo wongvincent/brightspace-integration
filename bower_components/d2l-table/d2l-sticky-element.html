@@ -1,0 +1,57 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+    Copied with modifications and fixes from https://github.com/seaneking/sticky-element/blob/master/sticky-element.html
+-->
+
+<script src="../Stickyfill/dist/stickyfill.min.js"></script>
+<dom-module id="d2l-sticky-element">
+	<template strip-whitespace>
+		<style>
+			:host {
+				position: -webkit-sticky;
+				position: sticky;
+				top: 0;
+				z-index: 1;
+			}
+		</style>
+		<content></content>
+	</template>
+	<script>
+		/* global Stickyfill */
+		Polymer({
+			is: 'd2l-sticky-element',
+			properties: {
+				disabled: {
+					type: Boolean,
+					observer: '_disabledChanged'
+				}
+			},
+			_updateSticky: function() {
+				/**
+				 * Stickyfill requires the component to be attached to the DOM
+				 * in order to work. If the component is not attached, the attached
+				 * method will handle initialization
+				 */
+				if (!this.isAttached) {
+					return;
+				}
+				var sticky = !this.disabled;
+				if (sticky) {
+					Stickyfill.add(this);
+					this._added = true;
+				} else if (this._added) {
+					Stickyfill.remove(this);
+					this._added = false;
+				} else {
+					return;
+				}
+				Stickyfill.rebuild();
+			},
+			_disabledChanged: function() {
+				// Defer the getComputedStyle() calls until after the page has rendered
+				Polymer.RenderStatus.afterNextRender(this, this._updateSticky.bind(this));
+			}
+		});
+	</script>
+</dom-module>

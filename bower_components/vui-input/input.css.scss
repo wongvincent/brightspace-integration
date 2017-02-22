@@ -1,0 +1,48 @@
+@import 'input.scss';
+@import 'input-checkbox.scss';
+@import 'input-radio.scss';
+@import 'search.scss';
+@import 'select.scss';
+@import 'textarea.scss';
+
+.vui-input,
+.vui-input[type="email"],
+.vui-input[type="password"],
+.vui-input[type="text"],
+.vui-input[type="url"] {
+	@include vui-input();
+}
+
+.vui-input[type="checkbox"] {
+	@include vui-input-checkbox();
+}
+
+.vui-input[type="radio"] {
+	@include vui-input-radio();
+}
+
+select.vui-input {
+	@include vui-input-select();
+}
+
+textarea.vui-input {
+	@include vui-input-textarea();
+}
+
+.vui-input-checkbox-label {
+	@include vui-input-checkbox-label();
+}
+
+.vui-input-radio-label {
+	@include vui-input-radio-label();
+}
+
+.vui-input-search-container {
+	@include vui-input-search-container();
+}
+.vui-input-search-button {
+	@include vui-input-search-button();
+}
+.vui-input-search-clear-button {
+	@include vui-input-search-clear-button();
+}

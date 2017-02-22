@@ -1,0 +1,25 @@
+{
+  "name": "d2l-button",
+  "description": "Polymer-based web components for D2L buttons",
+  "main": "d2l-button.html",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    "screenshots",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json",
+    "wct.conf.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.2.3",
+    "polymer": "^1.7.0",
+    "iron-media-query": "^1.0.8"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "~0.0.8",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
+    "web-component-tester": "^4.2.2"
+  }
+}

@@ -1,0 +1,214 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-menu/d2l-menu.html">
+<link rel="import" href="../d2l-menu/d2l-menu-item.html">
+<link rel="import" href="../d2l-menu/d2l-menu-item-link.html">
+
+<script>
+(function() {
+	'use strict';
+
+/** @polymerBehavior D2L.PolymerBehaviors.Navigation.ItemLinkBehavior */
+	var ItemLinkBehavior = {
+		properties: {
+			hide: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true
+			},
+			tabIndex: {
+				type: Number,
+				computed: '_computeTabIndex(hide)'
+			}
+		},
+
+		createMenuItem: function(item) {
+			if (this.isLink(item)) {
+				return this._createLink(item);
+			}
+			else if (this.isPopup(item)) {
+				return this._createPopup(item);
+			}
+			else if (this.isAction(item)) {
+				return this._createAction(item);
+			}
+			else if (this.isGroup(item)) {
+				return this._createGroup(item);
+			}
+			return;
+		},
+
+		getHref: function(item) {
+			var href = undefined;
+			if (this.isLink(item)) {
+				if (item.properties && item.properties.relativePath) {
+					href = item.properties.relativePath;
+				} else if (this.isPopup(item)) {
+					href = this.getHref(item);
+				}
+			} else if (this.isPopup(item)) {
+				item.links.forEach(function(l) {
+					if (l.rel.indexOf('self') > -1) {
+						href = l.href;
+					}
+				});
+			}
+			return href;
+		},
+
+		getText: function(item) {
+			if (item.class.indexOf('item') > -1) {
+				return item.properties.text;
+			} else if (item.class.indexOf('action') > -1) {
+				return item.title;
+			}
+		},
+
+		isAction: function(item) {
+			return (item.class.indexOf('action') > -1);
+		},
+
+		isGroup: function(item) {
+			return (
+				item &&
+				item.class &&
+				(item.class.indexOf('group') > -1)
+			);
+		},
+
+		isLink: function(item) {
+			return (!this.isGroup(item) && !this.isPopup(item) && !this.isPopup(item));
+		},
+
+		isNavItem: function(item) {
+			return (
+				item &&
+				item.class &&
+				(item.class.indexOf('item') > -1) &&
+				!this.isGroup(item)
+			);
+		},
+
+		isPopup: function(item) {
+			return (item.class.indexOf('popup') > -1);
+		},
+
+		_createAction: function(item) {
+			var action = document.createElement('d2l-menu-item');
+			action.setAttribute('text', this.getText(item));
+			action.addEventListener('d2l-menu-item-select', this._onPopupOrActionSelect.bind(this, item));
+			return action;
+		},
+
+		_createGroup: function(item) {
+			var group = document.createElement('d2l-menu-item');
+			group.setAttribute('text', this.getText(item));
+
+			var menu = document.createElement('d2l-menu');
+			item.entities.forEach(function(entity) {
+				if (this.isNavItem(entity)) {
+					var newItem = this.createMenuItem(entity);
+					if (newItem) {
+						Polymer.dom(menu).appendChild(newItem);
+					}
+				}
+			}.bind(this));
+
+			Polymer.dom(group).appendChild(menu);
+			return group;
+		},
+
+		_createLink: function(item) {
+			var link = document.createElement('d2l-menu-item-link');
+			link.setAttribute('text', this.getText(item));
+			link.setAttribute('href', this.getHref(item));
+			return link;
+		},
+
+		_createPopup: function(item) {
+			var popup = document.createElement('d2l-menu-item-link');
+			popup.setAttribute('text', this.getText(item));
+			popup.setAttribute('href', this.getHref(item));
+			popup.setAttribute('prevent-default', 'prevent-default');
+			popup.addEventListener('d2l-menu-item-select', this._onPopupOrActionSelect.bind(this, item));
+			return popup;
+		},
+
+		_onActionSelect: function(item) {
+			var frm = document.createElement('form');
+			frm.setAttribute('target', '_top');
+			frm.setAttribute('action', item.href);
+			frm.setAttribute('method', item.method);
+			frm.setAttribute('enctype', item.type);
+
+			item.fields.forEach(function(f) {
+				if (f.type === 'hidden') {
+					var hidden = document.createElement('input');
+					hidden.setAttribute('type', 'hidden');
+					hidden.setAttribute('name', f.name);
+					hidden.setAttribute('value', f.value);
+					frm.appendChild(hidden);
+				}
+			});
+
+			document.body.appendChild(frm);
+			frm.submit();
+
+			// special handling for logout
+			if (item.class.indexOf('logout') > -1) {
+				try {
+					window.localStorage.setItem('Session.Expired', '1');
+				} catch (e) {
+					// no access to local storage, whateves
+				}
+			}
+
+		},
+
+		_onPopupSelect: function(item) {
+			var features = '';
+			if ( item.properties.Width > 0 ) {
+				features += 'width=' + item.properties.Width + ',';
+			}
+			if ( item.properties.Height > 0 ) {
+				features += 'height=' + item.properties.Height + ',';
+			}
+
+			features += 'location=1,' +
+				'menubar=' + ( this.properties.HasMenubar ? '1' : '0' ) + ',' +
+				'resizable=1,' +
+				'status=1,' +
+				'scrollbars=1,' +
+				'toolbar=' + ( this.properties.HasToolbar ? '1' : '0' );
+
+			var href = this.getHref(item);
+
+			// name can't contain non-alphanumerics
+			var windowName = href.replace(/[^a-zA-Z0-9]+/g, '_');
+
+			var w = window.open(href, windowName, features);
+			if (w) {
+				w.focus();
+			}
+		},
+
+		_onPopupOrActionSelect: function(item) {
+			if (this.isPopup(item)) {
+				this._onPopupSelect(item);
+			} else if (this.isAction(item)) {
+				this._onActionSelect(item);
+			}
+			return true;
+		},
+
+		_computeTabIndex: function(hide) {
+			return (hide ? -1 : 0);
+		}
+	};
+
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+	window.D2L.PolymerBehaviors.Navigation = window.D2L.PolymerBehaviors.Navigation || {};
+	/** @polymerBehavior */
+	window.D2L.PolymerBehaviors.Navigation.ItemLinkBehavior = [ItemLinkBehavior];
+})();
+</script>

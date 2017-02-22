@@ -1,0 +1,23 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="d2l-dropdown-opener-behavior.html">
+
+<dom-module id="d2l-dropdown">
+	<template>
+		<style include="d2l-dropdown-opener-styles"></style>
+		<slot></slot>
+	</template>
+	<script>
+		Polymer({
+			is: 'd2l-dropdown',
+
+			behaviors: [
+				window.D2L.PolymerBehaviors.DropdownOpenerBehavior
+			],
+
+			getOpenerElement: function() {
+				return this.queryEffectiveChildren('.d2l-dropdown-opener');
+			}
+
+		});
+	</script>
+</dom-module>

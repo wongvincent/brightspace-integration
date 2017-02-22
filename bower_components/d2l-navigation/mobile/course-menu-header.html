@@ -1,0 +1,61 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../button.html">
+<link rel="import" href="../icons.html">
+
+<dom-module id="d2l-navigation-mobile-course-menu-header">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+			:host .d2l-navigation-mobile-course-menu-header-container {
+				align-items: center;
+				display: flex;
+			}
+			:host button {
+				flex: none;
+			}
+			:host span {
+				display: inline-block;
+				flex: auto;
+				flex: 1; /* IE10 defaults to 0 0 auto */
+				margin-right: 62px;
+				overflow-x: hidden;
+				text-align: center;
+				text-decoration: none;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			:host-context([dir="rtl"]) span {
+				margin-left: 62px;
+				margin-right: 0;
+			}
+		</style>
+		<div class="d2l-navigation-mobile-course-menu-header-container">
+			<button
+				is="d2l-navigation-button"
+				hide-text
+				icon="d2l-tier1:chevron-left"
+				on-click="_handleShowNav">[[orgUnitName]]</button>
+			<span>[[orgUnitName]]</span>
+		</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-mobile-course-menu-header',
+
+		properties: {
+			orgUnitName: String
+		},
+
+		focus: function() {
+			this.$$('button').focus();
+		},
+
+		_handleShowNav: function() {
+			this.fire('d2l-navigation-mobile-show-course-nav');
+		}
+
+	});
+</script>

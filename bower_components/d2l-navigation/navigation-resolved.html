@@ -1,0 +1,89 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="header/header.html">
+<link rel="import" href="mobile/menu.html">
+<link rel="import" href="navigation-main.html">
+<dom-module id="d2l-navigation-resolved">
+	<template>
+		<style>
+			:host {
+				background-color: #fff;
+				display: block;
+				line-height: 1;
+				min-width: 320px;
+			}
+		</style>
+		<nav>
+			<d2l-navigation-header
+				admin-menu-location="[[adminMenuLocation]]"
+				course-menu-location="[[courseMenuLocation]]"
+				logo="[[logo]]"
+				logo-href="[[logoHref]]"
+				logo-text="[[logoText]]"
+				notifications="[[notifications]]"
+				my-home="[[myHome]]"
+				org-unit-home="[[orgUnitHome]]"
+				org-unit-name="[[orgUnitName]]"
+				user-href="[[userHref]]"
+				personal-menu-location="[[personalMenuLocation]]"></d2l-navigation-header>
+			<d2l-navigation-main
+				items="[[items]]"></d2l-navigation-main>
+			<template id="mobileMenuTemplate" is="dom-if" if="[[renderMobileMenu]]">
+				<d2l-navigation-mobile-menu
+					admin-items="[[adminItems]]"
+					band-color="[[bandColor]]"
+					course-menu-location="[[courseMenuLocation]]"
+					items="[[items]]"
+					logo="[[logo]]"
+					logo-href="[[logoHref]]"
+					logo-text="[[logoText]]"
+					my-home="[[myHome]]"
+					org-unit-home="[[orgUnitHome]]"
+					org-unit-name="[[orgUnitName]]"></d2l-navigation-mobile-menu>
+			</template>
+		</nav>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-resolved',
+		properties: {
+			adminItems: Array,
+			adminMenuLocation: String,
+			bandColor: String,
+			courseMenuLocation: String,
+			hasAdminMenu: {
+				reflectToAttribute: true,
+				type: Boolean,
+				value: false
+			},
+			items: Array,
+			logo: String,
+			logoHref: String,
+			logoText: String,
+			myHome: String,
+			notifications: Array,
+			orgUnitHome: String,
+			orgUnitName: String,
+			personalMenuLocation: String,
+			renderMobileMenu: {
+				type: Boolean,
+				value: false
+			},
+			userHref: String
+		},
+		listeners: {
+			'd2l-navigation-open-menu': 'openMenu',
+			'_focus': '_handleFocus'
+		},
+		openMenu: function(e) {
+			if (!this.renderMobileMenu) {
+				this.renderMobileMenu = true;
+				this.$$('#mobileMenuTemplate').render();
+			}
+			this.$$('d2l-navigation-mobile-menu').open(e.detail.opener);
+		},
+		_handleFocus: function() {
+			this.$$('d2l-navigation-main').scrollTop = 0; // Chrome browser workaround
+		}
+	});
+</script>

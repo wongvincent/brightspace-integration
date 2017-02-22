@@ -16,7 +16,6 @@
     "prebuild:wc": "rimraf tmp && rimraf tmp-wc",
     "build:wc": "web-component-shards -d tmp-wc/ --endpoints bsi.html d2l-my-courses.html d2l-navigation.html d2l-image-banner-overlay.html",
     "postbuild:wc": "npm run uglify:html && npm run jsonpify-imports",
-    "postinstall": "./node_modules/.bin/bower install",
     "publish:cdn": "frau-publisher -m lib -t bsi -f \"./dist/**/*\" -k AKIAIZGPQIRSA2WEJEDA --secretvar CDN_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
     "serve": "http-server dist --cors",

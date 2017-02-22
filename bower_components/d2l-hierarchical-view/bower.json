@@ -1,0 +1,23 @@
+{
+  "name": "d2l-hierarchical-view",
+  "description": "Polymer-based web component for nested views",
+  "main": "d2l-hierarchical-view.html",
+  "license": "Apache-2.0",
+  "ignore": [
+    "demo",
+    "test",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-polymer-behaviors": "~0.0.4",
+    "polymer": "^1.7.0"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "~0.0.7",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
+    "web-component-tester": "^4.2.2"
+  }
+}

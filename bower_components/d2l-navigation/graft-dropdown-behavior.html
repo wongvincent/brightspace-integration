@@ -1,0 +1,99 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-polymer-behaviors/d2l-id.html">
+<link rel="import" href="graft-behavior.html">
+
+<script>
+(function() {
+	'use strict';
+
+	/** @polymerBehavior D2L.PolymerBehaviors.Navigation.GraftDropdownBehavior */
+	var GraftDropdownBehavior = {
+
+		__dropdown: null,
+		__opener: null,
+		__placeholderId: null,
+
+		listeners: {
+			'partial-render': '__handlePartialRender'
+		},
+
+		ready: function() {
+			this.__placeholderId = D2L.Id.getUniqueId();
+		},
+
+		attached: function() {
+
+			this.__opener = this.$$('[is="d2l-navigation-button-highlight-icon"]') ||
+				this.$$('[is="d2l-navigation-button-highlight"]');
+
+			if (this.__opener) {
+				this.listen(this.__opener, 'click', '__onClick');
+			}
+
+			this.__dropdown = this.$$('d2l-dropdown-content');
+			if (this.__dropdown) {
+
+				var placeholder = document.createElement('div');
+				placeholder.id = this.__placeholderId;
+				placeholder.style.minHeight = '60px';
+				Polymer.dom(this.__dropdown).appendChild(placeholder);
+
+				this.listen(this.__dropdown, 'd2l-dropdown-open', '__onOpen');
+				this.listen(this.__dropdown, 'd2l-dropdown-close', '__onClose');
+
+			}
+
+		},
+
+		detached: function() {
+			if (this.__opener) {
+				this.unlisten(this.__opener, 'click', '__onClick');
+			}
+			if (this.__dropdown) {
+				this.unlisten(this.__dropdown, 'open', '__onOpen');
+				this.unlisten(this.__dropdown, 'close', '__onClose');
+			}
+		},
+
+		__handlePartialRender: function() {
+			if (!this.__dropdown) {
+				return;
+			}
+			this.__dropdown.toggleOpen();
+		},
+
+		__onClick: function() {
+			if (!this.__dropdown) {
+				return;
+			}
+			if (this._partialled) {
+				this.__dropdown.toggleOpen();
+			} else {
+				this.graft(this.__placeholderId);
+			}
+		},
+
+		__onClose: function() {
+			if (this.__opener) {
+				Polymer.dom(this.__opener).removeAttribute('active');
+			}
+		},
+
+		__onOpen: function() {
+			if (this.__opener) {
+				Polymer.dom(this.__opener).setAttribute('active', 'active');
+			}
+		}
+
+	};
+
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+	window.D2L.PolymerBehaviors.Navigation = window.D2L.PolymerBehaviors.Navigation || {};
+	/** @polymerBehavior */
+	window.D2L.PolymerBehaviors.Navigation.GraftDropdownBehavior = [
+		window.D2L.PolymerBehaviors.Navigation.GraftBehavior,
+		GraftDropdownBehavior
+	];
+})();
+</script>

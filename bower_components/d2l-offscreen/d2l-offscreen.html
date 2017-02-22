@@ -1,0 +1,18 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="d2l-offscreen-shared-styles.html">
+<dom-module id="d2l-offscreen">
+	<template>
+		<style include="d2l-offscreen-shared-styles">
+			:host {
+				display: inline-block;
+				@apply(--d2l-offscreen);
+			}
+		</style>
+		<slot></slot>
+	</template>
+	<script>
+		Polymer({
+			is: 'd2l-offscreen'
+		});
+	</script>
+</dom-module>

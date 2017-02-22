@@ -1,0 +1,63 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<dom-module id="d2l-navigation-group">
+	<style>
+		:host {
+			background: none;
+			border: 0;
+			color: inherit;
+			font-family: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			margin: 0;
+			padding: 0;
+		}
+		.d2l-navigation-group-wrapper {
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: -webkit-inline-flex;
+			display: inline-flex;
+			-webkit-flex-wrap: nowrap;
+			-ms-flex-wrap: nowrap;
+			flex-wrap: nowrap;
+		}
+		:host:hover,
+		:host:focus,
+		:host:hover .d2l-navigation-group-arrow,
+		:host:focus .d2l-navigation-group-arrow {
+			color: var(--d2l-color-celestine);
+			cursor: pointer;
+		}
+		:host:hover .d2l-navigation-group-text,
+		:host:focus .d2l-navigation-group-text {
+			text-decoration: underline;
+		}
+		.d2l-navigation-group-text {
+			margin-right: 0.3rem;
+		}
+		:host-context([dir='rtl']) .d2l-navigation-group-text {
+			margin-left: 0.3rem;
+			margin-right: 0;
+		}
+		.d2l-navigation-group-arrow {
+			--d2l-icon-height: 15px;
+			--d2l-icon-width: 15px;
+		}
+	</style>
+	<template>
+		<div class="d2l-navigation-group-wrapper">
+			<span class="d2l-navigation-group-text"><content></content></span>
+			<d2l-icon icon="d2l-tier1:chevron-down" class="d2l-navigation-group-arrow"></d2l-icon>
+		</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-group',
+		extends: 'button'
+	});
+</script>

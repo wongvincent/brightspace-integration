@@ -1,0 +1,30 @@
+{
+  "name": "vui-field",
+  "main": "field.scss",
+  "dependencies": {
+    "d2l-colors": "^2.0.0"
+  },
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json",
+    "postcss.config.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-field",
+  "version": "1.3.0",
+  "_release": "1.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.3.0",
+    "commit": "613d3cc4fb370ac6ed020fecda4c64c089ed4610"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-field.git",
+  "_target": "1.3.0",
+  "_originalSource": "vui-field",
+  "_direct": true
+}

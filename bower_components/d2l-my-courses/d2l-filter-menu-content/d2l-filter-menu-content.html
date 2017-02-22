@@ -1,0 +1,241 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../d2l-ajax/d2l-ajax.html">
+<link rel="import" href="../../d2l-colors/d2l-colors.html">
+<link rel="import" href="../../d2l-loading-spinner/d2l-loading-spinner.html">
+<link rel="import" href="../../d2l-siren-parser/d2l-siren-parser.html">
+<link rel="import" href="../../d2l-typography/d2l-typography.html">
+<link rel="import" href="../d2l-utility-behavior.html">
+<link rel="import" href="../localize-behavior.html">
+<link rel="import" href="d2l-list-item-filter.html">
+<link rel="import" href="d2l-filter-menu-content-simple.html">
+<link rel="import" href="d2l-filter-menu-content-tabbed.html">
+
+<dom-module is="d2l-filter-menu-content">
+	<template>
+		<style include="d2l-typography">
+			:host {
+				display: flex;
+				flex-direction: column;
+			}
+			.d2l-filter-menu-content-hidden {
+				display: none !important;
+			}
+			button:hover,
+			button:focus {
+				text-decoration: underline;
+				color: var(--d2l-color-celestine);
+			}
+			d2l-loading-spinner {
+				align-self: center;
+			}
+			.clear-button {
+				color: var(--d2l-color-celestine);
+				background: none;
+				border: none;
+				cursor: pointer;
+				margin: 0 !important;
+				padding: 0;
+			}
+			.dropdown-content-header {
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-bottom: 1px solid var(--d2l-color-gypsum);
+				width: 100%;
+				padding: 20px;
+			}
+		</style>
+
+		<d2l-ajax
+			id="departmentsRequest"
+			url="[[_departmentsUrl]]"
+			headers='{ "Accept": "application/vnd.siren+json" }'
+			on-iron-ajax-response="_onDepartmentsResponse"
+			on-iron-ajax-error="_onErrorResponse">
+		</d2l-ajax>
+
+		<d2l-ajax
+			id="semestersRequest"
+			url="[[_semestersUrl]]"
+			headers='{ "Accept": "application/vnd.siren+json" }'
+			on-iron-ajax-response="_onSemestersResponse"
+			on-iron-ajax-error="_onErrorResponse">
+		</d2l-ajax>
+
+		<d2l-loading-spinner size="50">
+		</d2l-loading-spinner>
+
+		<div id="filterHeader" class="d2l-typography dropdown-content-header d2l-filter-menu-content-hidden">
+			<span>{{localize('filtering.filterBy')}}</span>
+			<template is="dom-if" if="[[_showClearButton]]">
+				<button class="d2l-body-small clear-button" on-tap="_clearFilters">{{localize('filtering.clear')}}</button>
+			</template>
+		</div>
+
+		<div id="contentView" class="d2l-filter-menu-content-hidden">
+			<d2l-filter-menu-content-simple
+				id="simpleContent"
+				hidden$="[[_hasManyFilters]]">
+			</d2l-filter-menu-content-simple>
+
+			<d2l-filter-menu-content-tabbed
+				id="tabbedContent"
+				hidden$="[[!_hasManyFilters]]"
+				my-enrollments-entity="[[myEnrollmentsEntity]]",
+				filter-standard-semester-name="[[filterStandardSemesterName]]",
+				filter-standard-department-name="[[filterStandardDepartmentName]]">
+			</d2l-filter-menu-content-tabbed>
+		</div>
+	</template>
+
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-filter-menu-content',
+			properties: {
+				filterText: String,
+				myEnrollmentsEntity: {
+					type: Object,
+					observer: '_myEnrollmentsEntityChanged'
+				},
+				// Standard Semester OU Type name to be displayed in the dropdown
+				filterStandardSemesterName: String,
+				// Standard Department OU Type name to be displayed in the dropdown
+				filterStandardDepartmentName: String,
+				_currentFilters: {
+					type: Array,
+					value: function() { return []; }
+				},
+				_departments: Array,
+				_departmentsUrl: String,
+				_hasManyFilters: {
+					type: Boolean,
+					value: false
+				},
+				_semesters: Array,
+				_semestersUrl: String,
+				_showClearButton: {
+					type: Boolean,
+					value: false
+				}
+			},
+			behaviors: [
+				window.D2L.MyCourses.LocalizeBehavior,
+				window.D2L.MyCourses.UtilityBehavior
+			],
+			ready: function() {
+				this.filterText = this.localize('filtering.filter');
+			},
+			attached: function() {
+				this.listen(this.$.simpleContent, 'd2l-filter-menu-content-filters-changed', '_onFiltersChanged');
+				this.listen(this.$.tabbedContent, 'd2l-filter-menu-content-filters-changed', '_onFiltersChanged');
+			},
+			detached: function() {
+				this.unlisten(this.$.simpleContent, 'd2l-filter-menu-content-filters-changed', '_onFiltersChanged');
+				this.unlisten(this.$.tabbedContent, 'd2l-filter-menu-content-filters-changed', '_onFiltersChanged');
+			},
+			load: function() {
+				if (this._departmentsUrl) {
+					this.$.departmentsRequest.generateRequest();
+				}
+				if (this._semestersUrl) {
+					this.$.semestersRequest.generateRequest();
+				}
+			},
+			loadMore: function() {
+				if (this._hasManyFilters) {
+					// Called from d2l-all-courses, as that's where the iron-scroll-threshold is
+					this.$.tabbedContent.loadMore();
+				}
+			},
+			open: function() {
+				this._currentContent().open();
+			},
+			_currentContent: function() {
+				return this.$$('#contentView > :not([hidden])');
+			},
+			_parser: null,
+			_clearFilters: function() {
+				this._currentContent()._clearFilters();
+
+				this._showClearButton = false;
+
+				this.set('_currentFilters', []);
+				this.set('filterText', this.localize('filtering.filter'));
+			},
+			_hideLoadingSpinner: function() {
+				this.toggleClass('d2l-filter-menu-content-hidden', true, this.$$('d2l-loading-spinner'));
+				this.toggleClass('d2l-filter-menu-content-hidden', false, this.$.contentView);
+				this.toggleClass('d2l-filter-menu-content-hidden', false, this.$.filterHeader);
+			},
+			_myEnrollmentsEntityChanged: function(entity) {
+				// Set up search URLs and search Actions for filter dropdown
+				if (entity && entity.actions) {
+					this._parser = this._parser || document.createElement('d2l-siren-parser');
+
+					var myEnrollmentsEntity = this._parser.parse(entity);
+					if (myEnrollmentsEntity.hasAction('add-department-filter'))	{
+						this.set('_departmentsUrl', this.createActionUrl(myEnrollmentsEntity.getActionByName('add-department-filter')));
+					}
+					if (myEnrollmentsEntity.hasAction('add-semester-filter')) {
+						this.set('_semestersUrl', this.createActionUrl(myEnrollmentsEntity.getActionByName('add-semester-filter')));
+					}
+				}
+			},
+			__onResponse: function(response, path) {
+				if (response.detail.status === 200 || response.detail.status === 304) {
+					this._parser = this._parser || document.createElement('d2l-siren-parser');
+					var entity = this._parser.parse(response.detail.xhr.response);
+					this.set(path, entity.entities);
+
+					if ( (this._semestersUrl && !this._semesters) || (this._departmentsUrl && !this._departments) ) {
+						return;
+					}
+					this._semesters = this._semesters || [];
+					this._departments = this._departments || [];
+
+					this._hideLoadingSpinner();
+					this.set('_hasManyFilters', this._semesters.length + this._departments.length > 7);
+					if (this._hasManyFilters) {
+						this.$.tabbedContent.load();
+					} else {
+						this.$.simpleContent.filterItems = this._departments.concat(this._semesters);
+					}
+
+					this.fire('d2l-filter-menu-content-hide', {
+						hide: this._semesters.length + this._departments.length <= 1
+					});
+				}
+			},
+			_onDepartmentsResponse: function(response) {
+				this.__onResponse(response, '_departments');
+			},
+			_onErrorResponse: function() {
+				this._hideLoadingSpinner();
+			},
+			_onSemestersResponse: function(response) {
+				this.__onResponse(response, '_semesters');
+			},
+			_onFiltersChanged: function(e) {
+				this.set('_currentFilters', e.detail.filters);
+
+				this._showClearButton = this._currentFilters.length > 0;
+
+				if (this._currentFilters.length === 0) {
+					this.filterText = this.localize('filtering.filter');
+				} else if (this._currentFilters.length === 1) {
+					this.filterText = this.localize('filtering.filterSingle');
+				} else {
+					this.filterText = this.localize('filtering.filterMultiple', 'num', this._currentFilters.length);
+				}
+
+				this.fire('d2l-filter-menu-content-change', {
+					text: this.filterText,
+					filters: this._currentFilters
+				});
+			}
+		});
+	</script>
+</dom-module>

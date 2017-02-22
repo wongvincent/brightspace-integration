@@ -1,0 +1,60 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-offscreen/d2l-offscreen-shared-styles.html">
+<dom-module id="d2l-navigation-button">
+	<style include="d2l-offscreen-shared-styles">
+		:host {
+			background-color: var(--d2l-color-white);
+			border: 1px solid transparent;
+			border-radius: 0.4rem;
+			color: var(--d2l-color-ferrite);
+			cursor: pointer;
+			font-family: inherit;
+			margin: 0;
+			padding: 12px;
+			--d2l-icon-height: 16px;
+			--d2l-icon-width: 16px;
+		}
+		:host(:hover), :host(:focus) {
+			color: var(--d2l-color-celestine);
+			outline-style: none;
+		}
+		:host(:hover) d2l-icon, :host(:focus) d2l-icon {
+			color: var(--d2l-color-celestine);
+		}
+		:host(:hover),
+		:host(:focus) {
+			border-color: var(--d2l-color-pressicus);
+		}
+		.d2l-navigation-button-text {
+			margin-left: 8px;
+			text-transform: uppercase;
+		}
+		:host-context([dir='rtl']) .d2l-navigation-button-text {
+			margin-left: 0;
+			margin-right: 8px;
+		}
+		:host([hide-text]) .d2l-navigation-button-text {
+			@apply(--d2l-offscreen);
+		}
+	</style>
+	<template>
+		<d2l-icon icon="[[icon]]"></d2l-icon>
+		<span class="d2l-navigation-button-text"><content></content></span>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-button',
+		extends: 'button',
+		properties: {
+			icon: String,
+			hideText: {
+				reflectToAttribute: true,
+				type: Boolean,
+				value: false
+			}
+		}
+	});
+</script>

@@ -1,0 +1,63 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-page-load-progress/d2l-page-load-progress.html">
+<link rel="import" href="centerer.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="d2l-navigation-no-login">
+	<style include="d2l-navigation-shared-styles">
+		:host {
+			background-color: #fff;
+			border-bottom: 1px solid var(--d2l-color-gypsum);
+			display: block;
+			line-height: 1;
+			min-width: 320px;
+		}
+		.d2l-navigation-no-login-header-container {
+			-webkit-align-items: center;
+			-ms-flex-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			height: var(--d2l-navigation-header-height);
+		}
+		/* IE10 defaults to 0 0 auto */
+		.d2l-navigation-no-login-logo {
+			-ms-flex: 0 1 auto;
+			-webkit-flex: 0 1 auto;
+			border: none; /* needed for IE10 */
+			flex: 0 1 auto;
+			max-height: 60px;
+			max-width: 260px;
+		}
+		@media(max-width: 615px) {
+			.d2l-navigation-no-login-header-container {
+				height: var(--d2l-navigation-header-height-mobile);
+			}
+		}
+	</style>
+	<template>
+		<d2l-page-load-progress
+			autostart
+			color="[[bandColor]]"></d2l-page-load-progress>
+		<d2l-navigation-centerer>
+			<div class="d2l-navigation-no-login-header-container">
+				<img src$="[[logo]]" alt="[[logoText]]" title$="[[logoText]]" class="d2l-navigation-no-login-logo" />
+			</div>
+		</d2l-navigation-centerer>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-no-login',
+		properties: {
+			bandColor: String,
+			logo: String,
+			logoText: String
+		},
+		attached: function() {
+			this.$$('d2l-page-load-progress').finish();
+			this.fire('d2l-navigation-ready');
+		}
+	});
+</script>
