@@ -1,0 +1,97 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../d2l-ajax/d2l-ajax.html">
+<link rel="import" href="../../d2l-colors/d2l-colors.html">
+<link rel="import" href="../../d2l-siren-parser/d2l-siren-parser.html">
+<link rel="import" href="../../d2l-typography/d2l-typography.html">
+<link rel="import" href="../../d2l-typography/d2l-typography-shared-styles.html">
+
+<dom-module id="d2l-image-banner-overlay">
+	<template>
+		<style include="d2l-typography d2l-typography-shared-styles">
+			:host {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				@apply(--d2l-body-standard-text);
+				word-wrap: break-word;
+			}
+
+			.d2l-image-banner-overlay-content {
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			.d2l-image-banner-overlay-content-shown {
+				animation-name: shown;
+				animation-duration: 0.5s;
+				animation-fill-mode: forwards;
+			}
+
+			@keyframes shown {
+				0% { opacity: 0 }
+				100% { opacity: 1; }
+			}
+
+			.d2l-image-banner-course-name {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				background: linear-gradient(rgba(0, 0, 0, 0), black 200px);
+				padding-top: 3.35rem;
+				max-height: 100%;
+				transform: scale3d(1,1,1);
+			}
+
+			#courseName {
+				color: var(--d2l-color-white);
+				padding: 0 30px;
+				margin-top: 0;
+    			box-sizing: border-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				display: -webkit-box;
+				overflow: hidden;
+				cursor: default;
+			}
+
+		</style>
+
+		<d2l-ajax auto
+			url="[[organizationUrl]]"
+			headers='{ "Accept": "application/vnd.siren+json" }'
+			on-iron-ajax-response="_onOrganizationResponse">
+		</d2l-ajax>
+
+		<div id="overlayContent" class="d2l-image-banner-overlay-content d2l-typography">
+			<div class="d2l-image-banner-course-name">
+				<h1 id="courseName" class="d2l-heading-1">[[_courseName]]</h1>
+			</div>
+		</div>
+	</template>
+	<script>
+		'use strict';
+		Polymer({
+			is: 'd2l-image-banner-overlay',
+			properties: {
+				organizationUrl: String,
+				_courseName: String
+			},
+			ready: function() {
+				Polymer.dom(this.$.overlayContent).classList.add('d2l-image-banner-overlay-content-shown');
+			},
+			_onOrganizationResponse: function(response) {
+				if (response.detail.status === 200) {
+					var parser = document.createElement('d2l-siren-parser');
+					var organization = parser.parse(response.detail.xhr.response);
+					if (organization && organization.properties) {
+						this._courseName = organization.properties.name;
+					}
+				}
+			}
+		});
+	</script>
+</dom-module>

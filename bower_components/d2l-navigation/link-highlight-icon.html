@@ -1,0 +1,66 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-offscreen/d2l-offscreen.html">
+<link rel="import" href="button-highlight-styles.html">
+<dom-module id="d2l-navigation-link-highlight-icon">
+	<style include="d2l-navigation-button-highlight-styles">
+		:host {
+			@apply(--d2l-navigation-button-highlight);
+			-webkit-align-items: center;
+			-ms-flex-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+		}
+		:host(:hover) d2l-icon, :host(:focus) d2l-icon {
+			color: var(--d2l-color-celestuba);
+		}
+		:host([active]) d2l-icon {
+			color: var(--d2l-color-celestine);
+		}
+		:host d2l-icon {
+			-ms-flex: 0 0 auto;
+			-webkit-flex: 0 0 auto;
+			flex: 0 0 auto;
+		}
+		.d2l-navigation-link-highlight-bar {
+			@apply(--d2l-navigation-button-highlight-bar);
+		}
+		:host(:hover) .d2l-navigation-link-highlight-bar,
+		:host(:focus) .d2l-navigation-link-highlight-bar {
+			@apply(--d2l-navigation-button-highlight-bar-hover);
+		}
+		:host(:active) .d2l-navigation-link-highlight-bar {
+			@apply(--d2l-navigation-button-highlight-bar-active);
+		}
+	</style>
+	<template>
+		<span class="d2l-navigation-link-highlight-bar"></span>
+		<d2l-icon icon="[[icon]]"></d2l-icon>
+		<d2l-offscreen>[[text]]</d2l-offscreen>
+		<content></content>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-link-highlight-icon',
+		extends: 'a',
+		properties: {
+			icon: {
+				type: String,
+				reflectToAttribute: true
+			},
+			text: String,
+			title: {
+				type: String,
+				readOnly: true,
+				reflectToAttribute: true,
+				computed: '_computeTitle(text)'
+			}
+		},
+		_computeTitle: function(text) {
+			return text;
+		}
+	});
+</script>

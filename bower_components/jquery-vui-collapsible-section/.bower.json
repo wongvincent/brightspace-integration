@@ -1,0 +1,35 @@
+{
+  "name": "jquery-vui-collapsible-section",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "gulpfile.js",
+    "package.json",
+    "postcss.config.json"
+  ],
+  "dependencies": {
+    "jquery-vui-change-tracking": "^0.5.3",
+    "vui-focus": "~0.7.1"
+  },
+  "devDependencies": {
+    "jquery": "~2.0.3",
+    "jquery.ui": "~1.10.3"
+  },
+  "homepage": "https://github.com/Brightspace/jquery-valence-ui-collapsible-section",
+  "version": "1.2.1",
+  "_release": "1.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.2.1",
+    "commit": "73c304555f5358192e98f8b687b007c04427ab88"
+  },
+  "_source": "https://github.com/Brightspace/jquery-valence-ui-collapsible-section.git",
+  "_target": "1.2.1",
+  "_originalSource": "jquery-vui-collapsible-section",
+  "_direct": true
+}

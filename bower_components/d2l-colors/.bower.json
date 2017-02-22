@@ -1,0 +1,39 @@
+{
+  "name": "d2l-colors",
+  "description": "Polymer web component and Sass variables for the D2L color palette",
+  "main": [
+    "d2l-colors.html",
+    "d2l-colors.scss"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l",
+    "ui",
+    "colors",
+    "sass",
+    "scss",
+    "web component"
+  ],
+  "ignore": [
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".travis.yml",
+    "package.json",
+    "test"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0"
+  },
+  "homepage": "https://github.com/BrightspaceUI/colors",
+  "version": "2.2.3",
+  "_release": "2.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.2.3",
+    "commit": "bed534a75cdbfb0b2a5d3e80f436462146179827"
+  },
+  "_source": "https://github.com/BrightspaceUI/colors.git",
+  "_target": "~2.2.3",
+  "_originalSource": "d2l-colors"
+}

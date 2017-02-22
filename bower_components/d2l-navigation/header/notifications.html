@@ -1,0 +1,73 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../button-highlight-icon.html">
+<link rel="import" href="../divider.html">
+<link rel="import" href="notification.html">
+<dom-module id="d2l-navigation-notifications">
+	<style>
+	:host {
+		display: inline-block;
+		height: 100%;
+	}
+	.d2l-navigation-notifications-div {
+		display: inline-block;
+		min-width: 10px;
+	}
+	.d2l-navigation-notifications-wrapper {
+		display: inline-block;
+		height: 100%;
+		margin: 0 -15px;
+	}
+	d2l-navigation-notification {
+		margin: 0 15px;
+	}
+	@media(max-width: 554px) {
+		d2l-navigation-divider {
+			display: none;
+		}
+		.d2l-navigation-notifications-div {
+			min-width: 30px;
+		}
+	}
+	</style>
+	<template>
+		<div class="d2l-navigation-notifications-wrapper">
+			<template is="dom-repeat" items="{{notifications}}" sort="_sort">
+				<d2l-navigation-notification
+					aria-message="{{item.ariaMessage}}"
+					category="{{item.category}}"
+					graft-location="{{item.location}}"
+					updates="{{item.updates}}"
+					text="{{item.text}}"></d2l-navigation-notification>
+			</template><!-- next bit needs to be on one line, otherwise there's extra space -->
+		</div><template is="dom-if" if="{{hasNotifications}}"><div class="d2l-navigation-notifications-div"></div><d2l-navigation-divider></d2l-navigation-divider></template>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-notifications',
+		properties: {
+			hasNotifications: {
+				type: Boolean,
+				computed: '_hasNotifications(notifications)'
+			},
+			notifications: {
+				type: Array,
+				value: []
+			}
+		},
+		_hasNotifications: function(notifications) {
+			return notifications.length > 0;
+		},
+		_sort: function(a, b) {
+			var sort;
+			if (a.category === 'messages') {
+				sort = -1;
+			} else if (a.category === 'grades') {
+				sort = 1;
+			} else {
+				sort = b.category === 'grades' ? -1 : 1;
+			}
+			return sort;
+		}
+	});
+</script>

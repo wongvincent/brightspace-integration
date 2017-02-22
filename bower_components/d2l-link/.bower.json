@@ -1,0 +1,43 @@
+{
+  "name": "d2l-link",
+  "description": "Polymer-based web component for a D2L link",
+  "main": "d2l-link.html",
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l",
+    "ui",
+    "link",
+    "polymer",
+    "web component"
+  ],
+  "ignore": [
+    "test",
+    "screenshots",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".travis.yml",
+    "package.json",
+    "wct.conf.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.2.3",
+    "polymer": "^1.7.0"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "~0.0.8",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.2.5",
+    "web-component-tester": "^4.3.1"
+  },
+  "homepage": "https://github.com/BrightspaceUI/link",
+  "version": "3.3.1",
+  "_release": "3.3.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.3.1",
+    "commit": "62bf8f40328ce0bd2f5cdd04af97b84ca8e2b109"
+  },
+  "_source": "https://github.com/BrightspaceUI/link.git",
+  "_target": "^3.3.1",
+  "_originalSource": "d2l-link"
+}

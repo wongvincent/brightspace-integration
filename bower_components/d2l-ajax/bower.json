@@ -1,0 +1,19 @@
+{
+  "name": "d2l-ajax",
+  "description": "Wrapper around Polymer's iron-ajax, providing D2L authentication",
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.4.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "^4.2.2"
+  }
+}

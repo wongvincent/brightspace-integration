@@ -1,0 +1,612 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-ajax/d2l-ajax.html">
+<link rel="import" href="../d2l-dropdown/d2l-dropdown.html">
+<link rel="import" href="../d2l-dropdown/d2l-dropdown-menu.html">
+<link rel="import" href="../d2l-loading-spinner/d2l-loading-spinner.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-menu/d2l-menu-item-link.html">
+<link rel="import" href="../d2l-offscreen/d2l-offscreen.html">
+<link rel="import" href="../d2l-polymer-behaviors/d2l-dom.html">
+<link rel="import" href="../d2l-siren-parser/d2l-siren-parser.html">
+<link rel="import" href="../iron-a11y-announcer/iron-a11y-announcer.html">
+<link rel="import" href="components/d2l-course-image.html">
+<link rel="import" href="d2l-course-tile-styles.html">
+<link rel="import" href="d2l-utility-behavior.html">
+<link rel="import" href="localize-behavior.html">
+
+<!--
+An important distinction to make in understanding the functionality of the course tile is the difference between an
+enrollment and an organization. An organization is what some might call a "course" - it has a name, an image, etc.,
+but it is largely static and doesn't speak to a user's relationship to it. An enrollment, on the other hand, represents
+a user's involvement in an organization, i.e. it is a three-tuple between the user, the organization, and the role that
+the user has in that organization - student, teacher, TA, etc.
+-->
+<dom-module id="d2l-course-tile">
+	<template>
+		<style include="d2l-course-tile-styles"></style>
+
+		<div class="d2l-typography tile-container"
+			on-mouseover="_hoverCourseTile"
+			on-mouseout="_onTileMouseOut">
+			<div class="alert-color-circle"></div>
+			<a href$="[[_organizationHomepageUrl]]"
+				id="d2l-course-tile-anchor"
+				class="no-tap-interaction"
+				on-focus="_hoverCourseTile">
+				<div class="course-image-container">
+					<div class="course-image">
+						<div class="image-overlay">
+							<d2l-loading-spinner id="tileImageLoading" size="85"></d2l-loading-spinner>
+							<div class="icon-container">
+								<d2l-icon class$="[[_iconDetails.className]]" icon="[[_iconDetails.iconName]]"></d2l-icon>
+							</div>
+						</div>
+						<div class="notification-overlay" aria-hidden="true">
+							<div class="overlay-date-container">
+								<div class="overlay-text">{{_notificationTitle}}</div>
+								<div class="overlay-date">{{_notificationDate}}</div>
+								<div class="overlay-inactive">{{_notificationInactive}}</div>
+							</div>
+						</div>
+						<d2l-course-image aria-hidden="true" image="[[_image]]" sizes="[[tileSizes]]" type="tile"></d2l-course-image>
+					</div>
+				</div>
+
+				<div class="course-info">
+					<div class="course-text">
+						{{_organization.properties.name}}
+						<template id="courseCodeTemplate" is="dom-if" if="[[showCourseCode]]">
+							<span class="d2l-body-small course-code-text">{{_organization.properties.code}}</span>
+						</template>
+						<d2l-offscreen>[[_courseNotificationLabel]]</d2l-offscreen>
+					</div>
+					<div id="courseUpdates" class="d2l-updates-hidden">
+						<d2l-offscreen>{{localize('courseTile.updates')}}</d2l-offscreen>
+						<div class="update-text-box">{{_courseUpdates}}</div>
+					</div>
+				</div>
+			</a>
+
+			<template is="dom-if" if="[[_showHoverMenu]]">
+				<div class="hover-menu no-tap-interaction">
+					<d2l-dropdown>
+						<button	class="menu-item no-tap-interaction d2l-dropdown-opener" aria-label$="[[_courseSettingsLabel]]">
+							<d2l-icon icon="d2l-tier1:more"></d2l-icon>
+						</button>
+						<d2l-dropdown-menu id="overflow-dropdown">
+							<d2l-menu label$="[[_courseSettingsLabel]]">
+								<template is="dom-if" if="{{_courseInfoUrl}}" restamp="true">
+									<d2l-menu-item-link id="see-course-info-link"
+										text="{{localize('courseOfferingInformation')}}"
+										href="{{_courseInfoUrl}}">
+									</d2l-menu-item-link>
+								</template>
+								<template is="dom-if" if="{{_canChangeCourseImage}}" restamp="true">
+									<d2l-menu-item id="change-image-button"
+										text="{{localize('changeImage')}}"
+										on-d2l-menu-item-select="_launchCourseTileImageSelector">
+									</d2l-menu-item>
+								</template>
+								<d2l-menu-item id="pin-button"
+									text$="[[_pinLabel]]"
+									on-d2l-menu-item-select="_hoverPinClickHandler"
+									on-focus="_hoverPinMenuItem"
+									on-blur="_unhoverPinMenuItem"
+									on-mouseover="_hoverPinMenuItem"
+									on-mouseout="_unhoverPinMenuItem">
+								</d2l-menu-item>
+							</d2l-menu>
+						</d2l-dropdown-menu>
+					</d2l-dropdown>
+				</div>
+			</template>
+		</div>
+	</template>
+
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-course-tile',
+
+			properties: {
+				animateInsertion: {
+					type: Boolean
+				},
+				// Delays initial loading of the organization until explicitly triggered by `loadOrganization`
+				delayLoad: {
+					type: Boolean,
+					observer: '_delayLoadChanged'
+				},
+				/*
+				* Course tile enrollment Entity. When the enrollment is set, the course
+				* tile will automatically fetch information about the organization the
+				* enrollment is in.
+				*/
+				enrollment: {
+					type: Object,
+					observer: '_enrollmentChanged'
+				},
+				enrollmentId: String,
+				// Specifies whether the (desktop) hover menu is enabled on the course tile
+				hoverEnabled: {
+					type: Boolean,
+					value: true
+				},
+				// Whether the enrollment represented by this course tile is pinned or not
+				pinned: {
+					type: Boolean,
+					observer: '_pinnedChanged'
+				},
+				locale: String,
+				telemetryEndpoint: String,
+				tenantId: String,
+				// Size the tile should render with respect to vw
+				tileSizes: Object,
+				// Specifies whether the (mobile) touch menu is enabled on the course tile
+				touchEnabled: {
+					type: Boolean,
+					value: true
+				},
+				userId: String,
+				// Configuration value passed in to toggle course code
+				showCourseCode: Boolean,
+				updateCountMap: {
+					type: Object,
+					notify: true
+				},
+				//number of course updates to show
+				_courseUpdates: String,
+				_courseInfoUrl: String,
+				// The organization Entity, fetched by the course tile when the `enrollment` Entity is changed
+				_organization: Object,
+				// The URL to of the `_organization`'s homepage - when the course tile is clicked, this is the URL we go to
+				_organizationHomepageUrl: String,
+				// The term used for the text of the pin/unpin menu item
+				_pinLabel: String,
+				// The langterm of the course settings label
+				_courseSettingsLabel: String,
+				_courseNotificationLabel: String,
+				_canChangeCourseImage: Boolean,
+				_image: Object,
+				_nextImage: Object,
+				// The icon we want to show when you select an image
+				_iconDetails: {
+					type: Object,
+					value: {
+						className: '',
+						iconName: ''
+					}
+				},
+				_dateFormatter: Object,
+				_fullDateFormatter: Object,
+				_notificationInactive: String,
+				_notificationTitle: String,
+				_notificationDate: String,
+				isStartedInactive: {
+					type: Boolean,
+					value: false
+				},
+				_showHoverMenu: {
+					type: Boolean,
+					value: false
+				}
+			},
+			behaviors: [
+				window.D2L.MyCourses.LocalizeBehavior,
+				window.D2L.MyCourses.UtilityBehavior
+			],
+			listeners: {
+				'animationend': '_onAnimationComplete'
+			},
+			observers: [
+				'_onUpdatesChange(updateCountMap.*)'
+			],
+			created: function() {
+				this.setAttribute('role', 'link');
+			},
+			attached: function() {
+				Polymer.RenderStatus.afterNextRender(this, function() {
+					if (this.animateInsertion) {
+						this.toggleClass('animate-insertion-pre', true, this);
+					}
+					var tileContainerEl = this.$$('.tile-container');
+					document.body.addEventListener('focus', this._onFocus, true);
+					tileContainerEl.addEventListener('focus', this._hoverCourseTile, true);
+				}.bind(this));
+			},
+			ready: function() {
+				this._onFocus = this._onFocus.bind(this);
+				this._closeDropdown = this._closeDropdown.bind(this);
+				this._hoverCourseTile = this._hoverCourseTile.bind(this);
+				Polymer.IronA11yAnnouncer.requestAvailability();
+			},
+			focus: function() {
+				this.$['d2l-course-tile-anchor'].focus();
+			},
+			// Handler that triggers the API call to change an enrollment's pin state when the user says DO IT
+			pinClickHandler: function(isTouch) {
+				var pinAction = this.pinned ? this.enrollment.getActionByName('unpin-course') : this.enrollment.getActionByName('pin-course');
+
+				// This value is purely for UI responsiveness - if the request fails, this value will be set back to
+				// the previous value in the error handler; if the request succeeds, we also set it in the response
+				// handler (to this same value), but that could take a few hundred ms, so do it before the request too.
+				this.pinned = !this.pinned;
+
+				var body = {};
+				var fields = pinAction.fields || [];
+				fields.forEach(function(field) {
+					body[field.name] = field.value;
+				});
+
+				this._enrollmentPinRequest = this._enrollmentPinRequest || document.createElement('d2l-ajax');
+				this._enrollmentPinRequest.url = pinAction.href;
+				this._enrollmentPinRequest.method = pinAction.method;
+				this._enrollmentPinRequest.body = body;
+				this._enrollmentPinRequest.headers = {
+					'accept':'application/vnd.siren+json',
+					'content-type':'application/x-www-form-urlencoded'
+				};
+				this.listen(this._enrollmentPinRequest, 'iron-ajax-response', '_onEnrollmentPinResponse');
+				this.listen(this._enrollmentPinRequest, 'iron-ajax-error', '_onEnrollmentPinError');
+
+				this._enrollmentPinRequest.generateRequest();
+
+				var eventName = this.pinned ? 'enrollment-pinned' : 'enrollment-unpinned';
+				this.fire(eventName, {
+					enrollment: this.enrollment,
+					organization: this._organization
+				});
+
+				this._pinAnimationInProgress = true;
+				this.toggleClass('unpin-hovered', false, this);
+
+				if (isTouch) {
+					this.customStyle['--scale-fade-min-scale'] = '1.1';
+					this.updateStyles();
+				}
+
+				this.toggleClass('unpin', true, this);
+
+				var localizeKey = this.pinned ? 'pinActionResult' : 'unpinActionResult';
+				var announceText = this.localize(localizeKey, 'course', this._organization.properties.name);
+				this.fire('iron-announce', {
+					text: announceText
+				}, { bubbles: true });
+
+				this._pendingPinAction = this.pinned;
+			},
+			// Sets classes for this tile having the touch menu on it when it is opened/closed
+			setTouchMenuOpen: function(isOpen) {
+				this.toggleClass('touch-menu-open', isOpen, this);
+				this.toggleClass('hover', isOpen, this);
+			},
+			setCourseImage: function(details) {
+				details = details || {};
+				var tileContainer = this.$$('.tile-container');
+				var newImageHref = this.getDefaultImageLink(details.image),
+					newSrcset = this.getImageSrcset(details.image, 'tile');
+
+				switch (details.status) {
+					case 'set':
+						this.toggleClass('change-image-loading', true, tileContainer);
+						// load the image while the loading spinner runs to that we have it when the spinner ends
+						// NOTE: if this needs optimization, we can wait for the image's onload to play the success animation
+						this._nextImage = details.image;
+						var imagePreloader = document.createElement('img');
+						imagePreloader.setAttribute('src', newImageHref);
+						imagePreloader.setAttribute('srcset', newSrcset);
+						imagePreloader.setAttribute('sizes', this.$$('d2l-course-image').getTileSizes());
+						break;
+					case 'success':
+						this._displaySetImageResult(true);
+						break;
+					case 'failure':
+						this._displaySetImageResult(false);
+						break;
+				}
+			},
+			setCourseUpdates: function(updates) {
+				if (updates > 99) {
+					this._courseUpdates = '99+';
+					this.toggleClass('d2l-updates-hidden', false, this.$.courseUpdates);
+				} else if (updates > 0 && updates <= 99) {
+					this._courseUpdates = updates;
+					this.toggleClass('d2l-updates-hidden', false, this.$.courseUpdates);
+				} else {
+					this._courseUpdates = 0;
+					this.toggleClass('d2l-updates-hidden', true, this.$.courseUpdates);
+				}
+			},
+			_enrollmentPinRequest: null,
+			_organizationRequest: null,
+			_organizationUrl: null,
+			_parser: null,
+			_pendingPinAction: false,
+			_pinAnimationInProgress: false,
+			_telemetryRequest: null,
+			_generateOrganizationRequest: function() {
+				this._organizationRequest = this._organizationRequest || document.createElement('d2l-ajax');
+				this._organizationRequest.url = this._organizationUrl;
+				this._organizationRequest.headers = {
+					'accept': 'application/vnd.siren+json',
+					// Needs no-cache so that images refresh if the users here using the back button
+					'cache-control': 'no-cache',
+					'pragma': 'no-cache'
+				};
+				this.listen(this._organizationRequest, 'iron-ajax-response', '_onOrganizationResponse');
+				this._organizationRequest.generateRequest();
+			},
+			_enrollmentChanged: function() {
+				this.pinned = this.enrollment.hasClass('pinned');
+
+				var organizationLink = this.enrollment.getLinkByRel(/\/organization$/);
+
+				if (!this._organizationUrl || this._organizationUrl.indexOf(organizationLink.href) !== 0) {
+					this._organizationUrl = organizationLink.href + '?embedDepth=1';
+
+					if (!this.delayLoad) {
+						this._generateOrganizationRequest();
+					}
+				}
+			},
+			_delayLoadChanged: function(delayLoad) {
+				if (this.isAttached && !delayLoad && !this._organization) {
+					this._generateOrganizationRequest();
+				}
+			},
+			_displaySetImageResult: function(success) {
+				var tileContainer = this.$$('.tile-container');
+				var courseImage = this.$$('.course-image img');
+
+				var successClass = 'change-image-success',
+					failureClass = 'change-image-failure';
+
+				// We want to wait at least a second of the load icon before showing the status
+				setTimeout(function() {
+					this.toggleClass('change-image-loading', false, tileContainer);
+					this.toggleClass(successClass, success, tileContainer);
+					this.toggleClass(failureClass, !success, tileContainer);
+					this._iconDetails = success ?
+						{ className: 'checkmark', iconName: 'd2l-tier2:check'} :
+						{ className: 'fail-icon', iconName: 'd2l-tier3:close'};
+
+					// Remove the icon after a bit of time
+					setTimeout(function() {
+						if (success) {
+							this.toggleClass('d2l-course-tile-hidden', false, courseImage);
+							this._image = this._nextImage;
+						}
+						this.toggleClass(successClass, false, tileContainer);
+						this.toggleClass(failureClass, false, tileContainer);
+					}.bind(this), 1000);
+				}.bind(this), 1000);
+			},
+			_launchCourseTileImageSelector: function(e) {
+				this._telemetryRequest = this._telemetryRequest || document.createElement('d2l-ajax');
+				this._telemetryRequest.url = this.telemetryEndpoint;
+				this._telemetryRequest.method = 'POST';
+				this._telemetryRequest.headers = {
+					'content-type': 'application/json'
+				};
+				this._telemetryRequest.body = JSON.stringify({
+					name: 'LaunchChangeImage',
+					ts: Math.round(Date.now() / 1000),
+					userId: this.userId,
+					tenantId: this.tenantId
+				});
+
+				this._telemetryRequest.generateRequest();
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				this.fire('open-change-image-view', {
+					organization: this._organization
+				});
+			},
+			_hoverCourseTile: function() {
+				this._showHoverMenu = true;
+				if (this.hoverEnabled) {
+					this._setCourseTileHovered(true);
+				}
+			},
+			_hoverPinClickHandler: function(e) {
+				// Prevent the click from triggering navigation to the course
+				e.preventDefault();
+
+				this.pinClickHandler(false);
+			},
+			_hoverPinMenuItem: function() {
+				this._onUnpinHover({detail: {hoverState: true}});
+				this._hoverCourseTile();
+			},
+			_onAnimationComplete: function(e) {
+				var tileContainer = this.$$('.tile-container');
+
+				if (e.animationName.indexOf('scale-and-fade-out') > -1) {
+					this.fire('tile-remove-complete', {enrollment: this.enrollment, pinned: this._pendingPinAction});
+				} else if (e.animationName.indexOf('scale-and-fade-in') > -1) {
+					this.toggleClass('animate-insertion', false, tileContainer);
+					this.toggleClass('animate-insertion', false, this);
+					this.toggleClass('animate-insertion', false, this.$$('.tile-container'));
+					this.fire('tile-insert-complete', {enrollment: this.enrollment, pinned: this._pendingPinAction});
+				} else if (e.animationName.indexOf('tile-pre-insertion') > -1) {
+					this.toggleClass('animate-insertion-pre', false, this);
+					this.toggleClass('animate-insertion', true, tileContainer);
+					this.toggleClass('animate-insertion', true, this);
+				}
+			},
+			_onEnrollmentPinError: function() {
+				// Just revert back to whatever pin state we already had stored
+				this.pinned = this.enrollment.hasClass('pinned');
+			},
+			_onEnrollmentPinResponse: function(response) {
+				if (response.detail.status === 200) {
+					// The pin action returns the updated enrollment, so update
+					// this.enrollment with the modified one
+					this._parser = this._parser ||  document.createElement('d2l-siren-parser');
+					this.enrollment = this._parser.parse(response.detail.xhr.response);
+					this.pinned = this.enrollment.hasClass('pinned');
+				}
+			},
+			_onOrganizationResponse: function(response) {
+				if (response.detail.status === 200) {
+					this._parser = this._parser || document.createElement('d2l-siren-parser');
+					var organization = this._parser.parse(response.detail.xhr.response);
+
+					this._organization = organization;
+					this._checkDateBounds(organization, response);
+
+					var rel = /course-offering-info-page/;
+					var courseInfoUrl = organization && organization.getLinkByRel(rel);
+					this._courseInfoUrl = (courseInfoUrl) ? courseInfoUrl.href : null;
+
+					this._setCourseImageSrc();
+					this._organizationHomepageUrl = (organization.getLinkByRel(/\/organization-homepage$/) || {}).href;
+					if (!this._organizationHomepageUrl) {
+						var tileContainer = this.$$('.tile-container');
+						this.toggleClass('d2l-no-access', true, tileContainer);
+					}
+					this._canChangeCourseImage = this._getCanChangeCourseImage(organization);
+					this._pinnedChanged();
+					this._courseSettingsLabel = this.localize('courseSettings', 'course', this._organization.properties.name);
+					var organizationLink = organization.getLinkByRel('self');
+					if (this.updateCountMap) {
+						var orgUnitId = this.getOrgUnitId(organizationLink.href);
+						var update = this.updateCountMap[orgUnitId];
+						if (update) {
+							this.setCourseUpdates(update);
+						}
+					}
+				}
+			},
+			_onUpdatesChange: function(updateChange) {
+				var orgUnitId = this.getOrgUnitId(this.enrollmentId);
+				var update = updateChange.base[orgUnitId];
+				if (update) {
+					this.setCourseUpdates(update);
+				}
+			},
+			_checkDateBounds: function(organization, response) {
+				var serverDate = Date.parse(response.detail.xhr.getResponseHeader('Date'));
+				var endDate = Date.parse(organization.properties.endDate);
+				var startDate = Date.parse(organization.properties.startDate);
+				var inactive = !organization.properties.isActive;
+
+				if (endDate < serverDate) {
+					this._setOverlayContent('courseEnded', endDate);
+				} else if (startDate > serverDate) {
+					this._setOverlayContent('courseStarting', startDate, inactive);
+				} else if (startDate && inactive) {
+					this._setOverlayStartedInactive();
+				} else if (inactive) {
+					this._setOverlayInactive();
+				} else {
+					this._clearOverlayContent();
+				}
+			},
+			_setOverlayContent: function(type, date, inactive) {
+				this._clearOverlayContent();
+				if (!this._dateFormatter && window.BSI && window.BSI.Intl) {
+					this._dateFormatter = new window.BSI.Intl.DateTimeFormat(this.locale, { format: 'MMM d, yyyy' });
+					this._fullDateFormatter = new window.BSI.Intl.DateTimeFormat(this.locale, { format: 'MMMM d, yyyy' });
+				}
+
+				if (this._dateFormatter) {
+					var dateObj = new Date(date);
+					this._notificationDate = this._dateFormatter.format(dateObj);
+					this._courseNotificationLabel = this.localize(
+						(type === 'courseEnded') ? 'overlay.courseEndedOn' : 'overlay.courseStartingOn',
+						'date',
+						this._fullDateFormatter.format(dateObj)
+					);
+					this.toggleClass('notification-overlay-active', true, this.$$('.tile-container'));
+					this._notificationTitle = this.localize(
+						(type === 'courseEnded') ? 'overlay.courseEnded' : 'overlay.courseStarting'
+					);
+
+					this._notificationInactive = (type === 'courseStarting' && inactive) ? this.localize('brackets', 'content', this.localize('overlay.inactive')) : null;
+				}
+			},
+			_setOverlayInactive: function() {
+				this._clearOverlayContent();
+				this._notificationTitle = this.localize('overlay.inactive');
+				this._courseNotificationLabel = this.localize('overlay.inactive');
+				this.toggleClass('notification-overlay-active', true, this.$$('.tile-container'));
+			},
+			_setOverlayStartedInactive: function() {
+				this._clearOverlayContent(true);
+				this._notificationTitle = this.localize('overlay.courseStarted');
+				this._notificationInactive = this.localize('brackets', 'content', this.localize('overlay.inactive'));
+				this._courseNotificationLabel = this._notificationTitle + ' ' + this._notificationInactive;
+				this.isStartedInactive = true;
+				this.fire('startedInactiveAlert', { type: 'add' });
+				this.toggleClass('notification-overlay-active', true, this.$$('.tile-container'));
+				this.toggleClass('warning-circle', true, this.$$('.alert-color-circle'));
+			},
+			_clearOverlayContent: function() {
+				this._notificationDate = null;
+				this._courseNotificationLabel = null;
+				this._notificationTitle = null;
+				this._notificationInactive = null;
+				this.isStartedInactive = false;
+				this.toggleClass('notification-overlay-active', false, this.$$('.tile-container'));
+				this.toggleClass('warning-circle', false, this.$$('.alert-color-circle'));
+			},
+			_onTileMouseOut: function() {
+				this._unhoverCourseTile(true);
+			},
+			_onUnpinHover: function(e) {
+				this.toggleClass('unpin-hovered', e.detail.hoverState, this);
+			},
+			_pinnedChanged: function(pinned) {
+				this._pinned = pinned === undefined ? this._pinned : pinned;
+				this._pinLabel = this.localize(this._pinned ? 'unpin' : 'pin');
+
+				if (pinned === false && this.isStartedInactive) {
+					this.fire('startedInactiveAlert', { type: 'remove' });
+				}
+			},
+			_setCourseTileHovered: function(isHovered) {
+				this.toggleClass('hover', isHovered, this.$$('.tile-container'));
+				this.toggleClass('hover', isHovered, this.$$('.hover-menu'));
+				this.toggleClass('hover', isHovered, this.$$('.course-image-container'));
+			},
+			_unhoverCourseTile: function(force) {
+				var noHover = Polymer.dom(this.root).querySelectorAll(':hover').length === 0;
+				if ((force === true || noHover) && !this._pinAnimationInProgress) {
+					window.setTimeout(this._closeDropdown);
+				}
+			},
+			_unhoverPinMenuItem: function() {
+				this._onUnpinHover({detail: {hoverState: false}});
+			},
+			_getCanChangeCourseImage: function(organization) {
+				return organization && organization.getActionByName('set-catalog-image');
+			},
+			_setCourseImageSrc: function() {
+				this._image = this._organization.getSubEntityByClass('course-image');
+			},
+			_onFocus: function() {
+				/* timeout needed to work around lack of support for relatedTarget */
+				setTimeout(function() {
+					if (!document.activeElement	|| document.activeElement === document.body) {
+						return;
+					}
+					var activeElement = Polymer.dom(document.activeElement).node;
+					if (!D2L.Dom.isComposedAncestor(this, activeElement)) {
+						this._unhoverCourseTile();
+					}
+				}.bind(this), 0);
+			},
+			_closeDropdown: function() {
+				if (Polymer.dom(this.root).querySelectorAll(':hover').length === 0 && this._showHoverMenu) {
+					var dropdown = this.$$('#overflow-dropdown');
+					dropdown.close();
+					this._setCourseTileHovered(false);
+				}
+			}
+		});
+	</script>
+</dom-module>

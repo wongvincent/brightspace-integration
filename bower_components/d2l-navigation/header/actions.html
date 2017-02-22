@@ -1,0 +1,59 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="admin-menu.html">
+<link rel="import" href="help.html">
+<link rel="import" href="notifications.html">
+<link rel="import" href="personal-menu.html">
+<link rel="import" href="course-menu.html">
+<dom-module id="d2l-navigation-header-actions">
+	<style>
+		:host {
+			-webkit-align-items: center;
+			-ms-flex-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			height: 100%;
+		}
+		d2l-navigation-notifications,
+		d2l-navigation-personal-menu,
+		d2l-navigation-admin-menu,
+		d2l-navigation-help {
+			-ms-flex: 0 0 auto;
+			-webkit-flex: 0 0 auto;
+			flex: 0 0 auto;
+		}
+		@media(max-width: 992px) {
+			d2l-navigation-admin-menu,
+			d2l-navigation-help {
+				display: none;
+			}
+		}
+		@media(max-width: 554px) {
+			d2l-navigation-header-course-menu {
+				display: none;
+			}
+		}
+	</style>
+	<template>
+		<d2l-navigation-header-course-menu course-menu-location="[[courseMenuLocation]]"></d2l-navigation-header-course-menu>
+		<d2l-navigation-notifications notifications="[[notifications]]"></d2l-navigation-notifications>
+		<d2l-navigation-personal-menu
+			user-href="[[userHref]]"
+			graft-location="[[personalMenuLocation]]"></d2l-navigation-personal-menu>
+		<d2l-navigation-admin-menu graft-location="[[adminMenuLocation]]"></d2l-navigation-admin-menu>
+		<d2l-navigation-help></d2l-navigation-help>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-header-actions',
+		properties: {
+			adminMenuLocation: String,
+			notifications: Array,
+			userHref: String,
+			personalMenuLocation: String,
+			courseMenuLocation: String
+		}
+	});
+</script>

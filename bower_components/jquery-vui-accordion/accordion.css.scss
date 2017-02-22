@@ -1,0 +1,164 @@
+@import 'bower_components/vui-gradient/gradient';
+@import 'accordion';
+@import 'icons';
+
+.vui-accordion {
+	border-radius: $vui-accordion-borderRadius;
+	border:
+		$vui-accordion-borderWidth
+		$vui-accordion-borderStyle
+		$vui-accordion-borderColor;
+}
+
+.vui-accordion-header {
+	background-color: $vui-accordion-header-backgroundColor;
+	border-top:
+		$vui-accordion-borderWidth
+		$vui-accordion-borderStyle
+		$vui-accordion-borderColor;
+	padding: 15px;
+	cursor: pointer;
+}
+
+.vui-accordion-header-content {
+	margin-left: 40px;
+	cursor: default;
+	padding: 10px;
+}
+
+.vui-accordion-header:hover {
+	background-color: $vui-accordion-toggle-backgroundColor-hover;
+}
+
+.vui-accordion-header-active {
+	border-top: none;
+	border:
+		$vui-accordion-header-borderWidth-active
+		$vui-accordion-header-borderStyle-active
+		$vui-accordion-header-borderColor-active;
+	margin: 0 -1px;
+	padding: 15px;
+}
+
+.vui-accordion-header-active + div[visibility="hidden"] + .vui-accordion-header {
+	border-top: none;
+	padding: 15px;
+}
+
+.vui-accordion-header-interactive:hover {
+	background-color: $vui-accordion-toggle-backgroundColor-hover;
+}
+
+.vui-accordion-content {
+	overflow: auto;
+	border-top:
+		$vui-accordion-borderWidth
+		$vui-accordion-borderStyle
+		$vui-accordion-borderColor;
+	background-color: $vui-accordion-content-backgroundColor;
+	padding: 15px;
+	display: none;
+}
+
+.vui-accordion-content-active {
+	border-top: none;
+	padding: 15px;
+}
+
+.vui-accordion-header:first-child {
+	border-top-width: 0;
+	border-top-right-radius: $vui-accordion-borderRadius;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: $vui-accordion-borderRadius;
+}
+
+.vui-accordion-header-active:first-child {
+	background-clip: padding-box;
+	border-top-right-radius: $vui-accordion-borderRadius;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: $vui-accordion-borderRadius;
+	border-top-width: $vui-accordion-borderWidth;
+	margin-top: -1px;
+}
+
+.vui-accordion-header-active:nth-last-child(2) {
+	background-clip: padding-box;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: $vui-accordion-borderRadius;
+	border-bottom-left-radius: $vui-accordion-borderRadius;
+	border-top-left-radius: 0;
+	border-bottom-width: $vui-accordion-borderWidth;
+	margin-bottom: -1px;
+	padding: 15px;
+}
+
+.vui-accordion-header-active.vui-accordion-panel-expanded:nth-last-child(2) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: $vui-accordion-borderRadius;
+	border-bottom-left-radius: $vui-accordion-borderRadius;
+	border-top-left-radius: 0;
+	margin-bottom: 0;
+	padding: 15px;
+}
+
+.vui-accordion-header:nth-last-child(2),
+.vui-accordion-header.vui-accordion-panel-expanded:nth-last-child(2)+.vui-accordion-content {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: $vui-accordion-borderRadius;
+	border-bottom-left-radius: $vui-accordion-borderRadius;
+	border-top-left-radius: 0;
+}
+
+.vui-accordion-header-disabled,
+.vui-accordion-header-disabled:hover {
+	background: $vui-accordion-header-backgroundColor-disabled;
+	opacity: $vui-accordion-header-opacity-disabled;
+	cursor: default;
+}
+
+.vui-accordion-toggle {
+	border-radius: $vui-accordion-borderRadius;
+	border:
+		$vui-accordion-toggle-borderWidth
+		$vui-accordion-toggle-borderStyle
+		$vui-accordion-toggle-borderColor;
+	position: relative;
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.vui-accordion-toggle-icon {
+	margin: 7px;
+}
+
+.vui-accordion-header-active > .vui-accordion-toggle,
+.vui-accordion-header:hover > .vui-accordion-toggle {
+	background-color: $vui-accordion-toggle-backgroundColor-hover;
+	border-color: $vui-accordion-toggle-borderColor-hover;
+}
+
+.vui-icon-accordion-collapsed:before {
+	content: $vui-collapsed;
+}
+
+.vui-icon-accordion-expanded:before {
+	content: $vui-expanded;
+}
+
+[dir='rtl'] .vui-accordion-header-content {
+	margin-left: 0;
+	margin-right: 40px;
+}
+
+[dir='rtl'] .vui-accordion-toggle {
+	float: right;
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+[dir='rtl'] .vui-icon-accordion-collapsed:before {
+	content: $vui-collapsed_rtl;
+}

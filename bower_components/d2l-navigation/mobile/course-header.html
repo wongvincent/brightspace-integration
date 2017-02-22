@@ -1,0 +1,98 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../d2l-colors/d2l-colors.html">
+<link rel="import" href="../../d2l-icons/d2l-icons.html">
+<link rel="import" href="../button-highlight-icon.html">
+<link rel="import" href="../divider.html">
+<link rel="import" href="../localize-behavior.html">
+
+<dom-module id="d2l-navigation-mobile-course-header">
+	<template>
+		<style>
+			:host {
+				display: block;
+				height: 100%;
+			}
+			:host .d2l-navigation-mobile-course-header-container {
+				align-items: center;
+				display: flex;
+				height: 100%;
+			}
+			:host .d2l-navigation-mobile-course-name {
+				display: inline-block;
+				flex: auto;
+				flex: 1; /* IE10 defaults to 0 0 auto */
+				min-width: 0;
+				overflow-x: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			:host .d2l-navigation-mobile-course-header-menu {
+				display: none;
+			}
+			:host([has-course-menu]) .d2l-navigation-mobile-course-header-menu {
+				display: inline-block;
+			}
+			:host button {
+				height: 100%;
+			}
+			:host button,
+			:host d2l-navigation-divider {
+				flex: none;
+			}
+			:host a {
+				color: var(--d2l-color-ferrite);
+			}
+			:host a:hover,
+			:host a:focus {
+				color: var(--d2l-color-celestine);
+				text-decoration: underline;
+			}
+		</style>
+		<div class="d2l-navigation-mobile-course-header-container">
+			<button
+				is="d2l-navigation-button-highlight-icon"
+				icon="d2l-tier3:home"
+				text="{{localize('myHome')}}"
+				on-tap="_handleMyHome"></button>
+			<d2l-navigation-divider no-margin></d2l-navigation-divider>
+			<div class="d2l-navigation-mobile-course-name">
+				<a href$="[[orgUnitHome]]">[[orgUnitName]]</a>
+			</div>
+			<button
+				is="d2l-navigation-button-highlight-icon"
+				class="d2l-navigation-mobile-course-header-menu"
+				icon="d2l-tier3:classes"
+				text="{{localize('selectCourse')}}"
+				on-tap="_handleShowCourseMenu"></button>
+		</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-mobile-course-header',
+
+		behaviors: [
+			window.D2L.PolymerBehaviors.Navigation.LocalizeBehavior
+		],
+
+		properties: {
+			hasCourseMenu: {
+				type: Boolean,
+				reflectToAttribute: true,
+				value: false
+			},
+			myHome: String,
+			orgUnitHome: String,
+			orgUnitName: String
+		},
+
+		_handleMyHome: function() {
+			document.location.href = this.myHome;
+		},
+
+		_handleShowCourseMenu: function() {
+			this.fire('d2l-navigation-mobile-show-course-menu');
+		}
+
+	});
+</script>

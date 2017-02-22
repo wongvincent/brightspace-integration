@@ -1,0 +1,35 @@
+{
+  "name": "jquery-vui-accordion",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "gulpfile.js",
+    "package.json",
+    "postcss.config.json"
+  ],
+  "dependencies": {
+    "vui-gradient": "~0.3.2",
+    "d2l-colors": "^2.2.3"
+  },
+  "devDependencies": {
+    "jquery": "~2.0.3",
+    "jquery.ui": "~1.10.3"
+  },
+  "homepage": "https://github.com/Brightspace/jquery-valence-ui-accordion",
+  "version": "0.3.2",
+  "_release": "0.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.2",
+    "commit": "32324573b2ad135409cd24b0a5336956539b3469"
+  },
+  "_source": "https://github.com/Brightspace/jquery-valence-ui-accordion.git",
+  "_target": "0.3.2",
+  "_originalSource": "jquery-vui-accordion",
+  "_direct": true
+}

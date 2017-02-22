@@ -1,0 +1,34 @@
+{
+  "name": "d2l-button-group",
+  "description": "Polymer-based web components for D2L button groups",
+  "main": "index.html",
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "screenshots"
+  ],
+  "devDependencies": {
+    "d2l-demo-template": "^0.0.9",
+    "d2l-icons": "^3.0.0",
+    "d2l-image-action": "^0.7.0",
+    "iron-component-page": "^1.1.7",
+    "polyperf": "https://github.com/Brightspace/polyperf.git",
+    "web-component-tester": "^5.0.0"
+  },
+  "dependencies": {
+    "app-localize-behavior": "PolymerElements/app-localize-behavior#~0.10.0",
+    "d2l-button": "^3.0.8",
+    "d2l-dropdown": "^5.0.0",
+    "d2l-menu": "^0.3.0",
+    "d2l-offscreen": "^2.2.2",
+    "iron-resizable-behavior": "^1.0.5",
+    "polymer": "^1.7.0"
+  },
+  "resolutions": {
+    "d2l-typography": "^5.0.0"
+  }
+}

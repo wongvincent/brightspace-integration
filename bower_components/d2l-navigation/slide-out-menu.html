@@ -1,0 +1,171 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="button.html">
+<link rel="import" href="localize-behavior.html">
+
+<dom-module id="d2l-navigation-slide-out-menu">
+	<style>
+		:host {
+			display: block;
+		}
+		.d2l-navigation-slide-out-menu-content {
+			background-color: var(--d2l-color-white);
+			display: none;
+			height: 100%;
+			left: 0;
+			min-width: 300px;
+			overflow-y: auto;
+			position: fixed;
+			top: 0;
+			transform: translateX(-100%);
+			transition: transform 300ms;
+			width: 84%;
+			z-index: 9000;
+		}
+		:host-context([dir='rtl']) .d2l-navigation-slide-out-menu-content {
+			right: 0;
+			transform: translateX(100%);
+		}
+		:host([state='transition']) .d2l-navigation-slide-out-menu-content,
+		:host([state='opened']) .d2l-navigation-slide-out-menu-content {
+			display: block;
+		}
+		:host([state='opened']) .d2l-navigation-slide-out-menu-content {
+			transform: translateX(0);
+		}
+		.d2l-navigation-slide-out-menu-mask {
+			background-color: var(--d2l-color-ferrite);
+			height: 0;
+			left: 0;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			transition: opacity 300ms, width 0s 0.3s, height 0s 0.3s;
+			top: 0;
+			width: 0;
+			z-index: 8999;
+		}
+		.d2l-navigation-slide-out-menu-mask-close {
+			min-width: 300px;
+			width: 84%;
+		}
+		.d2l-navigation-slide-out-menu-mask-close > button {
+			position: relative;
+			top: 10px;
+		}
+		.d2l-navigation-slide-out-menu-mask-close > button:focus {
+			left: calc(100% + 10px);
+		}
+		:host-context([dir="rtl"]) .d2l-navigation-slide-out-menu-mask-close > button:focus {
+			left: auto;
+			right: calc(100% + 10px);
+		}
+		:host([state='opened']) .d2l-navigation-slide-out-menu-mask {
+			height: 100vh;
+			opacity: 0.8;
+			transition: opacity 300ms;
+			width: 100vw;
+		}
+	</style>
+	<template>
+		<div class="d2l-navigation-slide-out-menu-mask" on-tap="close">
+			<div
+				class="d2l-navigation-slide-out-menu-first"
+				on-focus="focusFirst"
+				tabindex="0"></div>
+			<div class="d2l-navigation-slide-out-menu-mask-close">
+				<button
+					is="d2l-navigation-button"
+					hide-text
+					icon="d2l-tier1:close-large-thick"
+					on-tap="close">{{localize('close')}}
+				</button>
+			</div>
+		</div>
+		<div class="d2l-navigation-slide-out-menu-content">
+			<content></content>
+		</div>
+		<div
+			class="d2l-navigation-slide-out-menu-last"
+			on-focus="focusLast"
+			tabindex="0"></div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-slide-out-menu',
+
+		behaviors: [
+			window.D2L.PolymerBehaviors.Navigation.LocalizeBehavior
+		],
+
+		properties: {
+			state: {
+				type: String,
+				value: 'closed',
+				reflectToAttribute: true
+			},
+			_ignoreFocus: {
+				type: Boolean,
+				value: false
+			},
+			_opener: Object
+		},
+
+		open: function(opener) {
+
+			if (this.state !== 'closed') {
+				return;
+			}
+			this.state = 'transition';
+
+			document.body.style.overflow = 'hidden';
+			document.body.style.position = 'fixed';
+			document.body.style.width = '100%';
+			this._opener = opener;
+			this._ignoreFocus = true;
+			this.$$('.d2l-navigation-slide-out-menu-first').focus();
+			this.async(function() { this.state = 'opened'; }.bind(this), 50);
+
+		},
+
+		close: function() {
+
+			if (this.state !== 'opened') {
+				return;
+			}
+			this.state = 'transition';
+
+			document.body.style.overflow = 'auto';
+			document.body.style.position = 'static';
+			document.body.style.width = 'auto';
+			this.async(function() { this.state = 'closed'; }.bind(this), 350);
+
+			if (this._opener) {
+				this._opener.focus();
+				this._opener = null;
+			}
+
+		},
+
+		focusFirst: function() {
+			if (this._ignoreFocus) {
+				this._ignoreFocus = false;
+				return;
+			}
+			this._ignoreFocus = true;
+			this.$$('.d2l-navigation-slide-out-menu-last').focus();
+		},
+
+		focusLast: function() {
+			if (this._ignoreFocus) {
+				this._ignoreFocus = false;
+				return;
+			}
+			this._ignoreFocus = true;
+			this.$$('.d2l-navigation-slide-out-menu-first').focus();
+		}
+
+	});
+</script>

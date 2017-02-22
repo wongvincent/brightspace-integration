@@ -1,0 +1,37 @@
+{
+  "name": "d2l-menu",
+  "description": "Polymer-based web component for a D2L menu",
+  "main": "d2l-menu.html",
+  "license": "Apache-2.0",
+  "ignore": [
+    "demo",
+    "test",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.2.3",
+    "d2l-hierarchical-view": "^0.1.2",
+    "d2l-icons": "^3.0.0",
+    "polymer": "^1.7.0"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "~0.0.11",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
+    "web-component-tester": "^4.2.2"
+  },
+  "homepage": "https://github.com/BrightspaceUI/menu",
+  "version": "0.3.2",
+  "_release": "0.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.2",
+    "commit": "6e55b341ccaccf2c9e2df3deffdebd435343ed5b"
+  },
+  "_source": "https://github.com/BrightspaceUI/menu.git",
+  "_target": "0.3.2",
+  "_originalSource": "d2l-menu",
+  "_direct": true
+}

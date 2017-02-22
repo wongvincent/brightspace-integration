@@ -1,0 +1,40 @@
+{
+  "name": "d2l-image-action",
+  "description": "Polymer-based web components for D2L image-actions",
+  "main": "d2l-image-action.html",
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l",
+    "ui",
+    "image-action",
+    "web component",
+    "polymer"
+  ],
+  "ignore": [
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.2.3",
+    "d2l-icons": "^3.0.0",
+    "d2l-typography": "^5.2.2",
+    "polymer": "^1.7.0"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "~0.0.8"
+  },
+  "homepage": "https://github.com/BrightspaceUI/image-action",
+  "version": "0.7.0",
+  "_release": "0.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.0",
+    "commit": "90cd17d854d34dac9b707c8d8bbad17c24c9c665"
+  },
+  "_source": "https://github.com/BrightspaceUI/image-action.git",
+  "_target": "0.7.0",
+  "_originalSource": "d2l-image-action",
+  "_direct": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "vui-gradient",
+  "main": "gradient.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    ".editorconfig",
+    ".npmignore",
+    ".travis.yml",
+	"package.json"
+  ]
+}

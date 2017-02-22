@@ -1,0 +1,75 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../d2l-icons/d2l-icons.html">
+<link rel="import" href="../button-highlight-icon.html">
+<link rel="import" href="../localize-behavior.html">
+<link rel="import" href="../logo.html">
+
+<dom-module id="d2l-navigation-mobile-org-header">
+	<template>
+		<style>
+			:host {
+				display: inline-block;
+				height: 100%;
+			}
+			:host .d2l-navigation-mobile-org-header-container {
+				align-items: center;
+				display: flex;
+				height: 100%;
+			}
+			:host d2l-navigation-logo {
+				background: none;
+				display: inline-block;
+				flex: auto;
+				min-width: 0;
+			}
+			:host button {
+				flex: none;
+				height: 100%;
+			}
+			:host .d2l-navigation-mobile-org-header-course-menu {
+				display: none;
+			}
+			:host([has-course-menu]) .d2l-navigation-mobile-org-header-course-menu {
+				display: inline-block;
+			}
+		</style>
+		<div class="d2l-navigation-mobile-org-header-container">
+			<d2l-navigation-logo
+				href$="[[logoHref]]"
+				src="[[logo]]"
+				text="[[logoText]]">
+			</d2l-navigation-logo>
+			<button
+				is="d2l-navigation-button-highlight-icon"
+				class="d2l-navigation-mobile-org-header-course-menu"
+				icon="d2l-tier3:classes"
+				text="{{localize('selectCourse')}}"
+				on-tap="_handleShowCourseMenu"></button>
+		</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-mobile-org-header',
+
+		behaviors: [
+			window.D2L.PolymerBehaviors.Navigation.LocalizeBehavior
+		],
+
+		properties: {
+			hasCourseMenu: {
+				type: Boolean,
+				reflectToAttribute: true,
+				value: false
+			},
+			logo: String,
+			logoHref: String,
+			logoText: String
+		},
+
+		_handleShowCourseMenu: function() {
+			this.fire('d2l-navigation-mobile-show-course-menu');
+		}
+
+	});
+</script>

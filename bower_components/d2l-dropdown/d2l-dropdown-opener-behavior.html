@@ -1,0 +1,97 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="d2l-dropdown-opener-styles">
+	<template>
+		<style>
+
+			:host {
+				display: inline-block;
+				outline: none;
+				overflow: visible;
+				position: relative;
+			}
+
+		</style>
+	</template>
+</dom-module>
+<script>
+(function() {
+	'use strict';
+
+	/** @polymerBehavior */
+	var DropdownOpenerBehavior = {
+
+		properties: {
+			isDropdownOpener: {
+				type: Boolean,
+				readOnly: true,
+				value: true
+			},
+			noAutoOpen: {
+				type: Boolean,
+				reflectToAttribute: true
+			}
+		},
+
+		attached: function() {
+			Polymer.RenderStatus.afterNextRender(this, function() {
+				var opener = this.getOpenerElement();
+				if (!opener) {
+					return;
+				}
+				opener.setAttribute('aria-haspopup', true);
+				this.listen(opener, 'keypress', '__onKeyPress');
+				this.listen(opener, 'mouseup', '__onMouseUp');
+			}.bind(this));
+		},
+
+		detached: function() {
+			var opener = this.getOpenerElement();
+			if (!opener) {
+				return;
+			}
+			this.unlisten(opener, 'keypress', '__onKeyPress');
+			this.unlisten(opener, 'mouseup', '__onMouseUp');
+		},
+
+		getOpener: function() {
+			return this;
+		},
+
+		getOpenerElement: function() {
+			return this;
+		},
+
+		toggleOpen: function(applyFocus) {
+			var content = this.queryEffectiveChildren('[d2l-dropdown-content]');
+			if (!content) {
+				return;
+			}
+			content.toggleOpen(applyFocus);
+		},
+
+		__onKeyPress: function(e) {
+			if (e.keyCode !== 13) {
+				return;
+			}
+			if (this.noAutoOpen) {
+				return;
+			}
+			this.toggleOpen(true);
+		},
+
+		__onMouseUp: function() {
+			if (this.noAutoOpen) {
+				return;
+			}
+			this.toggleOpen(false);
+		}
+
+	};
+
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+	/** @polymerBehavior */
+	window.D2L.PolymerBehaviors.DropdownOpenerBehavior = [DropdownOpenerBehavior];
+})();
+</script>

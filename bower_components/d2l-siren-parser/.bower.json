@@ -1,0 +1,29 @@
+{
+  "name": "d2l-siren-parser",
+  "description": "Web component wrapper for node-siren-parser. Used to parse a Siren object or string into an Entity.",
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "^4.2.2"
+  },
+  "homepage": "https://github.com/Brightspace/d2l-siren-parser-ui",
+  "version": "1.1.3",
+  "_release": "1.1.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.3",
+    "commit": "1b4e51e0275d834fc144ae1bfcefeceb2ea5abab"
+  },
+  "_source": "git://github.com/Brightspace/d2l-siren-parser-ui.git",
+  "_target": "^1.1.3",
+  "_originalSource": "git://github.com/Brightspace/d2l-siren-parser-ui.git"
+}

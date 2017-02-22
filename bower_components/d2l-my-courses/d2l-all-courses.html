@@ -1,0 +1,756 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-scroll-threshold/iron-scroll-threshold.html">
+<link rel="import" href="../d2l-alert/d2l-alert.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-dropdown/d2l-dropdown.html">
+<link rel="import" href="../d2l-dropdown/d2l-dropdown-content.html">
+<link rel="import" href="../d2l-dropdown/d2l-dropdown-menu.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-loading-spinner/d2l-loading-spinner.html">
+<link rel="import" href="../d2l-menu/d2l-menu-item-radio.html">
+<link rel="import" href="../d2l-simple-overlay/d2l-simple-overlay.html">
+<link rel="import" href="../d2l-siren-parser/d2l-siren-parser.html">
+<link rel="import" href="../d2l-typography/d2l-typography.html">
+<link rel="import" href="d2l-alert-behavior.html">
+<link rel="import" href="d2l-course-tile-grid.html">
+<link rel="import" href="d2l-course-tile-responsive-grid-behavior.html">
+<link rel="import" href="d2l-filter-menu-content/d2l-filter-menu-content.html">
+<link rel="import" href="d2l-search-widget-custom.html">
+<link rel="import" href="d2l-updates-behavior.html">
+<link rel="import" href="localize-behavior.html">
+
+<dom-module id="d2l-all-courses">
+	<template>
+		<style include="d2l-typography">
+			:host {
+				display: block;
+			}
+			h2 {
+				margin: 20px 0 10px 0 !important;
+			}
+			d2l-alert {
+				display: block;
+				margin-bottom: 20px;
+			}
+			d2l-icon {
+				--d2l-icon-height: 15px;
+				--d2l-icon-width: 15px;
+				margin-top: -0.35rem;
+			}
+			d2l-loading-spinner {
+				margin-bottom: 30px;
+				padding-bottom: 30px;
+				display: block;
+				margin: auto;
+			}
+			.d2l-all-courses-hidden {
+				display: none !important;
+			}
+			#search-and-filter {
+				margin-bottom: 50px;
+			}
+			.search-and-filter-row {
+				display: flex;
+				justify-content: space-between;
+			}
+			.advanced-search-link {
+				font-size: 0.8rem;
+				margin-top: 3px;
+				flex: 1;
+			}
+			d2l-search-widget-custom {
+				flex: 1;
+			}
+			#filterAndSort {
+				flex: 1.4;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
+			@media screen and (max-width: 767px) {
+				#filterAndSort {
+					display: none;
+				}
+				.advanced-search-link {
+					text-align: right;
+					margin-top: 5px;
+				}
+			}
+			.dropdown-opener-text {
+				font-size: 0.95rem;
+				font-family: Lato;
+				cursor: pointer;
+				padding: 0;
+				margin-left: 1rem;
+			}
+			.dropdown-button {
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 0;
+				color: var(--d2l-color-ferrite);
+			}
+			.dropdown-content-header {
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-bottom: 1px solid var(--d2l-color-gypsum);
+				width: 100%;
+				padding: 20px;
+			}
+			.dropdown-content-gradient {
+				background: linear-gradient(to top, white, var(--d2l-color-regolith));
+			}
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+				#filterText {
+					padding-top: 4px;
+				}
+			}
+			#filterSection {
+				display: flex;
+			}
+			#filterText {
+				padding-right: 4px;
+			}
+			button[aria-pressed="true"] {
+				color: var(--d2l-color-celestine);
+			}
+			button:focus > d2l-icon,
+			button:hover > d2l-icon,
+			button:focus > span,
+			button:hover > span,
+			#filterText:hover,
+			#filterText:focus,
+			#filterText:hover + d2l-dropdown button d2l-icon,
+			#filterText:focus + d2l-dropdown button d2l-icon,
+			.focus {
+				text-decoration: underline;
+				color: var(--d2l-color-celestine);
+			}
+		</style>
+
+		<d2l-ajax
+			id="enrollmentsSearchRequest"
+			url="[[_enrollmentsSearchUrl]]"
+			headers='{ "Accept": "application/vnd.siren+json" }'
+			on-iron-ajax-response="_enrollmentsSearchResponse"
+			last-response="{{lastEnrollmentsSearchResponse}}">
+		</d2l-ajax>
+
+		<d2l-simple-overlay
+			id="all-courses"
+			title-name="{{localize('allCourses')}}"
+			locale="[[locale]]"
+			close-simple-overlay-alt-text="{{localize('closeSimpleOverlayAltText')}}"
+			class="d2l-typography"
+			with-backdrop>
+
+			<div
+				id="overlayContent"
+				class="d2l-typography d2l-all-courses-hidden">
+
+				<iron-scroll-threshold
+					id="all-courses-scroll-threshold"
+					on-lower-threshold="_loadNextEnrollmentsPage">
+				</iron-scroll-threshold>
+
+				<div id="search-and-filter">
+					<div class="search-and-filter-row">
+						<d2l-search-widget-custom
+							id="search-widget"
+							my-enrollments-entity="[[myEnrollmentsEntity]]"
+							parent-organizations="[[_parentOrganizations]]"
+							sort="[[_sortParameter]]">
+						</d2l-search-widget-custom>
+
+						<div id="filterAndSort" class="d2l-all-courses-hidden">
+							<div id="filterSection" class="d2l-all-courses-hidden">
+								<span id="filterText" class="dropdown-opener-text" on-tap="_toggleFilterDropdown">[[_filterText]]</span>
+								<d2l-dropdown id="filterDropdown">
+									<button
+										id="filterDropdownOpener"
+										class="d2l-dropdown-opener dropdown-button"
+										on-focus="_focusFilterText"
+										on-blur="_blurFilterText"
+										on-mouseenter="_focusFilterText"
+										on-mouseleave="_blurFilterText"
+										aria-labelledby="filterText">
+										<d2l-icon icon="d2l-tier1:chevron-down" aria-hidden="true"></d2l-icon>
+									</button>
+									<d2l-dropdown-content id="filterDropdownContent" no-padding min-width="350" render-content>
+										<d2l-filter-menu-content
+											id="filterMenuContent"
+											my-enrollments-entity="[[myEnrollmentsEntity]]",
+											filter-standard-semester-name="[[filterStandardSemesterName]]",
+											filter-standard-department-name="[[filterStandardDepartmentName]]">
+										</d2l-filter-menu-content>
+										<iron-scroll-threshold
+											id="scrollThreshold"
+											on-lower-threshold="_onLowerThreshold">
+										</iron-scroll-threshold>
+									</d2l-dropdown-content>
+								</d2l-dropdown>
+							</div>
+
+							<d2l-dropdown id="sortDropdown">
+								<button
+									class="d2l-dropdown-opener dropdown-button"
+									aria-labelledby="sortText">
+									<span id="sortText" class="dropdown-opener-text">{{localize('sorting.sortCourseName')}}</span>
+									<d2l-icon icon="d2l-tier1:chevron-down" aria-hidden="true"></d2l-icon>
+								</button>
+								<d2l-dropdown-menu no-padding min-width="350">
+									<d2l-menu id="sortDropdownMenu" label="{{localize('sorting.sortBy')}}">
+										<div class="dropdown-content-header">
+											<span>{{localize('sorting.sortBy')}}</span>
+										</div>
+										<d2l-menu-item-radio class="d2l-body-small dropdown-content-gradient" value="OrgUnitName" text="{{localize('sorting.sortCourseName')}}"></d2l-menu-item-radio>
+										<d2l-menu-item-radio class="d2l-body-small" value="OrgUnitCode" text="{{localize('sorting.sortCourseCode')}}"></d2l-menu-item-radio>
+										<d2l-menu-item-radio class="d2l-body-small" value="PinDate" text="{{localize('sorting.sortDatePinned')}}"></d2l-menu-item-radio>
+										<d2l-menu-item-radio class="d2l-body-small" value="LastAccessed" text="{{localize('sorting.sortLastAccessed')}}"></d2l-menu-item-radio>
+									</d2l-menu>
+								</d2l-dropdown-menu>
+							</d2l-dropdown>
+						</div>
+					</div>
+					<div id="advancedSearchLink" class="search-and-filter-row d2l-all-courses-hidden">
+						<div class="advanced-search-link">
+							<a is="d2l-link" href$="[[advancedSearchUrl]]">{{localize('advancedSearch')}}</a>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="d2l-heading-3">{{localize('pinnedCourses')}}</h2>
+
+				<template is="dom-repeat" items="{{_alerts}}">
+					<d2l-alert type="[[item.alertType]]">
+						{{item.alertMessage}}
+					</d2l-alert>
+				</template>
+
+				<d2l-course-tile-grid
+					id="all-courses-pinned"
+					enrollments="[[filteredPinnedEnrollments]]"
+					enrollments-queue="[[filteredPinnedEnrollmentsQueue]]"
+					delay-load="[[delayLoad]]"
+					tile-sizes="[[_tileSizes]]"
+					locale="[[locale]]"
+					show-course-code="[[showCourseCode]]"
+					update-count-map="[[updateCountMap]]">
+				</d2l-course-tile-grid>
+
+				<h2 class="d2l-heading-3">{{localize('unpinnedCourses')}}</h2>
+
+				<d2l-course-tile-grid
+					id="all-courses-unpinned"
+					enrollments="[[filteredUnpinnedEnrollments]]"
+					enrollments-queue="[[filteredUnpinnedEnrollmentsQueue]]"
+					delay-load="[[delayLoad]]"
+					tile-sizes="[[_tileSizes]]"
+					locale="[[locale]]"
+					show-course-code="[[showCourseCode]]"
+					update-count-map="[[updateCountMap]]">
+				</d2l-course-tile-grid>
+
+				<d2l-loading-spinner
+					id="lazyLoadSpinner"
+					class="d2l-all-courses-hidden"
+					size="100">
+				</d2l-loading-spinner>
+			</div>
+			<d2l-loading-spinner
+				id="overlayLoadingSpinner"
+				size="100">
+			</d2l-loading-spinner>
+		</d2l-simple-overlay>
+	</template>
+
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-all-courses',
+			properties: {
+				// URL constructed to fetch a user's enrollments with the enrollments search Action
+				_enrollmentsSearchUrl: String,
+				// Set of pinned enrollment Entities
+				pinnedEnrollments: {
+					type: Array,
+					value: function() {
+						return [];
+					},
+					observer: '_pinnedEnrollmentsChanged'
+				},
+				// filtered pinned enrollment entities
+				filteredPinnedEnrollments: {
+					type: Array,
+					value: function() {
+						return [];
+					}
+				},
+				// Set of unpinned enrollment Entities
+				unpinnedEnrollments: {
+					type: Array,
+					value: function() {
+						return [];
+					},
+					observer: '_unpinnedEnrollmentsChanged'
+				},
+				filteredUnpinnedEnrollments: {
+					type: Array,
+					value: function() {
+						return [];
+					}
+				},
+				// Set of enrollments Entities that are being transferred from unpinned to pinned state
+				pinnedEnrollmentsQueue: {
+					type: Array,
+					value: function() {
+						return [];
+					}
+				},
+				filteredPinnedEnrollmentsQueue: {
+					type: Array,
+					value: function() {
+						return [];
+					}
+				},
+				// Set of enrollments that are being transferred from pinned to unpinned state
+				unpinnedEnrollmentsQueue: {
+					type: Array,
+					value: function() {
+						return [];
+					}
+				},
+				filteredUnpinnedEnrollmentsQueue: {
+					type: Array,
+					value: function() {
+						return [];
+					}
+				},
+				// Object containing the IDs of previously loaded pinned enrollments, to avoid duplicates
+				_pinnedCoursesMap: {
+					type: Object,
+					value: function() {
+						return {};
+					}
+				},
+				// Object containing the IDs of previously loaded unpinned enrollments, to avoid duplicates
+				_unpinnedCoursesMap: {
+					type: Object,
+					value: function() {
+						return {};
+					}
+				},
+
+				// True when there are filtered pinned enrollments (i.e. `filteredPinnedEnrollments.length > 0`)
+				_hasFilteredPinnedEnrollments: {
+					type: Boolean,
+					value: false
+				},
+
+				// True when there are any filtered enrollments (pinned or unpinned)
+				_hasFilteredEnrollments: {
+					type: Boolean,
+					value: false
+				},
+				// Sets the delay-load property on the course tile grid
+				delayLoad: {
+					type: Boolean,
+					value: true
+				},
+				myEnrollmentsEntity: {
+					type: Object,
+					value: function() {
+						return {};
+					}
+				},
+				// Object containing the last response from an enrollments search request
+				lastEnrollmentsSearchResponse: Object,
+				_filterText: String,
+				defaultSortValue: {
+					type: String,
+					value: 'OrgUnitName'
+				},
+				_sortParameter: {
+					type: String,
+					value: '-PinDate,OrgUnitName,OrgUnitId'
+				},
+				_tileSizes: Object,
+				_parentOrganizations: {
+					type: Array,
+					value: function() {
+						return [];
+					}
+				},
+				// URL that directs to the advanced search page
+				advancedSearchUrl: {
+					type: String,
+					observer: '_advancedSearchUrlChanged'
+				},
+				// Standard Semester OU Type name to be displayed in the filter dropdown
+				filterStandardSemesterName: String,
+				// Standard Department OU Type name to be displayed in the filter dropdown
+				filterStandardDepartmentName: String,
+				// The number of Enrollments required to show the filter menu
+				_numEnrollmentsRequiredToShowFilters: {
+					type: Number,
+					readonly: true,
+					value: 20
+				},
+				// Determines if the filter menu can be shown (The number of enrollments >= enrollments required)
+				_hasManyEnrollments: false
+			},
+			behaviors: [
+				window.D2L.MyCourses.CourseTileResponsiveGridBehavior,
+				window.D2L.MyCourses.LocalizeBehavior,
+				window.D2L.MyCourses.UtilityBehavior,
+				window.D2L.MyCourses.AlertBehavior,
+				window.D2L.MyCourses.UpdatesBehavior
+			],
+			listeners: {
+				'd2l-simple-overlay-opening': '_onSimpleOverlayOpening',
+				'tile-remove-complete': '_onTileRemoveComplete',
+				'enrollment-pin-complete': '_onEnrollmentPinComplete',
+				'enrollment-unpin-complete': '_onEnrollmentUnpinComplete',
+				'd2l-search-enrollment-response': '_updateFilteredEnrollmentsEvent'
+			},
+			observers: [
+				'_updateEnrollmentAlerts(_hasFilteredPinnedEnrollments)',
+				'_enrollmentsChanged(filteredPinnedEnrollments.length, filteredPinnedEnrollmentsQueue.length, filteredUnpinnedEnrollments.length, filteredUnpinnedEnrollmentsQueue.length)'
+			],
+			created: function() {
+				this._tilesInPinStateTransition = [];
+			},
+			_loadNextEnrollmentsPage: function() {
+				if (this.$['all-courses'].opened && this.lastEnrollmentsSearchResponse) {
+					var parser = document.createElement('d2l-siren-parser');
+					var lastResponseEntity = parser.parse(this.lastEnrollmentsSearchResponse);
+
+					if (lastResponseEntity && lastResponseEntity.hasLink('next')) {
+						this._enrollmentsSearchUrl = lastResponseEntity.getLinkByRel('next').href;
+						this.toggleClass('d2l-all-courses-hidden', false, this.$.lazyLoadSpinner);
+						this.$.lazyLoadSpinner.scrollIntoView();
+						this.$.enrollmentsSearchRequest.generateRequest();
+					}
+				}
+			},
+			_enrollmentsChanged: function() {
+				this._hasFilteredPinnedEnrollments =
+					this.filteredPinnedEnrollments.length > 0 ||
+					this.filteredPinnedEnrollmentsQueue.length > 0;
+				// Need to factor in queues here - if user has 1 enrollment, it will briefly
+				// disappear from both enrollments arrays when pinned/unpinned
+				this._hasFilteredEnrollments =
+					this._hasFilteredPinnedEnrollments ||
+					this.filteredUnpinnedEnrollments.length > 0 ||
+					this.filteredUnpinnedEnrollmentsQueue.length > 0;
+				this.$['all-courses-scroll-threshold'].clearTriggers();
+			},
+			_moveEnrollmentToPinnedList: function(enrollment) {
+				// Remove enrollment from unpinned list, add to pinned
+				var enrollmentId = this.getEntityIdentifier(enrollment);
+
+				for (var index = 0; index < this.filteredUnpinnedEnrollments.length; index++) {
+					var pinnedEnrollmentId = this.getEntityIdentifier(this.filteredUnpinnedEnrollments[index]);
+					if (pinnedEnrollmentId === enrollmentId) {
+						var foundEnrollment = this.filteredUnpinnedEnrollments[index];
+						this._setEnrollmentPinData(foundEnrollment, true);
+						this.push('filteredPinnedEnrollmentsQueue', foundEnrollment);
+						this.splice('filteredUnpinnedEnrollments', index, 1);
+						break;
+					}
+				}
+			},
+			_moveEnrollmentToUnpinnedList: function(enrollment) {
+				// Remove enrollment from pinned list, add to unpinned
+				var enrollmentId = this.getEntityIdentifier(enrollment);
+
+				for (var index = 0; index < this.filteredPinnedEnrollments.length; index++) {
+					var unpinnedEnrollmentId = this.getEntityIdentifier(this.filteredPinnedEnrollments[index]);
+					if (unpinnedEnrollmentId === enrollmentId) {
+						var foundEnrollment = this.filteredPinnedEnrollments[index];
+						this._setEnrollmentPinData(foundEnrollment, false);
+						this.push('filteredUnpinnedEnrollmentsQueue', foundEnrollment);
+						this.splice('filteredPinnedEnrollments', index, 1);
+						break;
+					}
+				}
+			},
+			_onTileRemoveComplete: function(e) {
+				if (e.detail.pinned) {
+					this._moveEnrollmentToPinnedList(e.detail.enrollment);
+				} else {
+					this._moveEnrollmentToUnpinnedList(e.detail.enrollment);
+				}
+			},
+			_setEnrollmentPinData: function(entity, isPinned) {
+				// HACK: Because the course tiles are being removed and re-created in the DOM, we have to effectively
+				// manually update them, rather than updating them with the received enrollment from the API call.
+				if (isPinned) {
+					entity.class.splice(entity.class.indexOf('unpinned'));
+					entity.class.push('pinned');
+					entity.actions[0].name = 'unpin-course';
+					entity.actions[0].fields[0].value = false;
+					entity._actionsByName['unpin-course'] = entity.actions[0];
+				} else {
+					entity.class.splice(entity.class.indexOf('pinned'));
+					entity.class.push('unpinned');
+					entity.actions[0].name = 'pin-course';
+					entity.actions[0].fields[0].value = true;
+					entity._actionsByName['pin-course'] = entity.actions[0];
+				}
+			},
+			_updateFilteredEnrollmentsEvent: function(e, detail) {
+				this._pinnedCoursesMap = {};
+				this._unpinnedCoursesMap = {};
+				this._updateFilteredEnrollments(detail, false);
+			},
+			_enrollmentsSearchResponse: function(response) {
+				this._updateFilteredEnrollments(response, true);
+			},
+			_updateFilteredEnrollments: function(response, append) {
+				if (response.detail.status === 200) {
+					var parser = document.createElement('d2l-siren-parser');
+					var enrollments = parser.parse(response.detail.xhr.response);
+					var enrollmentEntities = enrollments.getSubEntitiesByClass('enrollment');
+					var newPinnedEnrollments = [];
+					var newUnpinnedEnrollments = [];
+					var orgUnitIds = [];
+					enrollmentEntities.forEach(function(enrollment) {
+						var enrollmentId = this.getEntityIdentifier(enrollment);
+						orgUnitIds.push(this.getOrgUnitId(enrollmentId));
+						if (enrollment.hasClass('pinned')) {
+							if (!this._pinnedCoursesMap.hasOwnProperty(enrollmentId)) {
+								newPinnedEnrollments.push(enrollment);
+								this._pinnedCoursesMap[enrollmentId] = true;
+							}
+						} else {
+							if (!this._unpinnedCoursesMap.hasOwnProperty(enrollmentId)) {
+								newUnpinnedEnrollments.push(enrollment);
+								this._unpinnedCoursesMap[enrollmentId] = true;
+							}
+						}
+					}, this);
+					this.getUpdates(orgUnitIds.join(','));
+					if (append) {
+						this.filteredPinnedEnrollments = this.filteredPinnedEnrollments.concat(newPinnedEnrollments);
+						this.filteredUnpinnedEnrollments = this.filteredUnpinnedEnrollments.concat(newUnpinnedEnrollments);
+					} else {
+						this.filteredPinnedEnrollments = newPinnedEnrollments;
+						this.filteredUnpinnedEnrollments = newUnpinnedEnrollments;
+					}
+
+					this.toggleClass('d2l-all-courses-hidden', true, this.$.lazyLoadSpinner);
+					this.$['all-courses-scroll-threshold'].clearTriggers();
+					this.lastEnrollmentsSearchResponse = enrollments;
+				}
+			},
+			_pinnedEnrollmentsChanged: function() {
+				this._updateTileSizes();
+				this._setFilteredPinnedEnrollments();
+			},
+			_unpinnedEnrollmentsChanged: function() {
+				this._updateTileSizes();
+				this._setFilteredUnpinnedEnrollments();
+			},
+			ready: function() {
+				this._updateEnrollmentAlerts(this._hasFilteredPinnedEnrollments);
+
+				// Both course tile grids in this view should have the same number of columns, so use a custom getter
+				var courseTileGrids = Polymer.dom(this.root).querySelectorAll('d2l-course-tile-grid');
+				for (var i = 0; i < courseTileGrids.length; i++) {
+					courseTileGrids[i].getCourseTileItemCount = this.getCourseTileItemCount.bind(this);
+				}
+				this._updateTileSizes();
+
+				this._filterText = this.localize('filtering.filter');
+				this.$.sortDropdownMenu.querySelector('d2l-menu-item-radio[value=' + this.defaultSortValue + ']').selected = true;
+				this._sortParameter = this._sortOptions[this.defaultSortValue].queryParameter;
+			},
+			attached: function() {
+				this.listen(this.$.sortDropdown, 'd2l-menu-item-change', '_updateSortBy');
+				this.listen(this.$.filterDropdownContent, 'd2l-dropdown-open', '_onFilterDropdownOpen');
+				this.listen(this.$.filterDropdownContent, 'd2l-dropdown-close', '_onFilterDropdownClose');
+				this.listen(this.$.filterMenuContent, 'd2l-filter-menu-content-change', '_onFilterChanged');
+				this.listen(this.$.filterMenuContent, 'd2l-filter-menu-content-hide', '_onFilterHideChanged');
+
+				this.$.scrollThreshold.scrollTarget = this.$.filterDropdownContent.querySelector('.d2l-dropdown-content-container');
+
+				window.addEventListener('resize', this._onResize.bind(this));
+			},
+			detached: function() {
+				this.unlisten(this.$.sortDropdown, 'd2l-menu-item-change', '_updateSortBy');
+				this.unlisten(this.$.filterDropdownContent, 'd2l-dropdown-open', '_onFilterDropdownOpen');
+				this.unlisten(this.$.filterDropdownContent, 'd2l-dropdown-close', '_onFilterDropdownClose');
+				this.unlisten(this.$.filterMenuContent, 'd2l-filter-menu-content-change', '_onFilterChanged');
+				this.unlisten(this.$.filterMenuContent, 'd2l-filter-menu-content-hide', '_onFilterHideChanged');
+			},
+			getCourseTileItemCount: function() {
+				var itemCount = Math.max(this.pinnedEnrollments ? this.pinnedEnrollments.length : 0,
+					this.unpinnedEnrollments ? this.unpinnedEnrollments.length : 0);
+				return itemCount;
+			},
+			_setFilteredPinnedEnrollments: function() {
+				this.filteredPinnedEnrollments = this.pinnedEnrollments.slice();
+			},
+			_setFilteredUnpinnedEnrollments: function() {
+				this.filteredUnpinnedEnrollments = this.unpinnedEnrollments.slice();
+			},
+			_advancedSearchUrlChanged: function() {
+				this.toggleClass('d2l-all-courses-hidden', !this.advancedSearchUrl, this.$.advancedSearchLink);
+			},
+			load: function() {
+				// Load course tile and filter contents. Called from d2l-my-courses.
+				this.$['all-courses-scroll-threshold'].scrollTarget = this.$['all-courses'].scrollRegion;
+				this.$['all-courses-scroll-threshold'].clearTriggers();
+				this.filteredPinnedEnrollments.forEach(function(enrollment) {
+					this._pinnedCoursesMap[this.getEntityIdentifier(enrollment)] = true;
+				}, this);
+				this.filteredPinnedEnrollments.forEach(function(enrollment) {
+					this._unpinnedCoursesMap[this.getEntityIdentifier(enrollment)] = true;
+				}, this);
+				this.set('delayLoad', false);
+				// Only make the call to load the filter menu contents if user has many enrollments
+				this._hasManyEnrollments = this.pinnedEnrollments.length + this.unpinnedEnrollments.length >= this._numEnrollmentsRequiredToShowFilters;
+				if (this._hasManyEnrollments) {
+					this.$.filterMenuContent.load();
+				}
+				this.set('updateCountMap', this.updateCountMap);
+				setTimeout(function() {
+					// Slight delay to allow for overlay to get a DOM width before triggering the recalculation
+					this.fire('recalculate-columns');
+
+					this.toggleClass('d2l-all-courses-hidden', false, this.$.overlayContent);
+					this.toggleClass('d2l-all-courses-hidden', true, this.$.overlayLoadingSpinner);
+
+					// Show filter menu after content is shown if user has many enrollments
+					if (this._hasManyEnrollments) {
+						this.toggleClass('d2l-all-courses-hidden', false, this.$.filterAndSort);
+					}
+				}.bind(this), 50);
+			},
+			open: function() {
+				this.$$('#all-courses').open();
+			},
+			setCourseImage: function(details) {
+				this._removeAlert('setCourseImageFailure');
+				if (details && details.detail) {
+					if (details.detail.status === 'failure') {
+						setTimeout(function() {
+							this._addAlert('warning', 'setCourseImageFailure', this.localize('error.settingImage'));
+						}.bind(this), 1000); // delay until the tile fail icon animation begins to kick in (1 sec delay)
+					}
+				}
+				this.$$('#all-courses-pinned').setCourseImage(details);
+				this.$$('#all-courses-unpinned').setCourseImage(details);
+			},
+			_sortOptions: {
+				OrgUnitCode: {
+					text: 'sorting.sortCourseCode',
+					queryParameter: '-PinDate,OrgUnitCode,OrgUnitId'
+				},
+				OrgUnitName: {
+					text: 'sorting.sortCourseName',
+					queryParameter: '-PinDate,OrgUnitName,OrgUnitId'
+				},
+				PinDate: {
+					text: 'sorting.sortDatePinned',
+					queryParameter: '-PinDate,OrgUnitId'
+				},
+				LastAccessed: {
+					text: 'sorting.sortLastAccessed',
+					// Note: Sorting by LastAccessed is done differently LMS-side, hence this being different
+					queryParameter: 'LastAccessed'
+				}
+			},
+			_blurFilterText: function() {
+				// Only de-highlight text if focus has moved AND we're not hovering over the opener button anymore
+				// Without this check, the text de-highlights once the dropdown is opened as focus moves to the tabs
+				if (this.$$('#filterDropdownOpener:focus') === null && this.$$('#filterDropdownOpener:hover') === null) {
+					this.toggleClass('focus', false, this.$.filterText);
+				}
+			},
+			_focusFilterText: function() {
+				this.toggleClass('focus', true, this.$.filterText);
+			},
+			_onFilterChanged: function(e) {
+				this._parentOrganizations = [];
+				this.set('_parentOrganizations', e.detail.filters);
+				this.set('_filterText', e.detail.text);
+			},
+			_onFilterDropdownOpen: function() {
+				this.$.filterMenuContent.open();
+			},
+			_onFilterDropdownClose: function() {
+				this.$.filterDropdownOpener.focus();
+			},
+			_onFilterHideChanged: function(e) {
+				this.toggleClass('d2l-all-courses-hidden', e.detail.hide, this.$.filterSection);
+			},
+			_onLowerThreshold: function() {
+				this.$.scrollThreshold.clearTriggers();
+				this.$.filterMenuContent.loadMore();
+			},
+			_onResize: function() {
+				this._updateTileSizes();
+			},
+			_onSimpleOverlayOpening: function() {
+				this._removeAlert('setCourseImageFailure');
+				this._clearSearchWidget();
+				if (this._hasManyEnrollments) {
+					this.$.filterMenuContent._clearFilters();
+				}
+				this._resetSortDropdown();
+			},
+			_toggleFilterDropdown: function() {
+				if (this.$.filterDropdownContent.opened) {
+					this.$.filterDropdownContent.close();
+				} else {
+					this.$.filterDropdownContent.open();
+				}
+			},
+			_updateSortBy: function(e) {
+				this.set('_sortParameter', this._sortOptions[e.detail.value].queryParameter);
+				this.$.sortText.textContent = this.localize(this._sortOptions[e.detail.value].text || '');
+				this.$.sortDropdown.toggleOpen();
+			},
+			_updateEnrollmentAlerts: function(hasPinnedEnrollments) {
+				this._clearAlerts();
+
+				if (!hasPinnedEnrollments) {
+					this._addAlert('call-to-action', 'noPinnedCourses', this.localize('noPinnedCoursesMessage'));
+				}
+			},
+			_updateTileSizes: function() {
+				this._rescaleCourseTileRegions();
+				this._tileSizes = Math.floor(100 / this._numColsOverlay) + 'vw';
+			},
+			_clearSearchWidget: function() {
+				this.$['search-widget']._clearSearch();
+				this.$['search-widget']._setSearchIcon();
+				this._clearFilteredCourses();
+			},
+			_clearFilteredCourses: function() {
+				this._pinnedCoursesMap = {};
+				this._unpinnedCoursesMap = {};
+				this.filteredPinnedEnrollments = this.pinnedEnrollments.slice();
+				this.filteredUnpinnedEnrollments = this.unpinnedEnrollments.slice();
+			},
+			_resetSortDropdown: function() {
+				this.$.sortDropdownMenu.querySelector('d2l-menu-item-radio[value=' + this.defaultSortValue + ']').click();
+
+				// The click will not fire an event if the value is already selected, so need to update the sort manually
+				if (this._sortParameter !== this._sortOptions[this.defaultSortValue].queryParameter) {
+					this._sortParameter = this._sortOptions[this.defaultSortValue].queryParameter;
+				}
+
+				var content = this.$.sortDropdown.queryEffectiveChildren('[d2l-dropdown-content]');
+				if (content) {
+					content.close();
+				}
+			}
+		});
+	</script>
+</dom-module>

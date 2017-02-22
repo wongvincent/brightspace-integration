@@ -1,0 +1,29 @@
+{
+  "name": "vui-list",
+  "main": "list.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.1.0"
+  },
+  "homepage": "https://github.com/Brightspace/valence-ui-list",
+  "version": "1.1.1",
+  "_release": "1.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.1",
+    "commit": "95245dcfc833c1eae49f3d840ba12b6c2674a55a"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-list.git",
+  "_target": "1.1.1",
+  "_originalSource": "vui-list",
+  "_direct": true
+}

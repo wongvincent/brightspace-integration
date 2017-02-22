@@ -1,0 +1,17 @@
+@import 'validation.scss';
+
+.vui-validation-bubble {
+	@include vui-validation-bubble;
+}
+
+.vui-validation-bubble-show {
+	@include vui-validation-bubble-show;
+}
+
+.vui-validation-bubble-content {
+	@include vui-validation-bubble-content;
+}
+
+.vui-validation-bubble-content-above {
+	@include vui-validation-bubble-content-above;
+}

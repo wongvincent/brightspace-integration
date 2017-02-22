@@ -1,0 +1,150 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-icon/iron-icon.html">
+<link rel="import" href="../../d2l-ajax/d2l-ajax.html">
+<link rel="import" href="../../d2l-colors/d2l-colors.html">
+<link rel="import" href="../../d2l-dropdown/d2l-dropdown.html">
+<link rel="import" href="../../d2l-dropdown/d2l-dropdown-content.html">
+<link rel="import" href="../../d2l-offscreen/d2l-offscreen-shared-styles.html">
+<link rel="import" href="../button-highlight.html">
+<link rel="import" href="../icons.html">
+<link rel="import" href="../graft-dropdown-behavior.html">
+
+<dom-module id="d2l-navigation-personal-menu">
+	<style include="d2l-offscreen-shared-styles">
+	:host {
+		display: none;
+		height: 100%;
+	}
+	:host([user-href]) {
+		display: inline-block;
+	}
+	.d2l-dropdown-opener:hover iron-icon, .d2l-dropdown-opener:focus iron-icon {
+		color: var(--d2l-color-celestuba);
+	}
+	.d2l-navigation-personal-menu-wrapper {
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+	.d2l-navigation-personal-menu-thumbnail,
+	.d2l-navigation-personal-menu-thumbnail-default {
+		display: none;
+		-ms-flex: 0 0 auto;
+		-webkit-flex: 0 0 auto;
+		flex: 0 0 auto;
+		height: 42px;
+		width: 42px;
+	}
+	.d2l-navigation-personal-menu-thumbnail {
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	.d2l-navigation-personal-menu-text {
+		-ms-flex: 0 1 auto;
+		-webkit-flex: 0 1 auto;
+		flex: 0 1 auto;
+		margin-left: 10px;
+		max-width: 200px;
+		min-width: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 100%;
+	}
+	:host-context([dir='rtl']) .d2l-navigation-personal-menu-text {
+		margin-left: 0;
+		margin-right: 10px;
+	}
+	d2l-dropdown {
+		height: 100%;
+	}
+	d2l-dropdown-content {
+		line-height: 1.5rem;
+	}
+	@media(max-width: 992px) {
+		.d2l-navigation-personal-menu-text {
+			@apply(--d2l-offscreen);
+		}
+	}
+	</style>
+	<template>
+		<d2l-dropdown no-auto-open>
+			<button is="d2l-navigation-button-highlight" class="d2l-dropdown-opener">
+				<div class="d2l-navigation-personal-menu-wrapper">
+					<iron-icon icon="navigation-42:profile" class="d2l-navigation-personal-menu-thumbnail-default"></iron-icon>
+					<iron-icon class="d2l-navigation-personal-menu-thumbnail"></iron-icon>
+					<p class="d2l-navigation-personal-menu-text">[[displayName]]</p>
+				</div>
+			</button>
+			<d2l-dropdown-content min-width="300" no-padding render-content></d2l-dropdown-content>
+		</d2l-dropdown>
+		<d2l-ajax
+			auto
+			on-iron-ajax-error="_onError"
+			on-iron-ajax-response="_onResponse"></d2l-ajax>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-personal-menu',
+		properties: {
+			userHref: {
+				type: String,
+				reflectToAttribute: true
+			},
+			displayName: String
+		},
+		behaviors: [window.D2L.PolymerBehaviors.Navigation.GraftDropdownBehavior],
+		ready: function() {
+			this.$$('d2l-ajax').url = this.userHref;
+		},
+		_getThumbnail: function() {
+			return this.$$('.d2l-navigation-personal-menu-thumbnail');
+		},
+		_getThumbnailDefault: function() {
+			return this.$$('.d2l-navigation-personal-menu-thumbnail-default');
+		},
+		_onError: function() {
+			this.fire('data-ready');
+		},
+		_onResponse: function(evt) {
+			var res = evt.detail.response;
+			var hasProfile = false;
+			var thumbnailHref = undefined;
+			res.entities.forEach(function(resEntity) {
+				if (resEntity.class.indexOf('profile') > -1) {
+					resEntity.entities.forEach(function(profileEntity) {
+						if (profileEntity.class.indexOf('file') > -1 && profileEntity.class.indexOf('image') > -1) {
+							profileEntity.links.forEach(function(link) {
+								if (link.rel.indexOf('alternate') > -1) {
+									hasProfile = true;
+								}
+							}.bind(this));
+							if (profileEntity.properties && profileEntity.properties.regularRelativePath) {
+								thumbnailHref = profileEntity.properties.regularRelativePath;
+							}
+						}
+					}.bind(this));
+				} else if (resEntity.class.indexOf('display') > -1) {
+					this.displayName = resEntity.properties.name;
+				}
+			}.bind(this));
+			this._setThumbnail(hasProfile, thumbnailHref);
+			this.fire('data-ready');
+		},
+		_setThumbnail: function(hasProfile, url) {
+			if (hasProfile && url) {
+				var thumbnail = this._getThumbnail();
+				Polymer.dom(thumbnail).removeAttribute('icon');
+				Polymer.dom(thumbnail).setAttribute('src', url);
+				thumbnail.style.display = 'block';
+			} else {
+				var thumbnailDefault = this._getThumbnailDefault();
+				thumbnailDefault.style.display = 'block';
+			}
+		}
+	});
+</script>

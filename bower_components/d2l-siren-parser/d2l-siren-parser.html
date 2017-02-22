@@ -1,0 +1,17 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<script src="siren-parser.js"></script>
+
+<dom-module id="d2l-siren-parser">
+	<script>
+		/* global D2L */
+		'use strict';
+		
+		Polymer({
+			is: 'd2l-siren-parser',
+			parse: function (data) {
+				return D2L.Siren.Parse(data);
+			}
+		});
+	</script>
+</dom-module>

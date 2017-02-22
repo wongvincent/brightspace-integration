@@ -1,0 +1,64 @@
+@import 'breadcrumbs-icons.scss';
+@import 'bower_components/d2l-colors/d2l-colors.scss';
+
+@mixin _vui-link() {
+	&,
+	&:visited,
+	&:link,
+	&:active {
+		color: $d2l-color-celestine;
+		font-weight: normal;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	&:hover,
+	&:focus {
+		color: $d2l-color-celestuba;
+		text-decoration: underline;
+		outline-width: 0;
+	}
+}
+
+@mixin vui-breadcrumbs() {
+	color: $d2l-color-ferrite;
+	font-family: inherit;
+	font-size: 0.7rem;
+	font-weight: 400;
+	line-height: 1rem;
+	letter-spacing: 0.02rem;
+	margin: 0;
+	padding: 0;
+	list-style: none outside none;
+	& > li,
+	& > div,
+	& > span {
+		background-color: transparent;
+		border-width: 0;
+		display: inline-block;
+		list-style: none outside none;
+		&:last-child {
+			color: inherit;
+			&:after {
+				display: none;
+				[dir='rtl'] & {
+					display: none;
+				}
+			}
+		}
+		&:after {
+			content: $vui-separator;
+			display: inline-block;
+			height: 1rem;
+			padding-left: .5rem;
+			padding-right: .5rem;
+			vertical-align: middle;
+			[dir='rtl'] & {
+				content: $vui-separator-rtl;
+			}
+		}
+		& > a {
+			@include _vui-link;
+		}
+	}
+
+}

@@ -1,0 +1,17 @@
+@import 'dropdown.scss';
+
+.vui-dropdown-menu {
+	@include vui-dropdown-menu;
+}
+
+.vui-dropdown-menu > ul > li.vui-dropdown-menu-item-focus {
+	@include vui-dropdown-menu-item-focus;
+}
+
+.vui-dropdown-menu-item-link {
+	@include vui-dropdown-menu-item-link;
+}
+
+.vui-dropdown-menu-item-link-disabled {
+	@include vui-dropdown-menu-item-link-disabled;
+}

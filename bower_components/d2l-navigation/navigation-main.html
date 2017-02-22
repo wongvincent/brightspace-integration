@@ -1,0 +1,166 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="centerer.html">
+<link rel="import" href="item-link.html">
+<link rel="import" href="item-group.html">
+<link rel="import" href="item-link-behavior.html">
+<link rel="import" href="more-group.html">
+<dom-module id="d2l-navigation-main">
+	<style>
+		:host {
+			border-bottom: 1px solid var(--d2l-color-gypsum);
+			display: none;
+			height: calc(1rem + 40px);
+		}
+		:host([has-items]), :host-context([loading]) {
+			display: block;
+		}
+		:host([justify-content]) .d2l-navigation-main-wrapper {
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-justify-content: space-between;
+			-ms-align-justify-content: space-between;
+			justify-content: space-between;
+			-webkit-flex-wrap: nowrap;
+			-ms-flex-wrap: nowrap;
+			flex-wrap: nowrap;
+		}
+		@media(max-width: 992px) {
+			:host, :host([has-items]), :host-context([loading]) {
+				display: none;
+			}
+		}
+	</style>
+	<template>
+		<d2l-navigation-centerer>
+			<div class="d2l-navigation-main-wrapper">
+				<template is="dom-repeat" items="[[items]]" on-dom-change="_handleDomChange">
+					<template is="dom-if" if="[[isGroup(item)]]">
+						<d2l-navigation-item-group item=[[item]]></d2l-navigation-item-group>
+					</template>
+					<template is="dom-if" if="[[isNavItem(item)]]">
+						<d2l-navigation-item-link item="[[item]]"></d2l-navigation-item-link>
+					</template>
+				</template>
+				<d2l-navigation-more-group items="[[items]]" aria-hidden="true"></d2l-navigation-more-group>
+			</div>
+		</d2l-navigation-centerer>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: 'd2l-navigation-main',
+		properties: {
+			items: Array,
+			hasItems: {
+				type: Boolean,
+				reflectToAttribute: true,
+				computed: '_hasItems(items)',
+				value: false
+			},
+			_navItems: Array,
+			_moreGroup: Object,
+			_onResize: Function
+		},
+		behaviors: [window.D2L.PolymerBehaviors.Navigation.ItemLinkBehavior],
+		listeners: {
+			'focused-item-hidden': '_handleMoreGroupFocusedItemHidden'
+		},
+		ready: function() {
+			this._moreGroup = this.$$('d2l-navigation-more-group');
+		},
+		attached: function() {
+			this._onResize = this._chomp.bind(this);
+			window.addEventListener('resize', this._onResize, true);
+		},
+		detached: function() {
+			window.removeEventListener('resize', this._onResize, true);
+		},
+		_chomp: function() {
+			if (!this._navItems || !this._navItems.length) {
+				this._hideMainGroup();
+				return;
+			}
+
+			var navItems = this._navItems,
+				navItemsLength = this._navItems.length;
+
+			Polymer.dom(this).node.removeAttribute('justify-content');
+
+			this._showAllItems();
+			var lastNavItem = navItems[navItemsLength - 1];
+
+			if (this._isOnFirstRow(lastNavItem)) {
+				var focusedIndex = this._moreGroup.tryGetFocusedIndex();
+				if (focusedIndex > -1) {
+					this._focusItem(focusedIndex);
+				}
+				this._hideMainGroup();
+				return;
+			}
+
+			this._showMainGroup();
+			var index = navItemsLength - 1;
+
+			while ((index >= 0) && (!this._isOnFirstRow(this._moreGroup))) {
+				this._hideItem(navItems[index]);
+				index--;
+			}
+
+			this._moreGroup.showAndHideItems(index + 1);
+			Polymer.dom(this).node.setAttribute('justify-content', 'justify-content');
+		},
+		_showMainGroup: function() {
+			Polymer.dom(this._moreGroup).node.style.display = 'inline-block';
+		},
+		_hasItems: function(items) {
+			return items && items.length > 0;
+		},
+		_hideMainGroup: function() {
+			Polymer.dom(this._moreGroup).node.style.display = 'none';
+		},
+		_isOnFirstRow: function(navItem) {
+			var baseOffsetTop = Polymer.dom(this._navItems[0]).node.offsetTop,
+				itemOffsetTop = Polymer.dom(navItem).node.offsetTop,
+				OFFSET_TOLERANCE =  15;
+			return (Math.abs(baseOffsetTop - itemOffsetTop) < OFFSET_TOLERANCE);
+		},
+		_showAllItems: function() {
+			this._navItems.forEach(function(navItem) {
+				Polymer.dom(navItem).node.removeAttribute('hide');
+			});
+		},
+		_hideItem: function(navItem) {
+			if (navItem.isFocused()) {
+				this._moreGroup.focus();
+			}
+			Polymer.dom(navItem).node.setAttribute('hide', '');
+		},
+		_handleDomChange: function() {
+			if (!this.items.length) {
+				return;
+			}
+			this.async(function() {
+				this._navItems = Polymer.dom(this.root).querySelectorAll(
+					'd2l-navigation-item-link,d2l-navigation-item-group'
+				);
+				if (this._navItems.length > 0) {
+					setTimeout(function() {
+						this._chomp();
+					}.bind(this), 100); // hackily ensuring DOM is ready to determine row positions
+				}
+			});
+		},
+		_handleMoreGroupFocusedItemHidden: function(event, details) {
+			this._focusItem(details.index);
+		},
+		_focusItem: function(index) {
+			this._navItems[index].focus();
+		}
+	});
+</script>
