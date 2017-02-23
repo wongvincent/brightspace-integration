@@ -26,21 +26,20 @@
   "dependencies": {
     "polymer": "^1.7.1",
     "iron-overlay-behavior": "^1.10.2",
-    "neon-animation": "^1.2.4",
     "d2l-icons": "^3.0.0",
     "d2l-polymer-behaviors": "^0.0.4",
     "d2l-colors": "^2.2.3",
     "d2l-typography": "^5.2.4"
   },
-  "version": "0.0.2",
-  "_release": "0.0.2",
+  "version": "0.0.4",
+  "_release": "0.0.4",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.2",
-    "commit": "0f49740cd86df6cf11b7c860126028eda3984126"
+    "tag": "v0.0.4",
+    "commit": "8ccc4a9dfad79ed47646a979949658c669b58b0c"
   },
-  "_source": "git://github.com/Brightspace/simple-overlay.git",
-  "_target": "0.0.2",
-  "_originalSource": "git://github.com/Brightspace/simple-overlay.git",
+  "_source": "https://github.com/Brightspace/simple-overlay.git",
+  "_target": "0.0.4",
+  "_originalSource": "https://github.com/Brightspace/simple-overlay.git",
   "_direct": true
 }

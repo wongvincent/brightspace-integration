@@ -1,6 +1,6 @@
 # d2l-simple-overlay
 
-A [Polymer](https://www.polymer-project.org/1.0/)-based web component D2L simple overlay element. Extends `iron-overlay` and adds some styling using various `neon` Polymer elements.
+A [Polymer](https://www.polymer-project.org/1.0/)-based web component D2L simple overlay element. Extends `iron-overlay` and adds some styling.
 For further information on this and other D2L UI components, see the docs at [ui.valence.d2l.com](http://ui.valence.d2l.com/).
 
 ## Installation

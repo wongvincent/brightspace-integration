@@ -17,7 +17,7 @@
     "d2l-navigation": "https://github.com/Brightspace/d2l-navigation-ui.git#0.15.1",
     "d2l-offscreen": "^2.2.5",
     "d2l-performance": "^0.0.4",
-    "d2l-simple-overlay": "https://github.com/Brightspace/simple-overlay.git#~0.0.2",
+    "d2l-simple-overlay": "https://github.com/Brightspace/simple-overlay.git#~0.0.4",
     "d2l-table": "^0.6.3",
     "d2l-typography": "^5.2.4",
     "jquery-vui-accordion": "^0.3.2",

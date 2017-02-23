@@ -26,7 +26,6 @@
   "dependencies": {
     "polymer": "^1.7.1",
     "iron-overlay-behavior": "^1.10.2",
-    "neon-animation": "^1.2.4",
     "d2l-icons": "^3.0.0",
     "d2l-polymer-behaviors": "^0.0.4",
     "d2l-colors": "^2.2.3",
