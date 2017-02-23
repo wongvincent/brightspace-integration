@@ -49,18 +49,17 @@
     "iron-overlay-behavior": "^1.10.1",
     "iron-scroll-threshold": "PolymerElements/iron-scroll-threshold#^1.0.2",
     "iron-pages": "^1.0.8",
-    "neon-animation": "^1.2.4",
     "polymer": "^1.7.0"
   },
-  "version": "0.30.1",
-  "_release": "0.30.1",
+  "version": "0.31.0",
+  "_release": "0.31.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.30.1",
-    "commit": "403496780dcd788054cbe269f1d938e29745c0d4"
+    "tag": "v0.31.0",
+    "commit": "df003f2131e3d5fbe34434db22e992e4658a025f"
   },
-  "_source": "git://github.com/Brightspace/d2l-my-courses-ui.git",
-  "_target": "0.30.1",
-  "_originalSource": "git://github.com/Brightspace/d2l-my-courses-ui.git",
+  "_source": "https://github.com/Brightspace/d2l-my-courses-ui.git",
+  "_target": "0.31.0",
+  "_originalSource": "https://github.com/Brightspace/d2l-my-courses-ui.git",
   "_direct": true
 }
