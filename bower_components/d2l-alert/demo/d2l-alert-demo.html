@@ -5,32 +5,59 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 		<title>d2l-alert demo</title>
 		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<script>
-			window.Polymer = {
-				dom: 'shadow',
-				lazyRegister: true
-			};
-		</script>
 		<link rel="import" href="../d2l-alert.html">
 		<link rel="import" href="../../d2l-typography/d2l-typography.html">
 		<style is="custom-style" include="d2l-typography"></style>
+		<style>
+			.buttons {
+				margin-bottom: 15px;
+			}
+			.flex {
+				display: flex;
+			}
+			.flex > d2l-alert {
+				flex: 1 1 auto;
+			}
+			.not-visible {
+				display: none;
+			}
+		</style>
 	</head>
 	<body unresolved class="d2l-typography">
 		<main class="max-width">
 			<h1>d2l-alert demo</h1>
 			<script>
-				function changeVisibility() {
-					var alert = document.getElementById('alert');
+				function showAlert(type) {
+					hideAllAlerts();
+					var alert = document.querySelector('d2l-alert[type=' + type + ']');
+					alert.classList.remove('not-visible');
+				}
 
-					if (alert.hasAttribute('visible')) {
-						alert.removeAttribute('visible');
-					} else {
-						alert.setAttribute('visible', '');
+				function hideAllAlerts() {
+					var alerts = document.getElementsByTagName('d2l-alert');
+					for (i = 0; i < alerts.length; i++) {
+						alerts[i].classList.add('not-visible');
 					}
 				}
 			</script>
-			<button onclick="changeVisibility()">Show/Hide Alert</button>
-			<d2l-alert id="alert" visible>This is a d2l-alert. It displays informational text.</d2l-alert>
+
+			<div class="buttons">
+				<button onclick="showAlert('call-to-action')">Show call-to-action</button>
+				<button onclick="showAlert('confirmation')">Show confirmation</button>
+				<button onclick="showAlert('error')">Show error</button>
+				<button onclick="showAlert('reinforcement')">Show reinforcement</button>
+				<button onclick="showAlert('warning')">Show warning</button>
+			</div>
+
+			<div class="flex">
+				<d2l-alert type="call-to-action">This is a d2l-alert with type="call-to-action". Call-to-action is the default when no type is declared.</d2l-alert>
+				<d2l-alert type="confirmation" class="not-visible">This is a d2l-alert with type="confirmation".</d2l-alert>
+				<d2l-alert type="error" class="not-visible">This is a d2l-alert with type="error".</d2l-alert>
+				<d2l-alert type="reinforcement" class="not-visible">This is a d2l-alert with type="reinforcement".</d2l-alert>
+				<d2l-alert type="warning" class="not-visible">This is a d2l-alert with type="warning".</d2l-alert>
+			</div>
+
+
 		</main>
 	</body>
 </html>
