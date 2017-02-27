@@ -29,15 +29,15 @@
     "d2l-colors": "~2.2.3",
     "d2l-typography": "~5.2.3"
   },
-  "version": "0.0.1",
-  "_release": "0.0.1",
+  "version": "0.0.2",
+  "_release": "0.0.2",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.1",
-    "commit": "6408c80971ee3bd2ab2fdecc87991a9496c431d8"
+    "tag": "v0.0.2",
+    "commit": "aaf05216bcc01a128f26bfb0e39d776f6e8cfefd"
   },
-  "_source": "git://github.com/Brightspace/alert.git",
-  "_target": "0.0.1",
-  "_originalSource": "git://github.com/Brightspace/alert.git",
+  "_source": "https://github.com/Brightspace/alert.git",
+  "_target": "0.0.2",
+  "_originalSource": "https://github.com/Brightspace/alert.git",
   "_direct": true
 }

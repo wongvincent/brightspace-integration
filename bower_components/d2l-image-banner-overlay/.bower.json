@@ -30,7 +30,7 @@
   "dependencies": {
     "app-localize-behavior": "PolymerElements/app-localize-behavior#~0.10.0",
     "d2l-ajax": "^3.2.5",
-    "d2l-alert": "git://github.com/Brightspace/alert.git#^0.0.1",
+    "d2l-alert": "git://github.com/Brightspace/alert.git#^0.0.2",
     "d2l-colors": "^2.2.3",
     "d2l-dropdown": "^5.0.0",
     "d2l-icons": "^3.0.0",
@@ -48,17 +48,18 @@
     "iron-overlay-behavior": "^1.10.1",
     "iron-scroll-threshold": "PolymerElements/iron-scroll-threshold#^1.0.2",
     "iron-pages": "^1.0.8",
-    "polymer": "^1.7.0"
+    "polymer": "^1.7.0",
+    "d2l-performance": "^0.0.4"
   },
-  "version": "0.0.2",
-  "_release": "0.0.2",
+  "version": "0.0.4",
+  "_release": "0.0.4",
   "_resolution": {
     "type": "version",
-    "tag": "0.0.2",
-    "commit": "3078381c0b1ae0d16e30654fe9c9cc8207a5392f"
+    "tag": "0.0.4",
+    "commit": "1576cc503a6eef6224771d6c621413f6d754951b"
   },
-  "_source": "git://github.com/Brightspace/d2l-image-banner-overlay.git",
-  "_target": "0.0.2",
-  "_originalSource": "git://github.com/Brightspace/d2l-image-banner-overlay.git",
+  "_source": "https://github.com/Brightspace/d2l-image-banner-overlay.git",
+  "_target": "0.0.4",
+  "_originalSource": "https://github.com/Brightspace/d2l-image-banner-overlay.git",
   "_direct": true
 }

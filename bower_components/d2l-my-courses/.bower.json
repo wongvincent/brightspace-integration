@@ -29,7 +29,7 @@
   "dependencies": {
     "app-localize-behavior": "PolymerElements/app-localize-behavior#~0.10.0",
     "d2l-ajax": "^3.2.5",
-    "d2l-alert": "git://github.com/Brightspace/alert.git#^0.0.1",
+    "d2l-alert": "git://github.com/Brightspace/alert.git#^0.0.2",
     "d2l-colors": "^2.2.3",
     "d2l-dropdown": "^5.0.0",
     "d2l-icons": "^3.0.0",
@@ -51,15 +51,15 @@
     "iron-pages": "^1.0.8",
     "polymer": "^1.7.0"
   },
-  "version": "0.31.0",
-  "_release": "0.31.0",
+  "version": "0.31.1",
+  "_release": "0.31.1",
   "_resolution": {
     "type": "version",
-    "tag": "v0.31.0",
-    "commit": "df003f2131e3d5fbe34434db22e992e4658a025f"
+    "tag": "v0.31.1",
+    "commit": "e3ed89b71dcdee9cc7ceb6326e228da106336642"
   },
   "_source": "https://github.com/Brightspace/d2l-my-courses-ui.git",
-  "_target": "0.31.0",
+  "_target": "0.31.1",
   "_originalSource": "https://github.com/Brightspace/d2l-my-courses-ui.git",
   "_direct": true
 }
