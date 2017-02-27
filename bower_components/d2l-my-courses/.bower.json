@@ -51,15 +51,15 @@
     "iron-pages": "^1.0.8",
     "polymer": "^1.7.0"
   },
-  "version": "0.31.1",
-  "_release": "0.31.1",
+  "version": "0.31.2",
+  "_release": "0.31.2",
   "_resolution": {
     "type": "version",
-    "tag": "v0.31.1",
-    "commit": "e3ed89b71dcdee9cc7ceb6326e228da106336642"
+    "tag": "v0.31.2",
+    "commit": "34760744d3ca23a637d7d37e0cee2987c336ca58"
   },
   "_source": "https://github.com/Brightspace/d2l-my-courses-ui.git",
-  "_target": "0.31.1",
+  "_target": "0.31.2",
   "_originalSource": "https://github.com/Brightspace/d2l-my-courses-ui.git",
   "_direct": true
 }
