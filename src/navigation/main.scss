@@ -15,6 +15,7 @@
 	-webkit-flex-wrap: nowrap;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
+	transition: opacity ease-in 0.2s;
 	&[data-more] {
 		-webkit-justify-content: space-between;
 		-ms-align-justify-content: space-between;
