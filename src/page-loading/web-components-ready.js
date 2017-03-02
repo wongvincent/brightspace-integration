@@ -8,6 +8,7 @@
 			return;
 		}
 		pageReady = true;
+		D2L.Performance.measure('d2l.page.visible', 'responseEnd');
 		D2L.Performance.measure('d2l.page.display', 'fetchStart');
 	}
 
