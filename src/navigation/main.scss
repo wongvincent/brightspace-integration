@@ -5,20 +5,14 @@
 }
 
 .d2l-navigation-s-main-wrapper {
-	-webkit-align-items: center;
-	-ms-align-items: center;
 	align-items: center;
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
 	height: calc(1rem + 40px);
-	-webkit-flex-wrap: nowrap;
-	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
 	transition: opacity ease-in 0.2s;
 	&[data-more] {
-		-webkit-justify-content: space-between;
-		-ms-align-justify-content: space-between;
 		justify-content: space-between;
 	}
 	&[data-loading] {

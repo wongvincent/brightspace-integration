@@ -3,25 +3,17 @@
 
 .d2l-navigation-s-personal-menu {
 	display: inline-block;
-	-ms-flex: 0 0 auto;
-	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
 	height: 100%;
 }
 
 .d2l-navigation-s-personal-menu-wrapper {
-	-webkit-align-items: center;
-	-ms-flex-align: center;
 	align-items: center;
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
 }
 
 .d2l-navigation-s-personal-menu-wrapper d2l-icon {
 	border-radius: 8px;
-	-ms-flex: 0 0 auto;
-	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
 	height: 42px;
 	overflow: hidden;
@@ -29,8 +21,6 @@
 }
 
 .d2l-navigation-s-personal-menu-text {
-	-ms-flex: 0 1 auto;
-	-webkit-flex: 0 1 auto;
 	flex: 0 1 auto;
 	margin-left: 10px;
 	max-width: 200px;

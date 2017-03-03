@@ -1,15 +1,11 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
 
 .d2l-navigation-s-button-highlight {
-	-webkit-align-items: center;
-	-ms-flex-align: center;
 	align-items: center;
 	background-color: $d2l-color-white;
 	border: none;
 	color: $d2l-color-ferrite;
 	cursor: pointer;
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
 	font-family: inherit;
 	font-size: 0.7rem;
@@ -34,8 +30,6 @@ button.d2l-navigation-s-button-highlight[data-active] d2l-icon {
 }
 
 .d2l-navigation-s-button-highlight d2l-icon {
-	-ms-flex: 0 0 auto;
-	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
 }
 
