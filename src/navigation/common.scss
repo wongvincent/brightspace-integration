@@ -21,11 +21,7 @@ $d2l-navigation-bp-title: 670px;
 }
 
 .d2l-navigation-s-header-container {
-	-webkit-align-items: center;
-	-ms-flex-align: center;
 	align-items: center;
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
 	height: $d2l-navigation-header-height;
 }

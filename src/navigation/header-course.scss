@@ -1,11 +1,5 @@
 .d2l-navigation-s-header-course {
-	-webkit-flex: 0 1 auto;
-	-webkit-align-items: center;
-	-ms-flex: 0 1 auto;
-	-ms-flex-align: center;
 	align-items: center;
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
 	flex: 0 1 auto;
 	height: 100%;
@@ -17,8 +11,6 @@
 .d2l-navigation-s-header-course > .d2l-navigation-s-link {
 	display: block;
 	font-size: 1.5rem;
-	-ms-flex: 0 1 auto;
-	-webkit-flex: 0 1 auto;
 	flex: 0 1 auto; /* IE10 defaults to 0 0 auto */
 	overflow: hidden;
 	line-height: normal;
