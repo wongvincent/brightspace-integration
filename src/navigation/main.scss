@@ -19,8 +19,6 @@
 		opacity: 0;
 	}
 	&[data-unmeasured] {
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 	}
 }
@@ -48,15 +46,8 @@
 	margin: 0;
 	padding: 0;
 	.d2l-navigation-s-group-wrapper {
-		-webkit-align-items: center;
-		-ms-align-items: center;
 		align-items: center;
-		display: -webkit-inline-box;
-		display: -ms-inline-flexbox;
-		display: -webkit-inline-flex;
 		display: inline-flex;
-		-webkit-flex-wrap: nowrap;
-		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
 		d2l-icon {
 			height: 15px;
