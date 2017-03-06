@@ -5,7 +5,8 @@
     "node": true
   },
   "rules": {
-      "strict": 2
+      "strict": 2,
+      "no-empty": ["error", { "allowEmptyCatch": true }]
   },
   "globals": {
     "D2L": true
