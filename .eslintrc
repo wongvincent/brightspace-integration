@@ -9,6 +9,7 @@
       "no-empty": ["error", { "allowEmptyCatch": true }]
   },
   "globals": {
-    "D2L": true
+    "D2L": true,
+    "fastdom": true
   }
 }
