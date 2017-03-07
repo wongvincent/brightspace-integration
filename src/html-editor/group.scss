@@ -1,0 +1,78 @@
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+@import 'shared.scss';
+
+.d2l-htmleditor-group {
+
+	border: 1px solid #D3D3D3;
+	border-radius: $vui-htmleditor-border-radius;
+	box-shadow: 0 1px 1px 0 #EFEFEF;
+	display: inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#EEEEEE',GradientType=0 ); /* IE6-9 */
+	line-height: 1em;
+	margin-right: 0.3rem;
+
+	[dir="rtl"] & {
+		margin-right: 0;
+		margin-left: 0.3rem;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+	[dir="rtl"] &:last-child {
+		margin-left: 0;
+	}
+
+	.d2l-htmleditor-toolbar-item {
+		.d2l-select {
+			border-radius: 0;
+		}
+		&:first-child {
+			.d2l-select,
+			.d2l-htmleditor-button,
+			.d2l-menuflyout-opener {
+				border-top-left-radius: $vui-htmleditor-border-radius;
+				border-bottom-left-radius: $vui-htmleditor-border-radius;
+			}
+		}
+		&:last-child {
+			.d2l-select,
+			.d2l-htmleditor-button {
+				border-top-right-radius: $vui-htmleditor-border-radius;
+				border-bottom-right-radius: $vui-htmleditor-border-radius;
+			}
+			.d2l-menuflyout-opener {
+				border-radius: 0;
+				border-top-right-radius: $vui-htmleditor-border-radius;
+				border-bottom-right-radius: $vui-htmleditor-border-radius;
+			}
+		}
+	}
+	[dir="rtl"] & .d2l-htmleditor-toolbar-item:first-child {
+		.d2l-select,
+		.d2l-htmleditor-button,
+		.d2l-menuflyout-opener   {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border-top-right-radius: $vui-htmleditor-border-radius;
+			border-bottom-right-radius: $vui-htmleditor-border-radius;
+		}
+	}
+	[dir="rtl"] & .d2l-htmleditor-toolbar-item:last-child {
+		.d2l-select,
+		.d2l-htmleditor-button,
+		.d2l-menuflyout-opener {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-top-left-radius: $vui-htmleditor-border-radius;
+			border-bottom-left-radius: $vui-htmleditor-border-radius;
+		}
+	}
+
+}
+
+.d2l-htmleditor-footer-inner .d2l-htmleditor-group {
+	border-style: none;
+	box-shadow: none;
+	background: #FFF;
+}
