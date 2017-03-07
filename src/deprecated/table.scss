@@ -19,6 +19,8 @@ $vui-table-row-background-color-selected: $d2l-color-celestine-light-1;
 	border-collapse: separate;
 	border-spacing: 0;
 	display: table;
+	font-size: 0.8rem;
+	font-weight: 400;
 	width: 100%;
 
 	& thead {
@@ -217,7 +219,6 @@ $vui-table-row-background-color-selected: $d2l-color-celestine-light-1;
 	border-top: $vui-table-border;
 	border-right: $vui-table-border;
 	display: table-cell;
-	font-weight: 400;
 	padding: 0.5rem 1rem;
 	text-align: left;
 	vertical-align: middle;
