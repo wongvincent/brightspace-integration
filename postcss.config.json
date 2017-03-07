@@ -3,6 +3,6 @@
 	"input": "./dist/bsi.css",
 	"dir": "./dist/",
 	"autoprefixer": {
-		"browsers": "Last 1 versions, Firefox ESR, IE >= 11"
+		"browsers": "Last 3 versions, Firefox ESR, IE >= 11, Safari >= 9"
 	}
 }
