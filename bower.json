@@ -21,7 +21,7 @@
     "d2l-organization-hm-behavior": "https://github.com/Brightspace/organization-hm-behavior.git#^1.0.0",
     "d2l-performance": "^0.0.4",
     "d2l-simple-overlay": "https://github.com/Brightspace/simple-overlay.git#^1.0.0",
-    "d2l-table": "^0.6.4",
+    "d2l-table": "^0.6.5",
     "d2l-typography": "^5.3.0",
     "jquery-vui-accordion": "^0.3.2",
     "jquery-vui-collapsible-section": "^1.2.1",
