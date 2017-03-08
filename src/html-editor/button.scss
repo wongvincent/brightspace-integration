@@ -1,0 +1,99 @@
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+@import 'shared.scss';
+
+.d2l-htmleditor-button {
+
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	line-height: 1px;
+	padding: calc((#{$vui-htmleditor-toolbar-height} - #{$vui-htmleditor-icon-height}) / 2);
+
+	[dir="rtl"] & {
+		float: right;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: $d2l-color-woolonardo;
+	}
+
+}
+
+.d2l-htmleditor-button-active {
+	background-color: #E8F2FC;
+}
+
+.d2l-htmleditor-button-disabled {
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+	cursor: default;
+}
+.d2l-htmleditor-button.d2l-htmleditor-button-disabled:focus,
+.d2l-htmleditor-button.d2l-htmleditor-button-disabled:hover {
+	background-color: initial;
+}
+
+.d2l-htmleditor-buttonmenuitem {
+
+	border: 1px solid transparent;
+	border-left-style: none;
+	border-right-style: none;
+	cursor: pointer;
+	display: block;
+	min-height: 16px;
+	padding: 0.5rem;
+
+	&:hover,
+	&:focus {
+		background-color: #E7E7E7;
+	}
+
+	&.d2l-htmleditor-button-active {
+		background-color: #E8F2FC;
+		&:hover,
+		&:focus {
+			background-color: #D3E7FA;
+		}
+	}
+
+}
+
+.d2l-htmleditor-buttonmenuitem-icon {
+	float: left;
+	[dir="rtl"] & {
+		float: right;
+	}
+}
+
+.d2l-htmleditor-buttonmenuitem-text {
+	display: block;
+	margin-left: calc(22px + 0.3rem);
+	vertical-align: top;
+	[dir="rtl"] & {
+		margin-left: 0;
+		margin-right: 22px;
+	}
+}
+
+.d2l-htmleditor-footer {
+	.d2l-htmleditor-button {
+		border-top: 1px solid transparent;
+		border-bottom: 1px solid transparent;
+		border: 1px solid transparent;
+		border-radius: 3px;
+	}
+	.d2l-htmleditor-button:hover,
+	.d2l-htmleditor-button:focus {
+		border-color: #DFDFDF;
+	}
+	.d2l-htmleditor-toolbar-item:first-child .d2l-htmleditor-button:hover,
+	.d2l-htmleditor-toolbar-item:first-child .d2l-htmleditor-button:focus {
+		border-color: #DFDFDF;
+	}
+	.d2l-htmleditor-toolbar-item:last-child .d2l-htmleditor-button:hover,
+	.d2l-htmleditor-toolbar-item:last-child .d2l-htmleditor-button:focus {
+		border-color: #DFDFDF;
+	}
+}

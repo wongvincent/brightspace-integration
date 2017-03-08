@@ -1,0 +1,82 @@
+.d2l-htmleditor-color {
+
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	line-height: 1px;
+	[dir="rtl"] & {
+		float: right;
+		margin-left: 1px;
+		margin-right: 0;
+	}
+
+	.d2l-htmleditor-color-action {
+		border-top-left-radius: $vui-htmleditor-border-radius;
+		border-bottom-left-radius: $vui-htmleditor-border-radius;
+		border-right: 1px solid transparent;
+	}
+	[dir="rtl"] & .d2l-htmleditor-color-action {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		border-top-right-radius: $vui-htmleditor-border-radius;
+		border-bottom-right-radius: $vui-htmleditor-border-radius;
+		border-left: 1px solid transparent;
+		border-right: 0;
+	}
+
+	&.d2l-htmleditor-color-focus,
+	&.d2l-htmleditor-color-mouse {
+		border-color: #DFDFDF;
+		& > .d2l-htmleditor-color-action,
+		& > .d2l-htmleditor-color-action {
+			border-right: 1px solid #DFDFDF;
+		}
+		[dir="rtl"] & > .d2l-htmleditor-color-action,
+		[dir="rtl"] & > .d2l-htmleditor-color-action {
+			border-left: 1px solid #DDD;
+			border-right: 0;
+		}
+	}
+
+	.d2l-htmleditor-color-select {
+		border-top-right-radius: $vui-htmleditor-border-radius;
+		border-bottom-right-radius: $vui-htmleditor-border-radius;
+	}
+	[dir="rtl"] & .d2l-htmleditor-color-select {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-top-left-radius: $vui-htmleditor-border-radius;
+		border-bottom-left-radius: $vui-htmleditor-border-radius;
+	}
+
+}
+
+.d2l-htmleditor-color-button {
+	cursor: pointer;
+	display: inline-block;
+	line-height: 1px;
+	padding: calc((#{$vui-htmleditor-toolbar-height} - #{$vui-htmleditor-icon-height} - 2px) / 2);
+	vertical-align: middle;
+	&:hover,
+	&:focus {
+		background: $d2l-color-woolonardo;
+	}
+}
+
+.d2l-htmleditor-color-sample {
+	margin: 1px;
+	height: 16px;
+	width: 16px;
+}
+
+.d2l-htmleditor-color-action:hover > .d2l-htmleditor-color-sample,
+.d2l-htmleditor-color-action:focus > .d2l-htmleditor-color-sample,
+.d2l-htmleditor-color-action:active > .d2l-htmleditor-color-sample {
+	margin: 0;
+	border: 1px dotted #DFDFDF;
+}
+
+[dir="rtl"] .d2l-htmleditor-color-sample-inner {
+	left: auto;
+	right: 4px;
+}

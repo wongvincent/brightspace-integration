@@ -1,0 +1,114 @@
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+@import 'shared.scss';
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout {
+	padding: 0;
+	margin-right: 0;
+}
+
+[dir="rtl"] .d2l-menuflyout.d2l-htmleditor-menuflyout {
+	margin-left: 0;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener {
+	background-color: #FFF;
+	border-radius: 0;
+	line-height: 1px;
+	border: 1px solid transparent;
+	border-left: 1px solid #CCC;
+	border-top-style: none;
+	border-bottom-style: none;
+	border-color: #CCC;
+	border-bottom-style: none;
+	border-right-color: transparent;
+	padding: calc((#{$vui-htmleditor-toolbar-height} - #{$vui-htmleditor-icon-height}) / 2) 0.35rem;
+	[dir="rtl"] & {
+		border-right-color: #CCC;
+		border-left-color: transparent;
+		border-left: 0;
+		border-right: 1px solid #CCC;
+	}
+}
+.d2l-menuflyout.d2l-htmleditor-menuflyout.d2l-menuflyout-open .d2l-menuflyout-opener {
+	padding-bottom: calc((#{$vui-htmleditor-toolbar-height} - #{$vui-htmleditor-icon-height}) / 2);
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:hover,
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:focus {
+	background-color: $d2l-color-woolonardo;
+	border: 1px solid #CCC;
+	border-top-style: none;
+	border-bottom-style: none;
+	[dir="rtl"] & {
+		border-left: 1px solid #CCC;
+		border-right-style: none;
+	}
+}
+
+.d2l-htmleditor-toolbar-item:first-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:hover,
+.d2l-htmleditor-toolbar-item:first-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:focus {
+	border-left-color: transparent;
+}
+
+[dir="rtl"] .d2l-htmleditor-toolbar-item:first-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:hover,
+[dir="rtl"] .d2l-htmleditor-toolbar-item:first-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:focus {
+	border-right-color: transparent;
+}
+
+.d2l-htmleditor-toolbar-item:last-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:hover,
+.d2l-htmleditor-toolbar-item:last-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:focus {
+	border-right-color: transparent;
+}
+
+[dir="rtl"] .d2l-htmleditor-toolbar-item:last-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:hover,
+[dir="rtl"] .d2l-htmleditor-toolbar-item:last-child .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener:focus {
+	border-left-color: transparent;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener .d2l-menuflyout-icon {
+	margin-right: 4px;
+}
+
+[dir="rtl"] .d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-opener .d2l-menuflyout-icon {
+	margin-left: 4px;
+	margin-right: 0;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout > .d2l-menuflyout-contents {
+	background-color: #FFF;
+	border-color: #CCC;
+	border-radius: $vui-htmleditor-border-radius;
+	margin-right: -1px;
+	margin-top: -0.3rem;
+	&.d2l-menuflyout-contents-right {
+		border-top-left-radius: 0;
+	}
+	&.d2l-menuflyout-contents-left {
+		border-top-right-radius: 0;
+	}
+}
+
+.d2l-htmleditor-menuflyout-item {
+	display: block;
+}
+
+.d2l-htmleditor-menuflyout-item:first-child {
+	margin-top: 1px;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-text {
+	font-weight: normal;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-arrow {
+	margin-right: 0;
+}
+
+.d2l-menuflyout.d2l-htmleditor-menuflyout .d2l-menuflyout-spacer {
+	width: 2px;
+}
+
+.d2l-htmleditor-menuflyout-list {
+	margin: 0;
+	padding: 0;
+}

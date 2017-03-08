@@ -1,0 +1,184 @@
+@import '../../bower_components/d2l-colors/d2l-colors.scss';
+
+@import 'shared.scss';
+@import 'button.scss';
+@import 'color-button.scss';
+@import 'group.scss';
+@import 'menu.scss';
+
+.d2l-htmleditor {
+	border: 1px solid #CCC;
+	border-radius: $vui-htmleditor-border-radius;
+	background-color: #FFF;
+}
+
+.d2l-htmleditor-header {
+	border: 1px solid transparent;
+	border-radius: $vui-htmleditor-border-radius;
+	padding: 0.5rem 0.5rem 0 0.5rem;
+}
+
+.d2l-htmleditor-component-container {
+	display: inline;
+	line-height: normal;
+}
+
+.d2l-htmleditor-hide-components {
+	.d2l-htmleditor-component-container {
+		display: inline-block;
+	}
+	.d2l-htmleditor-hide1-hidden {
+		display: none !important;
+	}
+}
+
+.d2l-htmleditor-toolbar-item {
+
+	display: inline-block;
+	float: left;
+	min-height: $vui-htmleditor-toolbar-height;
+
+	[dir="rtl"] & {
+		float: right;
+	}
+
+	.d2l-select-container {
+		margin: 0;
+		border: 0;
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.d2l-select,
+	.d2l-select:hover,
+	.d2l-select:focus {
+		border: 0;
+		font-size: 0.7rem;
+		font-weight: normal;
+		padding: 0.4rem calc(1rem + 42px) 0.4rem 0.7rem;
+	}
+	[dir="rtl"] & .d2l-select,
+	[dir="rtl"] & .d2l-select:hover,
+	[dir="rtl"] & .d2l-select:focus {
+		padding-left: calc(1rem + 42px);
+		padding-right: 0.7rem;
+	}
+
+}
+
+.d2l-htmleditor-footer {
+
+	border: 1px solid transparent;
+	border-radius: 3px;
+	line-height: 1em;
+	padding: 0.15rem 0.7rem;
+
+	.d2l-htmleditor-toolbar-item {
+		border: 0;
+	}
+
+}
+
+.d2l-htmleditor-std_button {
+	vertical-align: top;
+}
+
+.d2l-htmleditor-dialog-textarea {
+	margin: 0;
+}
+
+.d2l-htmleditor-files {
+	display: none;
+}
+
+.d2l-htmleditor-resize {
+	display: block;
+	margin-top: 10px;
+	margin-left: 4px;
+	margin-right: 2px;
+	float: right;
+	cursor: se-resize;
+	[dir="rtl"] & {
+		margin-left: 2px;
+		margin-right: 4px;
+		float: left;
+	}
+}
+
+.d2l-htmleditor-footer-inner {
+	float: right;
+	[dir="rtl"] & {
+		float: left;
+	}
+}
+
+.d2l-htmleditor-compact.d2l-htmleditor-frosted .d2l-htmleditor-header,
+.d2l-htmleditor-compact.d2l-htmleditor-frosted .d2l-htmleditor-footer {
+	opacity: 0.5;
+}
+
+.d2l-htmleditor-skiptoolbars {
+
+	left: -10000px;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+
+	[dir="rtl"] & {
+		left: auto;
+		right: -10000px;
+	}
+
+	&:active,
+	&:focus {
+		position: relative;
+		left: auto;
+		width: auto;
+		overflow: visible;
+		outline: none;
+		font-weight: bold;
+		color: #FFF;
+		text-decoration: none;
+		display: block;
+		z-index: 10000;
+		vertical-align: middle;
+		height: 0;
+	}
+	[dir="rtl"] &:active,
+	[dir="rtl"] &:focus {
+		right: auto;
+	}
+
+	.d2l-htmleditor-skiptoolbars-inner {
+		position: absolute;
+		width: 100%;
+		background-color: #000;
+		background-color: rgba( 0, 0, 0, 0.7 );
+		border: 1px solid #000;
+		border-color: rgba( 0, 0, 0, 0.8 );
+		border-radius: 3px;
+		text-align: center;
+		padding-top: 0.4em;
+		padding-bottom: 0.4em;
+	}
+
+}
+
+.d2l-htmleditor-preview > .d2l-htmlblock {
+	overflow-x: visible;
+	overflow-y: visible;
+	padding: 10px;
+}
+
+.d2l-htmleditor-component-toggle {
+	background-color: #fff;
+	padding-left: 0.7rem;
+	padding-right: 0.7rem;
+	margin-top: 0;
+	margin-right: 0;
+	&:hover,
+	&:focus {
+		background-color: $d2l-color-woolonardo;
+	}
+}
