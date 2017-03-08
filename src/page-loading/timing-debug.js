@@ -30,7 +30,7 @@
 			return;
 		}
 
-		requestAnimationFrame(function() {
+		D2L.FastDom.mutate(function() {
 			var div = document.createElement('div');
 			div.className = 'd2l-page-timing';
 			div.appendChild(
