@@ -1,13 +1,18 @@
 (function() {
 	'use strict';
 
+	var count = 0;
+
 	window.addEventListener('D2LPerformanceMeasure', function addTiming(e) {
 
-		if (e.detail.value.name !== 'd2l.page.visible') {
+		if (e.detail.value.name !== 'd2l.page.visible' && e.detail.value.name !== 'd2l.page.display' ) {
 			return;
 		}
+		count++;
 
-		window.removeEventListener( 'D2LPerformanceMeasure', addTiming );
+		if (count === 2) {
+			window.removeEventListener( 'D2LPerformanceMeasure', addTiming );
+		}
 
 		var res = /(\?|&)timingdebug=(1|0)/gi.exec(location.search);
 		if ( res !== null && res.length === 3 ) {
@@ -31,12 +36,23 @@
 		}
 
 		D2L.FastDom.mutate(function() {
-			var div = document.createElement('div');
-			div.className = 'd2l-page-timing';
-			div.appendChild(
-				document.createTextNode('Visible: ' + D2L.Performance.timing['d2l.page.visible'])
+
+			var label = e.detail.value.name.substr(e.detail.value.name.lastIndexOf('.') + 1);
+			var timingNode = document.createElement('div');
+			timingNode.appendChild(
+				document.createTextNode(label + ': ' + Math.floor(e.detail.value.duration))
 			);
-			document.body.appendChild(div);
+
+			var div = document.querySelector('.d2l-page-timing');
+			if (div === null) {
+				div = document.createElement('div');
+				div.className = 'd2l-page-timing';
+				div.appendChild(timingNode);
+				document.body.appendChild(div);
+			} else {
+				div.appendChild(timingNode);
+			}
+
 		});
 
 	});
