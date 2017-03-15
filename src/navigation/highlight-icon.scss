@@ -29,6 +29,12 @@ button.d2l-navigation-s-button-highlight[data-active] d2l-icon {
 	color: $d2l-color-celestine;
 }
 
+/* http://stackoverflow.com/questions/7928521/why-is-firefox-button-larger */
+button.d2l-navigation-s-button-highlight::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
 .d2l-navigation-s-button-highlight d2l-icon {
 	flex: 0 0 auto;
 }
