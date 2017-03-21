@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect,
 	sinon = require('sinon'),
-	d2lFastDom = require('../src/d2l-fastdom.js');
+	d2lFastDom = require('../js/d2l-fastdom.js');
 
 require('chai')
 	.use(require('sinon-chai'))
