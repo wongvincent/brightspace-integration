@@ -9,7 +9,7 @@
     "build": "npm run build:js && npm run build:sass && npm run build:icons && npm run build:wc",
     "build:js": "browserify -g uglifyify ./src/index.js > ./dist/bsi.js",
     "postbuild:js": "npm run uglify:js",
-    "build:sass": "node-sass --output-style expanded ./src/bsi.scss ./dist/bsi.css && node-sass --output-style expanded ./src/datagrid/datagrid.scss ./dist/datagrid.css",
+    "build:sass": "node-sass --output-style expanded ./sass/bsi.scss ./dist/bsi.css && node-sass --output-style expanded ./sass/datagrid/datagrid.scss ./dist/datagrid.css",
     "postbuild:sass": "npm run autoprefix && npm run uglify:css",
     "build:icons": "cpy --parents --cwd=bower_components/d2l-icons \"images/**/*.*\" ../../dist",
     "prebuild:wc": "rimraf tmp && rimraf tmp-wc",
