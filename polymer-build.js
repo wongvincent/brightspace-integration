@@ -7,6 +7,7 @@ const project = new PolymerProject({
 	"fragments": [
 		"bsi.html",
 		"d2l-image-banner-overlay.html",
+		"d2l-more-less.html",
 		"d2l-my-courses.html",
 		"d2l-navigation.html"
 	],
