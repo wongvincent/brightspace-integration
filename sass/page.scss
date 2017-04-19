@@ -61,6 +61,11 @@ body[unresolved] {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+
+	@media (min-width: 1230px) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
 }
 
 .d2l-page-header {
