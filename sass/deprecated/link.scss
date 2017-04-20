@@ -1,33 +1,12 @@
-@import '../../bower_components/d2l-colors/d2l-colors.scss';
+@import '../../bower_components/d2l-link/d2l-link.scss';
 
-/* these are still referenced by a few FRAs */
-
-@mixin _vui-link-focus() {
-	color: $d2l-color-celestuba;
-	text-decoration: underline;
-	outline-width: 0;
-}
-
-@mixin _vui-link($font-weight: 400) {
-	&,
-	&:visited,
-	&:link,
-	&:active {
-		color: $d2l-color-celestine;
-		font-weight: $font-weight;
-		text-decoration: none;
-		cursor: pointer;
-	}
-	&:hover,
-	&:focus {
-		@include _vui-link-focus;
-	}
-}
+/* these are still referenced by a few UMD FRAs */
 
 .vui-link {
-	@include _vui-link;
+	@include d2l-link();
 }
 
 .vui-link-main {
-	@include _vui-link($font-weight: 700);
+	@include d2l-link();
+	font-weight: 700;
 }
