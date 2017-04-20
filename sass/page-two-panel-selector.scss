@@ -1,4 +1,5 @@
 @import '../bower_components/d2l-colors/d2l-colors.scss';
+@import 'common.scss';
 
 $d2l-twopanelselector-width: 320px;
 
@@ -97,8 +98,8 @@ $d2l-twopanelselector-width: 320px;
 		.d2l-twopanelselector-side-padding,
 		.d2l-twopanelselector-main-padding,
 		.d2l-twopanelselector-side .d2l-page-search {
-			padding-left: 2.439%;
-			padding-right: 2.439%;
+			padding-left: $d2l-page-padding-flex;
+			padding-right: $d2l-page-padding-flex;
 		}
 
 		.d2l-twopanelselector-side-padding {
@@ -121,13 +122,13 @@ $d2l-twopanelselector-width: 320px;
 	}
 }
 
-@media (max-width: 615px) {
+@media (max-width: $d2l-page-padding-min-breakpoint) {
 	.d2l-twopanelselector-wrapper.d2l-repsonsive-collapse-layout {
 		.d2l-twopanelselector-side-padding,
 		.d2l-twopanelselector-main-padding,
 		.d2l-twopanelselector-side .d2l-page-search {
-			padding-left: 15px;
-			padding-right: 15px;
+			padding-left: $d2l-page-padding-min;
+			padding-right: $d2l-page-padding-min;
 		}
 	}
 }

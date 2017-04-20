@@ -1,0 +1,20 @@
+$d2l-page-padding-flex: 2.439%;
+$d2l-page-padding-min: 15px;
+$d2l-page-padding-min-breakpoint: 615px;
+$d2l-page-padding-max: 30px;
+$d2l-page-padding-max-breakpoint: 1230px;
+
+@mixin d2l-page-padding() {
+  padding-left: $d2l-page-padding-flex;
+  padding-right: $d2l-page-padding-flex;
+
+  @media (max-width: $d2l-page-padding-min-breakpoint) {
+    padding-left: $d2l-page-padding-min;
+    padding-right: $d2l-page-padding-min;
+  }
+
+  @media (min-width: $d2l-page-padding-max-breakpoint) {
+    padding-left: $d2l-page-padding-max;
+    padding-right: $d2l-page-padding-max;
+  }
+}
