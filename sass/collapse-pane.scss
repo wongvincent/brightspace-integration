@@ -1,0 +1,14 @@
+@import '../bower_components/d2l-colors/d2l-colors.scss';
+
+.d2l-collapsepane-action > .d2l-heading {
+	color: $d2l-color-celestine;
+	cursor: pointer;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.d2l-collapsepane-action:hover > .d2l-heading,
+.d2l-collapsepane-action:focus > .d2l-heading {
+	color: $d2l-color-celestuba;
+	text-decoration: underline;
+}
