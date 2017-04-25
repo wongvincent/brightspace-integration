@@ -3,6 +3,7 @@ $d2l-page-padding-min: 15px;
 $d2l-page-padding-min-breakpoint: 615px;
 $d2l-page-padding-max: 30px;
 $d2l-page-padding-max-breakpoint: 1230px;
+$d2l-button-spacing: 0.75rem;
 
 @mixin d2l-page-padding() {
   padding-left: $d2l-page-padding-flex;
