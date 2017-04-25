@@ -1,6 +1,5 @@
 @import '../bower_components/d2l-button/d2l-button.scss';
-
-$d2l-button-spacing: 0.75rem;
+@import 'common.scss';
 
 .d2l-button {
 	@include d2l-button();
