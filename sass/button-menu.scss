@@ -40,6 +40,10 @@
 }
 
 .bsi-button-menu,
+.bsi-button-menu:hover,
+.bsi-button-menu:focus,
+.bsi-button-menu:visited,
+.bsi-button-menu:link,
 .bsi-button-menu.vui-disabled:hover,
 .bsi-button-menu.vui-disabled:focus {
 	background-color: $d2l-color-woolonardo;
