@@ -5,11 +5,16 @@
 }
 
 .d2l-navigation-main-ib-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	padding-top: 0.8rem;
+	margin: 0 -0.4rem;
 }
 
 .d2l-navigation-ib-item {
 	display: inline-block;
+	margin: 0 0.4rem 0.8rem 0.4rem;
 }
 
 .d2l-navigation-ib-item-link {
@@ -20,11 +25,14 @@
 	display: inline-block;
 	font-size: 0.8rem;
 	height: 130px;
-	margin-bottom: 0.8rem;
-	margin-right: 0.8rem;
 	padding: 0.5rem;
 	text-align: center;
 	width: 130px;
+}
+
+.d2l-navigation-ib-item-link-icon {
+	height: 70px;
+	width: 70px;
 }
 
 .d2l-navigation-ib-item-link-text {
