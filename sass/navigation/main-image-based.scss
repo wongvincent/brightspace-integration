@@ -5,16 +5,29 @@
 }
 
 .d2l-navigation-main-ib-list {
+	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-top: 0.8rem;
 	margin: 0 -0.4rem;
+	max-height: calc(130px + 1.6rem);
+	overflow-y: hidden;
+	transition: max-height 400ms ease-out;
+}
+
+.d2l-navigation-main-ib-list[opened] {
+	max-height: 500px;
 }
 
 .d2l-navigation-ib-item {
 	display: inline-block;
 	margin: 0 0.4rem 0.8rem 0.4rem;
+}
+
+.d2l-navigation-ib-item-placeholder {
+	height: 0;
+	width: 130px;
 }
 
 .d2l-navigation-ib-item-link {
@@ -39,4 +52,18 @@
 	color: $d2l-color-ferrite;
 	display: block;
 	overflow-x: hidden;
+}
+
+.d2l-navigation-main-ib-pully {
+	display: flex;
+	justify-content: center;
+}
+
+.d2l-navigation-main-ib-pully-button {
+	display: none;
+	position: absolute;
+}
+
+.d2l-navigation-main-ib-pully-button[shown] {
+	display: inline-block;
 }
