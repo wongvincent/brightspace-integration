@@ -6,51 +6,56 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding-top: 0.8rem;
-	margin: 0 -0.4rem;
-	max-height: calc(130px + 1.6rem);
+	padding: 0.75rem 0;
+	max-height: 8.75rem;
 	overflow-y: hidden;
 	transition: max-height 400ms ease-out;
 }
 
 .d2l-navigation-main-ib-tray[opened] > .d2l-navigation-main-ib-list {
-	max-height: 500px;
+	max-height: 393px;
 }
 
 .d2l-navigation-ib-item {
 	display: inline-block;
-	margin: 0 0.4rem 0.8rem 0.4rem;
 }
 
 .d2l-navigation-ib-item-placeholder {
 	height: 0;
-	margin-bottom: 0;
-	width: 130px;
+	width: 6.65rem;
 }
 
 .d2l-navigation-ib-item-link {
-	border-radius: 0.3rem;
 	box-sizing: border-box;
 	display: inline-block;
 	font-size: 0.8rem;
-	height: 130px;
-	padding: 0.5rem;
+	height: 7.25rem;
+	padding: 0.75rem 0;
 	text-align: center;
-	width: 130px;
+	width: 6.65rem;
 }
 
 .d2l-navigation-ib-item-link-icon {
-	height: 75px;
-	width: 75px;
+	border-radius: 0.4rem;
+	height: 3.75rem;
+	width: 3.75rem;
 }
 
 .d2l-navigation-ib-item-link-text {
 	color: $d2l-color-ferrite;
-	display: block;
+	display: inline-block;
+	margin-top: 0.8rem;
+	max-width: 5.8rem;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	width: 100%;
 	@include d2l-body-compact();
+}
+
+.d2l-navigation-ib-item-link:hover > .d2l-navigation-ib-item-link-text,
+.d2l-navigation-ib-item-link:focus > .d2l-navigation-ib-item-link-text {
+	text-decoration: underline;
 }
 
 .d2l-navigation-main-ib-pully {
@@ -62,17 +67,23 @@
 	background-color: #fff;
 	border: 1px solid $d2l-color-gypsum;
 	border-top-style: none;
-	border-bottom-left-radius: 0.3rem;
-	border-bottom-right-radius: 0.3rem;
+	border-bottom-left-radius: 0.4rem;
+	border-bottom-right-radius: 0.4rem;
 	cursor: pointer;
 	display: none;
-	padding: 0.25rem 0.75rem;
 	position: absolute;
+	width: 3.75rem;
 	z-index: 101;
 }
 
 .d2l-navigation-main-ib-pully-button > d2l-icon {
 	transition: transform 400ms ease-out;
+}
+
+.d2l-navigation-main-ib-pully-button:focus > d2l-icon,
+.d2l-navigation-main-ib-pully-button:hover > d2l-icon {
+	color: $d2l-color-celestine;
+	transform: scale(1.3,1.3);
 }
 
 .d2l-navigation-main-ib-pully-button[shown] {
@@ -82,4 +93,9 @@
 .d2l-navigation-main-ib-tray[opened] .d2l-navigation-main-ib-pully-button[shown] > d2l-icon {
 	-webkit-transform: rotateZ(180deg);
 	transform: rotateZ(180deg);
+}
+
+.d2l-navigation-main-ib-tray[opened] .d2l-navigation-main-ib-pully-button[shown]:focus > d2l-icon,
+.d2l-navigation-main-ib-tray[opened] .d2l-navigation-main-ib-pully-button[shown]:hover > d2l-icon {
+		transform: rotateZ(180deg) scale(1.3,1.3);
 }
