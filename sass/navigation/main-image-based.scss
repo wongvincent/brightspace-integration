@@ -6,14 +6,16 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 0.75rem 0;
-	max-height: 8.75rem;
+	padding: 0.75rem 4px;
+	margin: 0 -4px;
+	max-height: 8.8rem;
 	overflow-y: hidden;
 	transition: max-height 400ms ease-out;
 }
 
 .d2l-navigation-main-ib-tray[opened] > .d2l-navigation-main-ib-list {
-	max-height: 393px;
+	max-height: 18.25rem;
+	overflow-y: auto;
 }
 
 .d2l-navigation-ib-item {
@@ -22,30 +24,42 @@
 
 .d2l-navigation-ib-item-placeholder {
 	height: 0;
-	width: 6.65rem;
+	width: 7.3rem;
 }
 
 .d2l-navigation-ib-item-link {
+	border-radius: 0.4rem;
+	border: 1px solid transparent;
 	box-sizing: border-box;
 	display: inline-block;
-	font-size: 0.8rem;
-	height: 7.25rem;
-	padding: 0.75rem 0;
+	height: 7.3rem;
+	outline: none;
+	padding-top: 0.75rem;
 	text-align: center;
-	width: 6.65rem;
+	width: 7.3rem;
+}
+
+.d2l-navigation-ib-item-link:focus,
+.d2l-navigation-ib-item-link:hover {
+	background-color: rgba(0,111,191,0.05);
+	border-color: rgba(0, 111, 191, 0.1);
+}
+
+.d2l-navigation-ib-item-link:focus {
+	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
 }
 
 .d2l-navigation-ib-item-link-icon {
 	border-radius: 0.4rem;
-	height: 3.75rem;
-	width: 3.75rem;
+	height: 4rem;
+	width: 4rem;
 }
 
 .d2l-navigation-ib-item-link-text {
 	color: $d2l-color-ferrite;
 	display: inline-block;
-	margin-top: 0.8rem;
-	max-width: 5.8rem;
+	margin-top: 0.75rem;
+	max-width: 6.3rem;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -53,8 +67,7 @@
 	@include d2l-body-compact();
 }
 
-.d2l-navigation-ib-item-link:hover > .d2l-navigation-ib-item-link-text,
-.d2l-navigation-ib-item-link:focus > .d2l-navigation-ib-item-link-text {
+.d2l-navigation-ib-item-link:hover .d2l-navigation-ib-item-link-text {
 	text-decoration: underline;
 }
 
