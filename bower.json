@@ -2,7 +2,7 @@
   "name": "brightspace-integration",
   "dependencies": {
     "d2l-button": "^3.3.0",
-    "d2l-button-group": "^0.5.3",
+    "d2l-button-group": "^0.6.0",
     "d2l-colors": "^2.3.0",
     "d2l-dropdown": "^5.0.6",
     "d2l-fastdom-import": "https://github.com/Brightspace/fastdom-import.git#v1.0.2",
