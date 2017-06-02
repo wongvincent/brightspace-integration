@@ -8,9 +8,9 @@
 	justify-content: space-between;
 	padding: 0.75rem 4px;
 	margin: 0 -4px;
-	height: 8.8rem;
+	max-height: 8.8rem;
 	overflow-y: hidden;
-	transition: height 200ms ease-out;
+	transition: max-height 200ms ease-out;
 }
 
 .d2l-navigation-main-ib-tray[scrollable] .d2l-navigation-main-ib-list {
