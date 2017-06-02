@@ -17,10 +17,7 @@
 	overflow-y: auto;
 }
 
-.d2l-navigation-main-ib-tray[opened] .d2l-navigation-ib-item[row-number="2"],
-.d2l-navigation-main-ib-tray[opened] .d2l-navigation-ib-item[row-number="3"],
-.d2l-navigation-main-ib-tray[opened] .d2l-navigation-ib-item[row-number="4"],
-.d2l-navigation-main-ib-tray[opened] .d2l-navigation-ib-item[row-number="5"] {
+.d2l-navigation-main-ib-tray[opened] .d2l-navigation-ib-item[overflow-item] {
 	animation-duration: 800ms;
 	animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
 	animation-name: d2l-navigation-main-ib-bounce;
