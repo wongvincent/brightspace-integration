@@ -47,10 +47,14 @@
 .d2l-navigation-ib-item-link:focus,
 .d2l-navigation-ib-item-link:hover {
 	background-color: rgba(0,111,191,0.05);
+}
+
+.d2l-navigation-ib-item-link:hover {
 	border-color: rgba(0, 111, 191, 0.1);
 }
 
 .d2l-navigation-ib-item-link:focus {
+	border-color: rgba(0, 111, 191, 0.4);
 	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
 }
 
