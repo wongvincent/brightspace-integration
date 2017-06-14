@@ -102,6 +102,8 @@
 	width: 100%;
 }
 
+.d2l-navigation-main-ib-pully[shown]:focus,
+.d2l-navigation-main-ib-pully[shown]:hover,
 .d2l-navigation-main-ib-tray[opened] > .d2l-navigation-main-ib-bottom-cap {
 	border-top-color: $d2l-color-gypsum;
 }
