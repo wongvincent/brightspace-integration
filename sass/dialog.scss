@@ -280,6 +280,12 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 
 @media #{$dialog-media-break-small} {
 
+	html.d2l-dialog-open, html.d2l-dialog-open body {
+		-webkit-overflow-scrolling : touch;
+		overflow: auto;
+		height: 100%;
+	}
+
 	.ddial_o,
 	.d2l-dialog {
 		width: 100% !important;
