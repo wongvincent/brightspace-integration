@@ -177,6 +177,24 @@
 	transform: rotateZ(180deg);
 }
 
+.d2l-navigation-ib-container {
+	position: relative;
+}
+
+.d2l-navigation-ib-hover-menu {
+	line-height: 20px;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	transition: opacity 0.25s, margin-top 0.25s;
+}
+
+.d2l-navigation-ib-container[ib-container-focus] .d2l-navigation-ib-hover-menu,
+.d2l-navigation-ib-container[ib-container-hover] .d2l-navigation-ib-hover-menu {
+	opacity: 1;
+}
+
 @keyframes d2l-navigation-main-ib-swing {
 	0% {transform: rotateZ(0deg);}
 	40% {transform: rotateZ(240deg);}
