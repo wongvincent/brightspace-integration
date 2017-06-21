@@ -46,8 +46,8 @@
 .bsi-button-menu:link,
 .bsi-button-menu.vui-disabled:hover,
 .bsi-button-menu.vui-disabled:focus {
-	background-color: $d2l-color-woolonardo;
-	border-color: $d2l-color-titanius;
+	background-color: $d2l-color-sylvite;
+	border-color: $d2l-color-mica;
 	color: $d2l-color-ferrite;
 }
 
@@ -67,12 +67,12 @@
 .bsi-button-menu.bsi-button-menu-primary.vui-disabled:hover,
 .bsi-button-menu.bsi-button-menu-primary.vui-disabled:focus {
 	background-color: $d2l-color-celestine;
-	border-color: $d2l-color-celestuba;
-	color: $d2l-color-white;
+	border-color: $d2l-color-celestine-minus-1;
+	color: #ffffff;
 }
 
 .bsi-button-menu.bsi-button-menu-primary:hover {
-	background-color: $d2l-color-celestuba;
+	background-color: $d2l-color-celestine-minus-1;
 }
 .bsi-button-menu.bsi-button-menu-primary:not(.vui-disabled):focus {
 	@include _d2l-button-primary-focus();

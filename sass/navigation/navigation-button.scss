@@ -2,7 +2,7 @@
 @import '../../bower_components/d2l-offscreen/offscreen.scss';
 
 .d2l-navigation-s-button {
-	background-color: $d2l-color-white;
+	background-color: #ffffff;
 	border: 1px solid transparent;
 	border-radius: 0.4rem;
 	color: $d2l-color-ferrite;
@@ -13,7 +13,7 @@
 }
 .d2l-navigation-s-button:hover,
 .d2l-navigation-s-button:focus {
-	border-color: $d2l-color-pressicus;
+	border-color: $d2l-color-corundum;
 	color: $d2l-color-celestine;
 	outline-style: none;
 

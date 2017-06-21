@@ -1,18 +1,18 @@
 @import 'bower_components/d2l-colors/d2l-colors.scss';
 @import 'table-icons.scss';
 
-$vui-table-border-color: $d2l-color-titanius;
+$vui-table-border-color: $d2l-color-mica;
 $vui-table-border: 1px solid $vui-table-border-color;
 $vui-table-border-radius: 0.3rem;
 
 $vui-table-header-background-color: $d2l-color-regolith;
 $vui-table-body-background-color: #ffffff;
 
-$vui-table-row-background-color-active: $d2l-color-celestine-light-1;
-$vui-table-row-border-color-active-selected: $d2l-color-celestine-light-2;
+$vui-table-row-background-color-active: $d2l-color-celestine-plus-2;
+$vui-table-row-border-color-active-selected: $d2l-color-celestine-plus-1;
 $vui-table-row-background-color-active-selected: #EBF5FC;
-$vui-table-row-border-color-selected: $d2l-color-celestine-light-2;
-$vui-table-row-background-color-selected: $d2l-color-celestine-light-1;
+$vui-table-row-border-color-selected: $d2l-color-celestine-plus-1;
+$vui-table-row-background-color-selected: $d2l-color-celestine-plus-2;
 
 @mixin vui-table() {
 	background-color: transparent;

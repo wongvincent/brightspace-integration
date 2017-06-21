@@ -16,7 +16,7 @@
 
 	&:hover,
 	&:focus {
-		color: $d2l-color-celestuba;
+		color: $d2l-color-celestine-minus-1;
 		text-decoration: underline;
 	}
 }
@@ -30,7 +30,7 @@
 	}
 	& > a:hover > .d2l-container-icon-link-link,
 	& > a:focus > .d2l-container-icon-link-link {
-		color: $d2l-color-celestuba;
+		color: $d2l-color-celestine-minus-1;
 		text-decoration: underline;
 	}
 }
@@ -44,7 +44,7 @@
 	}
 	&:hover > .d2l-filelink-link-text,
 	&:focus > .d2l-filelink-link-text {
-		color: $d2l-color-celestuba;
+		color: $d2l-color-celestine-minus-1;
 		text-decoration: underline;
 	}
 }
@@ -58,7 +58,7 @@
 	}
 	&:hover > .d2l-text-imagelink-text,
 	&:focus > .d2l-text-imagelink-text {
-		color: $d2l-color-celestuba;
+		color: $d2l-color-celestine-minus-1;
 		text-decoration: underline;
 	}
 }
