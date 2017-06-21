@@ -182,12 +182,11 @@
 }
 
 .d2l-navigation-ib-hover-menu {
-	line-height: 20px;
 	opacity: 0;
 	position: absolute;
 	right: 0;
 	top: 10px;
-	transition: opacity 0.25s, margin-top 0.25s;
+	transition: opacity 0.25s;
 }
 
 .d2l-navigation-ib-container[ib-container-focus] .d2l-navigation-ib-hover-menu,
