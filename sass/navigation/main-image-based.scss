@@ -177,6 +177,24 @@
 	transform: rotateZ(180deg);
 }
 
+.d2l-navigation-s-gutters {
+	position: relative;
+}
+
+.d2l-navigation-ib-edit-menu {
+	opacity: 0;
+	padding-right: 30px;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	transition: opacity 0.25s;
+}
+
+.d2l-navigation-main-ib-tray[ib-tray-hover] .d2l-navigation-ib-edit-menu,
+.d2l-navigation-main-ib-tray[ib-tray-focus] .d2l-navigation-ib-edit-menu {
+	opacity: 1;
+}
+
 @keyframes d2l-navigation-main-ib-swing {
 	0% {transform: rotateZ(0deg);}
 	40% {transform: rotateZ(240deg);}
