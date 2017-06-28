@@ -1,0 +1,62 @@
+@import '../../bower_components/vui-grid-system/grid-system.scss';
+
+@function get-col-class($prefix, $index) {
+	@return unquote(".#{$prefix}#{$index}");
+}
+
+@function gen-col-list($numCols, $prefix) {
+	$col-list: null;
+	@for $i from 1 through $numCols {
+		$col-list: append($col-list, get-col-class($prefix, $i), comma);
+	}
+	@return $col-list;
+}
+
+@mixin gen-col-widths($numCols, $prefix) {
+	@for $i from 1 through $numCols {
+		$className: get-col-class($prefix, $i);
+		#{$className} {
+			width: span($i);
+		}
+	}
+}
+
+$columns: susy-get(columns);
+$col-prefix: 'homepage-col-';
+$col-classes: gen-col-list($columns, $col-prefix);
+$gutter-width: 5.1%;
+$viewport-width-sm: 768px;
+
+.homepage-container {
+	@include vui-gs-container();
+}
+
+.homepage-row {
+	@include vui-gs-row();
+}
+
+.homepage-row > div:not(:last-child),
+.homepage-row > div > div:not(:last-child),
+.homepage-container > div:not(.homepage-row):not(:last-child) {
+	margin-right: $gutter-width;
+
+	[dir='rtl'] & {
+		margin-right: 0;
+		margin-left: $gutter-width;
+	}
+}
+
+#{$col-classes} {
+	width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+
+	[dir='rtl'] & {
+		float: right;
+	}
+}
+
+@media screen and (min-width: $viewport-width-sm) {
+	@include gen-col-widths($columns, $col-prefix);
+}
