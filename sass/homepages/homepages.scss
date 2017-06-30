@@ -1,3 +1,4 @@
+$d2l-vui-grid-system-gutters: 100/70;
 @import '../../bower_components/vui-grid-system/grid-system.scss';
 
 @function get-col-class($prefix, $index) {
@@ -24,7 +25,7 @@
 $columns: susy-get(columns);
 $col-prefix: 'homepage-col-';
 $col-classes: gen-col-list($columns, $col-prefix);
-$gutter-width: 5.1%;
+$gutter-width: gutter($columns);
 $viewport-width-sm: 768px;
 
 .homepage-container {
