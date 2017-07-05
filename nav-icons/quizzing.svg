@@ -1,20 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="80" width="80" viewBox="0 0 80 80">
+<svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 60 60">
   <g style="isolation:isolate;">
     <g>
-      <path d="M21 17h44v52H21z" style="fill:#e48722;"></path>
-      <path d="M62 17h3v52h-3z" style="fill:#fff;opacity:0.4;mix-blend-mode:lighten;"></path>
-      <path d="M22 18h40v48H22z" style="opacity:0.1;mix-blend-mode:multiply;"></path>
-      <path d="M21 17h44v52H21z" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
-      <path d="M15 11h44v52H15z" style="fill:#fcc02d;"></path>
-      <path d="M56 11h3v52h-3z" style="fill:#fff;opacity:0.4;mix-blend-mode:lighten;"></path>
-      <circle cx="23" cy="19" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#b497c4;"></circle>
-      <circle cx="23" cy="28" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#b497c4;"></circle>
-      <circle cx="23" cy="46" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#b497c4;"></circle>
-      <circle cx="23" cy="55" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#b497c4;"></circle>
-      <circle cx="43" cy="55" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#b497c4;"></circle>
-      <path d="M29 17h20M29 21h15M29 53h8M29 57h8M29 44h8M29 48h8M29 35h1M29 30h1M29 39h2M29 26h3" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
-      <path d="M43 25a10 10 0 0 0-10 10 2 2 0 0 0 4 0 6 6 0 1 1 6 6 2.006 2.006 0 0 0-2 2v4a2 2 0 0 0 4 0v-2.2A10 10 0 0 0 43 25z" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#b497c4;"></path>
-      <path d="M15 11h44v52H15z" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
+      <path d="M29 59a2.99 2.99 0 0 1-2.12-.88l-8-8a3 3 0 0 1 4.24-4.24L29 51.757l10.88-10.88a3 3 0 0 1 4.24 4.243l-13 13A2.99 2.99 0 0 1 29 59z" style="fill:#d3e057;"></path>
+      <path d="M44.12 40.88a2.987 2.987 0 0 0-2.824-.786 2.99 2.99 0 0 1-.175 4.027l-13 13a2.973 2.973 0 0 1-1.447.795l.206.206a3 3 0 0 0 4.24 0l13-13a3 3 0 0 0 0-4.24z" style="opacity:0.4;mix-blend-mode:lighten;fill:#fff;"></path>
+      <path d="M29 59a2.99 2.99 0 0 1-2.12-.88l-8-8a3 3 0 0 1 4.24-4.24L29 51.757l10.88-10.88a3 3 0 0 1 4.24 4.243l-13 13A2.99 2.99 0 0 1 29 59z" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
+      <path d="M43 14.5A13.772 13.772 0 0 0 29 1a13.772 13.772 0 0 0-14 13.5 3.113 3.113 0 0 0 6.222 0 7.783 7.783 0 0 1 15.556 0A7.65 7.65 0 0 1 29 22a3.057 3.057 0 0 0-3.11 3v5a3.113 3.113 0 0 0 6.22 0v-2.348A13.633 13.633 0 0 0 43 14.5z" style="fill:#4885dc;"></path>
+      <g style="opacity:0.4;mix-blend-mode:lighten;">
+        <path d="M29 1a14.6 14.6 0 0 0-1.556.088A13.705 13.705 0 0 1 39.89 14.5 13.633 13.633 0 0 1 29 27.652V30a2.97 2.97 0 0 1-1.556 2.584A3.167 3.167 0 0 0 29 33a3.057 3.057 0 0 0 3.11-3v-2.348A13.633 13.633 0 0 0 43 14.5 13.772 13.772 0 0 0 29 1z" style="fill:#fff;"></path>
+        <path d="M27.444 7.15A8.056 8.056 0 0 0 25.89 7a7.65 7.65 0 0 0-7.78 7.5 2.97 2.97 0 0 1-1.555 2.584 3.167 3.167 0 0 0 1.556.416 3.057 3.057 0 0 0 3.112-3 7.586 7.586 0 0 1 6.222-7.35z" style="fill:#fff;"></path>
+      </g>
+      <circle cx="29" cy="40" r="3" style="fill:#4885dc;"></circle>
+      <path d="M29 37a2.97 2.97 0 0 0-1.5.416 2.976 2.976 0 0 1 0 5.168A2.995 2.995 0 1 0 29 37z" style="opacity:0.4;mix-blend-mode:lighten;fill:#fff;"></path>
+      <path d="M43 14.5A13.772 13.772 0 0 0 29 1a13.772 13.772 0 0 0-14 13.5 3.113 3.113 0 0 0 6.222 0 7.783 7.783 0 0 1 15.556 0A7.65 7.65 0 0 1 29 22a3.057 3.057 0 0 0-3.11 3v5a3.113 3.113 0 0 0 6.22 0v-2.348A13.633 13.633 0 0 0 43 14.5z" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
+      <circle cx="29" cy="40" r="3" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></circle>
     </g>
   </g>
 </svg>
