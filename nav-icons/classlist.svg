@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 60 60">
   <g style="isolation:isolate;">
-    <g id="Stroke">
+    <g>
       <path d="M1 1h43v50H1z" style="fill:#d66dac;"></path>
       <path d="M41 1h3v50h-3z" style="fill:#fff;opacity:0.4;mix-blend-mode:lighten;"></path>
       <path d="M1 1h43v50H1z" style="fill:none;stroke:#565a5c;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round;"></path>

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 60 60">
-  <g class="cls-1" style="isolation:isolate;">
+  <g style="isolation:isolate;">
     <g>
       <circle cx="12" cy="56" r="3" style="fill:#9ac965;"></circle>
       <path d="M12 53a2.968 2.968 0 0 0-1.5.416 2.976 2.976 0 0 1 0 5.168A2.968 2.968 0 0 0 12 59a3 3 0 0 0 0-6z" style="fill:#fff;opacity:0.4;mix-blend-mode:lighten;"></path>
