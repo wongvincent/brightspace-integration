@@ -85,3 +85,24 @@
 		display: none;
 	}
 }
+
+.d2l-navigation-s-gutters {
+	position: relative;
+}
+
+.d2l-navigation-ib-edit-menu {
+	opacity: 0;
+	padding-right: 30px;
+	position: absolute;
+	right: 0;
+	transition: opacity 0.25s;
+}
+
+.d2l-navigation-main-tb .d2l-navigation-ib-edit-menu {
+	top: -15px;
+}
+
+.d2l-navigation-main-tb[main-tb-hover] .d2l-navigation-ib-edit-menu,
+.d2l-navigation-main-tb[main-tb-focus] .d2l-navigation-ib-edit-menu {
+	opacity: 1;
+}
