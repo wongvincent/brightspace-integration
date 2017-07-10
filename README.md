@@ -28,8 +28,6 @@ Building BSI in Windows doesn't always go smoothly. Here are some of the issues 
 Trouble | Shooting
 ------------ | -------------
 **build:icons fails:** ```cannot copy from `...'images\**\*.*'` to `...'images\**\*.*'`: cannot read from `...'images\**\*.*'`: ENOENT: no such file or directory, open '...'images\**\*.*''``` | remove single quotes from `package.json`.`scripts`.`build:icons`
-**build:wc fails:** ```ERROR finding <path that is missing characters>``` | Update local instance of `vulcanize` by changing its [path resolution](https://github.com/Polymer/vulcanize/blob/master/lib/pathresolver.js#L89) to use ```path.relative``` instead of ```pathPosix.relative```. [Vulcanize Issue](https://github.com/Polymer/vulcanize/issues/338).
-
 
 ## Running Locally
 
@@ -52,13 +50,13 @@ The config file will get overwritten during the build.
 
 ## Web Components
 
-This project serves as an integration point for our web components and we are using [web-component-shards](https://github.com/PolymerLabs/web-component-shards) to manage common dependencies between components.
+This project serves as an integration point for our web components and we are using [polymer-build](https://github.com/Polymer/polymer-build) to manage common dependencies between components.
 
 To integrate a new web component into BSI, perform the following steps:
 
 1. Reference your component as a bower dependency using the path to the repository plus a version tag (i.e. `bower install --save https://github.com/Brightspace/my-component.git#1.0.0`)
-2. Add an html file (i.e. `my-component.html`) to the root of this project that references the new bower component, omitting the bower_components from the path. (i.e. `../my-component/my-component.html`)
-3. Reference the new html file from the endpoints list in the `build:wc` step in `package.json` (i.e. `--endpoints {...} my-component.html`)
+2. Add an HTML file (i.e. `d2l-my-component.html`) to the root of this project that references the new bower component. (i.e. `bower_components/my-component/my-component.html`)
+3. Reference the new html file from the fragments list in the `polymer-build.js`
 
 ## Publishing
 
