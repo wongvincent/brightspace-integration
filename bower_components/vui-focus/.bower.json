@@ -22,6 +22,6 @@
     "commit": "d092b7aa3c9eff70cbbbfc8567317f31fee4e563"
   },
   "_source": "https://github.com/Brightspace/valence-ui-focus.git",
-  "_target": "~0.7.1",
+  "_target": "0.7.1",
   "_originalSource": "vui-focus"
 }

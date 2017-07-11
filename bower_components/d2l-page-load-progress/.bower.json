@@ -14,20 +14,20 @@
     "/test/"
   ],
   "dependencies": {
-    "d2l-colors": "^2.2.3",
-    "polymer": "^1.7.0"
+    "d2l-colors": "^2.4.0",
+    "polymer": "^1.9.0"
   },
   "devDependencies": {
-    "d2l-demo-template": "~0.0.8",
+    "d2l-demo-template": "^0.0.12",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   },
-  "version": "1.2.2",
-  "_release": "1.2.2",
+  "version": "1.2.3",
+  "_release": "1.2.3",
   "_resolution": {
     "type": "version",
-    "tag": "v1.2.2",
-    "commit": "cbb99f4f954a79361dbda5fc051b26cc2fe79348"
+    "tag": "v1.2.3",
+    "commit": "79f5bd4709ebd6f7ba1bc3677f13bf306da0a6b8"
   },
   "_source": "https://github.com/BrightspaceUI/page-load-progress.git",
   "_target": "^1.2.2",

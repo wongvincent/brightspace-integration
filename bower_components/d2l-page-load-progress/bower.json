@@ -14,11 +14,11 @@
     "/test/"
   ],
   "dependencies": {
-    "d2l-colors": "^2.2.3",
-    "polymer": "^1.7.0"
+    "d2l-colors": "^2.4.0",
+    "polymer": "^1.9.0"
   },
   "devDependencies": {
-    "d2l-demo-template": "~0.0.8",
+    "d2l-demo-template": "^0.0.12",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   }
