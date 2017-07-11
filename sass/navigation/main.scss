@@ -28,6 +28,11 @@
 	margin-right: 45px;
 }
 
+[dir="rtl"] .d2l-navigation-s-main-wrapper[has-edit-menu] {
+	margin-left: 45px;
+	margin-right: 0;
+}
+
 .d2l-navigation-s-item {
 	display: inline-block;
 	margin-right: 20px;
@@ -101,6 +106,11 @@
 	position: absolute;
 	right: 0;
 	transition: opacity 0.25s;
+}
+
+[dir="rtl"] .d2l-navigation-s-edit-menu {
+	left: 0;
+	right: auto;
 }
 
 .d2l-navigation-main-tb .d2l-navigation-s-edit-menu {
