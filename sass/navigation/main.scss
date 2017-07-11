@@ -1,4 +1,5 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
+@import '../common.scss';
 
 .d2l-navigation-s-main {
 	border-bottom: 1px solid $d2l-color-gypsum;
@@ -11,6 +12,7 @@
 	display: flex;
 	height: calc(1rem + 40px);
 	flex-wrap: nowrap;
+	margin-right: 45px;
 	transition: opacity ease-in 0.2s;
 	&[data-more] {
 		justify-content: space-between;
@@ -91,15 +93,15 @@
 }
 
 .d2l-navigation-s-edit-menu {
+	@include d2l-page-padding();
 	opacity: 0;
-	padding-right: 30px;
 	position: absolute;
 	right: 0;
 	transition: opacity 0.25s;
 }
 
 .d2l-navigation-main-tb .d2l-navigation-s-edit-menu {
-	top: -15px;
+	top: 12.5px;
 }
 
 .d2l-navigation-main-tb[main-tb-hover] .d2l-navigation-s-edit-menu,
