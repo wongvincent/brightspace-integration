@@ -67,13 +67,10 @@
 	align-items: center;
 	border-bottom: 1px solid $d2l-color-gypsum;
 	display: flex;
-	height: $d2l-navigation-header-height;
+	height: $d2l-navigation-header-height-mobile;
 	padding: 0 1rem;
 	font-size: 1.1rem;
 	font-weight: 700;
-	@media (max-width: $d2l-navigation-bp-mobile-menu-medium) {
-		height: $d2l-navigation-header-height-mobile;
-	}
 }
 
 .d2l-navigation-s-mobile-menu-org-header {
@@ -165,7 +162,7 @@
 	font-size: 1rem;
 	font-weight: 700;
 	overflow: hidden;
-	padding: 0.75rem 1.5rem 1rem 1.5rem;
+	padding: 1rem;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 
@@ -176,6 +173,10 @@
 
 .d2l-navigation-s-mobile-menu-header .d2l-navigation-s-header-logo-area {
 	flex-grow: 1;
+
+	.d2l-navigation-s-logo-divider {
+		display: inline-block;		
+	}
 
 	&.d2l-navigation-s-header-no-home-icon .d2l-navigation-s-logo-divider {
 		display: none;
@@ -203,7 +204,7 @@
 			display: none;
 		}
 	}
-	@media (max-width: $d2l-navigation-bp-mobile-menu-small) {
+	@media (max-width: $d2l-navigation-bp-mobile-menu-compact) {
 		.d2l-navigation-s-logo-divider {
 			d2l-icon {
 				display: none;
