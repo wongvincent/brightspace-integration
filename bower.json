@@ -35,5 +35,10 @@
     "vui-list": "1.1.1",
     "vui-validation": "1.1.2"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "polymer": "1.7.1",
+    "d2l-colors": "2.2.3",
+    "Stickyfill": "d1fbf3c87b"
+  }
 }
