@@ -19,6 +19,6 @@
     "commit": "57f60c4f508023561adda601e2c227e3ab2a4c1e"
   },
   "_source": "https://github.com/Brightspace/d2l-performance-ui.git",
-  "_target": "0.0.4",
+  "_target": "^0.0.4",
   "_originalSource": "d2l-performance"
 }

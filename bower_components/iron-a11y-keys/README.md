@@ -97,8 +97,7 @@ fnkey = ? f1 through f12 ? ;
 arrow = "up" | "down" | "left" | "right" ;
 key = "tab" | "esc" | "space" | "*" | "pageup" | "pagedown" |
       "home" | "end" | arrow | ascii | fnkey;
-event = "keypress" | "keydown" | "keyup";
-keycombo = { modifier, "+" }, key, [ ":", event ] ;
+keycombo = { modifier, "+" }, key ;
 keys = keycombo, { " ", keycombo } ;
 ```
 

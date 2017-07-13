@@ -1,11 +1,11 @@
 <!--
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE
+The complete set of authors may be found at http://polymer.github.io/AUTHORS
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS
 Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS
 -->
 
 <link rel="import" href="../polymer/polymer.html">
@@ -87,8 +87,7 @@ Grammar of the `keys` attribute.
     arrow = "up" | "down" | "left" | "right" ;
     key = "tab" | "esc" | "space" | "*" | "pageup" | "pagedown" |
           "home" | "end" | arrow | ascii | fnkey;
-    event = "keypress" | "keydown" | "keyup";
-    keycombo = { modifier, "+" }, key, [ ":", event ] ;
+    keycombo = { modifier, "+" }, key ;
     keys = keycombo, { " ", keycombo } ;
 
 ### Example
@@ -113,7 +112,7 @@ practices](http://www.w3.org/TR/wai-aria-practices/#slider):
                     on-keys-pressed="increment"></iron-a11y-keys>
     <iron-a11y-keys target="[[target]]" keys="home"
                     on-keys-pressed="setMin"></iron-a11y-keys>
-    <iron-a11y-keys target="[[target]]" keys="end"
+    <iron-a11y-keys target=""[[target]] keys="end"
                     on-keys-pressed="setMax"></iron-a11y-keys>
 
 The `target` properties must evaluate to a node. See the basic usage
@@ -144,12 +143,6 @@ value. `setMax` should move the slider to the maximum value.
         observer: '_targetChanged'
       },
 
-      /**
-       * Space delimited list of keys where each key follows the format:
-       * `[MODIFIER+]*KEY[:EVENT]`.
-       * e.g. `keys="space ctrl+shift+tab enter:keyup"`.
-       * More detail can be found in the "Grammar" section of the documentation
-       */
       keys: {
         type: String,
         reflectToAttribute: true,

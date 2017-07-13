@@ -38,6 +38,6 @@
     "commit": "f43876303eb96a8ed420a6de87fb85a56d22ddf1"
   },
   "_source": "https://github.com/BrightspaceUI/offscreen.git",
-  "_target": "2.2.5",
+  "_target": "^2.2.2",
   "_originalSource": "d2l-offscreen"
 }

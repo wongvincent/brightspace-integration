@@ -38,6 +38,6 @@
     "commit": "62bf8f40328ce0bd2f5cdd04af97b84ca8e2b109"
   },
   "_source": "https://github.com/BrightspaceUI/link.git",
-  "_target": "3.3.1",
+  "_target": "^3.3.1",
   "_originalSource": "d2l-link"
 }

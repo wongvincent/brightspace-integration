@@ -25,6 +25,6 @@
     "commit": "e93c1d41438215442f48643d00c12d3489d577cb"
   },
   "_source": "https://github.com/BrightspaceUI/typography.git",
-  "_target": "5.2.4",
+  "_target": "~5.2.3",
   "_originalSource": "d2l-typography"
 }
