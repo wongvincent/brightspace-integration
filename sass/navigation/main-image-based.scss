@@ -1,6 +1,12 @@
 @import '../../bower_components/d2l-colors/d2l-colors.scss';
 @import '../../bower_components/d2l-typography/d2l-typography.scss';
 
+
+.d2l-navigation-main-ib[ib-pully-focus],
+.d2l-navigation-main-ib[ib-pully-hover] {
+	border-bottom-color: rgba(0, 111, 191, 0.2);
+}
+
 .d2l-navigation-main-ib-list {
 	box-sizing: border-box;
 	display: flex;
@@ -154,15 +160,18 @@ div.d2l-navigation-ib-item-group-icon {
 .d2l-navigation-main-ib-bottom-cap {
 	border-top: 1px solid transparent;
 	box-sizing: border-box;
-	height: 0.55rem;
+	height: 0.7rem;
 	text-align: center;
 	width: 100%;
 }
 
-.d2l-navigation-main-ib-pully[shown]:focus,
-.d2l-navigation-main-ib-pully[shown]:hover,
 .d2l-navigation-main-ib-tray[opened] > .d2l-navigation-main-ib-bottom-cap {
-	border-top-color: $d2l-color-gypsum;
+	border-color: $d2l-color-gypsum;
+}
+
+.d2l-navigation-main-ib-pully[shown]:focus,
+.d2l-navigation-main-ib-pully[shown]:hover {
+	border-color: rgba(0, 111, 191, 0.2);
 }
 
 .d2l-navigation-main-ib-tray[opened][overflow-bottom] > .d2l-navigation-main-ib-bottom-cap {
@@ -186,11 +195,11 @@ div.d2l-navigation-ib-item-group-icon {
 	border-bottom-left-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
 	display: none;
-	height: 0.8rem;
-	margin-top: 0.5rem;
+	height: 0.75rem;
+	margin-top: 0.65rem;
 	position: relative;
 	width: 4rem;
-	z-index: 1;
+	z-index: 5;
 }
 
 .d2l-navigation-main-ib-pully-icon {
@@ -211,12 +220,17 @@ div.d2l-navigation-ib-item-group-icon {
 	display: inline-block;
 }
 
+.d2l-navigation-main-ib-pully[shown]:focus .d2l-navigation-main-ib-pully-tab,
+.d2l-navigation-main-ib-pully[shown]:hover .d2l-navigation-main-ib-pully-tab {
+	border-color: rgba(0, 111, 191, 0.2);
+}
+
 .d2l-navigation-main-ib-pully-icon > d2l-icon {
 	color: $d2l-color-celestine;
-	height: 25px;
+	height: 22px;
 	position: relative;
 	top: -10px;
-	width: 25px;
+	width: 22px;
 }
 
 .d2l-navigation-main-ib-tray[closing] .d2l-navigation-main-ib-pully[shown] .d2l-navigation-main-ib-pully-icon > d2l-icon {
