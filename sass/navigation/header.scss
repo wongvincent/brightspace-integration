@@ -25,7 +25,7 @@
 	display: inline-block;
 	flex: 0 1 auto;
 	height: 100%;
-	@media (min-width: $d2l-navigation-bp-mobile-menu) {
+	@media (min-width: ($d2l-navigation-bp-mobile-menu + 1)) {
 		display: none;
 	}
 }
@@ -56,7 +56,7 @@
 			margin: 0;
 		}
 		&.d2l-navigation-s-header-no-home-icon .d2l-navigation-s-logo-divider {
-			@media (min-width: $d2l-navigation-bp-mobile-menu) {
+			@media (min-width: ($d2l-navigation-bp-mobile-menu + 1)) {
 				display: none;
 			}
 		}
