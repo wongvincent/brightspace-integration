@@ -6,16 +6,31 @@ $d2l-page-padding-max-breakpoint: 1230px;
 $d2l-button-spacing: 0.75rem;
 
 @mixin d2l-page-padding() {
+  @include d2l-page-padding-left();
+  @include d2l-page-padding-right();
+}
+
+@mixin d2l-page-padding-left() {
   padding-left: $d2l-page-padding-flex;
-  padding-right: $d2l-page-padding-flex;
 
   @media (max-width: $d2l-page-padding-min-breakpoint) {
     padding-left: $d2l-page-padding-min;
-    padding-right: $d2l-page-padding-min;
   }
 
   @media (min-width: $d2l-page-padding-max-breakpoint) {
     padding-left: $d2l-page-padding-max;
+  }
+}
+
+
+@mixin d2l-page-padding-right() {
+  padding-right: $d2l-page-padding-flex;
+
+  @media (max-width: $d2l-page-padding-min-breakpoint) {
+    padding-right: $d2l-page-padding-min;
+  }
+
+  @media (min-width: $d2l-page-padding-max-breakpoint) {
     padding-right: $d2l-page-padding-max;
   }
 }
