@@ -101,11 +101,16 @@
 }
 
 .d2l-navigation-s-edit-menu {
-	@include d2l-page-padding();
+	@include d2l-page-padding-right();
 	opacity: 0;
 	position: absolute;
 	right: 0;
 	transition: opacity 0.25s;
+}
+
+[dir="rtl"] .d2l-navigation-s-edit-menu {
+	@include d2l-page-padding-left();
+	padding-right: 0;
 }
 
 [dir="rtl"] .d2l-navigation-s-edit-menu {
