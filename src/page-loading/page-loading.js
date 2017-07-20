@@ -8,6 +8,7 @@
 			return;
 		}
 		pageReady = true;
+		D2L.Performance.measure('d2l.page.visible', 'responseEnd');
 		D2L.Performance.measure('d2l.page.display', 'fetchStart');
 	}
 
@@ -16,6 +17,8 @@
 		D2L.Performance.measure('d2l.page.domInteractive', 'fetchStart', 'domInteractive');
 		D2L.Performance.measure('d2l.page.domContentLoadedHandlers', 'domContentLoadedEventStart', 'domContentLoadedEventEnd');
 		D2L.Performance.measure('d2l.page.load', 'fetchStart', 'loadEventStart');
+		D2L.Performance.measure('d2l.page.server', 'requestStart', 'responseStart');
+		D2L.Performance.measure('d2l.page.download', 'responseStart', 'responseEnd');
 	});
 
 	/*
