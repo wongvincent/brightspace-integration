@@ -32,7 +32,8 @@
     "vui-input": "^2.0.3",
     "vui-list": "^1.1.0",
     "vui-validation": "^1.1.0",
-    "d2l-telemetry": "^0.0.9"
+    "d2l-telemetry": "^0.0.9",
+    "iron-icon": "PolymerElements/iron-icon#^1.0.0"
   },
   "private": true
 }
