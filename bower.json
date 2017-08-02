@@ -16,6 +16,7 @@
     "d2l-image-banner-overlay": "https://github.com/Brightspace/d2l-image-banner-overlay.git#^1.0.6",
     "d2l-offscreen": "^2.2.5",
     "d2l-performance": "^0.0.4",
+    "d2l-scroll-spy": "^0.0.1",
     "d2l-table": "^0.6.8",
     "d2l-typography": "^5.4.0",
     "jquery-vui-accordion": "^0.3.2",
