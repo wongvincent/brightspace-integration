@@ -37,5 +37,8 @@
     "iron-icon": "PolymerElements/iron-icon#^1.0.0",
     "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^1.0.0"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "webcomponentsjs": "^0.7"
+  }
 }
