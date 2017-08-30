@@ -1,15 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 60 60">
-  <g style="isolation:isolate;">
-    <g>
-      <path d="M1 1h58v54H1z" style="fill:#d3e057;"></path>
-      <path d="M1 1h58v54H1zM20 1v54M40 1v54M1 55v4M59 55v4M5 5h11M5 9h11M5 13h11M24 5h12M24 9h12M24 13h12M44 5h11M44 9h11M44 13h11M5 51h11M24 51h12M44 51h11" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
-      <circle cx="7" cy="28" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#a9b445;"></circle>
-      <path d="M7 30v4" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
-      <circle cx="26" cy="28" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#a9b445;"></circle>
-      <path d="M26 30v4" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
-      <circle cx="46" cy="28" r="2" style="stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:#a9b445;"></circle>
-      <path d="M46 30v4" style="fill:none;stroke:#565a5c;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"></path>
-      <path d="M17 2h2v52h-2zM37 2h2v52h-2zM56 2h2v52h-2z" style="fill:#fff;opacity:0.4;mix-blend-mode:lighten;"></path>
-    </g>
-  </g>
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <path fill="#d3e057" d="M1 1h58v54H1z"/>
+  <path fill="#565a5c" d="M59 0H1a1 1 0 0 0-1 1v58a1 1 0 0 0 2 0v-3h56v3a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1zM19 54H2V2h17zm20 0H21V2h18zm2 0V2h17v52z"/>
+  <path fill="#565a5c" d="M16 6H5a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2zM16 10H5a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2zM16 14H5a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2zM36 6H24a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2zM36 10H24a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2zM36 14H24a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2zM55 6H44a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2zM55 10H44a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2zM55 14H44a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2zM16 52H5a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2zM36 52H24a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2zM55 52H44a1 1 0 0 1 0-2h11a1 1 0 0 1 0 2z"/>
+  <circle fill="#a9b445" cx="7" cy="28" r="2"/>
+  <path fill="#565a5c" d="M7 25a3 3 0 0 0-1 5.82V34a1 1 0 0 0 2 0v-3.18A3 3 0 0 0 7 25zm0 4a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/>
+  <circle fill="#a9b445" cx="26" cy="28" r="2"/>
+  <path fill="#565a5c" d="M26 25a3 3 0 0 0-1 5.82V34a1 1 0 0 0 2 0v-3.18A3 3 0 0 0 26 25zm0 4a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/>
+  <circle fill="#a9b445" cx="46" cy="28" r="2"/>
+  <path fill="#565a5c" d="M46 25a3 3 0 0 0-1 5.82V34a1 1 0 0 0 2 0v-3.18A3 3 0 0 0 46 25zm0 4a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/>
+  <path opacity=".4" fill="#fff" d="M17 2h2v52h-2zM37 2h2v52h-2zM56 2h2v52h-2z"/>
 </svg>
