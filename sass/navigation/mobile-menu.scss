@@ -73,39 +73,11 @@
 	font-weight: 700;
 }
 
-.d2l-navigation-s-mobile-menu-org-header {
-	align-items: center;
-	display: flex;
-	height: 100%;
-	width: 100%;
-	.d2l-navigation-s-mobile-menu-logo-wrapper {
-		background: none;
-		display: inline-block;
-		flex: auto;
-		height: 100%;
-		min-width: 0;
-	}
-	button {
-		flex: none;
-		height: 100%;
-	}
-}
-
-.d2l-navigation-s-mobile-menu-course-header,
 .d2l-navigation-s-mobile-menu-branded-header {
 	align-items: center;
 	display: flex;
 	height: 100%;
 	width: 100%;
-	.d2l-navigation-s-mobile-menu-course-name {
-		display: inline-block;
-		flex: auto;
-		flex: 1; /* IE10 defaults to 0 0 auto */
-		min-width: 0;
-		overflow-x: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
 }
 
 .d2l-navigation-s-mobile-menu-course-selector {
@@ -141,8 +113,6 @@
 	.d2l-navigation-s-mobile-menu-course-menu {
 		display: block;
 	}
-	.d2l-navigation-s-mobile-menu-course-header,
-	.d2l-navigation-s-mobile-menu-org-header,
 	.d2l-navigation-s-mobile-menu-branded-header,
 	.d2l-navigation-s-mobile-menu-title-bp,
 	.d2l-navigation-s-mobile-menu-nav {
