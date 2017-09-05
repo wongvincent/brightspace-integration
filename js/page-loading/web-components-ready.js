@@ -8,8 +8,11 @@
 			return;
 		}
 		pageReady = true;
-		D2L.Performance.measure('d2l.page.visible', 'responseEnd');
-		D2L.Performance.measure('d2l.page.display', 'fetchStart');
+		// on slow CPUs, this can actually fire before the telemetry code has initialized
+		if (D2L && D2L.Performance) {
+			D2L.Performance.measure('d2l.page.visible', 'responseEnd');
+			D2L.Performance.measure('d2l.page.display', 'fetchStart');
+		}
 	}
 
 	// polyfill in use
