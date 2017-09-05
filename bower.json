@@ -1,11 +1,14 @@
 {
   "name": "brightspace-integration",
   "dependencies": {
+    "d2l-activity-exemptions": "https://github.com/Brightspace/activity-exemptions.git#0.0.2",
+    "d2l-fastdom-import": "https://github.com/Brightspace/fastdom-import.git#v1.0.2",
     "jquery-vui-accordion": "~0.3.0",
     "jquery-vui-collapsible-section": "~0.5.0",
     "jquery-vui-change-tracking": "~0.4.0",
     "jquery-vui-more-less": "~0.3.0",
     "jquery-vui-scrollspy": "~0.2.0",
+    "polymer": "^1.7.0",
     "vui-breadcrumbs": "~0.7.0",
     "vui-button": "~0.7.4",
     "vui-field": "~0.6.2",
