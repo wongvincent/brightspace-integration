@@ -10,6 +10,7 @@ const project = new PolymerProject({
 		"d2l-image-banner-overlay.html",
 		"d2l-more-less.html",
 		"d2l-my-courses.html",
+		"d2l-simple-overlay.html",
 		"d2l-scroll-spy.html",
 		"d2l-table.html"
 	],
