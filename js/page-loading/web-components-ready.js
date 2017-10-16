@@ -1,17 +1,16 @@
 (function() {
 	'use strict';
 
-	var pageReady = false;
+	if (!window.performance
+		|| !window.performance.mark
+		|| !window.performance.measure
+		|| !window.performance.getEntriesByName) return;
+
+	var wcReadyFired = false,
+		pageLoadedFired = false,
+		measured = false;
 
 	function measure(name, startMark, endMark) {
-		if (!window.performance
-			|| !window.performance.mark
-			|| !window.performance.measure
-			|| !window.performance.getEntriesByName) return;
-		if (!endMark) {
-			window.performance.mark(name);
-			endMark = name;
-		}
 		window.performance.measure(name, startMark, endMark);
 		// following should be replaced with PerformanceObserver when IE/Edge support it
 		var measure = window.performance.getEntriesByName(name, 'measure');
@@ -23,41 +22,47 @@
 		}
 	}
 
-	function pageIsReady() {
-		if (pageReady) {
-			return;
-		}
-		pageReady = true;
-		measure('d2l.page.visible', 'responseEnd');
-		measure('d2l.page.display', 'fetchStart');
+	function wcReady() {
+		wcReadyFired = true;
+		window.performance.mark('webComponentsReady');
+		tryMeasure();
 	}
 
-	function measurePageEvents() {
+	function pageLoaded() {
+		pageLoadedFired = true;
+		tryMeasure();
+	}
+
+	function tryMeasure() {
+		if (!wcReadyFired || !pageLoadedFired || measured) return;
+		measured = true;
 		measure('d2l.page.preFetch', 'navigationStart', 'fetchStart');
 		measure('d2l.page.domInteractive', 'fetchStart', 'domInteractive');
 		measure('d2l.page.domContentLoadedHandlers', 'domContentLoadedEventStart', 'domContentLoadedEventEnd');
 		measure('d2l.page.load', 'fetchStart', 'loadEventStart');
 		measure('d2l.page.server', 'requestStart', 'responseStart');
 		measure('d2l.page.download', 'responseStart', 'responseEnd');
+		measure('d2l.page.visible', 'responseEnd', 'webComponentsReady');
+		measure('d2l.page.display', 'fetchStart', 'webComponentsReady');
 	}
 
 	if (document.readyState === 'complete') {
-		measurePageEvents();
+		pageLoaded();
 	} else {
-		addEventListener('load', measurePageEvents);
+		addEventListener('load', pageLoaded);
 	}
 
 	// polyfill in use
 	if (window.WebComponents) {
-		addEventListener('WebComponentsReady', pageIsReady);
+		addEventListener('WebComponentsReady', wcReady);
 	} else {
 		if (document.readyState === 'interactive' || document.readyState === 'complete') {
-			pageIsReady();
+			wcReady();
 		} else {
-			addEventListener('DOMContentLoaded', pageIsReady);
+			addEventListener('DOMContentLoaded', wcReady);
 		}
 	}
 
-	setTimeout(pageIsReady, 10000);
+	setTimeout(wcReady, 10000);
 
 })();
