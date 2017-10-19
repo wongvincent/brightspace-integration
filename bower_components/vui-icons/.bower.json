@@ -1,0 +1,32 @@
+{
+  "name": "vui-icons",
+  "main": "icons.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "cli",
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "create-css-scss.js",
+    "create-scss.js",
+    "create.js",
+    "for-each-icon.js",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-icons",
+  "version": "0.8.0",
+  "_release": "0.8.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.8.0",
+    "commit": "874a203020580ea25e17ba58a624c3b171c173f7"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-icons.git",
+  "_target": "~0.8.0",
+  "_originalSource": "vui-icons"
+}

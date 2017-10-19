@@ -1,0 +1,16 @@
+{
+	"name": "vui-image-action",
+	"main": "image-action.scss",
+	"license": "Apache-2.0",
+	"ignore": [
+		".editorconfig",
+		".gitignore",
+		".npmignore",
+		"package.json",
+		"test"
+	],
+	"dependencies": {
+		"vui-focus": "~0.7.1",
+		"vui-link": "~0.7.0"
+	}
+}

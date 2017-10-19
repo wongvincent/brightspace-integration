@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '0.12'
+deploy:
+  provider: npm
+  email: d2ltravisdeploy@d2l.com
+  on:
+    tags: true
+    all_branches: true
+  api_key:
+    secure: OqbS+j3iDkPUIGTfkjHAUtFcEDIk2X7mZ2DroPsLz+W2OB4JSm7HsHvUQuGNoSkW6yWOWg4rvR6NvlsuSYc97oLJKNgoX5S3gsfcJUxEFPs37qf4cgSoFRafb9ldmIREPIJWRCoSmTed7+BdO+M9roZNQyFtB6Mc7YZcfqkGfTM0neIi4C5lGh6IboyZQ7eYIa1rT8Vg3jruVN+dx9jddDyZv8gFlhuvcUOqlx3o+XmQ9vJY6WZdVpq6tUVGydJZB7riFpNA5/r4Imfdkl0ULNesFw0v8ZLIinyNSvgFTgpaDKOx6XqeG/vp4YnR5XR2m2G4U6ql/dYlrqTf755IjT70yOugntrS/qCA+3KpZbX1oYqM8kr9JOIduVFXQf+Z/oeAmO6jFqcY6FM9cjCiOQY5tpNp3p9uQEsXRce5YVw0keyucoHFkrN926QhWPNC+f2hln/RbatjTch5jR+eQprbIvAOjeknVTvuqutRxyrQVZ3NYCb24r6Echnkw6CFF/kdkye+46qIIzOp9l8RWWvMax/qAONRQ8OSgzIRr0FIKfdpzQAY/U9zFU534HgyMUEY7y9nTm4x0wYxIZaStrJdMnimnAIGm6m8EDAc9SWU29QnVdgFWSnG0CvPZkAIscNbtm5vCR+9zNbf95GNCcZu9Ul0K2bg4XyUC3F+DfI=

@@ -1,0 +1,28 @@
+{
+  "name": "vui-link",
+  "main": "link.scss",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "vui-focus": "~0.7.1"
+  },
+  "ignore": [
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-link",
+  "version": "0.7.1",
+  "_release": "0.7.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.1",
+    "commit": "ac4c8be4dcc729a58e48ca9e2155b64535a8e26b"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-link.git",
+  "_target": "~0.7.0",
+  "_originalSource": "vui-link"
+}

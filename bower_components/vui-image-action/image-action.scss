@@ -1,0 +1,40 @@
+@import 'bower_components/vui-link/link.scss';
+@import 'bower_components/vui-focus/focus.scss';
+
+@mixin vui-image-action() {
+	display: inline-block;
+	text-decoration: none;
+
+	>span {
+		color: $vui-link-color;
+		cursor: pointer;
+		text-decoration: $vui-link-textDecoration;
+		padding-left: 4px;
+		vertical-align: middle;
+
+		[dir='rtl'] & {
+			padding-right: 4px;
+			padding-left: 0;
+		}
+	}
+
+	>img {
+		vertical-align: middle;
+
+		[dir='rtl'] & {
+			background-position: right top;
+		}
+	}
+
+	&:focus {
+		@include vui-focus-outline;
+	}
+
+	&:hover,
+	&:focus {
+		>span {
+			color: $vui-link-color-focus;
+			text-decoration: $vui-link-textDecoration-focus;
+		}
+	}
+}

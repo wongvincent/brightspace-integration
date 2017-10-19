@@ -1,0 +1,31 @@
+{
+  "name": "vui-input",
+  "main": "input.scss",
+  "dependencies": {
+    "vui-focus": "~0.7.1",
+    "vui-typography": "~0.6.0"
+  },
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-input",
+  "version": "0.7.0",
+  "_release": "0.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.0",
+    "commit": "4e88de10f574fa4f396c7244a7e2c3f1f2a1dd8e"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-input.git",
+  "_target": "~0.7.0",
+  "_originalSource": "vui-input"
+}

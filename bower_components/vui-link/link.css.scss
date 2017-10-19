@@ -1,0 +1,9 @@
+@import 'link';
+
+.vui-link {
+	@include vui-link;
+}
+
+.vui-link-main {
+	@include vui-link-main;
+}

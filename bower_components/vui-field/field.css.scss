@@ -1,0 +1,18 @@
+@import "field.scss";
+@import "label.scss";
+
+.vui-field-row {
+	@include vui-field-row();
+}
+
+.vui-field-row fieldset {
+	@include vui-field-row($bottom-margin: false);
+}
+
+.vui-label {
+	@include vui-label();
+}
+
+.vui-required {
+	@include vui-label-required();
+}

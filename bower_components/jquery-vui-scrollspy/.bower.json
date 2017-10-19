@@ -1,0 +1,29 @@
+{
+  "name": "jquery-vui-scrollspy",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "jquery": "~2.0.3",
+    "jquery.ui": "~1.10.3"
+  },
+  "homepage": "https://github.com/Brightspace/jquery-valence-ui-scrollspy",
+  "version": "0.2.0",
+  "_release": "0.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.0",
+    "commit": "0f19e12435f0ae80ffadba5b57621e8b052977db"
+  },
+  "_source": "https://github.com/Brightspace/jquery-valence-ui-scrollspy.git",
+  "_target": "~0.2.0",
+  "_originalSource": "jquery-vui-scrollspy"
+}

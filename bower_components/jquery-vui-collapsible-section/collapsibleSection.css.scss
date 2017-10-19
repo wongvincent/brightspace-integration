@@ -1,0 +1,92 @@
+@import 'bower_components/jquery-vui-change-tracking/changeTracking.scss';
+@import 'bower_components/vui-focus/focus.scss';
+@import 'bower_components/vui-icons/icons.scss';
+
+.vui-heading-collapsible {
+	user-select: none;
+}
+.vui-heading-1.vui-heading-collapsible,
+.vui-heading-2.vui-heading-collapsible,
+.vui-heading-3.vui-heading-collapsible,
+.vui-heading-4.vui-heading-collapsible {
+	margin: 0 0 15px 0;
+	padding-bottom: 0;
+}
+
+.vui-heading-collapsible-transition {
+	transition-duration: 200ms;
+	transition-property: opacity, transform, margin-bottom, height;
+	transition-timing-function: ease-out;
+}
+
+.vui-heading-collapsible-target {
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.vui-heading-collapsible-target[aria-hidden="true"] {
+	opacity: 0;
+	height: 0;
+	margin-bottom: 0 !important;
+	transform: translateY( -10px );
+}
+
+.vui-heading-collapsible > a {
+	color: inherit !important;
+	display: block;
+	outline: none;
+	text-decoration: none;
+}
+
+.vui-heading-collapsible > a:hover,
+.vui-heading-collapsible > a:focus {
+	background-color: #f6f6f6;
+	text-decoration: none;
+}
+
+.vui-heading-collapsible > .vui-heading-collapsible-changed[aria-expanded="false"] {
+	background-color: $vui-changed-color;
+}
+
+.vui-heading-collapsible > .vui-heading-collapsible-changed[aria-expanded="false"]:hover,
+.vui-heading-collapsible > .vui-heading-collapsible-changed[aria-expanded="false"]:focus {
+	background-color: $vui-changed-color-hover;
+}
+
+.vui-heading-collapsible > a > span {
+	margin-left: 3px;
+	vertical-align: middle;
+}
+[dir="rtl"] .vui-heading-collapsible > a > span {
+	margin-left: 0;
+	margin-right: 3px;
+}
+
+.vui-heading-collapsible > a:focus > span {
+	@include vui-focus-outline();
+}
+
+.vui-heading-collapsible-icon-collapse,
+.vui-heading-collapsible-icon-collapse-h,
+.vui-heading-collapsible-icon-expand,
+.vui-heading-collapsible-icon-expand-h {
+	display: inline-block;
+	font-size: 0;
+	line-height: 0;
+}
+
+.vui-heading-collapsible-icon-collapse {
+	@include vui-icon-collapse();
+}
+
+.vui-heading-collapsible-icon-collapse-h {
+	@include vui-icon-collapse-hover();
+}
+
+.vui-heading-collapsible-icon-expand {
+	@include vui-icon-expand();
+}
+
+.vui-heading-collapsible-icon-expand-h {
+	@include vui-icon-expand-hover();
+}

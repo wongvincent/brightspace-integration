@@ -1,0 +1,30 @@
+{
+  "name": "jquery-vui-change-tracking",
+  "main": "changeTracking.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintrc",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "jquery": "~2.0.3",
+    "jquery.ui": "~1.10.3"
+  },
+  "homepage": "https://github.com/Brightspace/jquery-valence-ui-change-tracking",
+  "version": "0.4.0",
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.0",
+    "commit": "679a28ce83a126d34f3fbd64127f28f8d9488375"
+  },
+  "_source": "https://github.com/Brightspace/jquery-valence-ui-change-tracking.git",
+  "_target": "~0.4.0",
+  "_originalSource": "jquery-vui-change-tracking"
+}

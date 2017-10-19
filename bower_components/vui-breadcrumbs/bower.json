@@ -1,0 +1,18 @@
+{
+  "name": "vui-breadcrumbs",
+  "main": "breadcrumbs.scss",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "vui-link": "~0.7.0"
+  },
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ]
+}

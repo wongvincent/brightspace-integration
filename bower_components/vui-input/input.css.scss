@@ -1,0 +1,29 @@
+@import 'input';
+@import 'input-checkbox';
+@import 'input-radio';
+@import 'select';
+@import 'textarea';
+
+.vui-input,
+.vui-input[type="email"],
+.vui-input[type="password"],
+.vui-input[type="text"],
+.vui-input[type="url"] {
+	@include vui-input();
+}
+
+.vui-input[type="checkbox"] {
+	@include vui-input-checkbox();
+}
+
+.vui-input[type="radio"] {
+	@include vui-input-radio();
+}
+
+select.vui-input {
+	@include vui-input-select();
+}
+
+textarea.vui-input {
+	@include vui-input-textarea();
+}
