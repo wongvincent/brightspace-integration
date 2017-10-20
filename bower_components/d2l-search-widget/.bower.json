@@ -1,0 +1,42 @@
+{
+  "name": "d2l-search-widget",
+  "description": "A Polymer-based web component that searches things.",
+  "author": "D2L Corporation",
+  "license": "Apache-2.0",
+  "main": "d2l-search-widget.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    ".editorconfig",
+    ".eslintrc",
+    ".gitignore",
+    "package.json",
+    "test",
+    "/demo/"
+  ],
+  "dependencies": {
+    "app-localize-behavior": "PolymerElements/app-localize-behavior#^1.0.2",
+    "d2l-ajax": "^3.4.1",
+    "d2l-colors": "^2.3.0",
+    "d2l-icons": "^3.2.0",
+    "iron-input": "^1.0.10",
+    "polymer": "^1.7.0"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "^0.0.12",
+    "webcomponentsjs": "^0.7.24"
+  },
+  "homepage": "https://github.com/Brightspace/d2l-search-widget-ui",
+  "version": "1.1.3",
+  "_release": "1.1.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.3",
+    "commit": "79d0ebea84f578b4317499585529a979cbc56210"
+  },
+  "_source": "git://github.com/Brightspace/d2l-search-widget-ui.git",
+  "_target": "1.1.3",
+  "_originalSource": "git://github.com/Brightspace/d2l-search-widget-ui.git"
+}

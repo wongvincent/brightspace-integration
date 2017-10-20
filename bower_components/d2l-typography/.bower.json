@@ -1,0 +1,30 @@
+{
+  "name": "d2l-typography",
+  "description": "Polymer and Sass custom styles/mixins for applying D2L typography",
+  "main": "d2l-typography.html",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    "screenshots",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.2.3",
+    "polymer": "^1.7.0"
+  },
+  "homepage": "https://github.com/BrightspaceUI/typography",
+  "version": "5.4.0",
+  "_release": "5.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v5.4.0",
+    "commit": "41c63910a9194bb65fcb262e6319253aa66a0f7f"
+  },
+  "_source": "https://github.com/BrightspaceUI/typography.git",
+  "_target": "5.4.0",
+  "_originalSource": "d2l-typography"
+}

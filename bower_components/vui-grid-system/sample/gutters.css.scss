@@ -1,0 +1,60 @@
+
+@import '../grid-system.scss';
+
+.app {
+	@include vui-gs-container;
+}
+
+.header {
+	@include vui-gs-row;
+	background-color: rgba(0,0,250,0.4);
+	height: 60px;
+}
+
+.stuff-1a {
+	@include vui-gs-span(4);
+	background-color: rgba(250,0,0,0.4);
+	height: 60px;
+}
+
+.stuff-1b {
+	@include vui-gs-span(4);
+	background-color: rgba(250,0,0,0.4);
+	height: 60px;
+}
+
+.stuff-1c {
+	@include vui-gs-span(last 4);
+	background-color: rgba(250,0,0,0.4);
+	height: 60px;
+}
+
+.stuff-2a {
+	@include vui-gs-span(4 wide no-gutter);
+	background-color: rgba(250,250,0,0.4);
+	height: 60px;
+}
+
+.stuff-2b {
+	@include vui-gs-span(last 8);
+	background-color: rgba(0,250,250,0.4);
+	height: 60px;
+}
+
+.stuff-3a {
+	@include vui-gs-span(4 no-gutter);
+	background-color: rgba(102,0,102,0.4);
+	height: 60px;
+}
+
+.stuff-3b {
+	@include vui-gs-span(4 wider no-gutter);
+	background-color: rgba(0,250,0,0.4);
+	height: 60px;
+}
+
+.stuff-3c {
+	@include vui-gs-span(last 4);
+	background-color: rgba(102,0,102,0.4);
+	height: 60px;
+}

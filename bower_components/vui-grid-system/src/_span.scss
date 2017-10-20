@@ -1,0 +1,13 @@
+
+@mixin vui-gs-span($span: 1) {
+
+	@include span($span);
+
+	$temp-span: parse-span($span);
+
+	[dir='rtl'] & {
+		@include span($temp-span rtl);
+		margin-right: 0;
+	}
+
+}

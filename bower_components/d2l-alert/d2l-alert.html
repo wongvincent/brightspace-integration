@@ -1,0 +1,176 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-button/d2l-button.html">
+<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
+
+<dom-module id="d2l-alert">
+	<template>
+		<style>
+			:host {
+				@apply --d2l-body-small-text;
+				animation: 600ms ease drop-in;
+				display: flex;
+				flex-direction: row;
+				background: white;
+			}
+			.alert-wrapper {
+				display: flex;
+				flex: 1;
+			}
+			.alert-wrapper :first-child {
+				border-radius: 3px 0 0 3px;
+			}
+			:host-context([dir='rtl']) .alert-wrapper :first-child {
+				border-radius: 0 3px 3px 0;
+			}
+			.alert-wrapper :last-child {
+				border-radius: 0 3px 3px 0;
+			}
+			:host-context([dir='rtl']) .alert-wrapper :last-child {
+				border-radius: 3px 0 0 3px;
+			}
+			.message-wrapper {
+				position: relative;
+				border: 1px solid var(--d2l-color-gypsum);
+				border-radius: 0;
+				padding: 1.15em 1.43em;
+				flex: 1;
+			}
+			.message-highlight {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				width: 6px;
+				border-top-left-radius: 3px;
+				border-bottom-left-radius: 3px;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				margin: -1px;
+			}
+			:host([type="error"]) .message-highlight {
+				background-color: #f0533f;
+			}
+			:host([type="warning"]) .message-highlight {
+				background-color: #ffce51;
+			}
+			:host([type="call-to-action"]) .message-highlight {
+				background-color: #1598cb;
+			}
+			:host([type="reinforcement"]) .message-highlight {
+				background-color: #7c8695;
+			}
+			:host([type="confirmation"]) .message-highlight {
+				background-color: #00ae81;
+			}
+			:host-context([dir='rtl']) .message-highlight {
+				left: auto;
+				right: 0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-top-right-radius: 3px;
+				border-bottom-right-radius: 3px;
+			}
+			@keyframes drop-in {
+				from {
+					transform: translate(0,-10px);
+					opacity: 0.0;
+				}
+				to {
+					transform: translate(0,0);
+					opacity: 1;
+				}
+			}
+
+			button {
+				background: white;
+				border-radius: 0;
+				border: 1px solid var(--d2l-color-gypsum);
+				padding: 1.15em 1.43em;
+				border-left: none;
+				font: inherit;
+			}
+
+			button:hover,
+			button:focus {
+				background: var(--d2l-color-gypsum);
+			}
+
+			button:focus {
+				outline: 2px solid var(--d2l-color-celestine);
+				z-index: 2;
+			}
+
+			button:active {
+				background: var(--d2l-color-titanius);
+			}
+
+			:host-context([dir='rtl']) button {
+				border-left: 1px solid var(--d2l-color-gypsum);
+				border-right: none;
+			}
+
+			.inner-button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.d2l-alert-button {
+				@apply --d2l-body-compact-text;
+			}
+
+			[hidden] {
+				display: none;
+			}
+		</style>
+
+		<div class="alert-wrapper">
+			<div class="message-wrapper">
+				<div class="message-highlight"></div>
+				<slot></slot>
+			</div>
+			<button is="d2l-button" on-tap="_fireAlertButtonPressedEvent" hidden$="[[!hasButton]]">
+				<div class="inner-button d2l-alert-button">
+					[[buttonMessage]]
+				</div>
+			</button>
+			<button is="d2l-button" title$="[[closeButtonTitle]]" on-tap="_fireAlertClosedEvent" hidden$="[[!hasCloseButton]]">
+				<div class="inner-button">
+					<d2l-icon class="close-icon" icon="d2l-tier1:close-default"></d2l-icon>
+				</div>
+			</button>
+		</div>
+	</template>
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-alert',
+			properties: {
+				type: {
+					type: String,
+					value: 'call-to-action',
+					reflectToAttribute: true
+				},
+				hasButton: {
+					type: Boolean,
+					value: false
+				},
+				buttonMessage: String,
+				hasCloseButton: {
+					type: Boolean,
+					value: false
+				},
+				closeButtonTitle: String
+			},
+			_fireAlertClosedEvent: function() {
+				this.fire('alert-closed');
+			},
+			_fireAlertButtonPressedEvent: function() {
+				this.fire('alert-button-pressed');
+			}
+		});
+	</script>
+</dom-module>

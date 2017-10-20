@@ -1,0 +1,85 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<script>
+	'use strict';
+
+	window.D2L = window.D2L || {};
+	window.D2L.MyCourses = window.D2L.MyCourses || {};
+	window.D2L.MyCourses.LocalizeBehavior = window.D2L.MyCourses.LocalizeBehavior || {};
+
+	/*
+	* Tr lang terms.
+	* @polymerBehavior window.D2L.MyCourses.LocalizeBehavior.LangTrBehavior
+	*/
+	window.D2L.MyCourses.LocalizeBehavior.LangTrBehavior = {
+		tr: {
+			'advancedSearch': 'Gelişmiş Arama',
+			'viewAllCourses': 'Tüm Dersleri Görüntüle',
+			'allCourses': 'Tüm Dersler',
+			'pinnedCourses': 'Sabitlenmiş',
+			'unpinnedCourses': 'Sabitlenmemiş',
+			'closeSimpleOverlayAltText': 'İletişim Kutusunu Kapat',
+			'pin': 'Sabitle',
+			'pinActionResult': '{course} dersi sabitlendi',
+			'unpin': 'Sabitlemeyi Geri Al',
+			'unpinActionResult': '{course} dersinin sabitlemesi geri alındı',
+			'noCoursesMessage': 'Dersleriniz henüz hazır değil. Lütfen daha sonra tekrar deneyin.',
+			'noPinnedCoursesMessage': 'Sabitlenmiş dersiniz yok. Sevdiğiniz dersleri sabitleyerek daha kolay bulunmalarını sağlayın.',
+			'noUnpinnedCoursesMessage': 'Burada görüntülenecek bir şey yok! Tüm dersleriniz sabitlendi.',
+			'noPinnedCoursesInSearch': 'Arama girişiniz için sabitlenmiş ders yok.',
+			'noUnpinnedCoursesInSearch': 'Arama girişiniz için sabitlemesi geri alınan ders yok.',
+			'noPinnedCoursesInSelection': 'Seçiminiz için sabitlenmiş ders yok.',
+			'noUnpinnedCoursesInSelection': 'Seçiminiz için sabitlemesi geri alınan ders yok.',
+			'refresh': 'Yenile',
+			'search': 'Ara',
+			'upload': 'Yükle',
+			'noSearchResults': 'Sonuç yok.',
+			'courseSearchInputPlaceholder': 'Ders bul',
+			'recentSearches': 'En Son Aramalar',
+			'changeImage': 'Görüntüyü Değiştir',
+			'useThisImage': 'Bu görüntüyü kullan',
+			'courseSettings': '{course} dersinin ayarları',
+			'courseOfferingInformation': 'Ders Önerisi Bilgileri',
+			'startedInactiveAlert': 'Başlayan ancak etkin olmayan sabitlenmiş dersleriniz var. Öğrenciler, etkin olmayan derslere erişemez.',
+			'brackets': '({content})',
+			'filtering.filter': 'Filtrele',
+			'filtering.filterBy': 'Filtreleme Ölçütü',
+			'filtering.filterSingle': 'Filtre: 1 Filtre',
+			'filtering.filterMultiple': 'Filtre: {num} Filtre',
+			'filtering.loadMore': 'Daha Fazla Yükle',
+			'filtering.clear': 'Temizle',
+			'filtering.semesterDefault': 'Dönem',
+			'filtering.departmentDefault': 'Departman',
+			'filtering.searchDepartments': 'Departmanları Ara',
+			'filtering.searchSemesters': 'Dönemleri Ara',
+			'filtering.searchBy': '{filter} filtresine göre ara',
+			'filtering.filterLabel': '{filterLabel}{num, plural, =0{} other{\\u0020({num})}}',
+			'filtering.noFilterItems': 'Bir {semester} veya {department} kaydınız bulunmadığı için şu anda herhangi bir filtre seçeneğiniz bulunmuyor.',
+			'filtering.noFilterItemsDefault': 'Bir dönem veya departman kaydınız bulunmadığı için şu anda herhangi bir filtre seçeneğiniz bulunmuyor.',
+			'overlay.courseStarting': 'Ders Başlangıcı',
+			'overlay.courseStartingOn': 'Ders şu tarihte başlar: {date}',
+			'overlay.courseEnded': 'Ders Bitti',
+			'overlay.courseEndedOn': 'Ders şu tarihte bitti: {date}',
+			'overlay.inactive': 'Devre Dışı',
+			'overlay.courseStarted': 'Ders Başladı',
+			'search.clearSearch': 'Aramayı Temizle',
+			'search.searchCourses': 'Dersleri Ara',
+			'sorting.sortCourseCode': 'Sırala: Ders Kodu',
+			'sorting.sortCourseName': 'Sırala: Ders Adı',
+			'sorting.sortDatePinned': 'Sırala: Sabitleme Tarihi',
+			'sorting.sortDepartment': 'Sırala: Departman',
+			'sorting.sortLastAccessed': 'Sırala: Son Erişim',
+			'sorting.sortBy': 'Sıralama Ölçütü',
+			'sorting.courseCode': 'Ders Kodu',
+			'sorting.courseName': 'Ders Adı',
+			'sorting.datePinned': 'Sabitleme Tarihi:',
+			'sorting.department': 'Departman',
+			'sorting.lastAccessed': 'Son Erişim',
+			'images.noResults': '{search} için sonuç bulunamadı.',
+			'images.pleaseModify': 'Lütfen yazım hatası yapıp yapmadığınızı kontrol edin veya aramanızı değiştirin.',
+			'error.displayingImages': 'Görüntüleri açarken bir sorun oluştu. Lütfen daha sonra tekrar deneyin.',
+			'error.settingImage': 'Üzgünüz, şu anda görüntünüzü değiştiremiyoruz. Lütfen daha sonra tekrar deneyin.',
+			'courseTile.updates': 'güncellemeler:'
+		}
+	};
+</script>

@@ -1,0 +1,85 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<script>
+	'use strict';
+
+	window.D2L = window.D2L || {};
+	window.D2L.MyCourses = window.D2L.MyCourses || {};
+	window.D2L.MyCourses.LocalizeBehavior = window.D2L.MyCourses.LocalizeBehavior || {};
+
+	/*
+	* Ar lang terms.
+	* @polymerBehavior window.D2L.MyCourses.LocalizeBehavior.LangArBehavior
+	*/
+	window.D2L.MyCourses.LocalizeBehavior.LangArBehavior = {
+		ar: {
+			'advancedSearch': 'البحث المتقدم',
+			'viewAllCourses': 'عرض كل المقررات التعليمية',
+			'allCourses': 'كل المقررات التعليمية',
+			'pinnedCourses': 'مُثبّت',
+			'unpinnedCourses': 'غير مثبّت',
+			'closeSimpleOverlayAltText': 'إغلاق مربع الحوار',
+			'pin': 'تثبيت',
+			'pinActionResult': 'تم تثبيت {course}',
+			'unpin': 'إلغاء التثبيت',
+			'unpinActionResult': 'تم إلغاء تثبيت {course}',
+			'noCoursesMessage': 'لم تصبح مقرراتك التعليمية جاهزة بالكامل. يرجى التحقق مجددًا في وقت قريب.',
+			'noPinnedCoursesMessage': 'ليس لديك أي مقررات تعليمية مثبّتة. ثبّت مقرراتك التعليمية المفضلة للعثور عليها بطريقة أسهل.',
+			'noUnpinnedCoursesMessage': 'ما من محتوى ليتم عرضه هنا! تم تثبيت كل مقرراتك التعليمية.',
+			'noPinnedCoursesInSearch': 'ما من مقررات تعليمية مثبّتة لإدخال البحث الخاص بك.',
+			'noUnpinnedCoursesInSearch': 'ما من مقررات تعليمية غير مثبّتة لإدخال البحث الخاص بك.',
+			'noPinnedCoursesInSelection': 'ما من مقررات تعليمية مثبّتة للتحديد الذي قمت به.',
+			'noUnpinnedCoursesInSelection': 'ما من مقررات تعليمية غير مثبّتة للتحديد الذي قمت به.',
+			'refresh': 'تحديث',
+			'search': 'بحث',
+			'upload': 'تحميل',
+			'noSearchResults': 'ما من نتائج.',
+			'courseSearchInputPlaceholder': 'العثور على مقرر تعليمي',
+			'recentSearches': 'عمليات البحث الحديثة',
+			'changeImage': 'تغيير الصورة',
+			'useThisImage': 'استخدام هذه الصورة',
+			'courseSettings': 'إعدادات المقرر التعليمي الخاصة بـ {course}',
+			'courseOfferingInformation': 'معلومات مضمون المقرر التعليمي',
+			'startedInactiveAlert': 'قمت بتثبيت مقرر تعليمي (مقررات تعليمية) قد بدأ ولكنه غير نشط. يتعذّر على الطلاب الوصول إلى المقررات التعليمية غير النشطة.',
+			'brackets': '({content})',
+			'filtering.filter': 'تصفية',
+			'filtering.filterBy': 'تصفية بحسب',
+			'filtering.filterSingle': 'تصفية: عامل تصفية واحد',
+			'filtering.filterMultiple': 'تصفية: {num} من عوامل التصفية',
+			'filtering.loadMore': 'تحميل المزيد',
+			'filtering.clear': 'مسح',
+			'filtering.semesterDefault': 'الفصل الدراسي',
+			'filtering.departmentDefault': 'القسم',
+			'filtering.searchDepartments': 'البحث في الأقسام',
+			'filtering.searchSemesters': 'البحث في الفصول الدراسية',
+			'filtering.searchBy': 'البحث بحسب {filter}',
+			'filtering.filterLabel': '{filterLabel}{num, plural, =0{} other{\\u0020({num})}}',
+			'filtering.noFilterItems': 'ليس لديك أي خيارات تصفية حاليًا لأنك غير مسجل في {semester} أو {department}.',
+			'filtering.noFilterItemsDefault': 'ليس لديك أي خيارات تصفية حاليًا لأنك غير مسجل في فصل دراسي أو قسم.',
+			'overlay.courseStarting': 'يبدأ المقرر التعليمي',
+			'overlay.courseStartingOn': 'يبدأ المقرر التعليمي في {date}',
+			'overlay.courseEnded': 'انتهى المقرر التعليمي',
+			'overlay.courseEndedOn': 'انتهي المقرر التعليمي في {date}',
+			'overlay.inactive': 'غير نشط',
+			'overlay.courseStarted': 'بدأ المقرر التعليمي',
+			'search.clearSearch': 'مسح البحث',
+			'search.searchCourses': 'البحث في المقررات التعليمية',
+			'sorting.sortCourseCode': 'فرز: رمز المقرر التعليمي',
+			'sorting.sortCourseName': 'فرز: اسم المقرر التعليمي',
+			'sorting.sortDatePinned': 'فرز: تاريخ التثبيت',
+			'sorting.sortDepartment': 'فرز: القسم',
+			'sorting.sortLastAccessed': 'فرز: آخر وصول',
+			'sorting.sortBy': 'فرز بحسب',
+			'sorting.courseCode': 'رمز المقرر التعليمي',
+			'sorting.courseName': 'اسم المقرر التعليمي',
+			'sorting.datePinned': 'تاريخ التثبيت',
+			'sorting.department': 'القسم',
+			'sorting.lastAccessed': 'آخر وصول',
+			'images.noResults': 'لم يتم العثور على نتائج لـ {search}.',
+			'images.pleaseModify': 'يرجى إجراء تدقيق إملائي أو تعديل البحث.',
+			'error.displayingImages': 'عذرًا، نواجه مشاكل في عرض الصور. يرجى التحقق مجددًا في وقت قريب.',
+			'error.settingImage': 'عذرًا، يتعذّر علينا تغيير الصورة في الوقت الحالي. يرجى المحاولة مجددًا في وقت لاحق.',
+			'courseTile.updates': 'التحديثات:'
+		}
+	};
+</script>

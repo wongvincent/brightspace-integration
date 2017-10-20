@@ -1,0 +1,87 @@
+
+@import '../grid-system.scss';
+
+.app {
+	@include vui-gs-container;
+}
+
+.header {
+	@include vui-gs-row;
+	background-color: rgba(0,0,250,0.4);
+	height: 60px;
+	text-align: center;
+}
+
+.stuff-1 > div {
+	background-color: rgba(250,0,0,0.4);
+	height: 60px;
+}
+
+@media (max-width: 767px) {
+
+	#bp-extra-small {
+		display: block;
+	}
+
+	#bp-small {
+		display: none;
+	}
+
+	#bp-medium {
+		display: none;
+	}
+
+	.stuff-1 > div {
+		@include vui-gs-span(12 break);
+	}
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+	#bp-extra-small {
+		display: none;
+	}
+
+	#bp-small {
+		display: block;
+	}
+
+	#bp-medium {
+		display: none;
+	}
+
+	.stuff-1 > div {
+		@include vui-gs-span(4);
+	}
+
+	.stuff-1 > div:nth-child(3),
+	.stuff-1 > div:nth-child(6) {
+		@include vui-gs-span(last 4);
+	}
+
+}
+
+@media (min-width: 992px) {
+
+	#bp-extra-small {
+		display: none;
+	}
+
+	#bp-small {
+		display: none;
+	}
+
+	#bp-medium {
+		display: block;
+	}
+
+	.stuff-1 > div {
+		@include vui-gs-span(2);
+	}
+
+	.stuff-1 > div:last-child {
+		@include vui-gs-span(last 2);
+	}
+
+}

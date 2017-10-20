@@ -1,0 +1,72 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<script>
+	'use strict';
+
+	window.D2L = window.D2L || {};
+	window.D2L.Hypermedia = window.D2L.Hypermedia || {};
+	/*
+	* General constants used for the navigation of Hypermedia
+	* @polymerBehavior window.D2L.Hypermedia.HMConstantsBehavior
+	*/
+	window.D2L.Hypermedia.HMConstantsBehavior = {
+		HypermediaRels: {
+			// default Brightspace domain rels
+			assignment: 'https://api.brightspace.com/rels/assignment',
+			displayName: 'https://api.brightspace.com/rels/display-name',
+			firstName: 'https://api.brightspace.com/rels/first-name',
+			myEnrollments: 'https://api.brightspace.com/rels/my-enrollments',
+			userEnrollment: 'https://api.brightspace.com/rels/user-enrollment',
+			organization: 'https://api.brightspace.com/rels/organization',
+			organizations: 'https://api.brightspace.com/rels/organizations',
+			profileImage: 'https://api.brightspace.com/rels/profile-image',
+			root: 'https://api.brightspace.com/rels/root',
+			theme: 'https://themes.api.brightspace.com/rels/theme',
+			themeLogo: 'https://themes.api.brightspace.com/rels/logo',
+			thumbnailRegular: 'https://api.brightspace.com/rels/thumbnail#regular',
+			thumbnailSmall: 'https://api.brightspace.com/rels/thumbnail#small',
+			userProfile: 'https://api.brightspace.com/rels/user-profile',
+			user: 'https://api.brightspace.com/rels/user',
+			whoami: 'https://api.brightspace.com/rels/whoami',
+			// Activities API sub-domain rels
+			Activities: {
+				myActivities: 'https://activities.api.brightspace.com/rels/my-activities',
+				activityUsage: 'https://activities.api.brightspace.com/rels/activity-usage',
+				overdue: 'https://activities.api.brightspace.com/rels/overdue'
+			},
+			// Parents api sub-domain rels
+			Parents: {
+				allChildren: 'https://parents.api.brightspace.com/rels/all-my-children'
+			},
+			// Folio api sub-domain rels
+			Folio: {
+				contentItem: 'https://folio.api.brightspace.com/rels/Content',
+				commentList: 'https://folio.api.brightspace.com/rels/CommentList',
+				evidence: 'https://folio.api.brightspace.com/rels/Evidence',
+				folio: 'https://folio.api.brightspace.com/rels/folio',
+				reflection: 'https://folio.api.brightspace.com/rels/Reflection',
+				courseInfo: 'https://folio.api.brightspace.com/rels/CourseInfo',
+				courseList: 'https://folio.api.brightspace.com/rels/CourseList'
+			}
+		},
+		HypermediaClasses: {
+			courseImage: {
+				courseImage: 'course-image',
+				banner: 'banner',
+				tile: 'tile',
+				wide: 'wide',
+				narrow: 'narrow',
+				min: 'min',
+				mid: 'mid',
+				max: 'max',
+				high: 'high',
+				low: 'low'
+			}
+		},
+		HypermediaActions: {
+			enrollments: {
+				searchMyEnrollments: 'search-my-enrollments'
+			}
+		}
+	}
+</script>

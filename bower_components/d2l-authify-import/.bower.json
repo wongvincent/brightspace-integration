@@ -1,0 +1,33 @@
+{
+  "name": "d2l-authify-import",
+  "homepage": "https://github.com/Brightspace/d2l-authify-import",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "description": "A d2l-authify HTML Import for D2L",
+  "main": "d2l-authify.html",
+  "keywords": [
+    "authify",
+    "d2l"
+  ],
+  "license": "Apache-2.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "version": "0.4.0",
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "ff5960d8caea05a4ce63d874734bb7ee1e05b838"
+  },
+  "_source": "https://github.com/Brightspace/d2l-authify-import.git",
+  "_target": "^0.4.0",
+  "_originalSource": "https://github.com/Brightspace/d2l-authify-import.git"
+}

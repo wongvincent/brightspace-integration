@@ -1,0 +1,21 @@
+{
+  "name": "vui-validation",
+  "main": "validation.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "~2.0.0"
+  },
+  "devDependencies": {
+    "vui-input": "~1.6.0"
+  }
+}

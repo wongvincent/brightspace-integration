@@ -1,0 +1,94 @@
+
+@import '../grid-system.scss';
+
+.app {
+	@include vui-gs-container;
+}
+
+.header {
+	@include vui-gs-row;
+	background-color: rgba(0,0,250,0.4);
+	height: 60px;
+}
+
+.stuff-1 {
+	@include vui-gs-row;
+}
+
+.stuff-1 > div {
+	@include vui-gs-span(1);
+	background-color: rgba(0,250,0,0.4);
+	height: 40px;
+}
+
+.stuff-1 > div:last-child {
+	@include vui-gs-span(last 1);
+}
+
+.stuff-2 {
+	@include vui-gs-row;
+}
+
+.stuff-2 > div {
+	height: 40px;
+}
+
+.stuff-2 > div:nth-child(1) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 1);
+}
+
+.stuff-2 > div:nth-child(2) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 2);
+}
+
+.stuff-2 > div:nth-child(3) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 3);
+}
+
+.stuff-2 > div:nth-child(4) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 4);
+}
+
+.stuff-2 > div:nth-child(5) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 5);
+}
+
+.stuff-2 > div:nth-child(6) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 6);
+}
+
+.stuff-2 > div:nth-child(7) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 7);
+}
+
+.stuff-2 > div:nth-child(8) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 8);
+}
+
+.stuff-2 > div:nth-child(9) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 9);
+}
+
+.stuff-2 > div:nth-child(10) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 10);
+}
+
+.stuff-2 > div:nth-child(11) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 11);
+}
+
+.stuff-2 > div:nth-child(12) {
+	background-color: rgba(102,0,102,0.4);
+	@include vui-gs-span(isolate 1 at 12);
+}

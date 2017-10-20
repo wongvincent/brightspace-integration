@@ -1,0 +1,44 @@
+{
+  "name": "d2l-link",
+  "description": "Polymer-based web component and Sass mixins for a D2L link",
+  "main": "d2l-link.html",
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l",
+    "ui",
+    "link",
+    "polymer",
+    "web component",
+    "sass"
+  ],
+  "ignore": [
+    "test",
+    "screenshots",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".travis.yml",
+    "package.json",
+    "wct.conf.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.4.0",
+    "polymer": "^1.9.0"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "^0.0.11",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.2.5",
+    "web-component-tester": "^6.0.0"
+  },
+  "homepage": "https://github.com/BrightspaceUI/link",
+  "version": "3.5.1",
+  "_release": "3.5.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.5.1",
+    "commit": "fe998b136810e031e4b3c47ae7516020d66b3cb6"
+  },
+  "_source": "https://github.com/BrightspaceUI/link.git",
+  "_target": "3.5.1",
+  "_originalSource": "d2l-link"
+}

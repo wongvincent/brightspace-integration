@@ -1,0 +1,38 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="breakpoints.css">
+	<style>
+		button {
+			margin-top: 20px;
+			margin-right: 10px;
+			padding: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="app">
+		<div class="header">
+			12 columns (full)
+			<div id="bp-extra-small">Extra Small (Mobile)</div>
+			<div id="bp-small">Small (Tablet)</div>
+			<div id="bp-medium">Medium (Desktop)</div>
+		</div>
+
+		<div class="stuff-1">
+			<div>column 1</div>
+			<div>column 2</div>
+			<div>column 3</div>
+			<div>column 4</div>
+			<div>column 5</div>
+			<div>column 6</div>
+		</div>
+
+	</div>
+
+	<button onclick="document.getElementsByClassName('app')[0].classList.add('vui-gs-debug')">Show Grid</button>
+	<button onclick="document.getElementsByClassName('app')[0].classList.remove('vui-gs-debug')">Hide Grid</button>
+	<button onclick="document.getElementsByClassName('app')[0].setAttribute('dir','ltr')">LTR</button>
+	<button onclick="document.getElementsByClassName('app')[0].setAttribute('dir','rtl')">RTL</button>
+
+</body>
+</html>

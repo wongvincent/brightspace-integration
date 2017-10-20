@@ -1,0 +1,27 @@
+{
+  "name": "d2l-telemetry",
+  "description": "Library for sending analytics data to telemetry service",
+  "main": "d2l-telemetry.js",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Brightspace/d2l-telemetry",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "0.0.9",
+  "_release": "0.0.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.9",
+    "commit": "9ed1c93b847ee003650d2aba0252dbfdf904b873"
+  },
+  "_source": "https://github.com/Brightspace/d2l-telemetry.git",
+  "_target": "0.0.9",
+  "_originalSource": "d2l-telemetry"
+}

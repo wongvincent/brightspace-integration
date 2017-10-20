@@ -1,0 +1,97 @@
+@keyframes vui-dropdown-menu-animation-frames {
+  0% {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 1;
+  }
+}
+
+.vui-dropdown-menu {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 12px 0 rgba(86, 90, 92, 0.2);
+  min-width: 10rem;
+  max-width: 18.5rem;
+}
+
+.vui-dropdown-menu > ul {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vui-dropdown-menu > ul > li {
+  border-top: 1px solid #e6eaf0;
+  border-left: 1px solid #e6eaf0;
+  border-right: 1px solid #e6eaf0;
+  border-bottom: 1px solid transparent;
+  line-height: 0;
+}
+
+.vui-dropdown-menu > ul > li:first-child {
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+}
+
+.vui-dropdown-menu > ul > li:last-child {
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  border-bottom: 1px solid #e6eaf0;
+}
+
+.vui-dropdown-menu > ul > li[role='separator'] {
+  border: 1px solid transparent;
+}
+
+.vui-dropdown-menu > ul > li[role='separator'] + li {
+  border-top: 1px solid #b9c2d0;
+}
+
+.vui-dropdown-menu > ul > li.vui-dropdown-menu-item-focus {
+  background-color: #f2f8fc;
+}
+
+.vui-dropdown-menu > ul > li.vui-dropdown-menu-item-focus, .vui-dropdown-menu > ul > li.vui-dropdown-menu-item-focus:last-child {
+  border: 1px solid #99c5e5;
+}
+
+.vui-dropdown-menu > ul > li.vui-dropdown-menu-item-focus + li,
+.vui-dropdown-menu > ul > li.vui-dropdown-menu-item-focus + li[role='separator'] + li {
+  border-top: 1px solid transparent;
+}
+
+.vui-dropdown-menu-item-link {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  overflow-x: hidden;
+  padding: 0.75rem 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.vui-dropdown-menu-item-link, .vui-dropdown-menu-item-link:visited, .vui-dropdown-menu-item-link:link, .vui-dropdown-menu-item-link:active {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vui-dropdown-menu-item-link:hover, .vui-dropdown-menu-item-link:focus {
+  color: #006fbf;
+  text-decoration: none;
+  outline-width: 0;
+}
+
+.vui-dropdown-menu-item-link-disabled {
+  cursor: default;
+  opacity: 0.5;
+}

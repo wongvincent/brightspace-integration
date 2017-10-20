@@ -1,0 +1,13 @@
+{
+  "name": "d2l-performance",
+  "description": "Wrapper and polyfill for browser navigation API performance methods",
+  "main": "d2l-performance.html",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ]
+}

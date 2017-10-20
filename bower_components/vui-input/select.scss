@@ -1,0 +1,66 @@
+@import 'input.scss';
+@import 'input-icons.scss';
+@import 'bower_components/d2l-colors/d2l-colors.scss';
+
+@mixin vui-input-select() {
+
+	@include vui-input();
+
+	option {
+		font-weight: 400;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio :0),
+		screen and (min--moz-device-pixel-ratio: 0),
+		screen and (-ms-high-contrast: active),
+		(-ms-high-contrast: none) {
+		&:not([multiple]) {
+			appearance: none;
+			background-position: right center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			max-height: calc(2rem + 2px);
+			&:focus,
+			&:hover,
+			&.vui-input-hover,
+			&.vui-input-focus {
+				&::-ms-value {
+					background-color: transparent;
+					color: $d2l-color-ferrite;
+				}
+				background-image: $vui-select-hover;
+				padding-right: calc(1rem + 42px - 1px);
+			}
+			&,
+			&:disabled,
+			&:focus:disabled,
+			&:hover:disabled {
+				background-image: $vui-select-normal;
+				padding-right: calc(1rem + 42px);
+			}
+		}
+		[dir='rtl'] &:not([multiple]) {
+			background-position: left center;
+			&:focus,
+			&:hover,
+			&.vui-input-hover,
+			&.vui-input-focus {
+				background-image: $vui-select-hover-rtl;
+				padding-left: calc(1rem + 42px - 1px);
+				padding-right: calc(1rem - 1px);
+			}
+			&,
+			&:disabled,
+			&:focus:disabled,
+			&:hover:disabled {
+				background-image: $vui-select-normal-rtl;
+				padding-right: 1rem;
+				padding-left: calc(1rem + 42px);
+			}
+		}
+		&::-ms-expand {
+			display: none;
+		}
+	}
+
+}

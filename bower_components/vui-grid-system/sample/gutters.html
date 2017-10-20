@@ -1,0 +1,35 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="gutters.css">
+	<style>
+		button {
+			margin-top: 20px;
+			margin-right: 10px;
+			padding: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="app">
+		<div class="header">12 columns (full)</div>
+
+		<div class="stuff-1a">4 columns, normal</div>
+		<div class="stuff-1b">4 columns, normal</div>
+		<div class="stuff-1c">last 4 columns, normal</div>
+
+		<div class="stuff-2a">4 columns, wide, no gutter</div>
+		<div class="stuff-2b">last 8 columns, normal</div>
+
+		<div class="stuff-3a">4 columns, no gutter</div>
+		<div class="stuff-3b">4 columns, extra wide, no gutter</div>
+		<div class="stuff-3c">last 4 columns, normal</div>
+
+	</div>
+
+	<button onclick="document.getElementsByClassName('app')[0].classList.add('vui-gs-debug')">Show Grid</button>
+	<button onclick="document.getElementsByClassName('app')[0].classList.remove('vui-gs-debug')">Hide Grid</button>
+	<button onclick="document.getElementsByClassName('app')[0].setAttribute('dir','ltr')">LTR</button>
+	<button onclick="document.getElementsByClassName('app')[0].setAttribute('dir','rtl')">RTL</button>
+
+</body>
+</html>

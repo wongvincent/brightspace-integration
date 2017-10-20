@@ -1,0 +1,27 @@
+{
+  "name": "vui-focus",
+  "main": "focus.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "node_modules",
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-focus",
+  "version": "0.7.1",
+  "_release": "0.7.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.1",
+    "commit": "d092b7aa3c9eff70cbbbfc8567317f31fee4e563"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-focus.git",
+  "_target": "0.7.1",
+  "_originalSource": "vui-focus"
+}

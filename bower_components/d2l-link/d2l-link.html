@@ -1,0 +1,39 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="d2l-link-shared-styles.html">
+<dom-module id="d2l-link">
+	<template strip-whitespace>
+		<style>
+			:host, :host(:visited), :host(:active), :host(:link) {
+				@apply --d2l-link;
+			}
+			:host([main]) {
+				@apply --d2l-link-main;
+			}
+			:host([small]) {
+				@apply --d2l-link-small;
+			}
+			:host(:hover), :host(:focus), :host(.d2l-link-focus) {
+				@apply --d2l-link-hover;
+			}
+		</style>
+		<content></content>
+	</template>
+	<script>
+		Polymer({
+			is: 'd2l-link',
+			extends: 'a',
+			properties: {
+				main: {
+					type: Boolean,
+					reflectToAttribute: true,
+					value: false
+				},
+				small: {
+					type: Boolean,
+					reflectToAttribute: true,
+					value: false
+				}
+			}
+		});
+	</script>
+</dom-module>

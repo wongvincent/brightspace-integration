@@ -1,0 +1,20 @@
+
+$vui-focus-insetColor: #f2f2f2 !default;
+$vui-focus-outlineColor: #94ccda !default;
+$vui-focus-insetBlur: 1px !default;
+$vui-focus-outlineBlur: 1px !default;
+$vui-focus-shadow: 1px !default;
+
+@mixin vui-focus-outline(
+		$insetColor: $vui-focus-insetColor,
+		$color: $vui-focus-outlineColor,
+		$insetBlur: $vui-focus-insetBlur,
+		$blur: $vui-focus-outlineBlur,
+		$shadow: $vui-focus-shadow
+	) {
+
+	border-color: $color;
+	box-shadow: 0 0 $insetBlur 0 $insetColor inset, 0 0 $blur $shadow $color;
+	outline-width: 0;
+
+}

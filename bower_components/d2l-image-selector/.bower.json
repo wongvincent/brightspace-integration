@@ -1,0 +1,51 @@
+{
+  "name": "d2l-image-selector",
+  "description": "Polymer-based web component for a D2L image selector",
+  "main": "d2l-basic-image-selector.html",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l",
+    "ui",
+    "image",
+    "selector",
+    "polymer",
+    "web",
+    "component"
+  ],
+  "moduleType": [],
+  "homepage": "https://github.com/Brightspace/image-selector",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.8.0",
+    "d2l-ajax": "^3.4.1",
+    "d2l-colors": "^2.3.0",
+    "d2l-course-image": "git://github.com/Brightspace/course-image.git#^1.0.1",
+    "d2l-icons": "^3.2.0",
+    "d2l-loading-spinner": "^5.0.4",
+    "d2l-organization-hm-behavior": "git://github.com/Brightspace/organization-hm-behavior.git#^1.0.1",
+    "d2l-search-widget": "git://github.com/Brightspace/d2l-search-widget-ui.git#^1.1.3"
+  },
+  "devDependencies": {
+    "web-component-tester": "^6.0.0"
+  },
+  "version": "1.0.4",
+  "_release": "1.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.4",
+    "commit": "a7d4c7b47ed806c7449a218bdf2c63d5c6d1cc57"
+  },
+  "_source": "git://github.com/Brightspace/image-selector.git",
+  "_target": "1.0.4",
+  "_originalSource": "git://github.com/Brightspace/image-selector"
+}
