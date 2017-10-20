@@ -24,6 +24,6 @@
     "commit": "8e225a1cd3cff1fba50083f2913489fb13e2e6b3"
   },
   "_source": "https://github.com/Brightspace/valence-ui-breadcrumbs.git",
-  "_target": "~0.7.0",
+  "_target": "0.7.0",
   "_originalSource": "vui-breadcrumbs"
 }

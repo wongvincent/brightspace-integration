@@ -27,6 +27,6 @@
     "commit": "a9c7d962dda942935fc5d8b56701ecd9e23dcdf6"
   },
   "_source": "https://github.com/Brightspace/jquery-valence-ui-more-less.git",
-  "_target": "~0.3.0",
+  "_target": "0.3.0",
   "_originalSource": "jquery-vui-more-less"
 }

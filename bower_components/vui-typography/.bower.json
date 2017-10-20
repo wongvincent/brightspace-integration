@@ -22,6 +22,6 @@
     "commit": "0848e6fc24f44cc7da4737137996d173954cdcdf"
   },
   "_source": "https://github.com/Brightspace/valence-ui-typography.git",
-  "_target": "~0.6.0",
+  "_target": "0.6.0",
   "_originalSource": "vui-typography"
 }

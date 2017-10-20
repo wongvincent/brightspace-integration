@@ -15,14 +15,14 @@
     "package.json"
   ],
   "homepage": "https://github.com/Brightspace/valence-ui-link",
-  "version": "0.7.1",
-  "_release": "0.7.1",
+  "version": "0.7.0",
+  "_release": "0.7.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.7.1",
-    "commit": "ac4c8be4dcc729a58e48ca9e2155b64535a8e26b"
+    "tag": "v0.7.0",
+    "commit": "f55b7002b1f290a661195cd354b7dcabbbd480e4"
   },
   "_source": "https://github.com/Brightspace/valence-ui-link.git",
-  "_target": "~0.7.0",
+  "_target": "0.7.0",
   "_originalSource": "vui-link"
 }

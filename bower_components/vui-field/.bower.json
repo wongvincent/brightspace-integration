@@ -21,6 +21,6 @@
     "commit": "6ca37b2b9e7a5928776888d7970f149c407b7f71"
   },
   "_source": "https://github.com/Brightspace/valence-ui-field.git",
-  "_target": "~0.6.2",
+  "_target": "0.6.2",
   "_originalSource": "vui-field"
 }

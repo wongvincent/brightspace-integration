@@ -19,6 +19,6 @@
     "commit": "438d2655295ff6446fde21f053621fd12ab18964"
   },
   "_source": "https://github.com/Brightspace/valence-ui-offscreen.git",
-  "_target": "~0.3.0",
+  "_target": "0.3.0",
   "_originalSource": "vui-offscreen"
 }

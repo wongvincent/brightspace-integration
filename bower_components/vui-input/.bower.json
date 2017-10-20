@@ -26,6 +26,6 @@
     "commit": "4e88de10f574fa4f396c7244a7e2c3f1f2a1dd8e"
   },
   "_source": "https://github.com/Brightspace/valence-ui-input.git",
-  "_target": "~0.7.0",
+  "_target": "0.7.0",
   "_originalSource": "vui-input"
 }

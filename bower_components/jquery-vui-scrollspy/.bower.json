@@ -24,6 +24,6 @@
     "commit": "0f19e12435f0ae80ffadba5b57621e8b052977db"
   },
   "_source": "https://github.com/Brightspace/jquery-valence-ui-scrollspy.git",
-  "_target": "~0.2.0",
+  "_target": "0.2.0",
   "_originalSource": "jquery-vui-scrollspy"
 }

@@ -30,6 +30,6 @@
     "commit": "33c0f0065451fdd7ddd449b4718f66abc179e5ac"
   },
   "_source": "https://github.com/Brightspace/jquery-valence-ui-collapsible-section.git",
-  "_target": "~0.5.0",
+  "_target": "0.5.0",
   "_originalSource": "jquery-vui-collapsible-section"
 }
