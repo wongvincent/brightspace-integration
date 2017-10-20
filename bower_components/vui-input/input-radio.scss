@@ -1,0 +1,14 @@
+@import 'checkbox-radio.scss';
+@import 'input-icons.scss';
+
+@mixin vui-input-radio() {
+	@include _vui-input-checkbox-radio-helper(
+		radio,
+		$vui-radio,
+		0.55rem
+	);
+}
+
+@mixin vui-input-radio-label() {
+	@include _vui-input-checkbox-radio-label("radio");
+}

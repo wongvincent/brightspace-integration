@@ -1,0 +1,10 @@
+@import 'input.scss';
+
+@mixin vui-input-textarea() {
+	@include vui-input(
+		$line-height: normal,
+		$padding: 0.5rem 1rem,
+		$padding-focus: calc(0.5rem - 1px) calc(1rem - 1px)
+	);
+	overflow: auto;
+}

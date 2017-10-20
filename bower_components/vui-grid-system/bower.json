@@ -1,0 +1,17 @@
+{
+  "name": "vui-grid-system",
+  "main": "grid-system.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "susy": "~2.2.12"
+  }
+}

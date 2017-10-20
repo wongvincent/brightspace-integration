@@ -1,0 +1,94 @@
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
+
+<dom-module id="d2l-simple-overlay-styles">
+	<template>
+		<style>
+		:host {
+			background: white;
+			margin: 0;
+			padding: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			border-top: 4px solid #003b71;
+			z-index: 1000;
+			user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+		}
+
+		.d2l-simple-overlay-title {
+			@apply --d2l-heading-2;
+		}
+
+		.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			min-height: 5.25rem;
+		}
+
+		.scrollable {
+			height: calc(100vh - 100px);
+			max-height: calc(100vh - 100px);
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+			border-top: 2px solid var(--d2l-color-gypsum);
+			background: linear-gradient(to top, var(--d2l-color-white), var(--d2l-color-regolith));
+			padding-top: 40px;
+			background-size: 100% 350px;
+			background-repeat: repeat-x;
+		}
+
+		.max-width {
+			box-sizing: border-box;
+			padding: 0 30px;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 1230px;
+		}
+
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			.d2l-simple-overlay-title {
+				padding-top: 32px;
+			}
+		}
+
+		/* Transition / Animation */
+		@media (min-width: 768px) {
+			:host {
+				opacity: 0;
+				transform: scale(0.95) translateY(-100px);
+				-moz-transform-origin: 50% 0;
+				-webkit-transform-origin: 50% 0;
+				transform-origin: 50% 0;
+				transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+				transition-property: opacity, transform;
+			}
+
+			:host(.d2l-simple-overlay-open) {
+				opacity: 1;
+				transform: scale(1) translateY(0);
+			}
+		}
+
+		@media (max-width: 767px) {
+			:host {
+				transform: translateY(100%);
+				-moz-transform-origin: 50% 0;
+				-webkit-transform-origin: 50% 0;
+				transform-origin: 50% 0;
+				transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			:host(.d2l-simple-overlay-open) {
+				transform: translateY(0);
+			}
+		}
+		</style>
+	</template>
+</dom-module>

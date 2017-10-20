@@ -1,0 +1,25 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="d2l-simple-overlay-close-button-styles.html">
+
+<dom-module id="d2l-simple-overlay-close-button">
+	<template>
+		<style include="d2l-simple-overlay-close-button-styles"></style>
+		<button
+			class="close-button"
+			on-tap="_onTap" >
+			<slot><d2l-icon icon="d2l-tier1:close-large-thick"></d2l-icon></slot>
+		</button>
+	</template>
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-simple-overlay-close-button',
+
+			_onTap: function() {
+				this.dispatchEvent(new CustomEvent('d2l-simple-overlay-close-button-clicked', { bubbles: true }));
+			}
+		});
+	</script>
+</dom-module>

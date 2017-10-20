@@ -1,0 +1,92 @@
+@import 'bower_components/d2l-colors/d2l-colors.scss';
+
+@mixin vui-validation-bubble() {
+	display: none;
+	position: absolute;
+	max-width: 18.5rem;
+	width: 100%;
+}
+
+@mixin vui-validation-bubble-show() {
+	display: block;
+}
+
+@keyframes vui-bubble-animation-show {
+	0% { top: 0.75rem; opacity: 0; }
+	100% { top: 0.25rem; opacity: 1; }
+}
+
+@keyframes vui-bubble-animation-above-show {
+	0% { bottom: 0.75rem; opacity: 0; }
+	100% { bottom: 0.25rem; opacity: 1; }
+}
+
+@mixin _vui-validation-bubble-content() {
+
+	position: absolute;
+	left: -0.5rem;
+	background-color: $d2l-color-ferrite;
+	border: 1px solid transparent;
+	border-radius: 0.3rem;
+	padding: 0.7rem 1rem;
+	z-index: 10;
+
+	color: $d2l-color-white;
+	font-family: inherit;
+	font-size: 0.7rem;
+	font-weight: 400;
+	line-height: 1rem;
+	letter-spacing: 0.02rem;
+	margin: 0;
+
+	[dir='rtl'] & {
+		left: auto;
+		right: -0.5rem;
+	}
+
+	&::before {
+		border: solid;
+		border-color: $d2l-color-ferrite transparent;
+		content: "";
+		position: absolute;
+		z-index: 10;
+		left: 1rem;
+		[dir='rtl'] & {
+			left: auto;
+			right: 1rem;
+		}
+
+	}
+
+}
+
+@mixin vui-validation-bubble-content() {
+
+	@include _vui-validation-bubble-content;
+
+	top: 0.25rem;
+
+	&::before {
+		top: -0.7rem;
+		border-width: 0 0.7rem 0.7rem 0.7rem;
+	}
+
+	animation: vui-bubble-animation-show 200ms ease;
+
+
+}
+
+@mixin vui-validation-bubble-content-above() {
+
+	@include _vui-validation-bubble-content;
+
+	bottom: 0.25rem;
+
+	&::before {
+		bottom: -0.7rem;
+		border-width: 0.7rem 0.7rem 0 0.7rem;
+	}
+
+	animation: vui-bubble-animation-above-show 200ms ease;
+
+}

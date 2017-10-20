@@ -1,0 +1,24 @@
+{
+  "name": "vui-gradient",
+  "main": "gradient.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    ".editorconfig",
+    ".npmignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-gradient",
+  "version": "0.3.2",
+  "_release": "0.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.2",
+    "commit": "3c6a8ce532ffb298b7f303e5097e6a91c1d3f4e0"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-gradient.git",
+  "_target": "~0.3.2",
+  "_originalSource": "vui-gradient"
+}

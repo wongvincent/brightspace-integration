@@ -1,0 +1,30 @@
+{
+  "name": "d2l-ajax",
+  "description": "Wrapper around Polymer's iron-ajax, providing D2L authentication",
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.4.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "^4.2.2"
+  },
+  "homepage": "https://github.com/BrightspaceUI/ajax",
+  "version": "3.4.1",
+  "_release": "3.4.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.4.1",
+    "commit": "9ad3b50968623c9920990a6c0ee5d0ed50e14f70"
+  },
+  "_source": "https://github.com/BrightspaceUI/ajax.git",
+  "_target": "3.4.1",
+  "_originalSource": "d2l-ajax"
+}

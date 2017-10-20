@@ -1,0 +1,32 @@
+{
+  "name": "jquery-vui-more-less",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "~2.0.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.0.3",
+    "jquery.ui": "~1.10.3"
+  },
+  "homepage": "https://github.com/Brightspace/jquery-valence-ui-more-less",
+  "version": "1.2.0",
+  "_release": "1.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.2.0",
+    "commit": "5ea9756999e438888cb7f5d5958cf8d64e278f56"
+  },
+  "_source": "https://github.com/Brightspace/jquery-valence-ui-more-less.git",
+  "_target": "1.2.0",
+  "_originalSource": "jquery-vui-more-less"
+}

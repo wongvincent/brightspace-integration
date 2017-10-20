@@ -1,0 +1,28 @@
+{
+  "name": "vui-grid-system",
+  "main": "grid-system.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "susy": "~2.2.12"
+  },
+  "homepage": "https://github.com/Brightspace/valence-ui-grid-system",
+  "version": "0.0.2",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "0384e87cd068617419d42b3c8a8b6cb773fc507d"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-grid-system.git",
+  "_target": "0.0.2",
+  "_originalSource": "vui-grid-system"
+}

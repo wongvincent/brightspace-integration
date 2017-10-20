@@ -1,0 +1,37 @@
+{
+  "name": "d2l-alert",
+  "description": "Polymer-based web component for a D2L alert",
+  "main": "d2l-alert.html",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l",
+    "ui",
+    "alert",
+    "polymer",
+    "web",
+    "component"
+  ],
+  "moduleType": [],
+  "homepage": "https://github.com/Brightspace/alert",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.1",
+    "d2l-button": "^3.0.8",
+    "d2l-colors": "^2.2.3",
+    "d2l-icons": "^3.1.0",
+    "d2l-typography": "^5.3.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "^0.7.24"
+  }
+}

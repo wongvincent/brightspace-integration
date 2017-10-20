@@ -1,0 +1,81 @@
+@import 'input.scss';
+
+@mixin vui-input-search-container() {
+	position: relative;
+	& input[type="text"],
+	& input[type="search"] {
+		@include vui-input();
+		appearance: none;
+		-webkit-appearance: textfield;
+		&:focus,
+		&:hover,
+		&.vui-input-hover,
+		&.vui-input-focus {
+			padding-right: calc(2.2rem - 1px);
+		}
+		&,
+		&:disabled,
+		&:focus:disabled,
+		&:hover:disabled {
+			padding-right: 2.2rem;
+		}
+		&::-webkit-search-decoration {
+			-webkit-appearance: none;
+		}
+		[dir="rtl"] & {
+			&:focus,
+			&:hover,
+			&.vui-input-hover,
+			&.vui-input-focus {
+				padding-left: calc(2.2rem - 1px);
+				padding-right: calc(1rem - 1px);
+			}
+			&,
+			&:disabled,
+			&:focus:disabled,
+			&:hover:disabled {
+				padding-right: 1rem;
+				padding-left: 2.2rem;
+			}
+		}
+	}
+}
+
+@mixin vui-input-search-button() {
+	@include _vui-input-search-button-helper($vui-search);
+}
+
+@mixin vui-input-search-clear-button() {
+	@include _vui-input-search-button-helper($vui-clear);
+}
+
+@mixin _vui-input-search-button-helper( $image ) {
+	border: none;
+	background-color: transparent;
+	background-image: $image;
+	background-position: right center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	height: 1.2rem;
+	margin: 0;
+	opacity: 0.7;
+	padding: 0;
+	position: absolute;
+	right: 1rem;
+	text-indent: -10000px;
+	top: 0.45rem;
+	width: 1.2rem;
+	&, &:focus {
+		outline: none;
+	}
+	&:disabled, &:disabled:hover {
+		opacity: 0.5;
+	}
+	&:hover, &:focus {
+		opacity: 1;
+	}
+	[dir="rtl"] & {
+		left: 1rem;
+		right: auto;
+	}
+}

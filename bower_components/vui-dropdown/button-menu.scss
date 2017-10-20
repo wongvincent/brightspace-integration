@@ -1,0 +1,50 @@
+@import 'bower_components/d2l-offscreen/offscreen.scss';
+@import 'button.scss';
+@import 'icons.scss';
+
+@mixin vui-dropdown-button-menu() {
+	@include _button;
+}
+
+@mixin vui-dropdown-button-menu-primary() {
+	@include _button-primary;
+}
+
+@mixin vui-dropdown-button-menu-content($icon: $vui-dropdown-icon-secondary) {
+
+	background-image: $icon;
+	background-size: 0.8rem 0.8rem;
+	background-position: right center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	padding-right: 1.4rem;
+	min-height: 10px;
+	min-width: 18px;
+
+	[dir='rtl'] & {
+		background-position: left center;
+		padding-left: 1.4rem;
+		padding-right: 0;
+	}
+
+}
+
+@mixin vui-dropdown-button-menu-primary-content() {
+	@include vui-dropdown-button-menu-content(
+			$icon: $vui-dropdown-icon-primary
+		);
+}
+
+@mixin vui-dropdown-button-menu-text-hidden() {
+
+	& > span {
+		@include d2l-offscreen;
+	}
+
+	padding-right: 0;
+
+	[dir='rtl'] & {
+		padding-left: 0;
+	}
+
+}

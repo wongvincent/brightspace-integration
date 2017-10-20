@@ -1,0 +1,35 @@
+{
+  "name": "d2l-more-less",
+  "description": "Polymer-based web component for a D2L more-less control",
+  "main": "d2l-more-less.html",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/BrightspaceUI/more-less",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.1",
+    "d2l-image-action": "^1.0.0",
+    "d2l-icons": "^3.2.0",
+    "app-localize-behavior": "^1.0.2",
+    "d2l-fastdom-import": "https://github.com/Brightspace/fastdom-import.git#v1.0.2",
+    "d2l-polymer-behaviors": "^0.0.5"
+  },
+  "version": "2.2.2",
+  "_release": "2.2.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.2.2",
+    "commit": "bcf1771cb52cffce845265c3f0dacd39ae71eafe"
+  },
+  "_source": "https://github.com/BrightspaceUI/more-less.git",
+  "_target": "2.2.2",
+  "_originalSource": "d2l-more-less"
+}

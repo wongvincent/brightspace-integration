@@ -1,0 +1,45 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-ajax/d2l-ajax.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../iron-input/iron-input.html">
+<link rel="import" href="localize-behavior.html">
+<link rel="import" href="d2l-search-widget-behavior.html">
+<link rel="import" href="d2l-search-widget-styles.html">
+
+<dom-module id="d2l-search-widget">
+	<template>
+		<style include="d2l-search-widget-styles"></style>
+
+		<d2l-ajax
+			url="[[_searchUrl]]"
+			headers='{ "Accept": "application/vnd.siren+json" }'
+			on-iron-ajax-response="_onSearchResponse">
+		</d2l-ajax>
+
+		<input
+			is="iron-input"
+			bind-value="{{_searchInput}}"
+			placeholder="{{placeholderText}}"
+			on-keydown="_onSearchInputKeyPressed">
+		</input>
+
+		<button
+			type="button"
+			on-tap="_onButtonClick"
+			aria-label$="[[searchButtonLabel]]">
+			<d2l-icon icon="d2l-tier1:search"></d2l-icon>
+		</button>
+	</template>
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-search-widget',
+
+			behaviors: [
+				window.D2L.SearchWidget.LocalizeBehavior,
+				window.D2L.PolymerBehaviors.SearchWidgetBehavior
+			]
+		});
+	</script>
+</dom-module>

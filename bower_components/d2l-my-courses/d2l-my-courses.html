@@ -1,0 +1,462 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-scroll-threshold/iron-scroll-threshold.html">
+<link rel="import" href="../d2l-ajax/d2l-ajax.html">
+<link rel="import" href="../d2l-alert/d2l-alert.html">
+<link rel="import" href="../d2l-link/d2l-link.html">
+<link rel="import" href="../d2l-loading-spinner/d2l-loading-spinner.html">
+<link rel="import" href="../d2l-simple-overlay/d2l-simple-overlay.html">
+<link rel="import" href="../d2l-image-selector/d2l-basic-image-selector.html">
+<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
+<link rel="import" href="d2l-alert-behavior.html">
+<link rel="import" href="d2l-all-courses.html">
+<link rel="import" href="d2l-course-management-behavior.html">
+<link rel="import" href="d2l-course-tile-grid.html">
+<link rel="import" href="d2l-updates-behavior.html">
+<link rel="import" href="d2l-utility-behavior.html">
+<link rel="import" href="localize-behavior.html">
+
+<dom-module id="d2l-my-courses">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+			:host [hidden] {
+				display: none !important;
+			}
+			@media not all and (hover: hover) {
+				:host {
+					-webkit-user-select: none;
+					user-select: none;
+				}
+			}
+			.my-courses-content {
+				padding-top: 10px;
+			}
+			.d2l-my-courses-hidden {
+				display: none;
+			}
+			.spinner-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			d2l-alert {
+				display: block;
+				margin-bottom: 20px;
+				clear: both;
+			}
+		</style>
+
+		<d2l-ajax
+			id="enrollmentsRootRequest"
+			url="[[enrollmentsUrl]]"
+			headers='{ "Accept": "application/vnd.siren+json" }'
+			on-iron-ajax-response="_onEnrollmentsRootResponse">
+
+		</d2l-ajax>
+
+		<d2l-ajax
+			id="enrollmentsSearchRequest"
+			url="[[_enrollmentsSearchUrl]]"
+			headers='{ "Accept": "application/vnd.siren+json" }'
+			on-iron-ajax-response="_onEnrollmentsSearchResponse"
+			last-response="{{_lastEnrollmentsSearchResponse}}">
+		</d2l-ajax>
+
+		<div class="spinner-container">
+			<d2l-loading-spinner
+				id="initialLoadingSpinner"
+				size="100">
+			</d2l-loading-spinner>
+		</div>
+
+		<div class="my-courses-content d2l-my-courses-hidden">
+			<template is="dom-repeat" items="{{_alerts}}">
+				<d2l-alert type="[[item.alertType]]">
+					{{item.alertMessage}}
+					<a
+						is="d2l-link"
+						href="Javascript:void(0);"
+						hidden$="[[_hasEnrollments]]"
+						on-tap="_refreshPage">{{localize('refresh')}}</a>
+				</d2l-alert>
+			</template>
+			<d2l-course-tile-grid
+				enrollments="[[pinnedEnrollments]]"
+				tile-sizes="[[_tileSizes]]"
+				user-id="[[userId]]"
+				tenant-id="[[tenantId]]"
+				locale="[[locale]]"
+				telemetry-endpoint="[[telemetryEndpoint]]"
+				show-course-code="[[showCourseCode]]"
+				update-count-map="[[updateCountMap]]">
+			</d2l-course-tile-grid>
+			<a
+				is="d2l-link"
+				id="viewAllCourses"
+				hidden$="[[!_hasEnrollments]]"
+				href="javascript:void(0);"
+				on-tap="_openAllCoursesView"
+				on-keypress="_keypressOpenAllCoursesView"
+				on-mouseover="_createAllCourses"
+				on-focus="_createAllCourses"
+				tabindex="0" >
+				<h3 class="d2l-body-standard">[[localize('viewAllCourses')]]</h3>
+			</a>
+		</div>
+
+		<div id="allCoursesPlaceholder">
+		</div>
+
+		<d2l-simple-overlay
+			id="basic-image-selector-overlay"
+			title-name="{{localize('changeImage')}}"
+			locale="[[locale]]"
+			close-simple-overlay-alt-text="{{localize('closeSimpleOverlayAltText')}}"
+			with-backdrop>
+			<iron-scroll-threshold
+				id="image-selector-threshold"
+				on-lower-threshold="_onChangeImageLowerThreshold">
+			</iron-scroll-threshold>
+			<d2l-basic-image-selector
+				image-catalog-location="[[imageCatalogLocation]]"
+				organization="[[_setImageOrg]]"
+				user-id="[[userId]]"
+				tenant-id="[[tenantId]]"
+				telemetry-endpoint="[[telemetryEndpoint]]">
+			</d2l-basic-image-selector>
+		</d2l-simple-overlay>
+
+	</template>
+
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-my-courses',
+
+			properties: {
+				/*
+				* Public Polymer properties
+				*/
+
+				// URL that directs to the advanced search page
+				advancedSearchUrl: String,
+				// URL that is called by the widget to fetch enrollments
+				enrollmentsUrl: String,
+				// URL that is called by the widget to fetch results from the course image catalog
+				imageCatalogLocation: String,
+				// Configuration value passed in to toggle course code
+				showCourseCode: Boolean,
+				// Standard Semester OU Type name to be displayed in the all-courses filter dropdown
+				standardDepartmentName: String,
+				// Standard Department OU Type name to be displayed in the all-courses filter dropdown
+				standardSemesterName: String,
+				// URL to send telemetry to
+				telemetryEndpoint: String,
+				// hashed tenantid to send to telemetry
+				tenantId: String,
+				// hashed userid to send to telemetry
+				userId: String,
+
+				/*
+				* Private Polymer properties
+				*/
+
+				// URL used by the search widget to fetch department-type organizations
+				_departmentsUrl: String,
+				// URL constructed to fetch a user's enrollments with the enrollments search Action
+				_enrollmentsSearchUrl: String,
+				// Object containing the last response from an enrollments search request
+				_lastEnrollmentsSearchResponse: Object,
+				// Object containing the IDs of previously loaded pinned enrollments, to avoid duplicates
+				_pinnedCoursesMap: {
+					type: Object,
+					value: function() { return {}; }
+				},
+				// URL used by the search widget to fetch semester-type organizations
+				_semestersUrl: String,
+				// The organization which the user is selecting the image of
+				_setImageOrg: Object,
+				_startedInactive: Boolean,
+				// Size the tile should render with respect to vw
+				_tileSizes: Object,
+				// Object containing the IDs of previously loaded unpinned enrollments, to avoid duplicates
+				_unpinnedCoursesMap: {
+					type: Object,
+					value: function() { return {}; }
+				}
+			},
+			behaviors: [
+				window.D2L.MyCourses.CourseTileResponsiveGridBehavior,
+				window.D2L.MyCourses.LocalizeBehavior,
+				window.D2L.MyCourses.InteractionDetectionBehavior,
+				window.D2L.MyCourses.CourseManagementBehavior,
+				window.D2L.MyCourses.AlertBehavior,
+				window.D2L.MyCourses.UpdatesBehavior,
+				window.D2L.MyCourses.UtilityBehavior
+			],
+			listeners: {
+				'open-change-image-view': '_onOpenChangeImageView',
+				'set-course-image': '_onSetCourseImage',
+				'clear-image-scroll-threshold': '_onClearImageScrollThreshold',
+				'd2l-simple-overlay-closed': '_onSimpleOverlayClosed',
+				'enrollment-pinned': '_onEnrollmentPinAction',
+				'enrollment-unpinned': '_onEnrollmentPinAction'
+			},
+			observers: [
+				'_updateEnrollmentAlerts(_hasEnrollments, _hasPinnedEnrollments)'
+			],
+			ready: function() {
+				this._updateEnrollmentAlerts(this._hasEnrollments, this._hasPinnedEnrollments);
+				this._onEnrollmentPinnedMessage = this._onEnrollmentPinnedMessage.bind(this);
+				this.toggleClass('d2l-my-courses-hidden', true, this.$.courseTiles);
+				this.toggleClass('d2l-my-courses-hidden', true, this.$.courseList);
+			},
+			attached: function() {
+				this._rootEnrollmentRequest();
+
+				document.body.addEventListener('d2l-course-pinned-change', this._onEnrollmentPinnedMessage, true);
+				this.$$('d2l-course-tile-grid').addEventListener('startedInactiveAlert', this._onStartedInactiveAlert.bind(this));
+				this.$['image-selector-threshold'].scrollTarget = this.$['basic-image-selector-overlay'].scrollRegion;
+			},
+			detached: function() {
+				document.body.removeEventListener('d2l-course-pinned-change', this._onEnrollmentPinnedMessage, true);
+			},
+
+			/*
+			* Public API functions
+			*/
+
+			getCourseTileItemCount: function() {
+				return this.pinnedEnrollments.length;
+			},
+
+			/*
+			* Non-Polymer properties
+			*/
+
+			_allCoursesCreated: false,
+
+			/*
+			* Listeners
+			*/
+
+			_onChangeImageLowerThreshold: function() {
+				this.$$('d2l-basic-image-selector').loadMore(this.$['image-selector-threshold']);
+			},
+			_onClearImageScrollThreshold: function() {
+				this.$['image-selector-threshold'].clearTriggers();
+			},
+			_onEnrollmentPinAction: function(e) {
+				var isPinned = e.type === 'enrollment-pinned';
+				var orgUnitId = /organizations\/([0-9]+)/
+					.exec(this.getEntityIdentifier(e.detail.enrollment))[1];
+
+				this.fire(
+					'd2l-course-pinned-change', {
+						orgUnitId: orgUnitId,
+						isPinned: isPinned
+					}
+				);
+			},
+			_onStartedInactiveAlert: function(e) {
+				var type = e && e.detail && e.detail.type;
+
+				this._removeAlert('startedInactiveCourses');
+				if (this.$$('d2l-course-tile-grid').checkForStartedInactive(type)) {
+					this._addAlert('warning', 'startedInactiveCourses', this.localize('startedInactiveAlert'));
+				}
+			},
+			_onEnrollmentPinnedMessage: function(e) {
+				if (e.target !== this) {
+					var enrollmentId = this._enrollmentIdMap[e.detail.orgUnitId];
+
+					if (enrollmentId) {
+						if (e.detail.isPinned) {
+							this._moveEnrollmentToPinnedList(enrollmentId);
+						} else {
+							this._moveEnrollmentToUnpinnedList(enrollmentId);
+						}
+						setTimeout(this._onStartedInactiveAlert.bind(this), 50);
+					} else {
+						this._fetchEnrollmentEntity(e.detail.orgUnitId, e.detail.isPinned);
+					}
+				}
+			},
+			_onSimpleOverlayClosed: function() {
+				this._removeAlert('setCourseImageFailure');
+				// update the startedInactive alert in case the user changed the pinned states in the overlay
+				this._onStartedInactiveAlert();
+			},
+			_onEnrollmentsRootResponse: function(response) {
+				if (response.detail.status === 200) {
+					var enrollmentsRoot = this.parseEntity(response.detail.xhr.response);
+
+					if (!enrollmentsRoot.hasAction('search-my-enrollments')) {
+						return;
+					}
+
+					var searchAction = enrollmentsRoot.getActionByName('search-my-enrollments');
+					this.fetchEnrollmentUrl = searchAction.href + '/organizations/';
+
+					var query = {
+						pageSize: 25,
+						embedDepth: 1,
+						sort: '-PinDate,OrgUnitName,OrgUnitId',
+						autoPinCourses: true
+					};
+					this._enrollmentsSearchUrl = this.createActionUrl(searchAction, query);
+					this.$.enrollmentsSearchRequest.generateRequest();
+				} else {
+					this._showContent();
+				}
+			},
+			_onEnrollmentsSearchResponse: function(response) {
+				if (response.detail.status === 200) {
+					var enrollments = this.parseEntity(response.detail.xhr.response);
+					var enrollmentEntities = enrollments.getSubEntitiesByClass('enrollment');
+					var newPinnedEnrollments = [];
+					var newUnpinnedEnrollments = [];
+
+					enrollmentEntities.forEach(function(enrollment) {
+						var enrollmentId = this.getEntityIdentifier(enrollment);
+
+						if (enrollment.hasClass('pinned')) {
+							if (!this._pinnedCoursesMap.hasOwnProperty(enrollmentId)) {
+								newPinnedEnrollments.push(enrollment);
+								this._pinnedCoursesMap[enrollmentId] = true;
+							}
+						} else {
+							if (!this._unpinnedCoursesMap.hasOwnProperty(enrollmentId)) {
+								newUnpinnedEnrollments.push(enrollment);
+								this._unpinnedCoursesMap[enrollmentId] = true;
+							}
+						}
+
+						var orgUnitId = this.getOrgUnitId(enrollment);
+						if (orgUnitId) {
+							this._enrollmentIdMap[orgUnitId] = enrollmentId;
+						}
+					}, this);
+					this.getUpdates(Object.keys(this._enrollmentIdMap).join(','));
+					this.pinnedEnrollments = this.pinnedEnrollments.concat(newPinnedEnrollments);
+					this.unpinnedEnrollments = this.unpinnedEnrollments.concat(newUnpinnedEnrollments);
+
+					var colNum = this._calcNumColumns(this._getAvailableWidth(Polymer.dom(this.root).node.host), this.pinnedEnrollments.length);
+					this._tileSizes = (colNum === 2) ?
+						{ mobile: { maxwidth: 767, size: 50 }, tablet: { maxwidth: 1243, size: 33 }, desktop: { size: 20 } } :
+						{ mobile: { maxwidth: 767, size: 100 }, tablet: { maxwidth: 1243, size: 67 }, desktop: { size: 25 } };
+
+					this.fire('recalculate-columns');
+				}
+
+				this._showContent();
+			},
+			_onOpenChangeImageView: function(e) {
+				if (e.detail.organization) {
+					this._setImageOrg = e.detail.organization;
+				}
+
+				this.$['basic-image-selector-overlay'].open();
+			},
+			_onSetCourseImage: function(e) {
+				this._removeAlert('setCourseImageFailure');
+				if (e && e.detail) {
+					if (e.detail.status === 'failure') {
+						setTimeout(function() {
+							this._addAlert('warning', 'setCourseImageFailure', this.localize('error.settingImage'));
+						}.bind(this), 1000); // delay until the tile fail icon animation begins to kick in (1 sec delay)
+					}
+				}
+				if (this._allCoursesCreated) {
+					this.$$('d2l-all-courses').setCourseImage(e);
+				}
+				this.$$('d2l-course-tile-grid').setCourseImage(e);
+			},
+
+			/*
+			* Observers
+			*/
+
+			_updateEnrollmentAlerts: function(hasEnrollments, hasPinnedEnrollments) {
+				this._clearAlerts();
+
+				if (hasEnrollments) {
+					if (!hasPinnedEnrollments) {
+						this._addAlert('call-to-action', 'noPinnedCourses', this.localize('noPinnedCoursesMessage'));
+					}
+				} else {
+					this._addAlert('call-to-action', 'noCourses', this.localize('noCoursesMessage'));
+				}
+			},
+
+			/*
+			* Utility/helper functions
+			*/
+
+			_createAllCourses: function() {
+				if (!this._allCoursesCreated) {
+					var allCourses = document.createElement('d2l-all-courses');
+					this.$.allCoursesPlaceholder.appendChild(allCourses);
+					this._allCoursesCreated = true;
+				}
+			},
+			_keypressOpenAllCoursesView: function(e) {
+				if ( e.code === 'Space' || e.code === 'Enter' ) {
+					return this._openAllCoursesView(e);
+				}
+			},
+			_openAllCoursesView: function(e) {
+				this._createAllCourses();
+
+				var allCourses = this.$$('d2l-all-courses');
+				allCourses.open();
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				this.async(function() {
+					// The opening of the overlay lags slightly if we try to do this while it
+					// is opening - do it after the animation is finished. Animation takes
+					// 500ms, but some lag if we wait exactly that long, so +100ms for safety)
+					allCourses.pinnedEnrollments = this.pinnedEnrollments;
+					allCourses.unpinnedEnrollments = this.unpinnedEnrollments;
+					allCourses.myEnrollmentsEntity = this._lastEnrollmentsSearchResponse;
+					allCourses.lastEnrollmentsSearchResponse = this._lastEnrollmentsSearchResponse;
+					allCourses.locale = this.locale;
+					allCourses.showCourseCode = this.showCourseCode;
+					allCourses.advancedSearchUrl = this.advancedSearchUrl;
+					allCourses.filterStandardSemesterName = this.standardSemesterName;
+					allCourses.filterStandardDepartmentName = this.standardDepartmentName;
+					allCourses.updateCountMap = this.updateCountMap;
+					allCourses.courseUpdatesConfig = this.courseUpdatesConfig;
+					allCourses.telemetryEndpoint = this.telemetryEndpoint;
+					allCourses.userId = this.userId;
+					allCourses.tenantId = this.tenantId;
+
+					this.$$('d2l-all-courses').load();
+				}.bind(this), 600);
+			},
+			_refreshPage: function() {
+				document.location.reload(true);
+			},
+			_rootEnrollmentRequest: function() {
+				this._pinnedCoursesMap = {};
+				this._unpinnedCoursesMap = {};
+				this.unpinnedEnrollments = [];
+				this.pinnedEnrollments = [];
+				this.debounce('d2l-root-request', this._rootRequest, 1000);
+			},
+			//encapsulates root enrollment request, the debounce method loses context when directly using this
+			_rootRequest: function() {
+				this.$.enrollmentsRootRequest.generateRequest();
+			},
+			_showContent: function() {
+				this.toggleClass('d2l-my-courses-hidden', true, this.$.initialLoadingSpinner);
+				this.toggleClass('d2l-my-courses-hidden', false, this.$$('.my-courses-content'));
+			}
+		});
+	</script>
+</dom-module>

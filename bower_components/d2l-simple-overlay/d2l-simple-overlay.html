@@ -1,0 +1,139 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-polymer-behaviors/d2l-dom.html">
+<link rel="import" href="d2l-simple-overlay-close-button.html">
+
+<link rel="import" href="d2l-simple-overlay-styles.html">
+
+<!-- This overlay supports using different animations and transitions for desktop and mobile. -->
+<dom-module id="d2l-simple-overlay">
+	<template>
+		<style include="d2l-simple-overlay-styles"></style>
+		<span role="dialog" aria-label$="[[titleName]]">
+			<slot name="header">
+				<div class="max-width container">
+					<h2 class="d2l-simple-overlay-title">{{titleName}}</h2>
+					<d2l-simple-overlay-close-button
+						aria-label$="[[closeSimpleOverlayAltText]]"
+						alt$="[[closeSimpleOverlayAltText]]">
+					</d2l-simple-overlay-close-button>
+				</div>
+			</slot>
+			<div class="scrollable">
+				<div class="max-width">
+					<slot id="mainContent"></slot>
+				</div>
+			</div>
+		</span>
+	</template>
+	<script>
+		'use strict';
+
+		Polymer({
+			is: 'd2l-simple-overlay',
+
+			behaviors: [
+				Polymer.IronOverlayBehavior
+			],
+			listeners: {
+				'transitionend': '_onTransitionEnd',
+				'image-selector-tile-image-selected': '_handleCloseSimpleOverlayEvent',
+				'd2l-simple-overlay-close-button-clicked': '_handleClose',
+				'iron-overlay-canceled': '_handleCancel'
+			},
+			properties: {
+				// Title for overlay
+				titleName: String,
+				// Localized text for the close button label
+				closeSimpleOverlayAltText: String,
+				// For restoring the document overflow when the overlay is closed
+				_oldBodyOverflow: {
+					type: String,
+					value: null
+				}
+			},
+			created: function() {
+				this._updateBackdropStyle();
+			},
+			ready: function() {
+				new MutationObserver(this.invalidateTabbables.bind(this)).observe(this, {
+					childList: true,
+					subtree: true
+				});
+			},
+			get _focusableNodes() {
+				return [D2L.Dom.Focus.getFirstFocusableDescendant(this), D2L.Dom.Focus.getLastFocusableDescendant(this)];
+			},
+			_handleCancel: function() {
+				this.fire('d2l-simple-overlay-canceled');
+			},
+			_handleClose: function() {
+				this.close();
+				this.fire('d2l-simple-overlay-closed');
+				this.fire('recalculate-columns');
+			},
+			_handleCloseSimpleOverlayEvent: function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				this._handleClose();
+			},
+			_onTransitionEnd: function(e) {
+				if (e.target !== this) {
+					return;
+				}
+
+				if (this.opened) {
+					this._finishRenderOpened();
+				} else {
+					this._notifyDistributedChildren('d2l-simple-overlay-closed');
+					this._finishRenderClosed();
+				}
+			},
+			_renderClosed: function() {
+				this._restoreBodyOverflow();
+				this.classList.remove('d2l-simple-overlay-open');
+			},
+			_renderOpened: function() {
+				this._trapBodyOverflow();
+
+				this._onNodesChange();
+				Polymer.dom(this.root).querySelector('.scrollable').scrollTop = 0;
+				this._notifyDistributedChildren('d2l-simple-overlay-opening');
+				this.fire('d2l-simple-overlay-opening');
+
+				this.classList.add('d2l-simple-overlay-open');
+			},
+			_restoreBodyOverflow: function() {
+				document.body.style.overflow = this._oldBodyOverflow;
+				this.oldBodyOverflow = undefined;
+			},
+			_trapBodyOverflow: function() {
+				this._oldBodyOverflow = document.body.style.overflow;
+				document.body.style.overflow = 'hidden';
+			},
+			_updateBackdropStyle: function() {
+				var style = document.createElement('style', 'custom-style');
+				style.innerHTML = 'iron-overlay-backdrop { --iron-overlay-backdrop-opacity: 0.0; }';
+				document.body.appendChild(style);
+			},
+			get scrollRegion() {
+				return this.$$('.scrollable');
+			},
+			_notifyDistributedChildren: function(eventName) {
+				Polymer.dom(this.$.mainContent)
+					.getDistributedNodes()
+					.forEach(function(childNode) {
+						this.fire(
+							eventName,
+							null,
+							{
+								bubbles: false,
+								node: childNode
+							}
+						);
+					}.bind(this));
+			}
+		});
+	</script>
+</dom-module>

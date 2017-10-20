@@ -1,0 +1,125 @@
+@import '../grid-system.scss';
+
+main {
+	@include vui-gs-container();
+}
+
+header {
+	@include vui-gs-row();
+	background-color: rgba(0,0,250,0.4);
+	height: 60px;
+}
+
+.stuff-1 {
+	@include vui-gs-row();
+}
+
+.stuff-1 > div {
+	@include vui-gs-span(4);
+	background-color: rgba(250,0,0,0.4);
+	height: 60px;
+}
+
+.stuff-1 > div:first-child {
+	height: 130px;
+}
+
+.stuff-1 > div:last-child {
+	@include vui-gs-span(last 4);
+}
+
+.stuff-2 {
+	@include vui-gs-row();
+}
+
+.stuff-2 > div {
+	@include vui-gs-span(4);
+	background-color: rgba(250,250,0,0.4);
+	height: 60px;
+}
+
+.stuff-2 > div:first-child {
+	@include vui-gs-span(2);
+}
+
+.stuff-2 > div:last-child {
+	@include vui-gs-span(last 2);
+}
+
+.stuff-3a {
+	@include vui-gs-span(2);
+	background-color: rgba(0,250,0,0.4);
+	height: 60px;
+}
+
+.stuff-3b {
+	@include vui-gs-span(last 5);
+	background-color: rgba(0,250,0,0.4);
+	height: 60px;
+}
+
+.stuff-4 {
+	@include vui-gs-row();
+}
+
+.stuff-4 > div {
+	@include vui-gs-span(1);
+	background-color: rgba(102,0,102,0.4);
+	height: 40px;
+}
+
+.stuff-4 > div:last-child {
+	@include vui-gs-span(last 1);
+}
+
+.stuff-5 {
+	@include vui-gs-row;
+}
+
+.stuff-5 > div {
+	background-color: rgba(0,0,250,0.25);
+	padding: 20px;
+}
+
+.stuff-5 > div:first-child {
+	@include vui-gs-span(4);
+}
+
+.stuff-5 > div:last-child {
+	@include vui-gs-span(last 8);
+}
+
+.stuff-5 > div:last-child > div {
+	background-color: rgba(250,0,0,0.4);
+	@include vui-gs-span(2 of 6);
+}
+
+.stuff-5 > div:last-child > div:last-child {
+	@include vui-gs-span(last 2 of 6);
+}
+
+.stuff-6 {
+	@include vui-gs-row;
+}
+
+.stuff-6 > div {
+	background-color: rgba(0,0,250,0.25);
+	padding: 20px;
+}
+
+.stuff-6 > div:first-child {
+	@include vui-gs-span(4);
+}
+
+.stuff-6 > div:last-child {
+	@include vui-gs-span(last 8);
+}
+
+.stuff-6 > div:last-child > div {
+	background-color: rgba(250,0,0,0.4);
+	@include vui-gs-span(4 of 12);
+}
+
+.stuff-6 > div:last-child > div:last-child {
+	@include vui-gs-span(last 4 of 12);
+}

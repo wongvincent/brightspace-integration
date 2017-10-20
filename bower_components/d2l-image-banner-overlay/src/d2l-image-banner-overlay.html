@@ -1,0 +1,315 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../promise-polyfill/promise-polyfill-lite.html">
+<link rel="import" href="../../d2l-alert/d2l-alert.html">
+<link rel="import" href="../../d2l-authify-import/d2l-authify.html">
+<link rel="import" href="../../d2l-colors/d2l-colors.html">
+<link rel="import" href="../../d2l-dropdown/d2l-dropdown.html">
+<link rel="import" href="../../d2l-dropdown/d2l-dropdown-menu.html">
+<link rel="import" href="../../d2l-icons/d2l-icons.html">
+<link rel="import" href="../../d2l-loading-spinner/d2l-loading-spinner.html">
+<link rel="import" href="../../d2l-organization-hm-behavior/d2l-organization-hm-behavior.html">
+<link rel="import" href="../../d2l-performance/d2l-performance.html">
+<link rel="import" href="d2l-image-banner-overlay-styles.html">
+<link rel="import" href="localize-behavior.html">
+
+<dom-module id="d2l-image-banner-overlay">
+	<template>
+		<style include="d2l-image-banner-overlay-styles"></style>
+
+		<div id="overlayContent" class="d2l-image-banner-overlay-content">
+			<div class="d2l-image-banner-course-name-container">
+				<div class="d2l-image-banner-course-name">
+					<h1 id="courseName">[[_courseName]]</h1>
+				</div>
+			</div>
+			<template is="dom-if" if="{{_showDropdown(_removeBannerAction)}}" restamp="true">
+				<d2l-dropdown>
+					<button	class="menu-item no-tap-interaction d2l-dropdown-opener" aria-label$="[[localize('bannerSettings')]]">
+						<div class="elipsis-icon-container">
+							<d2l-icon class="elipsis-icon" icon="d2l-tier1:more"></d2l-icon>
+						</div>
+					</button>
+					<d2l-dropdown-menu id="overflow-dropdown">
+						<d2l-menu label$="[[localize('bannerSettings')]]">
+							<template is="dom-if" if="{{_removeBannerAction}}" restamp="true">
+								<d2l-menu-item id="opt-out-button"
+									text="[[localize('removeBanner')]]"
+									on-d2l-menu-item-select="_toggleCourseBanner">
+								</d2l-menu-item>
+							</template>
+						</d2l-menu>
+					</d2l-dropdown-menu>
+				</d2l-dropdown>
+			</template>
+			<div class="loading-overlay">
+				<d2l-loading-spinner size="100"></d2l-loading-spinner>
+				<div class="icon-container">
+					<d2l-icon class$="[[_iconDetails.className]]" icon="[[_iconDetails.iconName]]"></d2l-icon>
+				</div>
+			</div>
+		</div>
+		<d2l-alert
+			id="optBackInAlert"
+			hidden$="[[!_showBannerRemovedAlert]]"
+			has-button="true"
+			button-message="[[localize('undo')]]"
+			has-close-button="true"
+			close-button-title="[[localize('closeAlert')]]"
+			role="alert"
+		>
+			<span>[[_optBackInStart]]</span><a is="d2l-link" href$="[[_courseOfferingInfoLink]]">[[localize('courseOfferingInformation')]]</a><span>[[_optBackInEnd]]</span>
+		</d2l-alert>
+		<d2l-alert
+			id="errorAlert"
+			hidden$="[[!_showBannerErrorAlert]]"
+			has-close-button="true"
+			close-button-title="[[localize('closeAlert')]]"
+			role="alert"
+			type="error"
+		>
+			<span>[[_errorAlertStart]]</span><a is="d2l-link" href="javascript:window.location.reload(true)">[[localize('refreshAndTryAgain')]]</a><span>[[_errorAlertEnd]]</span>
+		</d2l-alert>
+	</template>
+	<script src="https://s.brightspace.com/lib/siren-parser/6.1.0/siren-parser-global.js"></script>
+	<script src="../../fetch/fetch.js"></script>
+	<script>
+		'use strict';
+		Polymer({
+			is: 'd2l-image-banner-overlay',
+			properties: {
+				organizationUrl: String, // url used to request organization information
+				_courseName: String, // the name to display in the main text area of the overlay
+				_removeBannerAction: String, // a siren action to be executed when the remove banner menu option is clicked
+				_addBannerAction: String, // a siren action to be executed when the Undo option is clicked on the alert
+				_optBackInStart: String, // the first portion of the localized text to display in the alert when the banner has been removed
+				_optBackInEnd: String, // the last portion of the localized text to display in the alert when the banner has been removed
+				_courseOfferingInfoLink: String, // the url to navigate to if the user wishes to adjust course offering settings, displayed in the alert when the banner has been removed
+				_showBannerRemovedAlert: Boolean, // indicates if the optBackIn alert should be displayed
+				_showBannerErrorAlert: Boolean, // indicates if the "something went wrong alert should be displayed"
+				_errorAlertStart: String, // the first portion of the localized text to display in the alert when something went wrong with removing the banner
+				_errorAlertEnd: String, // the last portion of the localized text to display in the alert when something went wrong with removing the banner
+				// The icon we want to show when you select an image
+				_iconDetails: {
+					type: Object,
+					value: {
+						className: '',
+						iconName: ''
+					}
+				},
+				_nextImage: Object // when changing the banner image, the next image to show
+			},
+			behaviors: [
+				window.D2L.ImageBanner.LocalizeBehavior,
+				window.D2L.Hypermedia.OrganizationHMBehavior
+			],
+			listeners: {
+				'alert-button-pressed': '_onAlertButtonPressed',
+				'alert-closed': '_onAlertClosed'
+			},
+			ready: function() {
+				this._addPerfMark('ready');
+				this._showBannerRemovedAlert = false;
+				this._showBannerErrorAlert = false;
+				Polymer.dom(this.$.overlayContent).classList.add('d2l-image-banner-overlay-content-shown');
+				document.body.addEventListener('set-course-image', this._onSetCourseImage.bind(this));
+
+				window.d2lauthify
+					.fetch(new Request(this.organizationUrl, {
+						headers: new Headers({
+							Accept: 'application/vnd.siren+json'
+						})
+					}))
+					.then(this._onOrganizationResponse.bind(this));
+			},
+			_onSetCourseImage: function(e) {
+				var org = this._parseSiren(e.detail.organization);
+				if (!org.getLinkByRel) { return; }
+
+				var orgSelfLink = (org.getLinkByRel('self') || {}).href || '',
+					urlPosition = orgSelfLink.indexOf(this.organizationUrl);
+
+				if (urlPosition === (orgSelfLink.length - this.organizationUrl.length)) {
+					switch (e.detail.status) {
+						case 'set':
+							if (e.detail.image) {
+								var newImageHref = this._getDefaultImageLink(e.detail.image);
+								var overlayContent = this.$.overlayContent;
+								this.toggleClass('change-image-loading', true, overlayContent);
+								// load the image while the loading spinner runs to that we have it when the spinner ends
+								// NOTE: if this needs optimization, we can wait for the image's onload to play the success animation
+								this._nextImage = e.detail.image;
+								var imagePreloader = document.createElement('img');
+								imagePreloader.setAttribute('src', newImageHref);
+							}
+							break;
+						case 'success':
+							this._displaySetImageResult(true);
+							break;
+						case 'failure':
+							this._displaySetImageResult(false);
+							break;
+					}
+				}
+			},
+			_displaySetImageResult: function(success) {
+				var overlayContent = this.$.overlayContent,
+					successClass = 'change-image-success',
+					failureClass = 'change-image-failure';
+
+				// We want to wait at least a second of the load icon before showing the status
+				setTimeout(function() {
+					this.toggleClass('change-image-loading', false, overlayContent);
+					this.toggleClass(successClass, success, overlayContent);
+					this.toggleClass(failureClass, !success, overlayContent);
+					this._iconDetails = success ?
+						{ className: 'checkmark', iconName: 'd2l-tier2:check'} :
+						{ className: 'fail-icon', iconName: 'd2l-tier3:close'};
+
+					// Remove the icon after a bit of time
+					setTimeout(function() {
+						if (success) {
+							this._setBannerImage(this._nextImage);
+						}
+						this.toggleClass(successClass, false, overlayContent);
+						this.toggleClass(failureClass, false, overlayContent);
+					}.bind(this), 1000);
+				}.bind(this), 1000);
+			},
+			_setBannerImage: function(image) {
+				var bannerImage = document.querySelector('.d2l-course-banner .d2l-course-banner-image');
+				var imageSrc = this._getDefaultImageLink(image);
+
+				if (bannerImage && imageSrc) {
+					bannerImage.src = imageSrc;
+					bannerImage.srcset = '';
+				}
+			},
+			_getDefaultImageLink: function(image) {
+				return this.getDefaultImageLink(image, 'wide');
+			},
+			_parseSiren: function(entity) {
+				return window.D2L.Hypermedia.Siren.Parse(entity);
+			},
+			_showDropdown: function(removeBannerAction) {
+				return !!removeBannerAction;
+			},
+			_onOrganizationResponse: function(response) {
+				var self = this;
+
+				if (!response.ok) {
+					return;
+				}
+
+				response
+					.json()
+					.then(function(bodyAsJson) {
+						var organization = self._parseSiren(bodyAsJson);
+						self._addPerfMark('org-response.parsed');
+						self._addPerfMeasure('ready-to-org-response-parsed', 'ready', 'org-response.parsed');
+
+						if (organization && organization.properties) {
+							self._courseName = organization.properties.name;
+						}
+
+						self._removeBannerAction = (organization.getActionByName('remove-homepage-banner') || {}).href;
+						if (self._removeBannerAction) {
+							Polymer.dom(self.$.courseName).classList.add('menu-exists');
+						}
+						var offeringLink = organization && organization.getLinkByRel(/course-offering-info-page/);
+						self._courseOfferingInfoLink = offeringLink && offeringLink.href;
+						var placeholder = 'COURSE_OFFERING_INFORMATION';
+						var splitText = self.localize('bannerRemoved', 'placeholder', placeholder).split(placeholder);
+						self._optBackInStart = splitText[0];
+						self._optBackInEnd = splitText[1];
+
+						Polymer.RenderStatus.afterNextRender(self, function() {
+							self._addPerfMark('org-response.rendered'); // eslint-disable-line no-invalid-this
+							self._addPerfMeasure('ready-to-org-response-displayed', 'ready', 'org-response.rendered'); // eslint-disable-line no-invalid-this
+						});
+					});
+			},
+			_toggleCourseBanner: function() {
+				var relevantAction = this._addBannerAction || this._removeBannerAction;
+				Polymer.dom(this.$.overlayContent).classList.add('loading-overlay-shown');
+
+				if (relevantAction) {
+					window.d2lauthify
+						.fetch(new Request(relevantAction, {
+							method: 'PUT',
+							headers: new Headers({
+								Accept: 'application/vnd.siren+json',
+								'Content-Type': 'application/x-www-form-urlencoded'
+							}),
+							body: 'showCourseBanner=' + (relevantAction === this._addBannerAction)
+						}))
+						.then(this._onToggleBannerResponse.bind(this))
+						.catch(this._onToggleBannerError.bind(this));
+				}
+			},
+			_onToggleBannerResponse: function(response) {
+				var self = this;
+				if (!response.ok) {
+					return Promise.reject(response.status + response.statusText);
+				}
+
+				return response
+					.json()
+					.then(function(bodyAsJson) {
+						var organization = self._parseSiren(bodyAsJson) || {};
+						self._addBannerAction = (organization.getActionByName('add-homepage-banner') || {}).href;
+						self._removeBannerAction = (organization.getActionByName('remove-homepage-banner') || {}).href;
+
+						self._showBannerRemovedAlert = !!self._addBannerAction;
+						if (self._addBannerAction) {
+							self._showAlert(true);
+						} else if (self._removeBannerAction) {
+							self._showAlert(false);
+						}
+					});
+			},
+			_onToggleBannerError: function() {
+				this._showBannerErrorAlert = true;
+				this._removeBannerAction = null;
+				var placeholder = 'REFRESH_PAGE';
+				var splitText = this.localize('somethingWentWrong', 'placeholder', placeholder).split(placeholder);
+				this._errorAlertStart = splitText[0];
+				this._errorAlertEnd = splitText[1];
+				this._showAlert(true);
+			},
+			_showAlert: function(show) {
+				Polymer.dom(this.$.overlayContent).classList.remove('loading-overlay-shown');
+
+				if (show) {
+					Polymer.dom(this.$.overlayContent).classList.remove('d2l-image-banner-overlay-content-shown');
+					document.documentElement.querySelector('.d2l-course-banner-container').classList.add('showing-alert');
+				} else {
+					Polymer.dom(this.$.overlayContent).classList.add('d2l-image-banner-overlay-content-shown');
+					document.documentElement.querySelector('.d2l-course-banner-container').classList.remove('showing-alert');
+				}
+			},
+			_onAlertButtonPressed: function(e) {
+				var normalizedEvent = Polymer.dom(e);
+				if (normalizedEvent.rootTarget === this.$$('d2l-alert')) {
+					this._toggleCourseBanner();
+				}
+			},
+			_onAlertClosed: function(e) {
+				var normalizedEvent = Polymer.dom(e);
+				var alert = this.$$('#' + normalizedEvent.rootTarget.id);
+				if (normalizedEvent.rootTarget === alert) {
+					alert.hidden = true;
+				}
+			},
+			_addPerfMark: function(name) {
+				D2L.Performance.mark('d2l.image-banner-overlay.' + name);
+			},
+			_addPerfMeasure: function(name, startName, endName) {
+				D2L.Performance.measure(
+					'd2l.image-banner-overlay.' + name,
+					'd2l.image-banner-overlay.' + startName,
+					'd2l.image-banner-overlay.' + endName
+				);
+			}
+		});
+	</script>
+</dom-module>

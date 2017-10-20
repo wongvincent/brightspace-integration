@@ -1,0 +1,53 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="isolate.css">
+	<style>
+		button {
+			margin-top: 20px;
+			margin-right: 10px;
+			padding: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="app">
+
+		<div class="header">12 columns (full)</div>
+
+		<div class="stuff-1">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+			<div>11</div>
+			<div>12</div>
+		</div>
+
+		<div class="stuff-2">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+			<div>11</div>
+			<div>12</div>
+		</div>
+
+	</div>
+
+	<button onclick="document.getElementsByClassName('app')[0].classList.add('vui-gs-debug')">Show Grid</button>
+	<button onclick="document.getElementsByClassName('app')[0].classList.remove('vui-gs-debug')">Hide Grid</button>
+
+</body>
+</html>

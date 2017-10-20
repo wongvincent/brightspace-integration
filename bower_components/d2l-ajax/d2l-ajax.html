@@ -1,0 +1,348 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<dom-module id="d2l-ajax">
+	<template>
+		<iron-ajax
+			url="{{url}}"
+			params="{{params}}"
+			method="{{method}}"
+			headers="{{computeHeaders(headers, authToken)}}"
+			content-type="{{contentType}}"
+			body="{{body}}"
+			handle-as="{{handleAs}}"
+			with-credentials="{{withCredentials}}"
+			timeout="{{timeout}}"
+			debounce-duration="{{debounceDuration}}"
+			last-error="{{lastError}}"
+			last-response="{{lastResponse}}"
+			on-iron-ajax-error="onError"
+			on-iron-ajax-request="onRequest"
+			on-iron-ajax-response="onResponse"></iron-ajax>
+	</template>
+	<script>
+		/* global Promise */
+		'use strict';
+
+		var D2L_AJAX_CACHED_TOKENS = {},
+			D2L_AJAX_IN_FLIGHT_REQUESTS = {};
+
+		Polymer({
+			is: 'd2l-ajax',
+			properties: {
+				auto: Boolean,
+				url: {
+					type: String,
+					value: null
+				},
+				params: {
+					type: Object,
+					value: function() {
+						return {};
+					}
+				},
+				method: {
+					type: String,
+					value: 'GET'
+				},
+				headers: {
+					type: Object,
+					value: function() {
+						return {};
+					}
+				},
+				contentType: String,
+				body: {
+					type: Object,
+					value: null
+				},
+				handleAs: String,
+				withCredentials: Boolean,
+				timeout: Number,
+				lastResponse: {
+					type: Object,
+					notify: true
+				},
+				lastError: {
+					type: Object,
+					notify: true
+				},
+				scope: {
+					type: String,
+					value: '*:*:*'
+				},
+				authToken: {
+					type: String,
+					value: function() {
+						return null;
+					}
+				},
+				sessionChangedHandler: {
+					type: Object,
+					readOnly: true,
+					value: function () {
+						return this._onSessionChanged.bind(this);
+					}
+				},
+				debounceDuration: {
+					type: Number,
+					value: 0,
+					notify: true
+				}
+			},
+			observers: [
+				'_requestOptionsChanged(url, params.*, body, auto)'
+			],
+			attached: function () {
+				Polymer.RenderStatus.afterNextRender(this, function() {
+					if (this.isAttached) {
+						window.addEventListener('storage', this.sessionChangedHandler);
+					}
+				});
+			},
+			detached: function () {
+				window.removeEventListener('storage', this.sessionChangedHandler);
+			},
+			computeHeaders: function(headers, authToken) {
+				var result = {},
+					header;
+
+				if (authToken) {
+					result.Authorization = 'Bearer ' + authToken;
+				}
+
+				if (headers instanceof Object) {
+					for (header in headers) {
+						result[header] = headers[header].toString();
+					}
+				}
+
+				return result;
+			},
+			generateRequest: function() {
+				if (this._isRelativeUrl(this.url)) {
+					if (this.method !== 'GET' && this.method !== 'HEAD') {
+						return this._getXsrfToken()
+							.then(function(xsrfToken) {
+								this.$$('iron-ajax').headers['X-Csrf-Token'] = xsrfToken;
+								return this.$$('iron-ajax').generateRequest().completes;
+							}.bind(this));
+					} else {
+						return this.$$('iron-ajax').generateRequest().completes;
+					}
+				}
+
+				return this._getAuthToken()
+					.then(function(token) {
+						this.authToken = token;
+						return this.$$('iron-ajax').generateRequest().completes;
+					}.bind(this)).catch(function (e) {
+						this.lastError = e;
+						this.onError(e);
+						return Promise.reject(e);
+					}.bind(this));
+			},
+			onError: function(e) {
+				if (e.stopPropagation) {
+					e.stopPropagation();
+				}
+				var data = e;
+				if (e && e.detail) {
+					data = e.detail;
+				}
+				this.fire('iron-ajax-error', data);
+			},
+			onRequest: function(e) {
+				e.stopPropagation();
+				this.fire('iron-ajax-request', e.detail);
+			},
+			onResponse: function(e) {
+				e.stopPropagation();
+				this.fire('iron-ajax-response', e.detail);
+			},
+			_getCurrentLocation: function() {
+				return location;
+			},
+			_requestOptionsChanged: function() {
+				if (this.url == null) {
+					return;
+				}
+				if (this.auto) {
+					this.generateRequest();
+				}
+			},
+			_isRelativeUrl: function(url) {
+
+				var link = document.createElement('a');
+				link.href = url;
+
+				// IE includes the port in the host
+				var urlHost = link.host;
+				if (urlHost.indexOf(':443') === urlHost.length - 4) {
+					urlHost = urlHost.substr(0, urlHost.length - 4);
+				} else if (urlHost.indexOf(':80') === urlHost.length - 3) {
+					urlHost = urlHost.substr(0, urlHost.length - 3);
+				}
+
+				var currentLocation = this._getCurrentLocation();
+
+				// In IE, relative paths have no host or protocol
+				return !link.host
+					|| !link.protocol
+					|| (urlHost === currentLocation.host
+						&& link.protocol === currentLocation.protocol);
+
+			},
+
+
+			/*
+			 * Auth Token
+			 */
+
+			_getAuthToken: function() {
+				var self = this,
+					scope = this.scope;
+
+				return Promise
+					.resolve()
+					.then(function () {
+						var cached = self._getCachedAuthToken.bind(self, scope);
+
+						return cached()
+							.catch(function () {
+								return self._getAuthTokenDeDuped(scope)
+									.then(self._cacheToken.bind(self, scope))
+									.then(cached);
+							});
+					});
+			},
+			_getCachedAuthToken: function (scope) {
+				return Promise
+					.resolve()
+					.then(function () {
+						var cached = D2L_AJAX_CACHED_TOKENS[scope];
+
+						if (cached) {
+							if (!this._tokenExpired(cached)) {
+								return cached.access_token;
+							}
+
+							delete D2L_AJAX_CACHED_TOKENS[scope];
+						}
+						throw new Error('No cached token');
+					}.bind(this));
+			},
+			_getAuthTokenDeDuped: function (scope) {
+				if (!D2L_AJAX_IN_FLIGHT_REQUESTS[scope]) {
+					D2L_AJAX_IN_FLIGHT_REQUESTS[scope] = this._requestAuthToken(scope)
+						.then(function (token) {
+							delete D2L_AJAX_IN_FLIGHT_REQUESTS[scope];
+							return token;
+						}.bind(this))
+						.catch(function (e) {
+							delete D2L_AJAX_IN_FLIGHT_REQUESTS[scope];
+							throw e;
+						}.bind(this));
+				}
+
+				return D2L_AJAX_IN_FLIGHT_REQUESTS[scope];
+			},
+			_requestAuthToken: function (scope) {
+				var self = this;
+
+				var authTokenRequest = function (xsrfToken) {
+					var request = document.createElement('iron-request');
+					return request
+						.send({
+							method: 'POST',
+							url: '/d2l/lp/auth/oauth2/token',
+							withCredentials: true,
+							handleAs: 'json',
+							headers: {
+								'Content-Type': 'application/x-www-form-urlencoded',
+								'X-Csrf-Token': xsrfToken
+							},
+							body: "scope=" + scope
+						})
+						.then(function(res) {
+							return res.response;
+						});
+				};
+
+				return self._getXsrfToken()
+					.then(authTokenRequest);
+			},
+			_cacheToken: function (scope, token) {
+				D2L_AJAX_CACHED_TOKENS[scope] = token;
+			},
+			_tokenExpired: function (token) {
+				return this._clock() > token.expires_at;
+			},
+			_clock: function () {
+				return (Date.now() / 1000) | 0;
+			},
+			_onSessionChanged: function (e) {
+				switch (e.key) {
+					case 'Session.Expired':
+					case 'Session.UserId':
+						this._resetAuthTokenCaches();
+						break;
+					default:
+						break;
+				}
+			},
+			_resetAuthTokenCaches: function () {
+				this._clearCachedTokens();
+				this._clearInFlightRequests();
+			},
+			_clearCachedTokens: function() {
+				var cachedTokenKeys = Object.keys(D2L_AJAX_CACHED_TOKENS);
+				for(var i = 0; i < cachedTokenKeys.length; i++) {
+					delete D2L_AJAX_CACHED_TOKENS[cachedTokenKeys[i]];
+				}
+			},
+			_clearInFlightRequests: function() {
+				var inFlightKeys = Object.keys(D2L_AJAX_IN_FLIGHT_REQUESTS);
+				for(var i = 0; i < inFlightKeys.length; i++) {
+					delete D2L_AJAX_IN_FLIGHT_REQUESTS[inFlightKeys[i]];
+				}
+			},
+
+			/*
+			 * XSRF Token
+			 */
+
+			_getXsrfToken: function() {
+
+				try {
+					var xsrfToken = window.localStorage.getItem('XSRF.Token');
+				} catch (e) {
+					// likely private browsing mode, continue anyway
+				}
+
+				if (xsrfToken) {
+					return Promise.resolve(xsrfToken);
+				}
+
+				var xsrfRequest = document.createElement('iron-request');
+
+				var request = xsrfRequest
+					.send({
+						url: '/d2l/lp/auth/xsrf-tokens',
+						handleAs: 'json',
+						withCredentials: true
+					})
+					.then(function(res) {
+						try {
+							window.localStorage.setItem('XSRF.Token', res.response.referrerToken);
+						} catch (e) {
+							// likely private browsing mode, continue anyway
+						}
+						return res.response.referrerToken;
+					});
+
+				return request;
+			}
+		});
+	</script>
+</dom-module>

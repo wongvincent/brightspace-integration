@@ -1,0 +1,38 @@
+{
+  "name": "d2l-loading-spinner",
+  "main": "d2l-loading-spinner.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrightspaceUI/loading-spinner.git"
+  },
+  "authors": [
+    "D2L Corporation"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.2.3",
+    "polymer": "^1.7.1"
+  },
+  "devDependencies": {
+    "d2l-demo-template": "^0.0.11",
+    "webcomponentsjs": "webcomponents.js#^0.7.23"
+  },
+  "homepage": "https://github.com/BrightspaceUI/loading-spinner",
+  "version": "5.0.4",
+  "_release": "5.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v5.0.4",
+    "commit": "6a76df238b4d6baf2e2c45ab318b62792c7d2b71"
+  },
+  "_source": "https://github.com/BrightspaceUI/loading-spinner.git",
+  "_target": "5.0.4",
+  "_originalSource": "d2l-loading-spinner"
+}

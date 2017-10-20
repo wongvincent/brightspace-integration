@@ -1,0 +1,30 @@
+{
+  "name": "d2l-polymer-behaviors",
+  "description": "Shared Polymer behaviors for use in web components",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "polymer": "^1.5.0"
+  },
+  "devDependencies": {
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
+    "web-component-tester": "^4.2.2"
+  },
+  "homepage": "https://github.com/Brightspace/d2l-polymer-behaviors-ui",
+  "version": "0.0.5",
+  "_release": "0.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.5",
+    "commit": "5823d8c147ee23dd1649e7ccc965a7c614f6c2b7"
+  },
+  "_source": "https://github.com/Brightspace/d2l-polymer-behaviors-ui.git",
+  "_target": "~0.0.5",
+  "_originalSource": "d2l-polymer-behaviors"
+}

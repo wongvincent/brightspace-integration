@@ -1,0 +1,27 @@
+@import 'bower_components/d2l-colors/d2l-colors.scss';
+
+$vui-list-item-backgroundColor-selected: $d2l-color-celestine-light-1 !default;
+$vui-list-item-backgroundColor-active: $d2l-color-celestine-light-1 !default;
+$vui-list-item-backgroundColor-selected-active: #EBF5FC !default;
+$vui-list-item-separator-color-selected: $d2l-color-celestine-light-2 !default;
+
+@mixin vui-list-item-selected() {
+	background-color: $vui-list-item-backgroundColor-selected;
+	border-top-color: $vui-list-item-separator-color-selected;
+
+	& li:first-of-type {
+		border-top-color: transparent;
+	}
+
+	& + li {
+		border-top-color: $vui-list-item-separator-color-selected;
+	}
+}
+
+@mixin vui-list-item-selected-active() {
+	background-color: $vui-list-item-backgroundColor-selected-active;
+}
+
+@mixin vui-list-item-active() {
+	background-color: $vui-list-item-backgroundColor-active;
+}

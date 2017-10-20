@@ -1,0 +1,24 @@
+@import '../grid-system.scss';
+
+body {
+	@include vui-gs-container();
+	margin: 0;
+}
+
+nav {
+	@include vui-gs-span(last 12);
+	background-color: rgba(0,0,250,0.4);
+}
+main {
+	@include vui-gs-span(last 12);
+	background-color: rgba(250,0,0,0.4);
+}
+
+@media (min-width: 700px) {
+	nav {
+		@include vui-gs-span(4);
+	}
+	main {
+		@include vui-gs-span(last 8);
+	}
+}
