@@ -59,13 +59,13 @@
     "polymer": "1.7.0",
     "d2l-colors": "2.4.0"
   },
-  "_release": "0ab3a16a93",
+  "_release": "157e37d1dc",
   "_resolution": {
     "type": "branch",
-    "branch": "vmisechko/fix-dependency-versions",
-    "commit": "0ab3a16a933b65a6240e1d64201e89bde73abc7f"
+    "branch": "v1.5.3-mr3-daylight",
+    "commit": "157e37d1dc7a44d106a6b9ed2e3a7d3b45c5f8a5"
   },
   "_source": "https://github.com/Brightspace/d2l-my-courses-ui.git",
-  "_target": "vmisechko/fix-dependency-versions",
+  "_target": "v1.5.3-mr3-daylight",
   "_originalSource": "https://github.com/Brightspace/d2l-my-courses-ui.git"
 }
