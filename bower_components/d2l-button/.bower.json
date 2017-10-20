@@ -31,6 +31,6 @@
     "commit": "7007b07a993d13a6220cafb63b71111da07cbc47"
   },
   "_source": "https://github.com/BrightspaceUI/button.git",
-  "_target": "^3.0.8",
+  "_target": "3.3.0",
   "_originalSource": "d2l-button"
 }
