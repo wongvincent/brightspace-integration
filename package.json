@@ -19,7 +19,6 @@
     "prebuild:wc": "rimraf tmp && rimraf tmp-wc",
     "build:wc": "node polymer-build.js",
     "postbuild:wc": "rimraf tmp-wc/bower_components && rimraf tmp-wc/js && rimraf tmp-wc/web-components && npm run uglify:html",
-    "postinstall": "./node_modules/.bin/bower install",
     "publish:cdn": "frau-publisher -m lib -t bsi -f \"./dist/**/*\" -k AKIAIZGPQIRSA2WEJEDA --secretvar CDN_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
     "serve": "http-server dist --cors",
