@@ -82,6 +82,12 @@
 	width: 3rem;
 }
 
+.d2l-navigation-ib-item-icon-small,
+.d2l-navigation-ib-item-icon-group-small {
+	height: 2rem;
+	width: 2rem;
+}
+
 .d2l-navigation-ib-item-icon {
 	display: block;
 	margin: 0 auto;
@@ -107,6 +113,12 @@
 	height: 0.8rem;
 	margin-bottom: 0.3rem;
 	width: 0.8rem;
+}
+
+.d2l-navigation-ib-item-icon-group-small .d2l-navigation-ib-item-icon-group-icon {
+	height: 0.53rem;
+	margin-bottom: 0.2rem;
+	width: 0.53rem;
 }
 
 .d2l-navigation-ib-item-icon-group-custom-icon {
