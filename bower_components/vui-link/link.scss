@@ -1,0 +1,49 @@
+@import 'bower_components/vui-focus/focus';
+
+$vui-link-color: #00617F !default;
+$vui-link-color-focus: #007795 !default;
+$vui-link-fontWeight: normal !default;
+$vui-link-textDecoration: none !default;
+$vui-link-textDecoration-focus: underline !default;
+$vui-mainLink-fontWeight: bold !default;
+
+@mixin vui-link(
+		$color: $vui-link-color,
+		$color-focus: $vui-link-color-focus,
+		$fontWeight: $vui-link-fontWeight,
+		$textDecoration: $vui-link-textDecoration,
+		$textDecoration-focus: $vui-link-textDecoration-focus
+	) {
+
+	&,
+	&:visited,
+	&:link,
+	&:active {
+		color: $color;
+		font-weight: $fontWeight;
+		text-decoration: $textDecoration;
+		cursor:pointer;
+	}
+	&:hover,
+	&:focus {
+		color: $color-focus;
+		text-decoration: $textDecoration-focus;
+	}
+	&:focus {
+		@include vui-focus-outline;
+	}
+
+}
+
+@mixin vui-link-main(
+		$fontWeight: $vui-mainLink-fontWeight
+	) {
+
+	&,
+	&:visited,
+	&:link,
+	&:active {
+		font-weight: $fontWeight;
+	}
+
+}

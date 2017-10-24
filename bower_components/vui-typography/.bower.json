@@ -1,0 +1,27 @@
+{
+  "name": "vui-typography",
+  "main": "typography.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-typography",
+  "version": "0.6.0",
+  "_release": "0.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.6.0",
+    "commit": "0848e6fc24f44cc7da4737137996d173954cdcdf"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-typography.git",
+  "_target": "0.6.0",
+  "_originalSource": "vui-typography"
+}

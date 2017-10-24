@@ -1,0 +1,31 @@
+{
+  "name": "vui-button",
+  "main": "button.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "vui-gradient": "~0.3.1"
+  },
+  "homepage": "https://github.com/Brightspace/valence-ui-button",
+  "version": "0.7.4",
+  "_release": "0.7.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.4",
+    "commit": "7ea108fb7a7e2a25132fff5bc27398a7892ab9e9"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-button.git",
+  "_target": "0.7.4",
+  "_originalSource": "vui-button"
+}

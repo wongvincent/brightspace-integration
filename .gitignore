@@ -1,5 +1,4 @@
-bower_components
-dist/
+/dist/
 node_modules/
 .idea/
 *.log

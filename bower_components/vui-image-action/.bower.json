@@ -1,0 +1,27 @@
+{
+  "name": "vui-image-action",
+  "main": "image-action.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    "package.json",
+    "test"
+  ],
+  "dependencies": {
+    "vui-focus": "~0.7.1",
+    "vui-link": "~0.7.0"
+  },
+  "homepage": "https://github.com/Brightspace/valence-ui-image-action",
+  "version": "0.0.2",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "0fdd8040f055b0124a187c0b96393e3dc3f32c1f"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-image-action.git",
+  "_target": "0.0.2",
+  "_originalSource": "vui-image-action"
+}

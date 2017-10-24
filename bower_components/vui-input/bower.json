@@ -1,0 +1,20 @@
+{
+  "name": "vui-input",
+  "main": "input.scss",
+  "dependencies": {
+    "vui-focus": "~0.7.1",
+    "vui-typography": "~0.6.0"
+  },
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ]
+}

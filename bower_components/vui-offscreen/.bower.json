@@ -1,0 +1,24 @@
+{
+  "name": "vui-offscreen",
+  "main": "offscreen.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    ".csslintrc",
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-offscreen",
+  "version": "0.3.0",
+  "_release": "0.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.0",
+    "commit": "438d2655295ff6446fde21f053621fd12ab18964"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-offscreen.git",
+  "_target": "0.3.0",
+  "_originalSource": "vui-offscreen"
+}

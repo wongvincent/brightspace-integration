@@ -1,0 +1,15 @@
+
+$vui-input-borderWidth: 1px !default;
+$vui-input-borderColor: #cccccc !default;
+$vui-input-borderStyle: solid !default;
+$vui-input-borderRadius: 3px !default;
+
+@mixin vui-input-border(
+	$width: $vui-input-borderWidth,
+	$color: $vui-input-borderColor,
+	$style: $vui-input-borderStyle,
+	$radius: $vui-input-borderRadius
+) {
+	border: $width $style $color;
+	border-radius: $radius;
+}

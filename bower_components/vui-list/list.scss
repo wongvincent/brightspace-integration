@@ -1,0 +1,43 @@
+
+$vui-list-separator-color: #eaeaea !default;
+$vui-list-separator-style: solid !default;
+$vui-list-separator-width: 1px !default;
+
+@mixin vui-list() {
+
+	padding: 0;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+
+	& > li {
+		padding: 7px 10px;
+
+		border-width: 0;
+		border-bottom:
+			$vui-list-separator-width
+			$vui-list-separator-style
+			$vui-list-separator-color;
+		list-style-image: none;
+		list-style-position: outside;
+		list-style-type: none;
+	}
+
+	& > li:last-child {
+		border-bottom-color: transparent;
+	}
+
+}
+
+@mixin vui-list-compact() {
+	& > li {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+@mixin vui-list-no-separator() {
+	& > li {
+		border-bottom-color: transparent;
+	}
+}

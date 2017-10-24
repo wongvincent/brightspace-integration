@@ -1,0 +1,27 @@
+
+@import 'list';
+@import 'list-item';
+
+.vui-list {
+	@include vui-list();
+}
+
+.vui-list.vui-compact {
+	@include vui-list-compact();
+}
+
+.vui-list.vui-no-separator {
+	@include vui-list-no-separator();
+}
+
+.vui-list > .vui-selected {
+	@include vui-list-item-selected();
+}
+
+.vui-list > .vui-active {
+	@include vui-list-item-active();
+}
+
+.vui-list > .vui-active.vui-selected {
+	@include vui-list-item-selected-active();
+}

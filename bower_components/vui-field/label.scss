@@ -1,0 +1,41 @@
+
+@import 'field-icons.scss';
+
+$vui-label-color: #6b6b6b !default;
+
+@mixin vui-label(
+		$color: $vui-label-color
+	) {
+
+	border: none;
+	color: $color;
+	cursor: default;
+	display: block;
+	font-size: inherit;
+	font-weight: bold;
+	line-height: inherit;
+	margin: 0 0 5px 0;
+	padding: 0;
+	text-align: left;
+	text-shadow: 0 1px 0 #ffffff;
+
+	[dir="rtl"] & {
+		text-align: right;
+	}
+
+}
+
+@mixin vui-label-required() {
+
+	&:after {
+		content: $vui-required;
+		left: 3px;
+		position: relative;
+		top: -2px;
+	}
+
+	[dir="rtl"] &:after {
+		right: 3px;
+	}
+
+}

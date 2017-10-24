@@ -1,0 +1,17 @@
+{
+  "name": "vui-link",
+  "main": "link.scss",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "vui-focus": "~0.7.1"
+  },
+  "ignore": [
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ]
+}

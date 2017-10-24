@@ -1,0 +1,40 @@
+
+@import 'breadcrumbs-icons';
+@import 'bower_components/vui-link/link';
+
+@mixin vui-breadcrumbs() {
+
+	padding: 0;
+	margin: 0;
+	list-style: none outside none;
+	& > li,
+	& > div,
+	& > span {
+		background-color: transparent;
+		border-width: 0;
+		display: inline-block;
+		list-style: none outside none;
+		&:last-child {
+			color: inherit;
+			&:after {
+				display: none;
+				[dir='rtl'] & {
+					display: none;
+				}
+			}
+		}
+		&:after {
+			content: $vui-separator;
+			padding-left: 10px;
+			padding-right: 12px;
+			vertical-align: middle;
+			[dir='rtl'] & {
+				content: $vui-separator-rtl;
+			}
+		}
+		& > a {
+			@include vui-link;
+		}
+	}
+
+}

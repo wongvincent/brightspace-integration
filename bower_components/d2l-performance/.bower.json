@@ -1,0 +1,24 @@
+{
+  "name": "d2l-performance",
+  "description": "Wrapper and polyfill for browser navigation API performance methods",
+  "main": "d2l-performance.html",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/d2l-performance-ui",
+  "version": "0.0.4",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.4",
+    "commit": "57f60c4f508023561adda601e2c227e3ab2a4c1e"
+  },
+  "_source": "https://github.com/Brightspace/d2l-performance-ui.git",
+  "_target": "0.0.4",
+  "_originalSource": "d2l-performance"
+}

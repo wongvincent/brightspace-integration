@@ -1,0 +1,18 @@
+
+$vui-list-item-backgroundColor-selected: #e8f2fc !default;
+$vui-list-item-backgroundColor-active: #e7e7e7 !default;
+$vui-list-item-backgroundColor-selected-active: #d3e7fa !default;
+$vui-list-separator-color-selected: #f5f5f5 !default;
+
+@mixin vui-list-item-selected() {
+	background-color: $vui-list-item-backgroundColor-selected;
+	border-bottom-color: $vui-list-separator-color-selected;
+}
+
+@mixin vui-list-item-selected-active() {
+	background-color: $vui-list-item-backgroundColor-selected-active;
+}
+
+@mixin vui-list-item-active() {
+	background-color: $vui-list-item-backgroundColor-active;
+}

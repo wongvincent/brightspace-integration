@@ -1,0 +1,15 @@
+{
+  "name": "vui-field",
+  "main": "field.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "package.json",
+    "postcss.config.json"
+  ]
+}

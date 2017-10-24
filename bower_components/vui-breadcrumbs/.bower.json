@@ -1,0 +1,29 @@
+{
+  "name": "vui-breadcrumbs",
+  "main": "breadcrumbs.scss",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "vui-link": "~0.7.0"
+  },
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-breadcrumbs",
+  "version": "0.7.0",
+  "_release": "0.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.0",
+    "commit": "8e225a1cd3cff1fba50083f2913489fb13e2e6b3"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-breadcrumbs.git",
+  "_target": "0.7.0",
+  "_originalSource": "vui-breadcrumbs"
+}

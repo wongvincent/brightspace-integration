@@ -1,0 +1,19 @@
+
+@import 'input';
+
+@mixin vui-input-radio() {
+
+	@include vui-input(
+			$padding: 0,
+			$backgroundColor: transparent,
+			$borderStyle: none,
+			$boxShadow: none,
+			$minHeight: 0,
+			$width: auto
+		);
+
+	&:focus {
+		@include vui-focus-outline();
+	}
+
+}

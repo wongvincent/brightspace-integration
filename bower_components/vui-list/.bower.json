@@ -1,0 +1,26 @@
+{
+  "name": "vui-list",
+  "main": "list.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Brightspace/valence-ui-list",
+  "version": "0.5.0",
+  "_release": "0.5.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.0",
+    "commit": "7a00b324161613e94644e0d6368d74eff77f6b31"
+  },
+  "_source": "https://github.com/Brightspace/valence-ui-list.git",
+  "_target": "0.5.0",
+  "_originalSource": "vui-list"
+}

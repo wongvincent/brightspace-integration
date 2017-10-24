@@ -1,0 +1,66 @@
+
+@import 'input-border';
+@import 'bower_components/vui-focus/focus';
+
+$vui-input-backgroundColor: #ffffff !default;
+$vui-input-backgroundColor-disabled: #f7f7f7 !default;
+$vui-input-boxShadow: 0 1px 1px 0 #f2f2f2 inset !default;
+$vui-input-color: initial !default;
+$vui-input-color-disabled: #666666 !default;
+$vui-input-color-focus: #94ccda !default;
+$vui-input-lineHeight: normal !default;
+$vui-input-padding: 5px !default;
+$vui-input-minHeight: 28px !default;
+
+@mixin vui-input(
+		$color: $vui-input-color,
+		$backgroundColor: $vui-input-backgroundColor,
+		$borderWidth: $vui-input-borderWidth,
+		$borderColor: $vui-input-borderColor,
+		$borderStyle: $vui-input-borderStyle,
+		$borderRadius: $vui-input-borderRadius,
+		$boxShadow: $vui-input-boxShadow,
+		$minHeight: $vui-input-minHeight,
+		$focusColor: $vui-input-color-focus,
+		$disabledColor: $vui-input-color-disabled,
+		$lineHeight: $vui-input-lineHeight,
+		$padding: $vui-input-padding,
+		$width: 100%
+	) {
+
+		@include vui-input-border(
+				$width: $borderWidth,
+				$color: $borderColor,
+				$style: $borderStyle,
+				$radius: $borderRadius
+			);
+
+		background-color: $backgroundColor;
+		box-shadow: $boxShadow;
+		box-sizing: border-box;
+		color: $color;
+		display: inline-block;
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: normal;
+		height: auto;
+		line-height: $lineHeight;
+		margin: 0;
+		min-height: $minHeight;
+		padding: $padding;
+		transition: none;
+		vertical-align: middle;
+		width: $width;
+
+		&:focus {
+			border-color: $focusColor;
+			box-shadow: $boxShadow, 0 0 5px 0 $focusColor;
+			outline-width: 0;
+		}
+
+		&:disabled {
+			background-color: $vui-input-backgroundColor-disabled;
+			color: $disabledColor;
+		}
+
+}
