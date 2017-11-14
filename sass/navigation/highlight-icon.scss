@@ -2,7 +2,7 @@
 
 .d2l-navigation-s-button-highlight {
 	align-items: center;
-	background-color: #ffffff;
+	background-color: transparent; /* DE28200: white bg problems at zoom other than 100% */
 	border: none;
 	color: $d2l-color-ferrite;
 	cursor: pointer;
