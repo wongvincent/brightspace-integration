@@ -25,6 +25,7 @@
     "d2l-scroll-spy": "^0.0.2",
     "d2l-table": "^0.6.8",
     "d2l-typography": "^5.4.0",
+    "fetch": "whatwg-fetch#^2.0.3",
     "jquery-vui-accordion": "^0.3.2",
     "jquery-vui-collapsible-section": "^1.2.1",
     "jquery-vui-change-tracking": "^0.5.4",
