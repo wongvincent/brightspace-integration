@@ -6,7 +6,7 @@
   "scripts": {
     "autoprefix": "postcss -c postcss.config.json",
     "prebuild": "rimraf dist && mkdir dist",
-    "build": "npm run build:js && npm run build:sass && npm run build:icons && npm run build:wc && npm run build:navicons",
+    "build": "npm run build:js && npm run build:sass && npm run build:icons && npm run build:wc && npm run build:navicons && npm run build:email-icons",
     "build:js": "browserify -g uglifyify ./js/index.js > ./dist/bsi.js",
     "postbuild:js": "npm run uglify:js",
     "build:sass": "npm run build:sass:bsi && npm run build:sass:datagrid && npm run build:sass:homepages",
@@ -16,6 +16,7 @@
     "postbuild:sass": "npm run autoprefix && npm run uglify:css",
     "build:icons": "cpy --parents --cwd=bower_components/d2l-icons \"images/**/*.*\" ../../dist",
     "build:navicons": "cpy \"nav-icons/*.*\" dist/images/nav-icons",
+    "build:email-icons": "node build-email-icons.js",
     "prebuild:wc": "rimraf tmp && rimraf tmp-wc",
     "build:wc": "node polymer-build.js",
     "postbuild:wc": "rimraf tmp-wc/bower_components && rimraf tmp-wc/js && rimraf tmp-wc/web-components && npm run uglify:html",
@@ -59,6 +60,7 @@
     "eslint-config-brightspace": "0.2.1",
     "eslint-plugin-react": "^6.2.0",
     "frau-publisher": "^2.5.3",
+    "fs-extra": "^4.0.2",
     "glob": "^7.1.1",
     "html-minifier": "^3.3.0",
     "http-server": "^0.9.0",
@@ -70,6 +72,7 @@
     "rimraf": "^2.5.4",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
+    "svg2png": "^4.1.1",
     "uglify-js": "^2.7.3",
     "uglifyify": "^3.0.2",
     "vinyl-fs": "^2.4.4"
