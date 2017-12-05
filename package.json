@@ -55,7 +55,6 @@
     "chai": "^3.5.0",
     "clean-css": "^3.4.19",
     "cpy-cli": "^1.0.1",
-    "d2l-intl": "^0.3.2",
     "eslint": "^3.4.0",
     "eslint-config-brightspace": "0.2.1",
     "eslint-plugin-react": "^6.2.0",
