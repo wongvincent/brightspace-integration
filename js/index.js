@@ -16,5 +16,4 @@ require('../bower_components/d2l-telemetry/d2l-telemetry.js');
 require('./page-loading/page-loading.js');
 require('./page-loading/timing-debug.js');
 
-window.BSI = window.BSI || {};
-window.BSI.Intl = require('d2l-intl');
+window.d2lIntl = require('d2l-intl');
