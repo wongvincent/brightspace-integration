@@ -96,6 +96,10 @@ $dialog-resize: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.
 	overflow: hidden !important;
 }
 
+.d2l-dialog-flex.d2l-dialog-hidden {
+	display: none;
+}
+
 .d2l-dialog-flex > .d2l-dialog-footer,
 .d2l-dialog-flex > .d2l-dialog-footer-container {
 	align-self: flex-end;
