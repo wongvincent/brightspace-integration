@@ -24,7 +24,7 @@
     "publish:cdn": "frau-publisher -m lib -t bsi -f \"./dist/**/*\" -k AKIAIZGPQIRSA2WEJEDA --secretvar CDN_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
     "serve": "http-server dist --cors",
-    "test": "npm run build && npm run test:unit",
+    "test": "npm run validate-deps && npm run build && npm run test:unit",
     "test:unit": "mocha",
     "uglify:css": "npm run uglify:css:bsi && npm run uglify:css:datagrid && npm run uglify:css:homepages",
     "uglify:css:bsi": "cleancss -s ./dist/bsi.css -o ./dist/bsi.min.css -c",
@@ -33,7 +33,8 @@
     "uglify:html": "./node_modules/.bin/html-minifier -c html-minifier.conf --input-dir tmp-wc --output-dir dist",
     "postuglify:html": "rimraf tmp-wc && npm run jsonpify-imports",
     "uglify:js": "uglifyjs ./dist/bsi.js --compress --mangle -o ./dist/bsi.min.js",
-    "jsonpify-imports": "node jsonp-imports.js \"./dist/*.html\""
+    "jsonpify-imports": "node jsonp-imports.js \"./dist/*.html\"",
+    "validate-deps": "bower-locker validate"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
+    "bower-locker": "^1.0.7",
     "browserify": "^13.1.0",
     "chai": "^3.5.0",
     "clean-css": "^3.4.19",
