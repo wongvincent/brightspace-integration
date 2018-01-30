@@ -75,7 +75,7 @@
     "vui-focus": "https://github.com/Brightspace/valence-ui-focus.git#d092b7aa3c9eff70cbbbfc8567317f31fee4e563",
     "vui-gradient": "https://github.com/Brightspace/valence-ui-gradient.git#3c6a8ce532ffb298b7f303e5097e6a91c1d3f4e0",
     "vui-grid-system": "https://github.com/Brightspace/valence-ui-grid-system.git#0384e87cd068617419d42b3c8a8b6cb773fc507d",
-    "vui-input": "https://github.com/Brightspace/valence-ui-input.git#b489b90ccda718598a5934564ec783347fae7514",
+    "vui-input": "https://github.com/Brightspace/valence-ui-input.git#4a08b66348e4919dc79c31f8cdb55e3f226e0372",
     "vui-list": "https://github.com/Brightspace/valence-ui-list.git#95245dcfc833c1eae49f3d840ba12b6c2674a55a",
     "vui-validation": "https://github.com/Brightspace/valence-ui-validation.git#757daf55e9fad9aacf31dd34ace60c5015ed3225",
     "webcomponentsjs": "https://github.com/webcomponents/webcomponentsjs.git#8a2e40557b177e2cca0def2553f84c8269c8f93e"
@@ -156,13 +156,13 @@
     "vui-focus": "d092b7aa3c9eff70cbbbfc8567317f31fee4e563",
     "vui-gradient": "3c6a8ce532ffb298b7f303e5097e6a91c1d3f4e0",
     "vui-grid-system": "0384e87cd068617419d42b3c8a8b6cb773fc507d",
-    "vui-input": "b489b90ccda718598a5934564ec783347fae7514",
+    "vui-input": "4a08b66348e4919dc79c31f8cdb55e3f226e0372",
     "vui-list": "95245dcfc833c1eae49f3d840ba12b6c2674a55a",
     "vui-validation": "757daf55e9fad9aacf31dd34ace60c5015ed3225",
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-01-30T21:31:07.434Z",
+    "lastUpdated": "2018-01-30T22:34:57.016Z",
     "lockedVersions": {
       "Stickyfill": "1.1.4",
       "app-localize-behavior": "1.0.2",
@@ -238,7 +238,7 @@
       "vui-focus": "0.7.1",
       "vui-gradient": "0.3.2",
       "vui-grid-system": "0.0.2",
-      "vui-input": "2.0.3",
+      "vui-input": "2.0.4",
       "vui-list": "1.1.1",
       "vui-validation": "1.1.2",
       "webcomponentsjs": "0.7.24"
