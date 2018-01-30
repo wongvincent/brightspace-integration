@@ -29,7 +29,6 @@ Trouble | Shooting
 ------------ | -------------
 **build:icons fails:** ```cannot copy from `...'images\**\*.*'` to `...'images\**\*.*'`: cannot read from `...'images\**\*.*'`: ENOENT: no such file or directory, open '...'images\**\*.*''``` | remove single quotes from `package.json`.`scripts`.`build:icons`
 
-
 ## Running Locally
 
 To test against a local Brightspace environment, first start serving the compiled assets:
@@ -49,15 +48,27 @@ To point your Brightspace instance at the local integration project:
 
 The config file will get overwritten during the build.
 
+## bower-locker
+
+This repo uses [bower-locker](https://github.com/infusionsoft/bower-locker) to lock down its Bower. This ensures that any upgrades happen intentionally at a point in time where we're comfortable with the change.
+
+To install a new dependency or update an existing one:
+1. If you haven't already, install `bower-locker` globally using `npm install -g bower-locker`
+2. Unlock `bower.json` by running `bower-locker unlock`
+3. Make changes to `bower.json` manually or via `bower install <component>`
+4. Lock `bower.json` again by running `bower-locker lock`
+5. Inspect the diff to ensure the changes match your expectations
+
 ## Web Components
 
 This project serves as an integration point for our web components and we are using [polymer-build](https://github.com/Polymer/polymer-build) to manage common dependencies between components.
 
 To integrate a new web component into BSI, perform the following steps:
 
-1. Reference your component as a bower dependency using the path to the repository plus a version tag (i.e. `bower install --save https://github.com/Brightspace/my-component.git#1.0.0`)
-2. Add an HTML file (i.e. `d2l-my-component.html`) to the root of this project that references the new bower component. (i.e. `bower_components/my-component/my-component.html`)
-3. Reference the new html file from the fragments list in the `polymer-build.js`
+1. Unlock `bower.json` by following the instructions above for `bower-locker`
+2. Reference your component as a bower dependency using the path to the repository plus a version tag (i.e. `bower install --save https://github.com/Brightspace/my-component.git#1.0.0`)
+3. Add an HTML file (i.e. `d2l-my-component.html`) to the root of this project that references the new bower component. (i.e. `bower_components/my-component/my-component.html`)
+4. Reference the new html file from the fragments list in the `polymer-build.js`
 
 ## Publishing
 
