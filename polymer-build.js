@@ -11,7 +11,8 @@ const project = new PolymerProject({
 		"d2l-my-courses.html",
 		"d2l-simple-overlay.html",
 		"d2l-scroll-spy.html",
-		"d2l-table.html"
+		"d2l-table.html",
+		"d2l-rubric.html"
 	],
 	"sources": []
 });

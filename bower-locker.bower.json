@@ -43,7 +43,8 @@
     "vui-validation": "^1.1.2",
     "d2l-telemetry": "^0.0.9",
     "iron-icon": "PolymerElements/iron-icon#^2.0.1",
-    "iron-iconset-svg": "^2.1.0"
+    "iron-iconset-svg": "^2.1.0",
+    "d2l-rubric": "https://github.com/Brightspace/d2l-rubric.git#0.2.0"
   },
   "private": true,
   "resolutions": {
