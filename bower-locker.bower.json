@@ -11,7 +11,7 @@
     "d2l-fetch-auth": "Brightspace/d2l-fetch-auth#^0.9.0",
     "d2l-fetch-dedupe": "Brightspace/d2l-fetch-dedupe#^0.13.0",
     "d2l-fetch-simple-cache": "Brightspace/d2l-fetch-simple-cache#^0.6.0",
-    "d2l-icons": "^4.6.1",
+    "d2l-icons": "^4.7.0",
     "d2l-image-action": "^1.0.1",
     "d2l-intl-import": "^1.0.0",
     "d2l-link": "^3.5.1",
@@ -43,18 +43,18 @@
     "vui-validation": "^1.1.2",
     "d2l-telemetry": "^0.0.9",
     "iron-icon": "PolymerElements/iron-icon#^2.0.1",
-    "iron-iconset-svg": "^2.1.0",
+    "iron-iconset-svg": "^2.1.1",
     "d2l-rubric": "https://github.com/Brightspace/d2l-rubric.git#0.2.0"
   },
   "private": true,
   "resolutions": {
     "d2l-colors": "^3.1.2",
-    "d2l-icons": "^4.6.1",
+    "d2l-icons": "^4.7.0",
     "d2l-loading-spinner": "^6.0.2",
     "d2l-offscreen": "^3.0.3",
     "d2l-polymer-behaviors": "^1.1.0",
     "d2l-typography": "^6.1.2",
-    "iron-iconset-svg": "^2.1.0",
+    "iron-iconset-svg": "^2.1.1",
     "iron-resizable-behavior": "^2.0.1",
     "webcomponentsjs": "^0.7"
   }
