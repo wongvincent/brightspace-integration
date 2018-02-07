@@ -15,7 +15,7 @@
     "d2l-fetch-simple-cache": "https://github.com/Brightspace/d2l-fetch-simple-cache.git#a7e1b7ae02962639ffcf4af222af540203f35b59",
     "d2l-hierarchical-view": "https://github.com/BrightspaceUI/hierarchical-view.git#91361123e41ced274e617708b203b5faf7551046",
     "d2l-hm-constants-behavior": "https://github.com/Brightspace/d2l-hm-constants-behavior.git#290f1af52e1afee57442160135cf151b3bf036ef",
-    "d2l-icons": "https://github.com/BrightspaceUI/icons.git#9bc4afe28e8fc6c4362d83960f7277634e70df0a",
+    "d2l-icons": "https://github.com/BrightspaceUI/icons.git#5cf00b19c67ead1fefd8488480e56284b89a4c40",
     "d2l-image-action": "https://github.com/BrightspaceUI/image-action.git#e712f2ae5cc103898d66e697e78707f77f488c59",
     "d2l-image-banner-overlay": "https://github.com/Brightspace/d2l-image-banner-overlay.git#5711f6756d58dca31a7d97684f250a91245f889d",
     "d2l-image-selector": "git://github.com/Brightspace/image-selector.git#fcdff8ee1bd4374e3bf339475a3f600ce8d6419c",
@@ -96,7 +96,7 @@
     "d2l-fetch-simple-cache": "a7e1b7ae02962639ffcf4af222af540203f35b59",
     "d2l-hierarchical-view": "91361123e41ced274e617708b203b5faf7551046",
     "d2l-hm-constants-behavior": "290f1af52e1afee57442160135cf151b3bf036ef",
-    "d2l-icons": "9bc4afe28e8fc6c4362d83960f7277634e70df0a",
+    "d2l-icons": "5cf00b19c67ead1fefd8488480e56284b89a4c40",
     "d2l-image-action": "e712f2ae5cc103898d66e697e78707f77f488c59",
     "d2l-image-banner-overlay": "5711f6756d58dca31a7d97684f250a91245f889d",
     "d2l-image-selector": "fcdff8ee1bd4374e3bf339475a3f600ce8d6419c",
@@ -162,7 +162,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-02-06T16:42:25.951Z",
+    "lastUpdated": "2018-02-07T15:22:44.859Z",
     "lockedVersions": {
       "app-localize-behavior": "1.0.2",
       "d2l-alert": "2.0.1",
@@ -178,7 +178,7 @@
       "d2l-fetch-simple-cache": "0.6.0",
       "d2l-hierarchical-view": "0.1.4",
       "d2l-hm-constants-behavior": "3.3.0",
-      "d2l-icons": "4.7.0",
+      "d2l-icons": "4.8.0",
       "d2l-image-action": "1.0.1",
       "d2l-image-banner-overlay": "2.3.2",
       "d2l-image-selector": "2.4.0",
