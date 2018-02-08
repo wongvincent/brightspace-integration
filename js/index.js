@@ -1,14 +1,19 @@
 'use strict';
 
+import './event.polyfill.js';
+import Lie from 'lie';
+if (typeof Promise === 'undefined') {
+	window.Promise = Lie;
+}
+
 window.D2L = window.D2L || {};
 
-require('../node_modules/lie/dist/lie.polyfill.min.js');
-require('./event.polyfill.js');
-require('../bower_components/jquery-vui-accordion/accordion.js');
-require('../bower_components/jquery-vui-change-tracking/changeTracker.js');
-require('../bower_components/jquery-vui-change-tracking/changeTracking.js');
-require('../bower_components/jquery-vui-collapsible-section/collapsibleSection.js');
-require('../bower_components/jquery-vui-more-less/moreLess.js');
-require('../bower_components/jquery-vui-scrollspy/scroll-spy.js');
+import D2LIntl from 'd2l-intl';
+window.d2lIntl = D2LIntl;
 
-window.d2lIntl = require('d2l-intl');
+import '../bower_components/jquery-vui-accordion/accordion.js';
+import '../bower_components/jquery-vui-change-tracking/changeTracker.js';
+import '../bower_components/jquery-vui-change-tracking/changeTracking.js';
+import '../bower_components/jquery-vui-collapsible-section/collapsibleSection.js';
+import '../bower_components/jquery-vui-more-less/moreLess.js';
+import '../bower_components/jquery-vui-scrollspy/scroll-spy.js';
