@@ -61,7 +61,6 @@
     "jquery-vui-accordion": "https://github.com/Brightspace/jquery-valence-ui-accordion.git#32324573b2ad135409cd24b0a5336956539b3469",
     "jquery-vui-change-tracking": "https://github.com/Brightspace/jquery-valence-ui-change-tracking.git#c558628c28517188da5a770566e9f3e7d9b98ca7",
     "jquery-vui-collapsible-section": "https://github.com/Brightspace/jquery-valence-ui-collapsible-section.git#73c304555f5358192e98f8b687b007c04427ab88",
-    "jquery-vui-more-less": "https://github.com/Brightspace/jquery-valence-ui-more-less.git#86e441f2417372f3d7d75676e2c5ae35cf177390",
     "jquery-vui-scrollspy": "https://github.com/Brightspace/jquery-valence-ui-scrollspy.git#0f19e12435f0ae80ffadba5b57621e8b052977db",
     "polymer": "https://github.com/Polymer/polymer.git#1dcf3839b3ce058d2d87737674a25ecdd7343f9a",
     "promise-polyfill": "https://github.com/polymerlabs/promise-polyfill.git#263b98bcc9b746a8852bf57ce1500c71222680b9",
@@ -142,7 +141,6 @@
     "jquery-vui-accordion": "32324573b2ad135409cd24b0a5336956539b3469",
     "jquery-vui-change-tracking": "c558628c28517188da5a770566e9f3e7d9b98ca7",
     "jquery-vui-collapsible-section": "73c304555f5358192e98f8b687b007c04427ab88",
-    "jquery-vui-more-less": "86e441f2417372f3d7d75676e2c5ae35cf177390",
     "jquery-vui-scrollspy": "0f19e12435f0ae80ffadba5b57621e8b052977db",
     "polymer": "1dcf3839b3ce058d2d87737674a25ecdd7343f9a",
     "promise-polyfill": "263b98bcc9b746a8852bf57ce1500c71222680b9",
@@ -162,7 +160,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-02-08T19:36:39.144Z",
+    "lastUpdated": "2018-02-08T19:50:16.752Z",
     "lockedVersions": {
       "app-localize-behavior": "1.0.2",
       "d2l-alert": "2.0.1",
@@ -224,7 +222,6 @@
       "jquery-vui-accordion": "0.3.2",
       "jquery-vui-change-tracking": "0.5.4",
       "jquery-vui-collapsible-section": "1.2.1",
-      "jquery-vui-more-less": "1.2.1",
       "jquery-vui-scrollspy": "0.2.0",
       "polymer": "1.11.2",
       "promise-polyfill": "1.0.1",
