@@ -50,3 +50,32 @@
 .d2l-navigation-s-personal-menu d2l-dropdown-content {
 	line-height: 1.5rem;
 }
+
+.d2l-navigation-s-personal-menu-icon {
+    background-color: $d2l-color-carnelian;
+    border-radius: 8px;
+    display: inline-flex;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    height: 42px;
+    justify-content: center;
+    width: 42px;
+}
+
+.d2l-navigation-s-personal-menu-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+[dir='rtl'] .d2l-navigation-s-personal-menu-text-wrapper {
+	text-align: right;
+}
+
+.d2l-navigation-s-personal-menu-text-bold {
+	font-weight: bold;
+}
+
+.d2l-navigation-s-personal-menu-description {
+	font-size: 12px;
+	margin-top: 5px;
+}
