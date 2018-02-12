@@ -38,6 +38,18 @@ To point your Brightspace instance at the local integration project:
 
 The config file will get overwritten during the build.
 
+## bower-locker
+
+This repo uses [bower-locker](https://github.com/infusionsoft/bower-locker) to lock down its Bower. This ensures that any upgrades happen intentionally at a point in time where we're comfortable with the change.
+
+To install a new dependency or update an existing one:
+1. If you haven't already, install `bower-locker` globally using `npm install -g bower-locker`
+2. Unlock `bower.json` by running `bower-locker unlock`
+3. Make changes to `bower.json` manually or via `bower install <component>`
+4. Update dependencies in `bower_components` via `bower update` or by removing the directory and doing a fresh `bower install`
+5. Lock `bower.json` again by running `bower-locker lock`
+6. Inspect the diff to ensure the changes match your expectations
+
 ## Publishing
 
 The project assets (`dist` directory) will be automatically published to the Brightspace CDN by its [Travis CI job](https://travis-ci.org/Brightspace/brightspace-integration) after each successful build of a tagged commit.
