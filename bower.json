@@ -18,7 +18,7 @@
     "d2l-hm-constants-behavior": "git://github.com/Brightspace/d2l-hm-constants-behavior.git#861e2c980c3dcbe866ffd05bddb3ef80ec930147",
     "d2l-icons": "https://github.com/BrightspaceUI/icons.git#ffa72f53a3a34a403ba02808f20bbfb391abe18e",
     "d2l-image-action": "https://github.com/BrightspaceUI/image-action.git#7a59e497bc2503c68cb114018a5baed4b3ac358b",
-    "d2l-image-banner-overlay": "https://github.com/Brightspace/d2l-image-banner-overlay.git#b2900c16bc033bfa0683c7f674b1a4215d642c84",
+    "d2l-image-banner-overlay": "https://github.com/Brightspace/d2l-image-banner-overlay.git#67319f44a87308ca28b9f53cca4695289ab8ceca",
     "d2l-image-selector": "git://github.com/Brightspace/image-selector.git#bbe7b5816861420b8b144c563e9ddc09751154e8",
     "d2l-intersection-observer-polyfill-import": "https://github.com/Brightspace/intersection-observer-polyfill-import.git#ac06d07a3066e5f517ec888ed3497cee3d4b4f9a",
     "d2l-intl-import": "https://github.com/Brightspace/d2l-intl-import.git#b92631bd054615e91390ccedbcf0e857e77cab4c",
@@ -99,7 +99,7 @@
     "d2l-hm-constants-behavior": "861e2c980c3dcbe866ffd05bddb3ef80ec930147",
     "d2l-icons": "ffa72f53a3a34a403ba02808f20bbfb391abe18e",
     "d2l-image-action": "7a59e497bc2503c68cb114018a5baed4b3ac358b",
-    "d2l-image-banner-overlay": "b2900c16bc033bfa0683c7f674b1a4215d642c84",
+    "d2l-image-banner-overlay": "67319f44a87308ca28b9f53cca4695289ab8ceca",
     "d2l-image-selector": "bbe7b5816861420b8b144c563e9ddc09751154e8",
     "d2l-intersection-observer-polyfill-import": "ac06d07a3066e5f517ec888ed3497cee3d4b4f9a",
     "d2l-intl-import": "b92631bd054615e91390ccedbcf0e857e77cab4c",
@@ -162,7 +162,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-02-15T20:31:16.941Z",
+    "lastUpdated": "2018-02-15T22:40:13.400Z",
     "lockedVersions": {
       "app-localize-behavior": "2.0.1",
       "d2l-alert": "3.0.1",
@@ -181,7 +181,7 @@
       "d2l-hm-constants-behavior": "5.2.0",
       "d2l-icons": "4.9.0",
       "d2l-image-action": "2.0.1",
-      "d2l-image-banner-overlay": "3.1.0",
+      "d2l-image-banner-overlay": "3.1.1",
       "d2l-image-selector": "3.0.1",
       "d2l-intersection-observer-polyfill-import": "1.0.0",
       "d2l-intl-import": "1.0.0",
