@@ -37,7 +37,6 @@
     "d2l-search-widget": "git://github.com/Brightspace/d2l-search-widget-ui.git#4829536ff872f8625ebce21d299356b182752edb",
     "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#f989d61664af4460373c400cd55faa60c54521b1",
     "d2l-table": "https://github.com/BrightspaceUI/table.git#43e86ba08e9ecdf8935e8cc1e21bcd84cc7467bc",
-    "d2l-telemetry": "https://github.com/Brightspace/d2l-telemetry.git#9ed1c93b847ee003650d2aba0252dbfdf904b873",
     "d2l-tile": "https://github.com/BrightspaceUI/tile.git#655166e077fa0bd334f6031d805fbb998dabfb45",
     "d2l-typography": "https://github.com/BrightspaceUI/typography.git#e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
     "fetch": "https://github.com/github/fetch.git#7e7e5c5b535fdc4abb245382307c8056c1907ecf",
@@ -118,7 +117,6 @@
     "d2l-search-widget": "4829536ff872f8625ebce21d299356b182752edb",
     "d2l-simple-overlay": "f989d61664af4460373c400cd55faa60c54521b1",
     "d2l-table": "43e86ba08e9ecdf8935e8cc1e21bcd84cc7467bc",
-    "d2l-telemetry": "9ed1c93b847ee003650d2aba0252dbfdf904b873",
     "d2l-tile": "655166e077fa0bd334f6031d805fbb998dabfb45",
     "d2l-typography": "e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
     "fetch": "7e7e5c5b535fdc4abb245382307c8056c1907ecf",
@@ -162,7 +160,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-02-16T21:48:46.471Z",
+    "lastUpdated": "2018-02-23T16:14:16.587Z",
     "lockedVersions": {
       "Stickyfill": "1.1.4",
       "app-localize-behavior": "2.0.1",
@@ -200,7 +198,6 @@
       "d2l-search-widget": "3.0.3",
       "d2l-simple-overlay": "2.1.0",
       "d2l-table": "1.2.0",
-      "d2l-telemetry": "0.0.9",
       "d2l-tile": "3.0.3",
       "d2l-typography": "6.1.2",
       "fetch": "2.0.3",
