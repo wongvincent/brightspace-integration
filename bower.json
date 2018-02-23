@@ -8,7 +8,6 @@
     "d2l-performance": "https://github.com/Brightspace/d2l-performance-ui.git#57f60c4f508023561adda601e2c227e3ab2a4c1e",
     "d2l-polymer-behaviors": "https://github.com/Brightspace/d2l-polymer-behaviors-ui.git#ca03a7cc3267feb5e3e10cd413bfa9cbbb09f95f",
     "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#4b6376b578344c2a3be58d3d17f8895ab86d32a8",
-    "d2l-telemetry": "https://github.com/Brightspace/d2l-telemetry.git#9ed1c93b847ee003650d2aba0252dbfdf904b873",
     "d2l-typography": "https://github.com/BrightspaceUI/typography.git#e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
     "iron-a11y-keys-behavior": "https://github.com/PolymerElements/iron-a11y-keys-behavior.git#a3f03fc3fb5a0d8e93eaa33c2b6c02c16098b402",
     "iron-fit-behavior": "https://github.com/PolymerElements/iron-fit-behavior.git#d112c1c0c4fb6ac7a848c8a5712d9a9021242bdb",
@@ -46,7 +45,6 @@
     "d2l-performance": "57f60c4f508023561adda601e2c227e3ab2a4c1e",
     "d2l-polymer-behaviors": "ca03a7cc3267feb5e3e10cd413bfa9cbbb09f95f",
     "d2l-simple-overlay": "4b6376b578344c2a3be58d3d17f8895ab86d32a8",
-    "d2l-telemetry": "9ed1c93b847ee003650d2aba0252dbfdf904b873",
     "d2l-typography": "e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
     "iron-a11y-keys-behavior": "a3f03fc3fb5a0d8e93eaa33c2b6c02c16098b402",
     "iron-fit-behavior": "d112c1c0c4fb6ac7a848c8a5712d9a9021242bdb",
@@ -76,7 +74,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-02-13T23:00:51.167Z",
+    "lastUpdated": "2018-02-23T16:29:34.071Z",
     "lockedVersions": {
       "d2l-colors": "3.1.2",
       "d2l-fastdom-import": "1.0.2",
@@ -85,7 +83,6 @@
       "d2l-performance": "0.0.4",
       "d2l-polymer-behaviors": "1.2.0",
       "d2l-simple-overlay": "2.0.0",
-      "d2l-telemetry": "0.0.9",
       "d2l-typography": "6.1.2",
       "iron-a11y-keys-behavior": "2.0.1",
       "iron-fit-behavior": "2.1.0",
