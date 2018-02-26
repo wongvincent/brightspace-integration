@@ -48,6 +48,12 @@ To point your Brightspace instance at the local integration project:
 
 The config file will get overwritten during the build.
 
+## NPM and Bower Dependency Locking
+
+We use lock files to lock both our NPM and Bower dependencies. This ensures we only pick up changes to dependencies when we explicitly ask for them and are prepared to test them.
+
+### Bower Locking
+
 To install a new dependency or update an existing one:
 1. If you haven't already, install `bower-locker` globally using `npm install -g bower-locker`
 2. Unlock `bower.json` by running `bower-locker unlock`
@@ -55,6 +61,14 @@ To install a new dependency or update an existing one:
 4. Update dependencies in `bower_components` via `bower update` or by removing the directory and doing a fresh `bower install`
 5. Lock `bower.json` again by running `bower-locker lock`
 6. Inspect the diff to ensure the changes match your expectations
+
+[Read more in the `bower-locker` documentation...](https://github.com/infusionsoft/bower-locker)
+
+### NPM Locking
+
+Any command that would normally add or update `package.json` will also update `package-lock.json` -- `npm install`, `npm update` etc. Just be cognizant of the changes you're making.
+
+[Read more in the `package-lock` documentation...](https://docs.npmjs.com/files/package-locks)
 
 ## Web Components
 
