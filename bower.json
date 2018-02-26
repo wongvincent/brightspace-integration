@@ -17,7 +17,7 @@
     "d2l-fetch-siren-entity-behavior": "https://github.com/Brightspace/d2l-fetch-siren-entity-behavior.git#425c1328d098af5442310820a233b211f26ae1f4",
     "d2l-hierarchical-view": "https://github.com/BrightspaceUI/hierarchical-view.git#345e6a50e9f9dd7d4f783908329686a7b35b378c",
     "d2l-hm-constants-behavior": "git://github.com/Brightspace/d2l-hm-constants-behavior.git#861e2c980c3dcbe866ffd05bddb3ef80ec930147",
-    "d2l-icons": "https://github.com/BrightspaceUI/icons.git#ffa72f53a3a34a403ba02808f20bbfb391abe18e",
+    "d2l-icons": "https://github.com/BrightspaceUI/icons.git#7ee486ffca0c8b81ec9f048ababc96e6fb16fdc3",
     "d2l-image-action": "https://github.com/BrightspaceUI/image-action.git#7f22fe7d104d9efbb1341baa84f182dc15bbd755",
     "d2l-image-banner-overlay": "https://github.com/Brightspace/d2l-image-banner-overlay.git#376cdb6603b87a1b52b462c93aa83b1123d11221",
     "d2l-image-selector": "git://github.com/Brightspace/image-selector.git#bbe7b5816861420b8b144c563e9ddc09751154e8",
@@ -97,7 +97,7 @@
     "d2l-fetch-siren-entity-behavior": "425c1328d098af5442310820a233b211f26ae1f4",
     "d2l-hierarchical-view": "345e6a50e9f9dd7d4f783908329686a7b35b378c",
     "d2l-hm-constants-behavior": "861e2c980c3dcbe866ffd05bddb3ef80ec930147",
-    "d2l-icons": "ffa72f53a3a34a403ba02808f20bbfb391abe18e",
+    "d2l-icons": "7ee486ffca0c8b81ec9f048ababc96e6fb16fdc3",
     "d2l-image-action": "7f22fe7d104d9efbb1341baa84f182dc15bbd755",
     "d2l-image-banner-overlay": "376cdb6603b87a1b52b462c93aa83b1123d11221",
     "d2l-image-selector": "bbe7b5816861420b8b144c563e9ddc09751154e8",
@@ -160,7 +160,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-02-26T15:41:28.659Z",
+    "lastUpdated": "2018-02-26T20:22:50.368Z",
     "lockedVersions": {
       "Stickyfill": "1.1.4",
       "app-localize-behavior": "2.0.1",
@@ -178,7 +178,7 @@
       "d2l-fetch-siren-entity-behavior": "4.0.2",
       "d2l-hierarchical-view": "1.0.2",
       "d2l-hm-constants-behavior": "5.2.0",
-      "d2l-icons": "4.9.0",
+      "d2l-icons": "4.10.0",
       "d2l-image-action": "2.0.2",
       "d2l-image-banner-overlay": "3.1.2",
       "d2l-image-selector": "3.0.1",
