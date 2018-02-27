@@ -27,15 +27,10 @@
 		D2L.FastDom.mutate(function() {
 
 			var timingNode = document.createElement('div');
-			if (e.detail.value.entryType === 'paint') {
-				timingNode.appendChild(
-					document.createTextNode(e.detail.value.name + ': ' + Math.floor(e.detail.value.startTime))
-				);
-			} else {
-				timingNode.appendChild(
-					document.createTextNode(e.detail.value.name + ': ' + Math.floor(e.detail.value.duration))
-				);
-			}
+			var value = (e.detail.value.entryType === 'paint') ? e.detail.value.startTime : e.detail.value.duration;
+			timingNode.appendChild(
+				document.createTextNode(e.detail.value.name + ': ' + Math.floor(value))
+			);
 
 			var div = document.querySelector('.d2l-page-timing');
 			if (div === null) {

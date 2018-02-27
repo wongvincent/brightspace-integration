@@ -10,7 +10,7 @@
 		pageLoadedFired = false,
 		measured = false;
 
-	function sendPerformanceMeasure(name, measure) {
+	function dispatchPerformanceMeasureEvent(name, measure) {
 		document.dispatchEvent(new CustomEvent('d2l-performance-measure', {
 			bubbles: true,
 			detail: { name: name, value: measure }
@@ -22,7 +22,7 @@
 		// following should be replaced with PerformanceObserver when IE/Edge support it
 		var measure = window.performance.getEntriesByName(name, 'measure');
 		if (measure.length === 1 && fireEvent) {
-			sendPerformanceMeasure(name, measure[0]);
+			dispatchPerformanceMeasureEvent(name, measure[0]);
 		}
 	}
 
@@ -67,11 +67,11 @@
 	}
 
 	if ('PerformanceObserver' in window) {
-		var observer = new window.PerformanceObserver(function(observerList) {
+		var observer = new PerformanceObserver(function(observerList) {
 			var paintMetrics = observerList.getEntries();
 			if (paintMetrics !== undefined && paintMetrics.length > 0) {
 				paintMetrics.forEach(function(paintMetric) {
-					sendPerformanceMeasure('d2l.page.' + paintMetric.name, paintMetric);
+					dispatchPerformanceMeasureEvent('d2l.page.' + paintMetric.name, paintMetric);
 				});
 			}
 		});
@@ -80,8 +80,7 @@
 			observer.observe({
 				entryTypes: ['paint']
 			});
-		}
-		catch (e) {
+		} catch (e) {
 			// Need to surround this in a try-catch for browsers that have not implemented the paint entryType
 		}
 	}

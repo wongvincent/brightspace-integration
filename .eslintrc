@@ -10,6 +10,7 @@
   },
   "globals": {
     "D2L": true,
-    "fastdom": true
+    "fastdom": true,
+    "PerformanceObserver": true
   }
 }
