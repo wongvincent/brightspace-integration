@@ -20,8 +20,7 @@
     "vui-link": "~0.7.1",
     "vui-list": "~0.5.0",
     "vui-offscreen": "~0.3.0",
-    "vui-typography": "~0.6.0",
-    "d2l-performance": "~0.0.4"
+    "vui-typography": "~0.6.0"
   },
   "private": true,
   "resolutions": {

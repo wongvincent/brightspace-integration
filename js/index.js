@@ -5,7 +5,6 @@ window.D2L = window.D2L || {};
 require('../node_modules/lie/dist/lie.polyfill.min.js');
 require('./event.polyfill.js');
 window.D2L.FastDom = require('./d2l-fastdom.js');
-require('../bower_components/d2l-performance/d2l-performance.js');
 require('../bower_components/jquery-vui-accordion/accordion.js');
 require('../bower_components/jquery-vui-change-tracking/changeTracker.js');
 require('../bower_components/jquery-vui-change-tracking/changeTracking.js');
