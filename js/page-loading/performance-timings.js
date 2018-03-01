@@ -27,6 +27,7 @@
 	}
 
 	function wcReady() {
+		if (wcReadyFired) return;
 		wcReadyFired = true;
 		window.performance.mark('webComponentsReady');
 		tryMeasure();
@@ -46,7 +47,8 @@
 		measure('d2l.page.load', 'fetchStart', 'loadEventStart', false);
 		measure('d2l.page.server', 'requestStart', 'responseStart', false);
 		measure('d2l.page.download', 'responseStart', 'responseEnd', false);
-		measure('d2l.page.webComponentsReady', 'responseEnd', 'webComponentsReady', true);
+		measure('d2l.page.timeToClient', 'navigationStart', 'responseEnd', true);
+		measure('d2l.page.webComponentsReady', 'navigationStart', 'webComponentsReady', true);
 	}
 
 	if (document.readyState === 'complete') {
