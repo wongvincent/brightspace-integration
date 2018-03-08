@@ -32,7 +32,7 @@
     "vui-list": "https://github.com/Brightspace/valence-ui-list.git#7a00b324161613e94644e0d6368d74eff77f6b31",
     "vui-offscreen": "https://github.com/Brightspace/valence-ui-offscreen.git#438d2655295ff6446fde21f053621fd12ab18964",
     "vui-typography": "https://github.com/Brightspace/valence-ui-typography.git#0848e6fc24f44cc7da4737137996d173954cdcdf",
-    "webcomponentsjs": "https://github.com/webcomponents/webcomponentsjs.git#8a2e40557b177e2cca0def2553f84c8269c8f93e"
+    "webcomponentsjs": "https://github.com/webcomponents/webcomponentsjs.git#b4610f64e53179e317147901e4daf7813e908444"
   },
   "private": true,
   "resolutions": {
@@ -67,7 +67,7 @@
     "vui-list": "7a00b324161613e94644e0d6368d74eff77f6b31",
     "vui-offscreen": "438d2655295ff6446fde21f053621fd12ab18964",
     "vui-typography": "0848e6fc24f44cc7da4737137996d173954cdcdf",
-    "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
+    "webcomponentsjs": "b4610f64e53179e317147901e4daf7813e908444"
   },
   "bowerLocker": {
     "lastUpdated": "2018-04-04T16:07:23.872Z",
@@ -89,7 +89,7 @@
       "jquery-vui-collapsible-section": "0.5.0",
       "jquery-vui-more-less": "0.3.0",
       "jquery-vui-scrollspy": "0.2.0",
-      "polymer": "1.11.3",
+      "polymer": "2.5.0",
       "shadycss": "1.1.2",
       "vui-breadcrumbs": "0.7.0",
       "vui-button": "0.7.5",
@@ -103,7 +103,7 @@
       "vui-list": "0.5.0",
       "vui-offscreen": "0.3.0",
       "vui-typography": "0.6.0",
-      "webcomponentsjs": "0.7.24"
+      "webcomponentsjs": "1.1.0"
     }
   }
 }

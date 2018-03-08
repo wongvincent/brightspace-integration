@@ -7,7 +7,7 @@
     "jquery-vui-change-tracking": "~0.4.0",
     "jquery-vui-more-less": "~0.3.0",
     "jquery-vui-scrollspy": "~0.2.0",
-    "polymer": "^1.11.2",
+    "polymer": "^2.5.0",
     "shadycss": "^1.1.1",
     "vui-breadcrumbs": "~0.7.0",
     "vui-button": "~0.7.5",
@@ -24,6 +24,7 @@
   "private": true,
   "resolutions": {
     "d2l-colors": "^3.1.2",
-    "webcomponentsjs": "^0.7.24"
+    "polymer": "^2.5.0",
+    "webcomponentsjs": "^1.0"
   }
 }
