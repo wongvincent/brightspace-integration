@@ -7,7 +7,7 @@
     "autoprefix": "postcss -c postcss.config.json",
     "prebuild": "rimraf dist && mkdir dist",
     "build": "npm run build:js && npm run build:sass && npm run build:icons && npm run build:wc && npm run build:navicons && npm run build:email-icons",
-    "build:js": "browserify -g uglifyify ./js/index.js > ./dist/bsi.js",
+    "build:js": "rollup -co ./dist/bsi.js -- ./js/index.js",
     "postbuild:js": "npm run uglify:js",
     "build:sass": "npm run build:sass:bsi && npm run build:sass:datagrid && npm run build:sass:homepages",
     "build:sass:bsi": "node-sass --output-style expanded ./sass/bsi.scss ./dist/bsi.css",
@@ -32,7 +32,7 @@
     "uglify:css:homepages": "cleancss -s ./dist/homepages.css -o ./dist/homepages.min.css",
     "uglify:html": "./node_modules/.bin/html-minifier -c html-minifier.conf --input-dir tmp-wc --output-dir dist",
     "postuglify:html": "rimraf tmp-wc && npm run jsonpify-imports",
-    "uglify:js": "uglifyjs ./dist/bsi.js --compress --mangle -o ./dist/bsi.min.js",
+    "uglify:js": "uglifyjs ./dist/bsi.js --compress --mangle --source-map \"content='dist/bsi.js.map',url='bsi.min.js.map'\" -o ./dist/bsi.min.js",
     "jsonpify-imports": "node jsonp-imports.js \"./dist/*.html\"",
     "validate-deps": "bower-locker validate"
   },
@@ -53,7 +53,6 @@
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "bower-locker": "^1.0.7",
-    "browserify": "^13.1.0",
     "chai": "^3.5.0",
     "clean-css": "^3.4.19",
     "cpy-cli": "^1.0.1",
@@ -71,11 +70,14 @@
     "polymer-build": "^0.9.1",
     "postcss-cli": "^2.6.0",
     "rimraf": "^2.5.4",
+    "rollup": "^0.56.5",
+    "rollup-plugin-commonjs": "^9.0.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "svg2png": "^4.1.1",
-    "uglify-js": "^2.7.3",
-    "uglifyify": "^3.0.2",
+    "uglify-js": "^3.3.14",
     "vinyl-fs": "^2.4.4"
   }
 }
