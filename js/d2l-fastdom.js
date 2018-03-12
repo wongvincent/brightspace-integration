@@ -1,5 +1,3 @@
-'use strict';
-
 var index = 0;
 var idMap = {};
 var wcrFired = false;
