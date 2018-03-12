@@ -12,6 +12,7 @@ export default {
 	],
 	output: {
 		format: 'iife',
-		name: 'BSI'
+		name: 'BSI',
+		sourcemap: true
 	}
 };
