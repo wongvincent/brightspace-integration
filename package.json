@@ -64,7 +64,7 @@
     "rollup-plugin-commonjs": "^9.0.0",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "uglify-js": "^2.7.3",
+    "uglify-js": "^3.3.14",
     "vinyl-fs": "^2.4.4"
   }
 }
