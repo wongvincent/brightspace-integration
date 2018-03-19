@@ -15,7 +15,7 @@ The first time you build, install dependencies:
 npm install
 ```
 
-Rebuild assets to the `dist` directory:
+Rebuild assets to the `build` directory:
 
 ```shell
 npm run build
@@ -37,7 +37,7 @@ To test against a local Brightspace environment, first start serving the compile
 npm run serve
 ```
 
-This will run a web server on port `8080` pointing at the `dist` directory. You'll need to manually rebuild if any of the assets change.
+This will run a web server on port `8080` pointing at the `build` directory. You'll need to manually rebuild if any of the assets change.
 
 To point your Brightspace instance at the local integration project:
 
@@ -72,7 +72,7 @@ Any command that would normally add or update `package.json` will also update `p
 
 ## Web Components
 
-This project serves as an integration point for our web components and we are using [polymer-build](https://github.com/Polymer/polymer-build) to manage common dependencies between components.
+This project serves as an integration point for our web components and we are using [Polymer CLI's](https://www.polymer-project.org/2.0/toolbox/build-for-production) `build` command to manage common dependencies between components and generate web component bundles.
 
 To integrate a new web component into BSI, perform the following steps:
 
@@ -83,7 +83,7 @@ To integrate a new web component into BSI, perform the following steps:
 
 ## Publishing
 
-The project assets (`dist` directory) will be automatically published to the Brightspace CDN by its [Travis CI job](https://travis-ci.org/Brightspace/brightspace-integration) after each successful build of a tagged commit.
+The project assets (`build` directory) will be automatically published to the Brightspace CDN by its [Travis CI job](https://travis-ci.org/Brightspace/brightspace-integration) after each successful build of a tagged commit.
 
 The publish location will be: `https://s.brightspace.com/lib/bsi/{version}/`
 
