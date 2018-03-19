@@ -16,7 +16,7 @@ const svg2png = require("svg2png");
 	fs.readFile(`bower_components/d2l-icons/images/${filePath}.svg`)
 		.then(svg2png)
 		.then(buffer => imagemin.buffer(buffer, { use: [optipng({ opimizationLevel: 7 })] }))
-		.then(buffer => fs.outputFile(`dist/images/email-icons/${filePath}.png`, buffer))
+		.then(buffer => fs.outputFile(`build/images/email-icons/${filePath}.png`, buffer))
 		.catch(e => {
 			console.error(e);
 			process.exit(1);
