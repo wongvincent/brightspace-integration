@@ -79,7 +79,7 @@ To integrate a new web component into BSI, perform the following steps:
 1. Unlock `bower.json` by following the instructions above for `bower-locker`
 2. Reference your component as a bower dependency using the path to the repository plus a version tag (i.e. `bower install --save https://github.com/Brightspace/my-component.git#1.0.0`)
 3. Add an HTML file (i.e. `d2l-my-component.html`) to the root of this project that references the new bower component. (i.e. `bower_components/my-component/my-component.html`)
-4. Reference the new html file from the fragments list in the `polymer-build.js`
+4. Reference the new html file from the fragments list in  `polymer.json`
 
 ## Publishing
 
