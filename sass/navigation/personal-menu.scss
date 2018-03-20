@@ -52,6 +52,7 @@
 }
 
 .d2l-navigation-s-personal-menu-icon {
+    align-items: center;
     background-color: $d2l-color-carnelian;
     border-radius: 8px;
     display: inline-flex;
@@ -60,6 +61,11 @@
     height: 42px;
     justify-content: center;
     width: 42px;
+}
+
+.d2l-navigation-s-personal-menu-icon img {
+	height: 24px;
+	width: 24px;
 }
 
 .d2l-navigation-s-personal-menu-text-wrapper {
