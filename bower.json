@@ -1,7 +1,6 @@
 {
   "name": "brightspace-integration",
   "dependencies": {
-    "Stickyfill": "https://github.com/wilddeer/stickyfill.git#ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "https://github.com/PolymerElements/app-localize-behavior.git#1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "https://github.com/BrightspaceUI/alert.git#bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "https://github.com/BrightspaceUI/button.git#ec051badc534f4eed0b568070ba4151950d5b59e",
@@ -35,7 +34,7 @@
     "d2l-rubric": "https://github.com/Brightspace/d2l-rubric.git#198e03f16de6aad87704774210c858144ea951b0",
     "d2l-scroll-spy": "https://github.com/BrightspaceUI/scroll-spy.git#1163917d64637971ac6d3c8e16ca31c1350c269d",
     "d2l-search-widget": "git://github.com/Brightspace/d2l-search-widget-ui.git#4829536ff872f8625ebce21d299356b182752edb",
-    "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#f048585365e0c53d96f66c28f226d73fd40548af",
+    "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#fb312342cd3453cb33dabdea34d4dce908a14bb7",
     "d2l-table": "https://github.com/BrightspaceUI/table.git#f5bc9caaee6e15292044e650572ddc7f2717b4ec",
     "d2l-tile": "https://github.com/BrightspaceUI/tile.git#6a79e76fcbc1b9eecdfd920629da335b36d5c903",
     "d2l-typography": "https://github.com/BrightspaceUI/typography.git#e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
@@ -67,6 +66,7 @@
     "polymer": "https://github.com/Polymer/polymer.git#937021964c80c55ed3a2218d830b2520f8195d43",
     "shadycss": "https://github.com/webcomponents/shadycss.git#de07897166484a04d16740d176cd8e7e5fafe639",
     "siren-parser-import": "https://github.com/Brightspace/siren-parser-import.git#71c9045600f0a399b45bff09fd1dda93160e04db",
+    "Stickyfill": "https://github.com/wilddeer/stickyfill.git#ec3a2ba7466515c7863eb108282ad18b10543a15",
     "susy": "https://github.com/ericam/susy.git#edcded39bf4626b072d7768b70b26a9dfee02d17",
     "vui-breadcrumbs": "https://github.com/Brightspace/valence-ui-breadcrumbs.git#1a0c1af6745a73b601597eb0d965df9c329bbc12",
     "vui-dropdown": "https://github.com/Brightspace/valence-ui-dropdown.git#5c50e4d8ae2d19b33514c477c20812f2264837f0",
@@ -81,7 +81,6 @@
   },
   "private": true,
   "resolutions": {
-    "Stickyfill": "ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "ec051badc534f4eed0b568070ba4151950d5b59e",
@@ -115,7 +114,7 @@
     "d2l-rubric": "198e03f16de6aad87704774210c858144ea951b0",
     "d2l-scroll-spy": "1163917d64637971ac6d3c8e16ca31c1350c269d",
     "d2l-search-widget": "4829536ff872f8625ebce21d299356b182752edb",
-    "d2l-simple-overlay": "f048585365e0c53d96f66c28f226d73fd40548af",
+    "d2l-simple-overlay": "fb312342cd3453cb33dabdea34d4dce908a14bb7",
     "d2l-table": "f5bc9caaee6e15292044e650572ddc7f2717b4ec",
     "d2l-tile": "6a79e76fcbc1b9eecdfd920629da335b36d5c903",
     "d2l-typography": "e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
@@ -147,6 +146,7 @@
     "polymer": "937021964c80c55ed3a2218d830b2520f8195d43",
     "shadycss": "de07897166484a04d16740d176cd8e7e5fafe639",
     "siren-parser-import": "71c9045600f0a399b45bff09fd1dda93160e04db",
+    "Stickyfill": "ec3a2ba7466515c7863eb108282ad18b10543a15",
     "susy": "edcded39bf4626b072d7768b70b26a9dfee02d17",
     "vui-breadcrumbs": "1a0c1af6745a73b601597eb0d965df9c329bbc12",
     "vui-dropdown": "5c50e4d8ae2d19b33514c477c20812f2264837f0",
@@ -160,9 +160,8 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-03-16T17:13:05.764Z",
+    "lastUpdated": "2018-03-20T19:45:40.069Z",
     "lockedVersions": {
-      "Stickyfill": "2.0.3",
       "app-localize-behavior": "2.0.1",
       "d2l-alert": "3.0.1",
       "d2l-button": "4.0.3",
@@ -196,7 +195,7 @@
       "d2l-rubric": "0.10.0",
       "d2l-scroll-spy": "0.0.3",
       "d2l-search-widget": "3.0.3",
-      "d2l-simple-overlay": "2.1.1",
+      "d2l-simple-overlay": "2.1.2",
       "d2l-table": "1.4.0",
       "d2l-tile": "3.0.5",
       "d2l-typography": "6.1.2",
@@ -228,6 +227,7 @@
       "polymer": "1.11.3",
       "shadycss": "1.1.1",
       "siren-parser-import": "7.0.0",
+      "Stickyfill": "2.0.3",
       "susy": "2.2.12",
       "vui-breadcrumbs": "2.1.1",
       "vui-dropdown": "0.9.1",
