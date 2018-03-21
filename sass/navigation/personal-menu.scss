@@ -26,6 +26,7 @@
 	margin-left: 10px;
 	max-width: 200px;
 	min-width: 40px;
+	line-height: 1.6;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -52,6 +53,7 @@
 }
 
 .d2l-navigation-s-personal-menu-icon {
+    align-items: center;
     background-color: $d2l-color-carnelian;
     border-radius: 8px;
     display: inline-flex;
@@ -60,6 +62,11 @@
     height: 42px;
     justify-content: center;
     width: 42px;
+}
+
+.d2l-navigation-s-personal-menu-icon img {
+	height: 24px;
+	width: 24px;
 }
 
 .d2l-navigation-s-personal-menu-text-wrapper {
@@ -77,5 +84,4 @@
 
 .d2l-navigation-s-personal-menu-description {
 	font-size: 0.6rem;
-	margin-top: 5px;
 }
