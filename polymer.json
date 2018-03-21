@@ -1,0 +1,27 @@
+{
+  "entrypoint": "web-components/index.html",
+  "fragments": [
+	  "bsi.html",
+	  "d2l-simple-overlay.html"
+  ],
+  "sources": [],
+  "builds": [
+    {
+      "name": "bundled",
+      "bundle": true,
+      "addPushManifest": false,
+      "addServiceWorker": false,
+      "insertPrefetchLinks": false,
+      "css": {
+        "minify": true
+      },
+      "js": {
+        "compile": false,
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      }
+    }
+  ]
+}
