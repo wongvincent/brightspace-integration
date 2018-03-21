@@ -18,7 +18,7 @@
     "build:email-icons": "node build-email-icons.js",
     "build:wc": "polymer build",
     "postbuild:wc": "npm run jsonpify-imports",
-    "postinstall": "./node_modules/.bin/bower install",
+    "postinstall": "polymer install",
     "lint": "npm run lint:js && npm run lint:html",
     "lint:html": "eslint web-components/*.html",
     "lint:js": "eslint *.js js/** rollup/** test/**",
@@ -46,9 +46,6 @@
     "url": "https://github.com/Brightspace/brightspace-integration/issues"
   },
   "homepage": "https://github.com/Brightspace/brightspace-integration",
-  "dependencies": {
-    "bower": "^1.7.9"
-  },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "bower-locker": "^1.0.7",
