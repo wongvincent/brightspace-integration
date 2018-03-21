@@ -35,7 +35,7 @@
     "d2l-rubric": "https://github.com/Brightspace/d2l-rubric.git#198e03f16de6aad87704774210c858144ea951b0",
     "d2l-scroll-spy": "https://github.com/BrightspaceUI/scroll-spy.git#1163917d64637971ac6d3c8e16ca31c1350c269d",
     "d2l-search-widget": "git://github.com/Brightspace/d2l-search-widget-ui.git#4829536ff872f8625ebce21d299356b182752edb",
-    "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#f048585365e0c53d96f66c28f226d73fd40548af",
+    "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#fb312342cd3453cb33dabdea34d4dce908a14bb7",
     "d2l-table": "https://github.com/BrightspaceUI/table.git#f5bc9caaee6e15292044e650572ddc7f2717b4ec",
     "d2l-tile": "https://github.com/BrightspaceUI/tile.git#6a79e76fcbc1b9eecdfd920629da335b36d5c903",
     "d2l-typography": "https://github.com/BrightspaceUI/typography.git#e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
@@ -115,7 +115,7 @@
     "d2l-rubric": "198e03f16de6aad87704774210c858144ea951b0",
     "d2l-scroll-spy": "1163917d64637971ac6d3c8e16ca31c1350c269d",
     "d2l-search-widget": "4829536ff872f8625ebce21d299356b182752edb",
-    "d2l-simple-overlay": "f048585365e0c53d96f66c28f226d73fd40548af",
+    "d2l-simple-overlay": "fb312342cd3453cb33dabdea34d4dce908a14bb7",
     "d2l-table": "f5bc9caaee6e15292044e650572ddc7f2717b4ec",
     "d2l-tile": "6a79e76fcbc1b9eecdfd920629da335b36d5c903",
     "d2l-typography": "e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
@@ -160,7 +160,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-03-16T17:13:05.764Z",
+    "lastUpdated": "2018-03-20T19:45:40.069Z",
     "lockedVersions": {
       "Stickyfill": "2.0.3",
       "app-localize-behavior": "2.0.1",
@@ -196,7 +196,7 @@
       "d2l-rubric": "0.10.0",
       "d2l-scroll-spy": "0.0.3",
       "d2l-search-widget": "3.0.3",
-      "d2l-simple-overlay": "2.1.1",
+      "d2l-simple-overlay": "2.1.2",
       "d2l-table": "1.4.0",
       "d2l-tile": "3.0.5",
       "d2l-typography": "6.1.2",
