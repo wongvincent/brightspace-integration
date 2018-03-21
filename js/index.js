@@ -1,6 +1,4 @@
-'use strict';
-
-import './event.polyfill.js';
+import './polyfill/event.polyfill.js';
 import Lie from 'lie';
 if (typeof Promise === 'undefined') {
 	window.Promise = Lie;
