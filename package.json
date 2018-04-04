@@ -24,7 +24,7 @@
     "test": "npm run lint && npm run validate-deps",
     "uglify:css": "cleancss -s ./build/bsi.css -o ./build/bsi.min.css -c",
     "uglify:js": "uglifyjs ./build/bsi.js --compress --mangle --source-map \"content='build/bsi.js.map',url='bsi.min.js.map'\" -o ./build/bsi.min.js",
-    "jsonpify-imports": "node jsonp-imports.js \"./build/**/*.html\"",
+    "jsonpify-imports": "node jsonp-imports.js \"./build/es5-bundled/**/*.html\"",
     "validate-deps": "bower-locker validate"
   },
   "repository": {
