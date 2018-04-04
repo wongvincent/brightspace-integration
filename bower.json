@@ -19,7 +19,7 @@
     "jquery-vui-more-less": "https://github.com/Brightspace/jquery-valence-ui-more-less.git#a9c7d962dda942935fc5d8b56701ecd9e23dcdf6",
     "jquery-vui-scrollspy": "https://github.com/Brightspace/jquery-valence-ui-scrollspy.git#0f19e12435f0ae80ffadba5b57621e8b052977db",
     "polymer": "https://github.com/Polymer/polymer.git#937021964c80c55ed3a2218d830b2520f8195d43",
-    "shadycss": "https://github.com/webcomponents/shadycss.git#de07897166484a04d16740d176cd8e7e5fafe639",
+    "shadycss": "https://github.com/webcomponents/shadycss.git#74f6b0f0c8125bcfeef43ea707835dcc63d641a3",
     "vui-breadcrumbs": "https://github.com/Brightspace/valence-ui-breadcrumbs.git#8e225a1cd3cff1fba50083f2913489fb13e2e6b3",
     "vui-button": "https://github.com/Brightspace/valence-ui-button.git#d26fb261735ee606fb56e57b51d185bee3f06867",
     "vui-field": "https://github.com/Brightspace/valence-ui-field.git#6ca37b2b9e7a5928776888d7970f149c407b7f71",
@@ -54,7 +54,7 @@
     "jquery-vui-more-less": "a9c7d962dda942935fc5d8b56701ecd9e23dcdf6",
     "jquery-vui-scrollspy": "0f19e12435f0ae80ffadba5b57621e8b052977db",
     "polymer": "937021964c80c55ed3a2218d830b2520f8195d43",
-    "shadycss": "de07897166484a04d16740d176cd8e7e5fafe639",
+    "shadycss": "74f6b0f0c8125bcfeef43ea707835dcc63d641a3",
     "vui-breadcrumbs": "8e225a1cd3cff1fba50083f2913489fb13e2e6b3",
     "vui-button": "d26fb261735ee606fb56e57b51d185bee3f06867",
     "vui-field": "6ca37b2b9e7a5928776888d7970f149c407b7f71",
@@ -70,7 +70,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-03-21T16:15:52.970Z",
+    "lastUpdated": "2018-04-04T16:07:23.872Z",
     "lockedVersions": {
       "d2l-colors": "3.1.2",
       "d2l-icons": "4.10.0",
@@ -90,7 +90,7 @@
       "jquery-vui-more-less": "0.3.0",
       "jquery-vui-scrollspy": "0.2.0",
       "polymer": "1.11.3",
-      "shadycss": "1.1.1",
+      "shadycss": "1.1.2",
       "vui-breadcrumbs": "0.7.0",
       "vui-button": "0.7.5",
       "vui-field": "0.6.2",
