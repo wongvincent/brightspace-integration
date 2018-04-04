@@ -18,7 +18,7 @@
     "jquery-vui-collapsible-section": "https://github.com/Brightspace/jquery-valence-ui-collapsible-section.git#33c0f0065451fdd7ddd449b4718f66abc179e5ac",
     "jquery-vui-more-less": "https://github.com/Brightspace/jquery-valence-ui-more-less.git#a9c7d962dda942935fc5d8b56701ecd9e23dcdf6",
     "jquery-vui-scrollspy": "https://github.com/Brightspace/jquery-valence-ui-scrollspy.git#0f19e12435f0ae80ffadba5b57621e8b052977db",
-    "polymer": "https://github.com/Polymer/polymer.git#937021964c80c55ed3a2218d830b2520f8195d43",
+    "polymer": "https://github.com/Polymer/polymer.git#00d510f17a19b5b2ffed2fab5c2220b562b69b4f",
     "shadycss": "https://github.com/webcomponents/shadycss.git#74f6b0f0c8125bcfeef43ea707835dcc63d641a3",
     "vui-breadcrumbs": "https://github.com/Brightspace/valence-ui-breadcrumbs.git#8e225a1cd3cff1fba50083f2913489fb13e2e6b3",
     "vui-button": "https://github.com/Brightspace/valence-ui-button.git#d26fb261735ee606fb56e57b51d185bee3f06867",
@@ -32,7 +32,7 @@
     "vui-list": "https://github.com/Brightspace/valence-ui-list.git#7a00b324161613e94644e0d6368d74eff77f6b31",
     "vui-offscreen": "https://github.com/Brightspace/valence-ui-offscreen.git#438d2655295ff6446fde21f053621fd12ab18964",
     "vui-typography": "https://github.com/Brightspace/valence-ui-typography.git#0848e6fc24f44cc7da4737137996d173954cdcdf",
-    "webcomponentsjs": "https://github.com/webcomponents/webcomponentsjs.git#b4610f64e53179e317147901e4daf7813e908444"
+    "webcomponentsjs": "https://github.com/webcomponents/webcomponentsjs.git#2bb2c2c92008d2354b75c0fa633ea404c5c999c3"
   },
   "private": true,
   "resolutions": {
@@ -53,7 +53,7 @@
     "jquery-vui-collapsible-section": "33c0f0065451fdd7ddd449b4718f66abc179e5ac",
     "jquery-vui-more-less": "a9c7d962dda942935fc5d8b56701ecd9e23dcdf6",
     "jquery-vui-scrollspy": "0f19e12435f0ae80ffadba5b57621e8b052977db",
-    "polymer": "937021964c80c55ed3a2218d830b2520f8195d43",
+    "polymer": "00d510f17a19b5b2ffed2fab5c2220b562b69b4f",
     "shadycss": "74f6b0f0c8125bcfeef43ea707835dcc63d641a3",
     "vui-breadcrumbs": "8e225a1cd3cff1fba50083f2913489fb13e2e6b3",
     "vui-button": "d26fb261735ee606fb56e57b51d185bee3f06867",
@@ -67,10 +67,10 @@
     "vui-list": "7a00b324161613e94644e0d6368d74eff77f6b31",
     "vui-offscreen": "438d2655295ff6446fde21f053621fd12ab18964",
     "vui-typography": "0848e6fc24f44cc7da4737137996d173954cdcdf",
-    "webcomponentsjs": "b4610f64e53179e317147901e4daf7813e908444"
+    "webcomponentsjs": "2bb2c2c92008d2354b75c0fa633ea404c5c999c3"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-04-04T16:07:23.872Z",
+    "lastUpdated": "2018-04-04T18:06:33.421Z",
     "lockedVersions": {
       "d2l-colors": "3.1.2",
       "d2l-icons": "4.10.0",
@@ -89,7 +89,7 @@
       "jquery-vui-collapsible-section": "0.5.0",
       "jquery-vui-more-less": "0.3.0",
       "jquery-vui-scrollspy": "0.2.0",
-      "polymer": "2.5.0",
+      "polymer": "2.6.0",
       "shadycss": "1.1.2",
       "vui-breadcrumbs": "0.7.0",
       "vui-button": "0.7.5",
@@ -103,7 +103,7 @@
       "vui-list": "0.5.0",
       "vui-offscreen": "0.3.0",
       "vui-typography": "0.6.0",
-      "webcomponentsjs": "1.1.0"
+      "webcomponentsjs": "1.1.1"
     }
   }
 }
