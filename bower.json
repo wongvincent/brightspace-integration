@@ -1,6 +1,7 @@
 {
   "name": "brightspace-integration",
   "dependencies": {
+    "Stickyfill": "https://github.com/wilddeer/stickyfill.git#ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "https://github.com/PolymerElements/app-localize-behavior.git#1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "https://github.com/BrightspaceUI/alert.git#bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "https://github.com/BrightspaceUI/button.git#ec051badc534f4eed0b568070ba4151950d5b59e",
@@ -81,6 +82,7 @@
   },
   "private": true,
   "resolutions": {
+    "Stickyfill": "ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "ec051badc534f4eed0b568070ba4151950d5b59e",
@@ -162,6 +164,7 @@
   "bowerLocker": {
     "lastUpdated": "2018-04-13T18:31:17.695Z",
     "lockedVersions": {
+      "Stickyfill": "2.0.3",
       "app-localize-behavior": "2.0.1",
       "d2l-alert": "3.0.1",
       "d2l-button": "4.0.3",
