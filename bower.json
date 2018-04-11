@@ -36,7 +36,7 @@
     "d2l-scroll-spy": "https://github.com/BrightspaceUI/scroll-spy.git#1163917d64637971ac6d3c8e16ca31c1350c269d",
     "d2l-search-widget": "git://github.com/Brightspace/d2l-search-widget-ui.git#4829536ff872f8625ebce21d299356b182752edb",
     "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#fb312342cd3453cb33dabdea34d4dce908a14bb7",
-    "d2l-table": "https://github.com/BrightspaceUI/table.git#88cf5abed8112caa11d3236b29df3b23791338d4",
+    "d2l-table": "https://github.com/BrightspaceUI/table.git#c0354a537a50afbb6a13c2a566f8be8319daaf11",
     "d2l-tile": "https://github.com/BrightspaceUI/tile.git#847d191c68e6d8ce5c5009b872dcaa2a9b3d8bf3",
     "d2l-typography": "https://github.com/BrightspaceUI/typography.git#e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
     "fetch": "https://github.com/github/fetch.git#cbb313bf09512efda9444e40fe9e8ac432ac1108",
@@ -68,7 +68,7 @@
     "s-html": "https://github.com/Brightspace/s-html.git#d5a8cad013e3d9fe1c6f9408ed98f2b7dc1ed23b",
     "shadycss": "https://github.com/webcomponents/shadycss.git#f48db8dd071c428114f55308287d4d3217b1f62a",
     "siren-parser-import": "https://github.com/Brightspace/siren-parser-import.git#71c9045600f0a399b45bff09fd1dda93160e04db",
-    "susy": "https://github.com/ericam/susy.git#edcded39bf4626b072d7768b70b26a9dfee02d17",
+    "susy": "https://github.com/ericam/susy.git#68b421259112eb882d2d1103738bee3b703e6bf3",
     "vui-breadcrumbs": "https://github.com/Brightspace/valence-ui-breadcrumbs.git#1a0c1af6745a73b601597eb0d965df9c329bbc12",
     "vui-dropdown": "https://github.com/Brightspace/valence-ui-dropdown.git#5c50e4d8ae2d19b33514c477c20812f2264837f0",
     "vui-field": "https://github.com/Brightspace/valence-ui-field.git#613d3cc4fb370ac6ed020fecda4c64c089ed4610",
@@ -78,7 +78,7 @@
     "vui-input": "https://github.com/Brightspace/valence-ui-input.git#52a259d79389632bae31830c32d7303a5db14345",
     "vui-list": "https://github.com/Brightspace/valence-ui-list.git#95245dcfc833c1eae49f3d840ba12b6c2674a55a",
     "vui-validation": "https://github.com/Brightspace/valence-ui-validation.git#757daf55e9fad9aacf31dd34ace60c5015ed3225",
-    "webcomponentsjs": "git://github.com/webcomponents/webcomponentsjs.git#8a2e40557b177e2cca0def2553f84c8269c8f93e"
+    "webcomponentsjs": "https://github.com/webcomponents/webcomponentsjs.git#8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "private": true,
   "resolutions": {
@@ -117,7 +117,7 @@
     "d2l-scroll-spy": "1163917d64637971ac6d3c8e16ca31c1350c269d",
     "d2l-search-widget": "4829536ff872f8625ebce21d299356b182752edb",
     "d2l-simple-overlay": "fb312342cd3453cb33dabdea34d4dce908a14bb7",
-    "d2l-table": "88cf5abed8112caa11d3236b29df3b23791338d4",
+    "d2l-table": "c0354a537a50afbb6a13c2a566f8be8319daaf11",
     "d2l-tile": "847d191c68e6d8ce5c5009b872dcaa2a9b3d8bf3",
     "d2l-typography": "e4f807ee45682c04db6a2f8c2ed1de4729537fdc",
     "fetch": "cbb313bf09512efda9444e40fe9e8ac432ac1108",
@@ -149,7 +149,7 @@
     "s-html": "d5a8cad013e3d9fe1c6f9408ed98f2b7dc1ed23b",
     "shadycss": "f48db8dd071c428114f55308287d4d3217b1f62a",
     "siren-parser-import": "71c9045600f0a399b45bff09fd1dda93160e04db",
-    "susy": "edcded39bf4626b072d7768b70b26a9dfee02d17",
+    "susy": "68b421259112eb882d2d1103738bee3b703e6bf3",
     "vui-breadcrumbs": "1a0c1af6745a73b601597eb0d965df9c329bbc12",
     "vui-dropdown": "5c50e4d8ae2d19b33514c477c20812f2264837f0",
     "vui-field": "613d3cc4fb370ac6ed020fecda4c64c089ed4610",
@@ -162,7 +162,7 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-04-09T17:27:15.485Z",
+    "lastUpdated": "2018-04-11T18:26:50.359Z",
     "lockedVersions": {
       "Stickyfill": "2.0.3",
       "app-localize-behavior": "2.0.1",
@@ -199,7 +199,7 @@
       "d2l-scroll-spy": "0.0.3",
       "d2l-search-widget": "3.0.3",
       "d2l-simple-overlay": "2.1.2",
-      "d2l-table": "1.4.2",
+      "d2l-table": "1.4.3",
       "d2l-tile": "3.0.6",
       "d2l-typography": "6.1.2",
       "fetch": "2.0.4",
@@ -231,7 +231,7 @@
       "s-html": "1.0.0",
       "shadycss": "1.1.3",
       "siren-parser-import": "7.0.0",
-      "susy": "2.2.12",
+      "susy": "2.2.14",
       "vui-breadcrumbs": "2.1.1",
       "vui-dropdown": "0.9.1",
       "vui-field": "1.3.0",
