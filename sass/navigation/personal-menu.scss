@@ -32,7 +32,7 @@
 	white-space: nowrap;
 	width: 100%;
 	@media (max-width: $d2l-navigation-bp-username) {
-		display: none;
+		@include d2l-offscreen();
 	}
 }
 [dir='rtl'] .d2l-navigation-s-personal-menu-text {
