@@ -1,0 +1,19 @@
+@import '../bower_components/d2l-colors/d2l-colors.scss';
+
+.d2l-tiles-container {
+	background-color: #f6f7f8;
+}
+
+.d2l-tiles-container .d2l-page-main-padding {
+	padding: 20px;
+}
+
+.d2l-tiles-container .d2l-navigation-s-shadow-gradient {
+	display: none;
+}
+
+.d2l-tile {
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.03);
+}
