@@ -164,7 +164,7 @@
   "bowerLocker": {
     "lastUpdated": "2018-04-27T13:44:01.341Z",
     "lockedVersions": {
-	  "Stickyfill": "2.0.3",
+      "Stickyfill": "2.0.3",
       "app-localize-behavior": "2.0.1",
       "d2l-alert": "3.0.1",
       "d2l-button": "4.0.3",
