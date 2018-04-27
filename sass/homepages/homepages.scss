@@ -71,11 +71,15 @@ $viewport-width-sm: 768px;
 	}
 
 	.d2l-widget-header {
-		padding: 0;
+		padding: 0 0 11px 0;
 	}
 
 	.d2l-widget-header .d2l-heading {
 		line-height: 1.2rem;
+	}
+
+	.d2l-homepage-header-menu-wrapper {
+		margin-top: -2px;
 	}
 
 	.homepage-row > div:not(:last-child),
@@ -97,6 +101,10 @@ $viewport-width-sm: 768px;
 
 .d2l-tile.d2l-widget-padding-full {
 	padding: 20px;
+}
+
+.d2l-tile.d2l-widget-collapsed {
+	padding: 15px 20px 11px 20px;
 }
 
 @media screen and (min-width: $viewport-width-sm) {
