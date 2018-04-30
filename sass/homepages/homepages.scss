@@ -64,14 +64,30 @@ $viewport-width-sm: 768px;
 		margin: 0;
 	}
 
+	.d2l-homepage {
+		margin-top: 30px;
+	}
+
 	.d2l-widget {
 		border-style: none;
 		margin-top: 40px;
 		margin-bottom: 0;
 	}
 
+	.d2l-widget:first-child {
+		margin-top: 0;
+	}
+
 	.d2l-widget-header {
-		padding: 0 0 11px 0;
+		padding: 0;
+	}
+
+	.d2l-widget-content {
+		padding-top: 11px;
+	}
+
+	.d2l-widget-header.d2l-offscreen + .d2l-widget-content {
+		padding-top: 0;
 	}
 
 	.d2l-widget-header .d2l-heading {
@@ -82,15 +98,8 @@ $viewport-width-sm: 768px;
 		margin-top: -2px;
 	}
 
-	.homepage-row > div:not(:last-child),
-	.homepage-row > div > div:not(:last-child),
-	.homepage-container > div:not(.homepage-row):not(:last-child) {
-		margin-right: 60px;
-
-		[dir='rtl'] & {
-			margin-right: 0;
-			margin-left: 60px;
-		}
+	.homepage-container div:last-of-type .d2l-tile.d2l-widget:last-child {
+		padding-bottom: 20px;
 	}
 
 }
