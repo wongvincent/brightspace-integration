@@ -107,6 +107,10 @@ $viewport-width-sm: 768px;
 	padding: 15px 20px 11px 20px;
 }
 
+.d2l-tile.d2l-widget-collapsed .d2l-widget-header {
+	padding: 0;
+}
+
 @media screen and (min-width: $viewport-width-sm) {
 	@include gen-col-widths($columns, $col-prefix);
 }
