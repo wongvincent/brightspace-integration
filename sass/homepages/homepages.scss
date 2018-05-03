@@ -82,11 +82,11 @@ $viewport-width-sm: 768px;
 		padding: 0;
 	}
 
-	.d2l-widget-content {
+	.d2l-widget-content-padding {
 		padding-top: 11px;
 	}
 
-	.d2l-widget-header.d2l-offscreen + .d2l-widget-content {
+	.d2l-widget-header.d2l-offscreen + .d2l-widget-content > .d2l-widget-content-padding {
 		padding-top: 0;
 	}
 
@@ -100,6 +100,10 @@ $viewport-width-sm: 768px;
 
 	.homepage-container div:last-of-type .d2l-tile.d2l-widget:last-child {
 		padding-bottom: 20px;
+	}
+
+	.homepage-container div:last-of-type .d2l-tile.d2l-widget.d2l-widget-collapsed:last-child {
+		padding-bottom: 11px;
 	}
 
 }
