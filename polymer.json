@@ -8,7 +8,8 @@
     "web-components/d2l-simple-overlay.html",
     "web-components/d2l-scroll-spy.html",
     "web-components/d2l-table.html",
-    "web-components/d2l-rubric.html"
+    "web-components/d2l-rubric.html",
+    "web-components/d2l-rubric-editor.html"
   ],
   "sources": [],
   "builds": [
