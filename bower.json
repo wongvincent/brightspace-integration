@@ -32,7 +32,7 @@
     "d2l-offscreen": "https://github.com/BrightspaceUI/offscreen.git#2c62edef92bb61ede35a93f2ff0660811b666d44",
     "d2l-organization-hm-behavior": "git://github.com/Brightspace/organization-hm-behavior.git#d54f43397610f53f0c686b66a29dbfd07aa01d17",
     "d2l-polymer-behaviors": "https://github.com/Brightspace/d2l-polymer-behaviors-ui.git#c51fd7510b06a20cc81f4b7603fbc6b28acdb7f6",
-    "d2l-rubric": "https://github.com/brightspace/d2l-rubric.git#4bd5938df9c86dd5a052ab49112d8849ac7eb95f",
+    "d2l-rubric": "https://github.com/Brightspace/d2l-rubric.git#4bd5938df9c86dd5a052ab49112d8849ac7eb95f",
     "d2l-scroll-spy": "https://github.com/BrightspaceUI/scroll-spy.git#1163917d64637971ac6d3c8e16ca31c1350c269d",
     "d2l-search-widget": "git://github.com/Brightspace/d2l-search-widget-ui.git#4829536ff872f8625ebce21d299356b182752edb",
     "d2l-simple-overlay": "git://github.com/Brightspace/simple-overlay.git#fb312342cd3453cb33dabdea34d4dce908a14bb7",
