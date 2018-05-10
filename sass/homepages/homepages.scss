@@ -111,6 +111,9 @@ $viewport-width-sm: 768px;
 		padding-bottom: 11px;
 	}
 
+	.d2l-custom-widget .d2l-widget-content .d2l-htmlblock > p:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .d2l-tile.d2l-widget {
