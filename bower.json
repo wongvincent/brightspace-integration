@@ -1,7 +1,6 @@
 {
   "name": "brightspace-integration",
   "dependencies": {
-    "Stickyfill": "https://github.com/wilddeer/stickyfill.git#ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "https://github.com/PolymerElements/app-localize-behavior.git#1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "https://github.com/BrightspaceUI/alert.git#bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "https://github.com/BrightspaceUI/button.git#ec051badc534f4eed0b568070ba4151950d5b59e",
@@ -72,6 +71,7 @@
     "s-html": "https://github.com/Brightspace/s-html.git#d5a8cad013e3d9fe1c6f9408ed98f2b7dc1ed23b",
     "shadycss": "https://github.com/webcomponents/shadycss.git#f48db8dd071c428114f55308287d4d3217b1f62a",
     "siren-parser-import": "https://github.com/Brightspace/siren-parser-import.git#71c9045600f0a399b45bff09fd1dda93160e04db",
+    "stickyfill": "https://github.com/wilddeer/stickyfill.git#ec3a2ba7466515c7863eb108282ad18b10543a15",
     "susy": "https://github.com/ericam/susy.git#68b421259112eb882d2d1103738bee3b703e6bf3",
     "vui-breadcrumbs": "https://github.com/Brightspace/valence-ui-breadcrumbs.git#1a0c1af6745a73b601597eb0d965df9c329bbc12",
     "vui-dropdown": "https://github.com/Brightspace/valence-ui-dropdown.git#5c50e4d8ae2d19b33514c477c20812f2264837f0",
@@ -86,7 +86,6 @@
   },
   "private": true,
   "resolutions": {
-    "Stickyfill": "ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "ec051badc534f4eed0b568070ba4151950d5b59e",
@@ -157,6 +156,7 @@
     "s-html": "d5a8cad013e3d9fe1c6f9408ed98f2b7dc1ed23b",
     "shadycss": "f48db8dd071c428114f55308287d4d3217b1f62a",
     "siren-parser-import": "71c9045600f0a399b45bff09fd1dda93160e04db",
+    "stickyfill": "ec3a2ba7466515c7863eb108282ad18b10543a15",
     "susy": "68b421259112eb882d2d1103738bee3b703e6bf3",
     "vui-breadcrumbs": "1a0c1af6745a73b601597eb0d965df9c329bbc12",
     "vui-dropdown": "5c50e4d8ae2d19b33514c477c20812f2264837f0",
@@ -170,9 +170,8 @@
     "webcomponentsjs": "8a2e40557b177e2cca0def2553f84c8269c8f93e"
   },
   "bowerLocker": {
-    "lastUpdated": "2018-05-08T13:31:55.723Z",
+    "lastUpdated": "2018-05-10T21:50:07.443Z",
     "lockedVersions": {
-      "Stickyfill": "2.0.3",
       "app-localize-behavior": "2.0.1",
       "d2l-alert": "3.0.1",
       "d2l-button": "4.0.3",
@@ -243,6 +242,7 @@
       "s-html": "1.0.0",
       "shadycss": "1.1.3",
       "siren-parser-import": "7.0.0",
+      "stickyfill": "2.0.3",
       "susy": "2.2.14",
       "vui-breadcrumbs": "2.1.1",
       "vui-dropdown": "0.9.1",

@@ -25,15 +25,14 @@
     "publish:cdn": "frau-publisher -m lib -t bsi -f \"./build/**/*\" -k AKIAIZGPQIRSA2WEJEDA --secretvar CDN_SECRET --versionvar TRAVIS_TAG",
     "preserve": "npm run build",
     "serve": "http-server build --cors",
-    "test": "npm run lint && npm run validate-deps && npm run test:unit",
+    "test": "npm run lint && npm run test:unit",
     "test:unit": "mocha",
     "uglify:css": "npm run uglify:css:bsi && npm run uglify:css:datagrid && npm run uglify:css:homepages",
     "uglify:css:bsi": "cleancss -s ./build/bsi.css -o ./build/bsi.min.css -c",
     "uglify:css:datagrid": "cleancss -s ./build/datagrid.css -o ./build/datagrid.min.css",
     "uglify:css:homepages": "cleancss -s ./build/homepages.css -o ./build/homepages.min.css",
     "uglify:js": "uglifyjs ./build/bsi.js --compress --mangle --source-map \"content='build/bsi.js.map',url='bsi.min.js.map'\" -o ./build/bsi.min.js",
-    "jsonpify-imports": "node jsonp-imports.js \"./build/**/*.html\"",
-    "validate-deps": "bower-locker validate"
+    "jsonpify-imports": "node jsonp-imports.js \"./build/**/*.html\""
   },
   "repository": {
     "type": "git",
