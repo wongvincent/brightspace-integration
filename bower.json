@@ -1,7 +1,6 @@
 {
   "name": "brightspace-integration",
   "dependencies": {
-    "Stickyfill": "https://github.com/wilddeer/stickyfill.git#ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "https://github.com/PolymerElements/app-localize-behavior.git#1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "https://github.com/BrightspaceUI/alert.git#bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "https://github.com/BrightspaceUI/button.git#f7af5c7d883d7021ecdc03f041e63887cd715c6b",
@@ -16,8 +15,8 @@
     "d2l-fetch-simple-cache": "https://github.com/Brightspace/d2l-fetch-simple-cache.git#a7e1b7ae02962639ffcf4af222af540203f35b59",
     "d2l-fetch-siren-entity-behavior": "https://github.com/Brightspace/d2l-fetch-siren-entity-behavior.git#425c1328d098af5442310820a233b211f26ae1f4",
     "d2l-hierarchical-view": "https://github.com/BrightspaceUI/hierarchical-view.git#345e6a50e9f9dd7d4f783908329686a7b35b378c",
-    "d2l-hm-constants-behavior": "https://github.com/Brightspace/d2l-hm-constants-behavior.git#69a4abaccd783508c0c73f7c2b5f0235793a97e5",
-    "d2l-icons": "https://github.com/BrightspaceUI/icons.git#4deb6777fed213d802249f47b1c94686a57c07de",
+    "d2l-hm-constants-behavior": "git://github.com/Brightspace/d2l-hm-constants-behavior.git#6a03df5b8d52d4540573b4c2a1cd323ed99a6fac",
+    "d2l-icons": "https://github.com/BrightspaceUI/icons.git#1cc84883bbbf6b8a2a294c3275ac713ab6309721",
     "d2l-image-action": "https://github.com/BrightspaceUI/image-action.git#28cd365e2ccac65ba32aa4807eae9f0a191d4b57",
     "d2l-image-banner-overlay": "https://github.com/Brightspace/d2l-image-banner-overlay.git#7a1b267ad8fe332cd789b1c346a757467914d5bf",
     "d2l-image-selector": "git://github.com/Brightspace/image-selector.git#bbe7b5816861420b8b144c563e9ddc09751154e8",
@@ -67,7 +66,7 @@
     "jquery-vui-change-tracking": "https://github.com/Brightspace/jquery-valence-ui-change-tracking.git#c558628c28517188da5a770566e9f3e7d9b98ca7",
     "jquery-vui-collapsible-section": "https://github.com/Brightspace/jquery-valence-ui-collapsible-section.git#73c304555f5358192e98f8b687b007c04427ab88",
     "jquery-vui-scrollspy": "https://github.com/Brightspace/jquery-valence-ui-scrollspy.git#0f19e12435f0ae80ffadba5b57621e8b052977db",
-    "polymer": "https://github.com/Polymer/polymer.git#937021964c80c55ed3a2218d830b2520f8195d43",
+    "polymer": "https://github.com/Polymer/polymer.git#00d510f17a19b5b2ffed2fab5c2220b562b69b4f",
     "resize-aware": "https://github.com/mlisook/resize-aware.git#14ac99de0b4bca216d306785e57f737ed97bdc8b",
     "s-html": "https://github.com/Brightspace/s-html.git#d5a8cad013e3d9fe1c6f9408ed98f2b7dc1ed23b",
     "shadycss": "https://github.com/webcomponents/shadycss.git#f48db8dd071c428114f55308287d4d3217b1f62a",
@@ -87,7 +86,6 @@
   },
   "private": true,
   "resolutions": {
-    "Stickyfill": "ec3a2ba7466515c7863eb108282ad18b10543a15",
     "app-localize-behavior": "1c7b334b36508c939fa64d2b4dc8d7c412f536f8",
     "d2l-alert": "bc6b1ca7a783913cc880858722bf8c10d5a325a5",
     "d2l-button": "f7af5c7d883d7021ecdc03f041e63887cd715c6b",
@@ -153,7 +151,7 @@
     "jquery-vui-change-tracking": "c558628c28517188da5a770566e9f3e7d9b98ca7",
     "jquery-vui-collapsible-section": "73c304555f5358192e98f8b687b007c04427ab88",
     "jquery-vui-scrollspy": "0f19e12435f0ae80ffadba5b57621e8b052977db",
-    "polymer": "937021964c80c55ed3a2218d830b2520f8195d43",
+    "polymer": "00d510f17a19b5b2ffed2fab5c2220b562b69b4f",
     "resize-aware": "14ac99de0b4bca216d306785e57f737ed97bdc8b",
     "s-html": "d5a8cad013e3d9fe1c6f9408ed98f2b7dc1ed23b",
     "shadycss": "f48db8dd071c428114f55308287d4d3217b1f62a",
@@ -174,7 +172,6 @@
   "bowerLocker": {
     "lastUpdated": "2018-05-10T21:50:07.443Z",
     "lockedVersions": {
-      "Stickyfill": "2.0.3",
       "app-localize-behavior": "2.0.1",
       "d2l-alert": "3.0.1",
       "d2l-button": "4.1.0",
